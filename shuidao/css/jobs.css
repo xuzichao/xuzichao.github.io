@@ -1,0 +1,63 @@
+/**
+ * Created by xuzichao on 2015/7/29.
+ */
+
+/*第一页*/
+
+.bannerPage{
+    width: 100%;
+    height: 560px;
+    background: url("../img/banner.jpg") no-repeat top center;
+}
+
+/*各个岗位*/
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyGqrvXc5GZZdj5P83YtbYUlunvhM0sC8sE55oOZbUpRavxvSdNnoECm5kIlG2CRlMCFf8d7510GWTMkRnUIl8dYS/EFRbbpHVVWDUIF63TNEdDkPPpvfzg47ssVh5QsR3DaybAlTgaRcx/e8xV29wQY99bTzoEGHIwrRhgE7ou467iQ+hb18vNDHCcDEwBiBcZ7sjs4tv5/zJfW9kJg8tdiUw+3o1DVhsVx8ERd98fJzkjXbvple2umsYGs1K9454F4r1KYlcsXMBWwKIpF84lJBxAFybMx8Ux7B0WwVvnV41JUizN9jKSLs94vpCpL0P/CO7jmxBWmnWnfpnGehp lanfei422@sohu.com
+#jobs .jobsPage {
+    width: 1150px;
+}
+.jobName {
+    max-width: 1050px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 50px 50px 10px 50px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    box-shadow: 0 1px #ddd;
+}
+.jobName h1 {
+    color: #13A559;
+}
+.jobName  dl {
+    overflow: hidden;
+    margin-top: 20px;
+    clear: both;
+}
+.jobName dd {
+    float: left;
+    font-size: 16px;
+}
+.jobName ol {
+    list-style: decimal;
+}
+.jobName .jobTitle {
+    color: #C7C7C7;
+    width: 100px;
+    float: left;
+    padding-right: 10px;
+    font-size: 16px;
+}
+
+.jobName .hrEmail {
+    color: #C7C7C7;
+    float: right;
+    padding: 10px 0;
+}
+.hrEmail span{
+    color: #13A559;
+    font-size: 18px;
+}
+
+#jobs .prdPage{
+    background: #F9F9F7;
+}
+

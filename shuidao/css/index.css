@@ -1,0 +1,396 @@
+/**
+ * Created by xuzichao on 2015/7/29.
+ */
+
+/*第一页*/
+
+.bannerPage{
+    width: 100%;
+    height: 560px;
+    background: url("../img/banner.jpg") no-repeat top center;
+}
+
+/*第二页*/
+.servicePage {
+
+    padding-top: 60px;
+    width: 100%;
+    height: 450px;
+}
+.servicePage .instruction{
+    margin-bottom: 60px;
+}
+.servicePage .instruction p{
+    font-size: 20px;
+    line-height: 180%;
+    letter-spacing: 3px;
+    text-indent: 45px;
+}
+.promise ul li {
+    float: left;
+    text-align: center;
+    width: 245px;
+    vertical-align: top;
+}
+.promiseImg {
+    display: block;
+    margin: 0 auto 10px;
+    height:106px ;
+    width: 106px;
+    white-space: nowrap;
+    text-indent: 100%;
+    overflow: hidden;
+}
+.infoPrms .promiseImg {
+    background: url("../img/base.png") no-repeat  0 -524px;
+}
+.freePrms .promiseImg {
+    background: url("../img/base.png") no-repeat 0 -418px;
+}
+.payPrms .promiseImg {
+    background: url("../img/base.png") no-repeat 0 -206px;
+}
+.transportPrms .promiseImg {
+    background: url("../img/base.png") no-repeat 0 -312px;
+}
+
+.blackText {
+    font-size: 20px;
+    font-weight: bolder;
+}
+.promise p {
+    letter-spacing: 2px;
+    padding-top: 10px;
+}
+
+/*第三、四页*/
+.fourSPage,.distributorPage {
+    background:#F5F4EF;
+    width: 100%;
+    overflow: hidden;
+}
+.distributorPage {
+    background:#ffffff;
+}
+.title {
+    text-align: center;
+    line-height: 600%;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.ppt {
+    height: 420px;
+    background-image: url("../img/bannermao.jpg");
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.distributorPage .ppt{
+    background-image: url("../img/bannerwan.jpg");
+}
+.ppt .leftPart li{
+    display: block;
+    height: 140px;
+    width: 202px;
+    border-bottom:1px solid  #F5F4EF;
+
+}
+.ppt .leftPart li a{
+    background: #FAFAF8;
+    display: block;
+    text-align: center;
+    height: 100%;
+    width: 200px;
+    border-left:2px solid  #FAFAF8;
+    overflow: hidden;
+}
+.fourSPage .ppt .leftPart .active{
+    border-left:2px solid  #82BBAA;
+    width: 200px;
+    background: #ffffff;
+}
+.distributorPage .ppt .leftPart .active{
+    border-left:2px solid  #82BBAA;
+    width: 200px;
+    background: #F5F4EF;
+}
+.fourSPage .ppt .leftPart li a:hover{
+    border-left:2px solid  #82BBAA;
+    width: 200px;
+    background: #ffffff;
+}
+.distributorPage .ppt .leftPart li a:hover{
+    border-left:2px solid  #82BBAA;
+    width: 200px;
+    background: #F5F4EF;
+}
+
+.ppt .leftPart li p{
+    font-size: 16px;
+    display: inline-block;
+    _zoom:1;
+    *display:inline;
+    vertical-align: middle;
+    line-height: 180%;
+    *line-height: 240%;
+}
+.ppt .leftPart li a {
+    color: #494949;
+}
+.ppt .leftPart li a p{
+    color: #494949;
+}
+.ppt .leftPart li a:hover p{
+    color: #0F8261;
+}
+.ppt .leftPart .active p{
+    color: #0F8261;
+}
+.ppt .leftPart li p span{
+    font-weight:bold ;
+}
+.ppt .verticalBox {
+    display: inline-block;
+    _zoom:1;
+    *display:inline;
+    height: 100%;
+    font-size: 0;
+    vertical-align: middle;
+    opacity: 0;
+}
+.steps {
+
+    margin-top: 80px;
+    margin-bottom: 120px;
+}
+.steps ul li{
+    float: left;
+    background: url("../img/stepArrow.png") no-repeat  right center;
+    width: 202px;
+    height: 110px;
+    margin: 0 0 0 43px;
+    vertical-align: top;
+}
+
+.steps .stepImg {
+    display: block;
+    margin-bottom: 20px;
+    height:46px ;
+    width: 46px;
+    white-space: nowrap;
+    text-indent: 100%;
+    overflow: hidden;
+}
+
+.stepOne .stepImg {
+    background: url("../img/base.png") no-repeat 0 -22px;
+}
+.stepTwo .stepImg {
+    background: url("../img/base.png") no-repeat 0 -114px;
+}
+.stepThree .stepImg {
+    background: url("../img/base.png") no-repeat 0 -160px;
+}
+.stepFour .stepImg {
+    background: url("../img/base.png") no-repeat 0 -68px;
+}
+
+.steps li p {
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+/*第五页*/
+.carSourcePage {
+    background:#F5F4EF;
+    width: 100%;
+    overflow: hidden;
+}
+.carSourcePage .map {
+    position: relative;
+    height: 780px;
+    margin-bottom: 20px;
+    background: url("../img/map.png") no-repeat bottom center ;
+    padding-top: 80px;
+}
+.carSourcePage .join {
+    text-align: center;
+}
+
+.carSourcePage .join h1{
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 2px;
+    line-height: 200%;
+}
+.carSourcePage .join p{
+    font-size: 24px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    line-height: 200%;
+}
+.carSourcePage .join span{
+    color: #eb682e;
+}
+.carSourcePage .join a{
+    background: #108163;
+    display: block;
+    height: 56px;
+    width: 230px;
+    border-radius:28px;
+    -moz-border-radius: 28px;
+    -webkit-border-radius: 28px;
+    line-height: 56px;
+    color: #ffffff;
+    font-size: 20px;
+    margin: 20px auto 0;
+    letter-spacing: 2px;
+}
+.carSourcePage .join a:hover{
+    background: #108963;
+}
+
+/* 车源信息*/
+
+.carSourcePage #carInfoBox {
+    position: absolute;
+    top: 389px;
+    left: 254px;
+    width: 425px;
+    background: #ffffff;
+    padding: 3px;
+}
+#carInfoBox .carImg{
+    display: block;
+    border: 1px solid #F0D9D9;
+    float: left;
+    width: 80px;
+    height: 80px;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+    background-image: url("../img/carImg.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+.carInfo {
+    margin: 8px 0 0 100px;
+}
+.carInfo p{
+    line-height: 150%;
+}
+.carInfo .carSell{
+    color: #118362;
+}
+.carInfo .carBuy{
+    color: #E9682E;
+}
+.carInfo .carType{
+    font-weight: bold;
+}
+
+/* 固定每个点位置 */
+.map a.buy,.map a.sell{
+    position: absolute;
+    display: block;
+    height: 50px;
+    width: 50px;
+    background: url("../img/whitePoint.png") no-repeat center center ;
+}
+
+.map a.buy.active{
+    background: url("../img/orangePoint.png") no-repeat center center ;
+}
+.map a.sell.active{
+    background: url("../img/greenPoint.png") no-repeat center center ;
+}
+.map a.sell:hover{
+    background: url("../img/greenPoint.png") no-repeat center center ;
+}
+.map a.buy:hover{
+    background: url("../img/orangePoint.png") no-repeat center center ;
+}
+.map .beijing {
+    left: 687px;
+    top: 393px;
+}
+.map .shanghai {
+    left: 786px;
+    top: 559px;
+}
+.map .hangzhou {
+    left: 760px;
+    top: 581px;
+}
+.map .shenzhen {
+    left: 678px;
+    top: 733px;
+}
+.map .wuhan {
+    left: 669px;
+    top: 583px;
+}
+.map .chengdu {
+    left: 500px;
+    top: 583px;
+}
+.map .shandong {
+    left: 721px;
+    top: 479px;
+}
+.map .guizhou {
+    left: 551px;
+    top: 671px;
+}
+.map .heilongjiang {
+    left: 782px;
+    top: 223px;
+}
+.map .jilin {
+    left: 827px;
+    top: 318px;
+}
+.map .liaoning {
+    left: 765px;
+    top: 363px;
+}
+.map .guangxi {
+    left: 569px;
+    top: 734px;
+}
+.map .henan {
+    left: 624px;
+    top: 518px;
+}
+.map .hunan {
+    left: 633px;
+    top: 640px
+}
+.map .shanxi {
+    left: 584px;
+    top: 448px;
+}
+.map .hebei {
+    left: 662px;
+    top: 455px;
+}
+.map .xinjiang {
+    left: 256px;
+    top: 311px;
+}
+.map .xizang {
+    left: 291px;
+    top: 597px;
+}
+.map .qinghai {
+    left: 444px;
+    top: 489px;
+}
+.map .neimenggu {
+    left: 675px;
+    top: 310px;
+}
+
+
+
