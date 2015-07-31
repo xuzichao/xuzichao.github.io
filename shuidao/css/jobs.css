@@ -6,12 +6,12 @@
 
 .bannerPage{
     width: 100%;
+    min-width: 1000px;
     height: 560px;
     background: url("../img/banner.jpg") no-repeat top center;
 }
 
 /*各个岗位*/
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyGqrvXc5GZZdj5P83YtbYUlunvhM0sC8sE55oOZbUpRavxvSdNnoECm5kIlG2CRlMCFf8d7510GWTMkRnUIl8dYS/EFRbbpHVVWDUIF63TNEdDkPPpvfzg47ssVh5QsR3DaybAlTgaRcx/e8xV29wQY99bTzoEGHIwrRhgE7ou467iQ+hb18vNDHCcDEwBiBcZ7sjs4tv5/zJfW9kJg8tdiUw+3o1DVhsVx8ERd98fJzkjXbvple2umsYGs1K9454F4r1KYlcsXMBWwKIpF84lJBxAFybMx8Ux7B0WwVvnV41JUizN9jKSLs94vpCpL0P/CO7jmxBWmnWnfpnGehp lanfei422@sohu.com
 #jobs .jobsPage {
     width: 1150px;
 }

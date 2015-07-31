@@ -6,15 +6,16 @@
 
 .bannerPage{
     width: 100%;
+    min-width: 1000px;
     height: 560px;
     background: url("../img/banner.jpg") no-repeat top center;
 }
 
 /*第二页*/
 .servicePage {
-
     padding-top: 60px;
     width: 100%;
+    min-width: 1000px;
     height: 450px;
 }
 .servicePage .instruction{
@@ -67,6 +68,7 @@
 .fourSPage,.distributorPage {
     background:#F5F4EF;
     width: 100%;
+    min-width: 1000px;
     overflow: hidden;
 }
 .distributorPage {
@@ -205,6 +207,7 @@
     background:#F5F4EF;
     width: 100%;
     overflow: hidden;
+    min-width: 1000px;
 }
 .carSourcePage .map {
     position: relative;
@@ -251,7 +254,6 @@
 }
 
 /* 车源信息*/
-
 .carSourcePage #carInfoBox {
     position: absolute;
     top: 389px;
