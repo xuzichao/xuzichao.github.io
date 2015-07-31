@@ -339,7 +339,7 @@ body {
 .footContact {
     background: #F7F7F7;
     height: 40px;
-    width: 100%;
+    min-width: 1000px;
     text-align: center;
     line-height: 40px;
     margin-top: 100px;
