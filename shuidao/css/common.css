@@ -78,6 +78,7 @@ strong {
 body {
     color: #343a41;
     width: 100%;
+    min-width: 1200px;
     height: 100%;
     font: normal 14px/1.4 "helvetica neue", tahoma, "hiragino sans gb", stheiti, "wenquanyi micro hei", \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, sans-serif;
 }
@@ -107,6 +108,7 @@ body {
 .nav_bar {
     background-color: #ffffff;
     width: 100%;
+    min-width: 1000px;
     height: 70px;
 }
 .nav_bar_content {
@@ -165,7 +167,7 @@ body {
 /*产品联系方式APP*/
 .prdPage {
     background:#ffffff;
-    width: 100%;
+    min-width: 1000px;
     overflow: hidden;
 }
 .prdPage .marginCenter {
