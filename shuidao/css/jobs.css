@@ -5,7 +5,6 @@
 /*第一页*/
 
 .bannerPage{
-    width: 100%;
     min-width: 1000px;
     height: 560px;
     background: url("../img/banner.jpg") no-repeat top center;
