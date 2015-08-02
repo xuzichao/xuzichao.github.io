@@ -12,6 +12,13 @@ jQuery(document).ready(function ($) {
         joinBox:$('.joinBox'),
         successBox:$('.successBox'),
         submitBtn:$('.submit'),
+        inputBox:$('.joinBox .inputBox'),
+        inputClear:function(){
+            this.inputBox.bind('click',function(){
+
+            });
+
+        },
         showBox:function(){
             this.joinBox.fadeIn();
             this.joinBack.fadeIn();
