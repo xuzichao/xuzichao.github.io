@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://touch.shuidao.com/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection">
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <meta name="browsermode" content="application">
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+    <meta name="keywords" content="水稻汽车开户和客户管理">
+    <title>水稻汽车开户和客户管理</title>
+    <link rel="stylesheet" href="./css/base.css" type="text/css">
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+</head>
+<body >
+<div class="page" id="bindPhone">
+    <div class="navBar" >
+        <span class="title">手机绑定微信</span>
+    </div>
+    <div class="content">
+        <input class='text'  type="text" data-value="填写后台注册的手机号" /><br/>
+        <a href="javascript:;" class="bindBtn">绑定</a>
+    </div>
+</div>
+<div class="page" id="accredit">
+    <div class="navBar" >
+        <span class="title">管理员信息授权</span>
+    </div>
+    <div class="content">
+        <a href="javascript:;" class="accreditBtn">同意</a>
+    </div>
+</div>
+
+<div id="wrapper">
+    <div class="page" id="companyInfo">
+        <div class="navBar" >
+            <a href="javascript:;" class="goBack"><img src="img/goBack.png" /></a>
+            <span class="title">填写公司信息</span>
+        </div>
+        <div class="content">
+            <form>
+                <div class="companyName">
+                    <div class="cttLeft">公司名称</div>
+                    <div class="cttRight"><input class='text' type="text" data-value="填写完整的公司全称" ></div>
+                </div>
+                <div class="companyType">
+                    <div class="cttLeft">公司类别</div>
+                    <div class="cttRight">
+                        <label for="4s"><input id="4s" type="radio" checked="checked" name="tradeCompany" value="1" />4S店</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="2j"><input id="2j" type="radio" name="tradeCompany" value="2" />经销商</label>
+                    </div>
+                </div>
+                <div class="companyAddress">
+                    <div class="cttLeft">公司地址</div>
+                    <div class="cttRight">
+                        <select id="province" name="province">
+                            <option value="default">请选择省份</option>
+                            <option value="henan">河南</option>
+                            <option value="zhejiang">浙江</option>
+                            <option value="sichuan">四川</option>
+                        </select>
+                        <select id="city" name="city">
+                            <option value="default">请选择省份</option>
+                            <option value="henan">河南</option>
+                            <option value="zhejiang">浙江</option>
+                            <option value="sichuan">四川</option>
+                        </select>
+                        <select id="county" name="county">
+                            <option value="default">请选择省份</option>
+                            <option value="henan">河南</option>
+                            <option value="zhejiang">浙江</option>
+                            <option value="sichuan">四川</option>
+                        </select>
+                        <input class='text street' type="text" data-value="填写详细街道信息" >
+                    </div>
+                </div>
+                <div class="companyCode">
+                    <div class="cttLeft">邮编</div>
+                    <div class="cttRight"><input class='text' type="text" data-value="例如100086" ></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="page" id="bankInfo">
+        <div class="navBar" >
+            <a href="javascript:;" class="goBack"><img src="img/goBack.png" /></a>
+            <span class="title">填写银行账户信息</span>
+        </div>
+        <div class="content">
+            <form>
+                <div class="countName">
+                    <div class="cttLeft">公司开户名</div>
+                    <div class="cttRight"><input class='text' type="text" data-value="填写完整的公司全称" ></div>
+                </div>
+                <div class="bankName">
+                    <div class="cttLeft">公司开户行</div>
+                    <div class="cttRight"><input class='text' type="text" data-value="填写完整的公司全称" ></div>
+                </div>
+                <div class="countNum">
+                    <div class="cttLeft">账号</div>
+                    <div class="cttRight"><input class='text' type="text" data-value="填写完整的公司全称" ></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="page" id="traderInfo">
+        <div class="navBar" >
+            <a href="javascript:;" class="goBack"><img src="img/goBack.png" /></a>
+            <span class="title">填写交易人信息</span>
+        </div>
+        <div class="content">
+            <form>
+                <div class="traderName">
+                    <div class="cttLeft">姓名</div>
+                    <div class="cttRight"><input class='text' type="text" data-value="填写身份证姓名" ></div>
+                </div>
+                <div class="traderSex">
+                    <div class="cttLeft">性别</div>
+                    <div class="cttRight">
+                        <label for="4s"><input id="male" type="radio" checked="checked" name="sex" value="1" />男</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="2j"><input id="female" type="radio" name="sex" value="2" />女</label>
+                    </div>
+                </div>
+                <div class="traderId">
+                    <div class="cttLeft">身份证号</div>
+                    <div class="cttRight"><input class='text' type="text" data-value="必须有效" ></div>
+                </div>
+                <div class="traderPhone">
+                    <div class="cttLeft">联系电话</div>
+                    <div class="cttRight"><input class='text' type="text" data-value="固话或者手机" ></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="page" id="licenses">
+        <div class="navBar" >
+            <a href="javascript:;" class="goBack"><img src="img/goBack.png" /></a>
+            <span class="title">证件上传</span>
+        </div>
+        <div class="content">
+            <div class="businessLicense">
+                <div class="cttLeft">上传营业执照</div>
+                <div class="cttRight"><a href="javascript:;" id="licenseBtn"></a></div>
+            </div>
+            <div class="codeCertificate">
+                <div class="cttLeft">上传营业执照</div>
+                <div class="cttRight"><a href="javascript:;" id="certificateBtn"></a></div>
+            </div>
+        </div>
+    </div>
+    <div class="footerTab">
+        <a href="javascript:;" class="cancel">取消</a>
+        <a href="javascript:;" class="next">下一步</a>
+    </div>
+</div>
+<script src="js/base.js" type="text/javascript"></script>
+</body>
+</html>
