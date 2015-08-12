@@ -83,13 +83,18 @@ jQuery(document).ready(function ($) {
     var currentPage = 0;
     var slider = {
         in:function(pageObj){
+            pageObj.css('display','block');
             pageObj.animate({
                 'left':0
+            },500,function(){
+
             });
         },
         out:function(pageObj){
             pageObj.animate({
                 'left':'100%'
+            },500,function(){
+                pageObj.css('display','none');
             });
         }
     };
