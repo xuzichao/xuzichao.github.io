@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuzichao.com/"/>
-  <updated>2016-03-07T11:09:59.000Z</updated>
+  <updated>2016-03-07T13:07:06.000Z</updated>
   <id>http://xuzichao.com/</id>
   
   <author>
@@ -16,42 +16,26 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>first</title>
-    <link href="http://xuzichao.com/2016/03/07/first/"/>
-    <id>http://xuzichao.com/2016/03/07/first/</id>
-    <published>2016-03-07T11:09:59.000Z</published>
-    <updated>2016-03-07T11:09:59.000Z</updated>
+    <title></title>
+    <link href="http://xuzichao.com/2016/03/07/Hexo-%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://xuzichao.com/2016/03/07/Hexo-轻松搭建个人博客/</id>
+    <published>2016-03-07T13:07:06.000Z</published>
+    <updated>2016-03-07T13:07:06.000Z</updated>
     
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://xuzichao.com/2016/02/05/hello-world/"/>
-    <id>http://xuzichao.com/2016/02/05/hello-world/</id>
-    <published>2016-02-05T09:33:42.000Z</published>
-    <updated>2016-02-05T09:33:42.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;http://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;title: Hexo–轻松搭建个人博客&lt;br&gt;date: 2016-03-07 19:09:59&lt;/p&gt;
+&lt;p&gt;###Hexo–轻松搭建个人博客&lt;/p&gt;
+&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。网上搭建博客的方式不外乎两种，一个在一些博客网站注册一个账号，比如博客园，另一个就是使用博客框架搭建个人的博客，比如wordpress。我个人一直倾向于后者，因为一些博客网站的设计界面差强人意，希望通过自己搭建的方式能呈现自己喜欢的界面，有喜欢的界面，我想我自己才会乐意去更新内容。个人博客搭建从我开始接触时候，最多的该是WordPress，逐渐发展到后来框架越来越多，FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用。在这过程中，我搜索讯息，在网上各路大神的推荐之下，试过几款框架的搭建，基本都是当我在github上读完安装说明并开心有点小激动的时候，痛苦的安装过程让我放弃了这一方式。现在回想，一方面是由于个人那些年的电脑和网络都很烂，另一方面也是自己年轻冲动没经验和耐心，搭建过程很多东西都需要一点点的搜索去学习，电脑一卡一慢就各种不爽看不下去了（可能你真的不信我的电脑当时有多烂）。不过最后我还是搭建了自己的博客，并没有使用上述的哪种框架。因为前面的过程也知道了博客的搭建方式，自己用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，到编译这一环节过不去了，就去别人那里找来了一个简单的python脚本，每次只要运行编译一下就和上述框架一样产生对应的HTML文件了，随后上传到github静态展示了。基本符合我自己的设计要求，虽然也是借鉴了各路大神的博客设计。不过后来，还是比较懒，没写几篇。&lt;br&gt;通过这次对Hexo的使用，我几乎是在几分钟之内就搭建起了博客，这速度让我为之欢呼，于是写个文章来推荐一下吧，虽然使用还不熟悉，但是看过指令的作者的说明，也基本明白了，重要的是，它的出现让我开始燃起重新写博客的愿望。接下来我说明一下，Hexo使用方式。&lt;/p&gt;
+&lt;p&gt;###环境前提&lt;/p&gt;
+&lt;p&gt;###安装Hexo&lt;/p&gt;
+&lt;p&gt;###生成第一篇文章&lt;/p&gt;
+&lt;p&gt;###发布到github&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io
+      &lt;p&gt;title: Hexo–轻松搭建个人博客&lt;br&gt;date: 2016-03-07 19:09:59&lt;/p&gt;
+&lt;p&gt;###Hexo–轻松搭建个人博客&lt;/p&gt;
+&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕
     
     </summary>
     
