@@ -1,7 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<url>
-		<loc>http://xuzichao.com/posts/FirstBlog.html</loc>
-		<lastmod>2014-02-12</lastmod>
-		<changefreq>monthly</changefreq>
-	</url>
+  
+  <url>
+    <loc>http://xuzichao.com/2016/03/07/first/</loc>
+    
+    <lastmod>2016-03-07T11:09:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xuzichao.com/2016/02/05/hello-world/</loc>
+    
+    <lastmod>2016-02-05T09:33:42.000Z</lastmod>
+    
+  </url>
+  
 </urlset>
