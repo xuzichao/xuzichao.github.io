@@ -1,68 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Catoo的博客</title>
+  <title>徐子超的博客</title>
   <subtitle>程先生，你好。客气，叫我序员吧。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuzichao.com/"/>
-  <updated>2016-06-07T04:58:50.000Z</updated>
+  <updated>2016-06-07T13:00:21.000Z</updated>
   <id>http://xuzichao.com/</id>
   
   <author>
-    <name>卡图菌</name>
+    <name>卡图睡不醒</name>
     <email>529841962@qq.com</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo--个人博客</title>
-    <link href="http://xuzichao.com/2016/03/07/Hexo-%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://xuzichao.com/2016/03/07/Hexo-轻松搭建个人博客/</id>
-    <published>2016-03-07T11:09:59.000Z</published>
-    <updated>2016-06-07T04:58:50.000Z</updated>
+    <title>IOS音频录制</title>
+    <link href="http://xuzichao.com/2015/02/01/IOS%E9%9F%B3%E9%A2%91%E5%BD%95%E5%88%B6%20---%20AVFoundation/"/>
+    <id>http://xuzichao.com/2015/02/01/IOS音频录制 --- AVFoundation/</id>
+    <published>2015-02-01T11:09:59.000Z</published>
+    <updated>2016-06-07T13:00:21.000Z</updated>
     
-    <content type="html">&lt;p&gt;###Hexo–个人博客&lt;/p&gt;
-&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。网上搭建博客的方式不外乎两种，一个在一些博客网站注册一个账号，比如博客园，另一个就是使用博客框架搭建个人的博客，比如wordpress。我个人一直倾向于后者，因为一些博客网站的设计界面差强人意，希望通过自己搭建的方式能呈现自己喜欢的界面，有喜欢的界面，我想我自己才会乐意去更新内容。个人博客搭建从我开始接触时候，最多的该是WordPress，逐渐发展到后来框架越来越多，FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用。在这过程中，我搜索讯息，在网上各路大神的推荐之下，试过几款框架的搭建，基本都是当我在github上读完安装说明并开心有点小激动的时候，痛苦的安装过程让我放弃了这一方式。现在回想，一方面是由于个人那些年的电脑和网络都很烂，另一方面也是自己年轻冲动没经验和耐心，搭建过程很多东西都需要一点点的搜索去学习，电脑一卡一慢就各种不爽看不下去了（可能你真的不信我的电脑当时有多烂）。不过最后我还是搭建了自己的博客，并没有使用上述的哪种框架。因为前面的过程也知道了博客的搭建方式，自己用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，到编译这一环节过不去了，就去别人那里找来了一个简单的python脚本，每次只要运行编译一下就和上述框架一样产生对应的HTML文件了，随后上传到github静态展示了。基本符合我自己的设计要求，虽然也是借鉴了各路大神的博客设计。不过后来，还是比较懒，没写几篇。&lt;br&gt;通过这次对Hexo的使用，我几乎是在几分钟之内就搭建起了博客，这速度让我为之欢呼，于是写个文章来推荐一下吧，虽然使用还不熟悉，但是看过指令的作者的说明，也基本明白了，重要的是，它的出现让我开始燃起重新写博客的愿望。接下来我说明一下，Hexo使用方式。&lt;/p&gt;
-&lt;p&gt;###环境前提&lt;/p&gt;
-&lt;p&gt;###安装Hexo&lt;/p&gt;
-&lt;p&gt;###生成第一篇文章&lt;/p&gt;
-&lt;p&gt;###发布到github&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;IOS-音频录制-—-AVFoundation&quot;&gt;&lt;a href=&quot;#IOS-音频录制-—-AVFoundation&quot; class=&quot;headerlink&quot; title=&quot;IOS 音频录制 — AVFoundation&quot;&gt;&lt;/a&gt;IOS 音频录制 — AVFoundation&lt;/h2&gt;&lt;p&gt;我们已经讲解了视频的录制所需要使用的一些API以及方式方法，都是建立在AVFoundation框架基础上，这次我们继续讲解此框架基础上的音频录制。一般场景有录制语音并播放；当静音开关被关闭的时候，音频怎么播放；当闹钟和手机电话响起的时候，音频播放做什么样的处理等等，整个交互都将使用到 AVAudioSession ，打通音频硬件设备到软件数据流的关键。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/aspg_intro_2x.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;一、概念引导&quot;&gt;&lt;a href=&quot;#一、概念引导&quot; class=&quot;headerlink&quot; title=&quot;一、概念引导&quot;&gt;&lt;/a&gt;一、概念引导&lt;/h2&gt;&lt;h3 id=&quot;1、创建Audio-Session&quot;&gt;&lt;a href=&quot;#1、创建Audio-Session&quot; class=&quot;headerlink&quot; title=&quot;1、创建Audio Session&quot;&gt;&lt;/a&gt;1、创建Audio Session&lt;/h3&gt;&lt;p&gt;当你的APP启动之后，你就获得了一个单利的session,通过它你可以决定音乐上的各种使用场景，可以配置音频录制的参数，直接连接音频硬件。&lt;/p&gt;
+&lt;p&gt;1) 默认行为 （AVAudioSessionCategorySoloAmbient）&lt;/p&gt;
+&lt;p&gt;可以回放，关闭录制，静音键关闭则音量播放关闭，锁屏时候音量关闭，当其他音量想起，你的播放直接关闭。&lt;/p&gt;
+&lt;p&gt;当你开始录制的时候，你的session在运行，结束后你可以关闭，能够自己忽略的播放系统运行api的有&lt;system sound=&quot;&quot; services=&quot;&quot; reference=&quot;&quot;&gt;和&lt;audio ui=&quot;&quot; sounds=&quot;&quot;&gt;。&lt;/audio&gt;&lt;/system&gt;&lt;/p&gt;
+&lt;p&gt;2) 合并行为AVCaptureSession&lt;/p&gt;
+&lt;p&gt;AVCaptureSession AVCaptureDevice在录制视频的时候也是一起录制了音频的，这是因为AVCaptureSession会默认的配置AVAudioSession，我们可以通过设置automaticallyConfiguresApplicationAudioSession为NO，然后自己去配置AVAudioSession。&lt;/p&gt;
+&lt;p&gt;3）MPVolumeView&lt;/p&gt;
+&lt;p&gt;为用户显示一个滑块控件设置系统音频输出音量和一个按钮选择音频输出路线。当第一次显示,滑块的位置反映了当前系统音频输出音量，当用户拖动滑块,体积变化更新，如果用户按下设备播放时,声音音量按钮滑块移动到反映新的体积。&lt;/p&gt;
+&lt;p&gt;4）一般方法举例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;sharedInstance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;otherAudioPlaying&lt;/li&gt;
+&lt;li&gt;requestRecordPermission&lt;/li&gt;
+&lt;li&gt;availableCategories&lt;/li&gt;
+&lt;li&gt;setActive:error:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2、使用类别Categories&quot;&gt;&lt;a href=&quot;#2、使用类别Categories&quot; class=&quot;headerlink&quot; title=&quot;2、使用类别Categories&quot;&gt;&lt;/a&gt;2、使用类别Categories&lt;/h3&gt;&lt;p&gt;1) 行为类别分布：&lt;/p&gt;
+&lt;p&gt;类作为一个关键值，定义了一组app的音频行为。苹果在iOS的未来版本可能细化分类行为。你最好的策略是选择最准确地描述了你的意图的类别音频你想要的行为，它们都遵循“last in wins” 规则。&lt;br&gt;&lt;img src=&quot;/assets/images/1.pic.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;2）选用特殊话的模式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AVAudioSessionModeVoiceChat—For Voice over IP (VoIP) apps&lt;/li&gt;
+&lt;li&gt;AVAudioSessionModeVideoChat—For video chat apps such as FaceTime&lt;/li&gt;
+&lt;li&gt;AVAudioSessionModeGameChat—For game apps&lt;/li&gt;
+&lt;li&gt;AVAudioSessionModeVideoRecording—For apps that use the camera to capture video&lt;/li&gt;
+&lt;li&gt;AVAudioSessionModeMoviePlayback—For apps that play movies.&lt;/li&gt;
+&lt;li&gt;AVAudioSessionModeMeasurement—For apps that processing to input and output signals.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2.pic.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3、响应中断事件&quot;&gt;&lt;a href=&quot;#3、响应中断事件&quot; class=&quot;headerlink&quot; title=&quot;3、响应中断事件&quot;&gt;&lt;/a&gt;3、响应中断事件&lt;/h3&gt;&lt;p&gt;中断事件可以来自电话、闹钟、日历提醒、siri等。&lt;/p&gt;
+&lt;p&gt;1) 响应的处理过程：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/3.pic.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;2）监听响应的方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;AVAudioSession 通知&lt;/p&gt;
+&lt;p&gt;  AVAudioSessionInterruptionNotification&lt;br&gt;AVAudioSessionRouteChangeNotification&lt;br&gt;AVAudioSessionMediaServicesWereLostNotification&lt;br&gt;AVAudioSessionMediaServicesWereResetNotification&lt;br&gt;AVAudioSessionSilenceSecondaryAudioHintNotification&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;AV Foundation framework&lt;/p&gt;
+&lt;p&gt;  AVAudioPlayer如果正在音频播放过程中可以有对应的代理来接收事件，AVAudioPlayerDelegate,同样也有对应的AVAudioRecorderDelegate ，都显示IOS8以后废弃掉。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Audio Queue Services, I/O audio unit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;OpenAL ，Notification&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;System Sound Services&lt;/p&gt;
+&lt;p&gt;  发生则直接静音，中断终止可以重新再次播放，无需额外处理。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;4、优化硬件音频数据&quot;&gt;&lt;a href=&quot;#4、优化硬件音频数据&quot; class=&quot;headerlink&quot; title=&quot;4、优化硬件音频数据&quot;&gt;&lt;/a&gt;4、优化硬件音频数据&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;指定首选硬件设置采样率和I / O的缓冲时间&lt;/li&gt;
+&lt;li&gt;查询许多硬件特征,其中包括输入和输出延迟,输入和输出通道数,硬件采样率、硬件体积设定,是否可用的音频输入应对设备具体通知最常用的属性值更改事件路线变化,覆盖在应对变化。&lt;/li&gt;
+&lt;li&gt;编写回调侦听硬件输出音量的变化和变化的可用性的音频输入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;5、响应路线变化&quot;&gt;&lt;a href=&quot;#5、响应路线变化&quot; class=&quot;headerlink&quot; title=&quot;5、响应路线变化&quot;&gt;&lt;/a&gt;5、响应路线变化&lt;/h3&gt;&lt;p&gt;作为您的应用程序运行时,用户可能插入或拔掉耳机,或者使用接上音频连接等，通过注册AVAudioSessionRouteChangeNotification通知去响应。&lt;br&gt;&lt;img src=&quot;/assets/images/audio_route_change_2x.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;6、调整音频会话的球员&quot;&gt;&lt;a href=&quot;#6、调整音频会话的球员&quot; class=&quot;headerlink&quot; title=&quot;6、调整音频会话的球员&quot;&gt;&lt;/a&gt;6、调整音频会话的球员&lt;/h3&gt;&lt;p&gt;从用户的音乐播放音频库以及你自己的声音，多个播放器混合播放。针对游戏App、音频记录播放App、VOIP聊天App、音频计量App等，要随时切换和配置类型。&lt;/p&gt;
+&lt;h2 id=&quot;2、代码实践&quot;&gt;&lt;a href=&quot;#2、代码实践&quot; class=&quot;headerlink&quot; title=&quot;2、代码实践&quot;&gt;&lt;/a&gt;2、代码实践&lt;/h2&gt;&lt;blockquote&gt;
+&lt;h3 id=&quot;import-“TTAudioPlayer-h”&quot;&gt;&lt;a href=&quot;#import-“TTAudioPlayer-h”&quot; class=&quot;headerlink&quot; title=&quot;#import “TTAudioPlayer.h”&quot;&gt;&lt;/a&gt;#import “TTAudioPlayer.h”&lt;/h3&gt;&lt;h3 id=&quot;import-“TTAudioRecorder-h”&quot;&gt;&lt;a href=&quot;#import-“TTAudioRecorder-h”&quot; class=&quot;headerlink&quot; title=&quot;#import “TTAudioRecorder.h”&quot;&gt;&lt;/a&gt;#import “TTAudioRecorder.h”&lt;/h3&gt;&lt;/blockquote&gt;
+&lt;h2 id=&quot;3、问题回顾&quot;&gt;&lt;a href=&quot;#3、问题回顾&quot; class=&quot;headerlink&quot; title=&quot;3、问题回顾&quot;&gt;&lt;/a&gt;3、问题回顾&lt;/h2&gt;&lt;h3 id=&quot;1、WAV转化AMR声音变形：&quot;&gt;&lt;a href=&quot;#1、WAV转化AMR声音变形：&quot; class=&quot;headerlink&quot; title=&quot;1、WAV转化AMR声音变形：&quot;&gt;&lt;/a&gt;1、WAV转化AMR声音变形：&lt;/h3&gt;&lt;h4 id=&quot;现象：&quot;&gt;&lt;a href=&quot;#现象：&quot; class=&quot;headerlink&quot; title=&quot;现象：&quot;&gt;&lt;/a&gt;现象：&lt;/h4&gt;&lt;p&gt;录制WAV格式本地正常播放，转化为AMR后，把AMR格式文件在电脑端播放，声音严重变形，无法识别，再转化会WAV,，手机还是无法识别。&lt;/p&gt;
+&lt;h4 id=&quot;原因与解决&quot;&gt;&lt;a href=&quot;#原因与解决&quot; class=&quot;headerlink&quot; title=&quot;原因与解决&quot;&gt;&lt;/a&gt;原因与解决&lt;/h4&gt;&lt;p&gt;声音格式转化采用的是#include “amrFileCodec.h”，一个第三方常用转化库libopencore，并且没有找到第二个转化库，它对转化的音频输入源是有格式要求的，要求转化的采样率为标准的8k，如果录制的音频频率采用高频率44.1K的话就会出现变形，我想这里的设定依据来自于amr格式的采样率为8K。&lt;/p&gt;
+&lt;p&gt;AMR格式：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;维基百科    &lt;/p&gt;
+&lt;p&gt;采样率 8 kHz/13-bit (160 采样点每20ms)，滤波后只保留 200-3400 Hz 范围内的信号.&lt;/p&gt;
+&lt;p&gt;编码器使用8个位速：12.2、10.2、7.95、7.40、6.70、5.90、5.15和4.75 kbit/s.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;amrFileCodec_h:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;#define AMR_MAGIC_NUMBER “#!AMR\n”&lt;/p&gt;
+&lt;p&gt;#define PCM_FRAME_SIZE 160 // 8khz 8000*0.02=160&lt;/p&gt;
+&lt;p&gt;#define MAX_AMR_FRAME_SIZE 32&lt;/p&gt;
+&lt;p&gt;#define AMR_FRAME_COUNT_PER_SECOND 50&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;2、先转后播一直长时间等待：&quot;&gt;&lt;a href=&quot;#2、先转后播一直长时间等待：&quot; class=&quot;headerlink&quot; title=&quot;2、先转后播一直长时间等待：&quot;&gt;&lt;/a&gt;2、先转后播一直长时间等待：&lt;/h3&gt;&lt;h4 id=&quot;现象：-1&quot;&gt;&lt;a href=&quot;#现象：-1&quot; class=&quot;headerlink&quot; title=&quot;现象：&quot;&gt;&lt;/a&gt;现象：&lt;/h4&gt;&lt;p&gt;界面UI点击播放之后，一直处于播放状态但是没有声音。&lt;/p&gt;
+&lt;h4 id=&quot;原因与解决-1&quot;&gt;&lt;a href=&quot;#原因与解决-1&quot; class=&quot;headerlink&quot; title=&quot;原因与解决&quot;&gt;&lt;/a&gt;原因与解决&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;UI状态显示问题，与AUDIO有一个实际的播放误差，以为需要等待一段的转化时间，但实际上以及音频已经播放失败，导致多次重复点击，最后界面显示一直未播放中，但实际上，音频本身早就停止播放，这是由于对界面事件响应以及player实际播放状态判断的不完整导致。&lt;/li&gt;
+&lt;li&gt;网络错误请求，音频数据的源的请求返回错误，UI显示为在播放，实际返回错误。这与服务端有关系，经抓包查实，同样参数同样网络的相同请求有可能出现成功和失败两种结果。&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;###Hexo–个人博客&lt;/p&gt;
-&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。网上搭建博客的方式不外乎两种，一个在一些博客网站注册一个账号，比如博客园，另一个就是使用博客框架搭建个人的博客，比如w
+      &lt;h2 id=&quot;IOS-音频录制-—-AVFoundation&quot;&gt;&lt;a href=&quot;#IOS-音频录制-—-AVFoundation&quot; class=&quot;headerlink&quot; title=&quot;IOS 音频录制 — AVFoundation&quot;&gt;&lt;/a&gt;IOS 音频录制 — AVFoun
     
     </summary>
     
+    
+      <category term="程序开发" scheme="http://xuzichao.com/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
   <entry>
     <title>IOS视频录制</title>
-    <link href="http://xuzichao.com/2016/02/07/IOS%20%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6--AVFoudation/"/>
-    <id>http://xuzichao.com/2016/02/07/IOS 视频录制--AVFoudation/</id>
-    <published>2016-02-07T11:09:59.000Z</published>
-    <updated>2016-06-07T04:59:44.000Z</updated>
+    <link href="http://xuzichao.com/2015/01/28/IOS%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6--AVFoudation/"/>
+    <id>http://xuzichao.com/2015/01/28/IOS视频录制--AVFoudation/</id>
+    <published>2015-01-28T11:09:59.000Z</published>
+    <updated>2016-06-07T12:59:45.000Z</updated>
     
-    <content type="html">&lt;p&gt;#IOS 视频录制 — AVFoundation&lt;br&gt;AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/frameworksBlockDiagram_2x.png&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
-&lt;p&gt;##一、概念引导：&lt;/p&gt;
-&lt;p&gt;###1、ASSets媒体文件:&lt;/p&gt;
-&lt;p&gt;1）AVAsset&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;IOS-视频录制-—-AVFoundation&quot;&gt;&lt;a href=&quot;#IOS-视频录制-—-AVFoundation&quot; class=&quot;headerlink&quot; title=&quot;IOS 视频录制 — AVFoundation&quot;&gt;&lt;/a&gt;IOS 视频录制 — AVFoundation&lt;/h1&gt;&lt;p&gt;AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/frameworksBlockDiagram_2x.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;一、概念引导：&quot;&gt;&lt;a href=&quot;#一、概念引导：&quot; class=&quot;headerlink&quot; title=&quot;一、概念引导：&quot;&gt;&lt;/a&gt;一、概念引导：&lt;/h2&gt;&lt;h3 id=&quot;1、ASSets媒体文件&quot;&gt;&lt;a href=&quot;#1、ASSets媒体文件&quot; class=&quot;headerlink&quot; title=&quot;1、ASSets媒体文件:&quot;&gt;&lt;/a&gt;1、ASSets媒体文件:&lt;/h3&gt;&lt;p&gt;1）AVAsset&lt;/p&gt;
 &lt;p&gt;一个抽象类来表示时间等视听媒体视频和声音。每个资产包含一组跟踪旨在呈现或加工在一起,一个统一的媒体类型,包括但不限于音频、视频、文本、关闭字幕,字幕。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/avassetHierarchy_2x.png&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
 &lt;p&gt;AVURLAsset *anAsset = [[AVURLAsset alloc] initWithURL:url options:nil];属性有&lt;br&gt;tracks、duration、preferredVolume、preferredTransform等等。&lt;/p&gt;
 &lt;p&gt;2) 一个AVAssetTrack&lt;/p&gt;
 &lt;p&gt;对象提供了所有资产提供track-level检查接口,方便对ASSets进行更具体的属性获取以及对应的操作。&lt;/p&gt;
 &lt;p&gt;3）AVAssetImageGenerator&lt;/p&gt;
 &lt;p&gt;对象提供缩略图或预览图像的资产独立于回放，可以生成单独的图片，也可以生成图片队列，这是获取视频缩略图的方式之一，还有另外两种ALAsset的thumbnail 和 - (UIImage *)imageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer。&lt;/p&gt;
 &lt;p&gt;4）AVAssetExportSession&lt;/p&gt;
-&lt;p&gt;针对AVAsset源对象的内容进行转码，创建一个被指定输出形式的资源。&lt;br&gt;&lt;img src=&quot;../images/export_2x.png&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
-&lt;p&gt;###2、Playback播放控制:&lt;/p&gt;
-&lt;p&gt;1) AVPlayer&lt;/p&gt;
+&lt;p&gt;针对AVAsset源对象的内容进行转码，创建一个被指定输出形式的资源。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/AVAssetExportSession.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2、Playback播放控制&quot;&gt;&lt;a href=&quot;#2、Playback播放控制&quot; class=&quot;headerlink&quot; title=&quot;2、Playback播放控制:&quot;&gt;&lt;/a&gt;2、Playback播放控制:&lt;/h3&gt;&lt;p&gt;1) AVPlayer&lt;/p&gt;
 &lt;p&gt;你使用一个AVPlayer对象来实现控制器和用户接口单一或多种条目回放。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;-  (instancetype)initWithPlayerItem:(AVPlayerItem *)item&lt;/p&gt;
@@ -82,7 +153,6 @@
 &lt;/ul&gt;
 &lt;p&gt;4) AVPlayerItemTrack &lt;/p&gt;
 &lt;p&gt;你用一个AVPlayerItemTrack对象修改资产的表现状态跟踪(AVAssetTrack)一个AVPlayer对象。通常视频的加载播放有各种状态，我们需要KVO监听或者添加通知去知道播放器的准备、进行、暂停、停止等状态。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/avplayerLayer_2x.png&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
 &lt;p&gt;5) AVQueuePlayer&lt;/p&gt;
 &lt;p&gt;按照队列播放视频&lt;/p&gt;
 &lt;ul&gt;
@@ -92,9 +162,8 @@
 &lt;pre&gt;&lt;code&gt;afterItem:(AVPlayerItem *)afterItem
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;###3、Editing资源编辑:&lt;/p&gt;
-&lt;p&gt;AVFoundation框架提供了一个功能丰富的组类促进视听资产的编辑。AVFoundation的编辑API的核心成分，就是一组追踪从一个或多个不同的媒体资产。AVMutableComposition类提供了一个接口,用于插入和删除操作的痕迹,以及管理自己时间排序。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/puttingitalltogether_2x.png&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3、Editing资源编辑&quot;&gt;&lt;a href=&quot;#3、Editing资源编辑&quot; class=&quot;headerlink&quot; title=&quot;3、Editing资源编辑:&quot;&gt;&lt;/a&gt;3、Editing资源编辑:&lt;/h3&gt;&lt;p&gt;AVFoundation框架提供了一个功能丰富的组类促进视听资产的编辑。AVFoundation的编辑API的核心成分，就是一组追踪从一个或多个不同的媒体资产。AVMutableComposition类提供了一个接口,用于插入和删除操作的痕迹,以及管理自己时间排序。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/AVMutableComposition.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;1）AVMutableComposition&lt;/p&gt;
 &lt;p&gt;是一个可变的AVComposition子类，当您想要从现有资产创建一个新的资源。你可以添加和删除跟踪,可以添加、删除和时间范围。&lt;br&gt;比如：&lt;/p&gt;
 &lt;ul&gt;
@@ -122,8 +191,7 @@ AVMutableAudioMixInputParameters *mixParameters = [AVMutableAudioMixInputParamet
 [mixParameters setVolumeRampFromStartVolume:1.f toEndVolume:0.f timeRange:CMTimeRangeMake(kCMTimeZero, mutableComposition.duration)];
 // Attach the input parameters to the audio mix.
 mutableAudioMix.inputParameters = @[mixParameters];
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###4、Media Capture媒体捕捉:&lt;/p&gt;
-&lt;p&gt;1) AVCaptureDevice &lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;4、Media-Capture媒体捕捉&quot;&gt;&lt;a href=&quot;#4、Media-Capture媒体捕捉&quot; class=&quot;headerlink&quot; title=&quot;4、Media Capture媒体捕捉:&quot;&gt;&lt;/a&gt;4、Media Capture媒体捕捉:&lt;/h3&gt;&lt;p&gt;1) AVCaptureDevice &lt;/p&gt;
 &lt;p&gt;代表输入设备,如摄像头或麦克风&lt;/p&gt;
 &lt;p&gt;2) AVCaptureInput &lt;/p&gt;
 &lt;p&gt;输入设备的配置端口，我们可以理解为输入&lt;/p&gt;
@@ -146,9 +214,8 @@ mutableAudioMix.inputParameters = @[mixParameters];
 &lt;p&gt;实时展示被session传出出来的视频流数据，也就是我们的取景器&lt;/p&gt;
 &lt;p&gt;6）AVCaptureConnection &lt;/p&gt;
 &lt;p&gt;代表捕获之间的连接输入和输出对象关联到一个捕获会话。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../images/captureDetail_2x.png&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
-&lt;p&gt;###5、Export媒体输出:&lt;/p&gt;
-&lt;p&gt;1) AVAssetExportSession&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/AVCaptureConnection.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;5、Export媒体输出&quot;&gt;&lt;a href=&quot;#5、Export媒体输出&quot; class=&quot;headerlink&quot; title=&quot;5、Export媒体输出:&quot;&gt;&lt;/a&gt;5、Export媒体输出:&lt;/h3&gt;&lt;p&gt;1) AVAssetExportSession&lt;/p&gt;
 &lt;p&gt;针对AVAsset对象转码，创建一个输出的形式被指定出口预设内容。包括对输出媒体资源的属性设定，可以设置presetName进行视频品质压缩，AVAssetExportPresetLowQuality等。也可以设置属性包括：outputFileType&lt;br&gt;、fileLengthLimit、timeRange&lt;br&gt;等。&lt;/p&gt;
 &lt;p&gt;2）AVAssetReader &lt;/p&gt;
 &lt;p&gt;直接从媒体读取存储样本,获得样本解码成可渲染的形式。组合资产多个音轨和组合多个视频跟踪(通过使用AVAssetReaderAudioMixOutput和AVAssetReaderVideoCompositionOutput)。&lt;/p&gt;
@@ -183,23 +250,15 @@ if ([assetReader canAddOutput:audioMixOutput])
 &lt;li&gt;endSessionAtSourceTime&lt;/li&gt;
 &lt;li&gt;finishWritingWithCompletionHandler&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;##二、代码实践：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;####import “TTCameraViewController.h”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;##三、问题回顾：&lt;/p&gt;
-&lt;p&gt;###1、视频文件写入崩溃：&lt;/p&gt;
-&lt;p&gt;####现象：&lt;br&gt;相机开始拍摄就会出现崩溃，时而出现，有时难以复现。&lt;/p&gt;
-&lt;p&gt;####原因与解决：&lt;br&gt;1）startSessionAtSourceTime只能在 AVAssetWriterStatusWriting的之后调用，但是startWriting调用之后writer并没有立即变为writing状态，而已有一个极短的开始时间，参照苹果规范使用文档，只需要前面调用之后后面就可以跟着执行startSessionAtSourceTime，然而，我遇见了这问题，说明它并不是。随后我到stackoverflow上查了问题，发现有人早就提过，并没有答案，说是升级IOS8以后就没有了，可我这里是IOS9…随后我只能判断writer状态如果是writing就开始执行，如果不是就调用startWriting。&lt;/p&gt;
+&lt;h2 id=&quot;二、代码实践：&quot;&gt;&lt;a href=&quot;#二、代码实践：&quot; class=&quot;headerlink&quot; title=&quot;二、代码实践：&quot;&gt;&lt;/a&gt;二、代码实践：&lt;/h2&gt;&lt;blockquote&gt;
+&lt;h3 id=&quot;import-“TTCameraViewController-h”&quot;&gt;&lt;a href=&quot;#import-“TTCameraViewController-h”&quot; class=&quot;headerlink&quot; title=&quot;#import “TTCameraViewController.h”&quot;&gt;&lt;/a&gt;#import “TTCameraViewController.h”&lt;/h3&gt;&lt;/blockquote&gt;
+&lt;h2 id=&quot;三、问题回顾：&quot;&gt;&lt;a href=&quot;#三、问题回顾：&quot; class=&quot;headerlink&quot; title=&quot;三、问题回顾：&quot;&gt;&lt;/a&gt;三、问题回顾：&lt;/h2&gt;&lt;h3 id=&quot;1、视频文件写入崩溃：&quot;&gt;&lt;a href=&quot;#1、视频文件写入崩溃：&quot; class=&quot;headerlink&quot; title=&quot;1、视频文件写入崩溃：&quot;&gt;&lt;/a&gt;1、视频文件写入崩溃：&lt;/h3&gt;&lt;h4 id=&quot;现象：&quot;&gt;&lt;a href=&quot;#现象：&quot; class=&quot;headerlink&quot; title=&quot;现象：&quot;&gt;&lt;/a&gt;现象：&lt;/h4&gt;&lt;p&gt;相机开始拍摄就会出现崩溃，时而出现，有时难以复现。&lt;/p&gt;
+&lt;h4 id=&quot;原因与解决：&quot;&gt;&lt;a href=&quot;#原因与解决：&quot; class=&quot;headerlink&quot; title=&quot;原因与解决：&quot;&gt;&lt;/a&gt;原因与解决：&lt;/h4&gt;&lt;p&gt;1）startSessionAtSourceTime只能在 AVAssetWriterStatusWriting的之后调用，但是startWriting调用之后writer并没有立即变为writing状态，而已有一个极短的开始时间，参照苹果规范使用文档，只需要前面调用之后后面就可以跟着执行startSessionAtSourceTime，然而，我遇见了这问题，说明它并不是。随后我到stackoverflow上查了问题，发现有人早就提过，并没有答案，说是升级IOS8以后就没有了，可我这里是IOS9…随后我只能判断writer状态如果是writing就开始执行，如果不是就调用startWriting。&lt;/p&gt;
 &lt;p&gt;2）[videoWriterInput appendSampleBuffer：xxx]这只能在startSessionAtSourceTime开始之后调用，和1是同样的情况，明明第一行调用了startSessionAtSourceTime，第二调用appendSampleBuffer就会崩溃，并且依旧是偶尔发生。但是这里的问题是没有一个状态可以判断是否已经开始startSessionAtSourceTime，这里就有点血崩了，不能像问题1一样判断解决，后来只好try catch了,稳住局面防止崩溃，丢失极少的毫秒级帧数。&lt;/p&gt;
-&lt;p&gt;###2、相机拍摄闪烁抖动：&lt;/p&gt;
-&lt;p&gt;####现象：&lt;br&gt;开始拍摄时候，取景器闪烁抖动，引起一小部分可见范围内的视频内容发送抖动，并被存入文件中，体验差。&lt;/p&gt;
-&lt;p&gt;####原因与解决：&lt;br&gt;在开始拍摄的时候，再去创建connection并传递设备和拍摄方向，有利于视频获取oritation，自然而然的横着拍摄也会竖着播放，但是问题在于connection的建立产生较大的链接，引起视频抖动，此抖动将被录制进入视频文件中。于是我采取在初始化input的时候就把connection就增加进去，当开始拍摄的时候不会发生抖动，但是牺牲的是视频的oritation需要自己根据用户拍摄的方向去手动修改视频方向。&lt;/p&gt;
-&lt;p&gt;###3、视频方向混乱：&lt;/p&gt;
-&lt;p&gt;####现象：&lt;/p&gt;
-&lt;p&gt;背面摄像头拍摄，home键在下，拍摄出来的视频文件，在播放的时候，底部在手机右边，而不是底边，一次类推，home键在底部与视频的底部角度成90垂直关系。&lt;/p&gt;
-&lt;p&gt;####原因与解决：&lt;/p&gt;
-&lt;!--0--&gt;
+&lt;h3 id=&quot;2、相机拍摄闪烁抖动：&quot;&gt;&lt;a href=&quot;#2、相机拍摄闪烁抖动：&quot; class=&quot;headerlink&quot; title=&quot;2、相机拍摄闪烁抖动：&quot;&gt;&lt;/a&gt;2、相机拍摄闪烁抖动：&lt;/h3&gt;&lt;h4 id=&quot;现象：-1&quot;&gt;&lt;a href=&quot;#现象：-1&quot; class=&quot;headerlink&quot; title=&quot;现象：&quot;&gt;&lt;/a&gt;现象：&lt;/h4&gt;&lt;p&gt;开始拍摄时候，取景器闪烁抖动，引起一小部分可见范围内的视频内容发送抖动，并被存入文件中，体验差。&lt;/p&gt;
+&lt;h4 id=&quot;原因与解决：-1&quot;&gt;&lt;a href=&quot;#原因与解决：-1&quot; class=&quot;headerlink&quot; title=&quot;原因与解决：&quot;&gt;&lt;/a&gt;原因与解决：&lt;/h4&gt;&lt;p&gt;在开始拍摄的时候，再去创建connection并传递设备和拍摄方向，有利于视频获取oritation，自然而然的横着拍摄也会竖着播放，但是问题在于connection的建立产生较大的链接，引起视频抖动，此抖动将被录制进入视频文件中。于是我采取在初始化input的时候就把connection就增加进去，当开始拍摄的时候不会发生抖动，但是牺牲的是视频的oritation需要自己根据用户拍摄的方向去手动修改视频方向。&lt;/p&gt;
+&lt;h3 id=&quot;3、视频方向混乱：&quot;&gt;&lt;a href=&quot;#3、视频方向混乱：&quot; class=&quot;headerlink&quot; title=&quot;3、视频方向混乱：&quot;&gt;&lt;/a&gt;3、视频方向混乱：&lt;/h3&gt;&lt;h4 id=&quot;现象：-2&quot;&gt;&lt;a href=&quot;#现象：-2&quot; class=&quot;headerlink&quot; title=&quot;现象：&quot;&gt;&lt;/a&gt;现象：&lt;/h4&gt;&lt;p&gt;背面摄像头拍摄，home键在下，拍摄出来的视频文件，在播放的时候，底部在手机右边，而不是底边，一次类推，home键在底部与视频的底部角度成90垂直关系。&lt;/p&gt;
+&lt;h4 id=&quot;原因与解决：-2&quot;&gt;&lt;a href=&quot;#原因与解决：-2&quot; class=&quot;headerlink&quot; title=&quot;原因与解决：&quot;&gt;&lt;/a&gt;原因与解决：&lt;/h4&gt;&lt;!--0--&gt;
 &lt;pre&gt;&lt;code&gt;self.videoOutPut = [[AVCaptureVideoDataOutput alloc] init];
 NSDictionary * outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA],(id)kCVPixelBufferPixelFormatTypeKey, nil];
 [self.videoOutPut setVideoSettings:outputSettings];
@@ -213,15 +272,12 @@ if ([self.session canAddOutput:self.videoOutPut]) {
 self.videoConnection = [self.videoOutPut connectionWithMediaType:AVMediaTypeVideo];
 self.videoConnection.enabled = NO;
 [self.videoConnection setVideoOrientation:AVCaptureVideoOrientationPortrait];
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###4、横着拍摄的视频横着播放：&lt;/p&gt;
-&lt;p&gt;####现象：&lt;br&gt;横着拍摄的视频，放的时候是竖着的。&lt;/p&gt;
-&lt;p&gt;####原因与解决：&lt;/p&gt;
-&lt;p&gt;因为上面解决视频抖动，导致不能直接设定拍摄时候的视频方向，从而需要根据手动的拍摄方向去修改视频的视图的方向。&lt;br&gt;考虑到用户可能锁住屏幕旋转，于是就CMMotionManager获取重力方向来判断，在VC出现或者开始拍摄的时候开启，在VC退出或者拍摄完成的的时候关闭。获得方向后，在视频的写入里直接修改方向即可。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;4、横着拍摄的视频横着播放：&quot;&gt;&lt;a href=&quot;#4、横着拍摄的视频横着播放：&quot; class=&quot;headerlink&quot; title=&quot;4、横着拍摄的视频横着播放：&quot;&gt;&lt;/a&gt;4、横着拍摄的视频横着播放：&lt;/h3&gt;&lt;h4 id=&quot;现象：-3&quot;&gt;&lt;a href=&quot;#现象：-3&quot; class=&quot;headerlink&quot; title=&quot;现象：&quot;&gt;&lt;/a&gt;现象：&lt;/h4&gt;&lt;p&gt;横着拍摄的视频，放的时候是竖着的。&lt;/p&gt;
+&lt;h4 id=&quot;原因与解决：-3&quot;&gt;&lt;a href=&quot;#原因与解决：-3&quot; class=&quot;headerlink&quot; title=&quot;原因与解决：&quot;&gt;&lt;/a&gt;原因与解决：&lt;/h4&gt;&lt;p&gt;因为上面解决视频抖动，导致不能直接设定拍摄时候的视频方向，从而需要根据手动的拍摄方向去修改视频的视图的方向。&lt;br&gt;考虑到用户可能锁住屏幕旋转，于是就CMMotionManager获取重力方向来判断，在VC出现或者开始拍摄的时候开启，在VC退出或者拍摄完成的的时候关闭。获得方向后，在视频的写入里直接修改方向即可。&lt;/p&gt;
 &lt;!--0--&gt;
 &lt;pre&gt;&lt;code&gt;[videoWriterInput setTransform:CGAffineTransformScale(CGAffineTransformMakeRotation(-M_PI_2), 1.0, 1.0)];
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###5、录制视频有右边和底边绿色线条：&lt;/p&gt;
-&lt;p&gt;####现象：&lt;br&gt;手机全屏录制的时候，设置视频输出宽度为手机的宽高，当宽高为基数的时候视频录制里面会出现绿色线条。&lt;/p&gt;
-&lt;p&gt;####原因与解决：&lt;br&gt;不知道原因，神奇的bug，参照着段子的视频方法解决的，直接修改视频输出宽高为偶数。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;5、录制视频有右边和底边绿色线条：&quot;&gt;&lt;a href=&quot;#5、录制视频有右边和底边绿色线条：&quot; class=&quot;headerlink&quot; title=&quot;5、录制视频有右边和底边绿色线条：&quot;&gt;&lt;/a&gt;5、录制视频有右边和底边绿色线条：&lt;/h3&gt;&lt;h4 id=&quot;现象：-4&quot;&gt;&lt;a href=&quot;#现象：-4&quot; class=&quot;headerlink&quot; title=&quot;现象：&quot;&gt;&lt;/a&gt;现象：&lt;/h4&gt;&lt;p&gt;手机全屏录制的时候，设置视频输出宽度为手机的宽高，当宽高为基数的时候视频录制里面会出现绿色线条。&lt;/p&gt;
+&lt;h4 id=&quot;原因与解决：-4&quot;&gt;&lt;a href=&quot;#原因与解决：-4&quot; class=&quot;headerlink&quot; title=&quot;原因与解决：&quot;&gt;&lt;/a&gt;原因与解决：&lt;/h4&gt;&lt;p&gt;不知道原因，神奇的bug，参照着段子的视频方法解决的，直接修改视频输出宽高为偶数。&lt;/p&gt;
 &lt;!--0--&gt;
 &lt;pre&gt;&lt;code&gt;NSInteger videoWidth = [[NSNumber numberWithFloat:self.view.frame.size.width] integerValue];
 NSInteger videoHeight = [[NSNumber numberWithFloat:self.view.frame.size.height] integerValue];
@@ -235,121 +291,89 @@ if (videoHeight % 2 == 1) {
     
     <summary type="html">
     
-      &lt;p&gt;#IOS 视频录制 — AVFoundation&lt;br&gt;AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode
+      &lt;h1 id=&quot;IOS-视频录制-—-AVFoundation&quot;&gt;&lt;a href=&quot;#IOS-视频录制-—-AVFoundation&quot; class=&quot;headerlink&quot; title=&quot;IOS 视频录制 — AVFoundation&quot;&gt;&lt;/a&gt;IOS 视频录制 — AVFoun
     
     </summary>
     
+    
+      <category term="程序开发" scheme="http://xuzichao.com/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
   <entry>
-    <title>IOS音频录制</title>
-    <link href="http://xuzichao.com/2016/01/07/ios%20%E9%9F%B3%E9%A2%91%E5%BD%95%E5%88%B6%20---%20AVFoundation/"/>
-    <id>http://xuzichao.com/2016/01/07/ios 音频录制 --- AVFoundation/</id>
-    <published>2016-01-07T11:09:59.000Z</published>
-    <updated>2016-06-07T04:59:12.000Z</updated>
+    <title>Hexo一下，博客诞生</title>
+    <link href="http://xuzichao.com/2014/03/07/Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://xuzichao.com/2014/03/07/Hexo-个人博客使用介绍/</id>
+    <published>2014-03-07T11:09:59.000Z</published>
+    <updated>2016-06-07T14:41:01.000Z</updated>
     
-    <content type="html">&lt;p&gt;##IOS 音频录制 — AVFoundation&lt;/p&gt;
-&lt;p&gt;上一期我们讲解了视频的录制所需要使用的一些API以及方式方法，都是建立在AVFoundation框架基础上，这次我们继续讲解此框架基础上的音频录制。一般场景有录制语音并播放；当静音开关被关闭的时候，音频怎么播放；当闹钟和手机电话响起的时候，音频播放做什么样的处理等等，整个交互都将使用到 AVAudioSession ，打通音频硬件设备到软件数据流的关键。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/Users/Catoo/Documents/images/aspg_intro_2x.png&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
-&lt;p&gt;##一、概念引导&lt;/p&gt;
-&lt;p&gt;###1、创建Audio Session&lt;br&gt;当你的APP启动之后，你就获得了一个单利的session,通过它你可以决定音乐上的各种使用场景，可以配置音频录制的参数，直接连接音频硬件。&lt;/p&gt;
-&lt;p&gt;1) 默认行为 （AVAudioSessionCategorySoloAmbient）&lt;/p&gt;
-&lt;p&gt;可以回放，关闭录制，静音键关闭则音量播放关闭，锁屏时候音量关闭，当其他音量想起，你的播放直接关闭。&lt;/p&gt;
-&lt;p&gt;当你开始录制的时候，你的session在运行，结束后你可以关闭，能够自己忽略的播放系统运行api的有&lt;system sound=&quot;&quot; services=&quot;&quot; reference=&quot;&quot;&gt;和&lt;audio ui=&quot;&quot; sounds=&quot;&quot;&gt;。&lt;/audio&gt;&lt;/system&gt;&lt;/p&gt;
-&lt;p&gt;2) 合并行为AVCaptureSession&lt;/p&gt;
-&lt;p&gt;AVCaptureSession AVCaptureDevice在录制视频的时候也是一起录制了音频的，这是因为AVCaptureSession会默认的配置AVAudioSession，我们可以通过设置automaticallyConfiguresApplicationAudioSession为NO，然后自己去配置AVAudioSession。&lt;/p&gt;
-&lt;p&gt;3）MPVolumeView&lt;/p&gt;
-&lt;p&gt;为用户显示一个滑块控件设置系统音频输出音量和一个按钮选择音频输出路线。当第一次显示,滑块的位置反映了当前系统音频输出音量，当用户拖动滑块,体积变化更新，如果用户按下设备播放时,声音音量按钮滑块移动到反映新的体积。&lt;/p&gt;
-&lt;p&gt;4）一般方法举例：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;sharedInstance&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;otherAudioPlaying&lt;/li&gt;
-&lt;li&gt;requestRecordPermission&lt;/li&gt;
-&lt;li&gt;availableCategories&lt;/li&gt;
-&lt;li&gt;setActive:error:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;###2、使用类别Categories&lt;/p&gt;
-&lt;p&gt;1) 行为类别分布：&lt;/p&gt;
-&lt;p&gt;类作为一个关键值，定义了一组app的音频行为。苹果在iOS的未来版本可能细化分类行为。你最好的策略是选择最准确地描述了你的意图的类别音频你想要的行为，它们都遵循“last in wins” 规则。&lt;br&gt;&lt;img src=&quot;/Users/Catoo/Documents/images/1.pic.jpg&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
-&lt;p&gt;2）选用特殊话的模式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;AVAudioSessionModeVoiceChat—For Voice over IP (VoIP) apps&lt;/li&gt;
-&lt;li&gt;AVAudioSessionModeVideoChat—For video chat apps such as FaceTime&lt;/li&gt;
-&lt;li&gt;AVAudioSessionModeGameChat—For game apps&lt;/li&gt;
-&lt;li&gt;AVAudioSessionModeVideoRecording—For apps that use the camera to capture video&lt;/li&gt;
-&lt;li&gt;AVAudioSessionModeMoviePlayback—For apps that play movies.&lt;/li&gt;
-&lt;li&gt;AVAudioSessionModeMeasurement—For apps that processing to input and output signals.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/Users/Catoo/Documents/images/2.pic.jpg&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
-&lt;p&gt;###3、响应中断事件&lt;br&gt;中断事件可以来自电话、闹钟、日历提醒、siri等。&lt;/p&gt;
-&lt;p&gt;1) 响应的处理过程：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/Users/Catoo/Documents/images/3.pic.jpg&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
-&lt;p&gt;2）监听响应的方式：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;AVAudioSession 通知&lt;/p&gt;
-&lt;p&gt;  AVAudioSessionInterruptionNotification&lt;br&gt;AVAudioSessionRouteChangeNotification&lt;br&gt;AVAudioSessionMediaServicesWereLostNotification&lt;br&gt;AVAudioSessionMediaServicesWereResetNotification&lt;br&gt;AVAudioSessionSilenceSecondaryAudioHintNotification&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;AV Foundation framework&lt;/p&gt;
-&lt;p&gt;  AVAudioPlayer如果正在音频播放过程中可以有对应的代理来接收事件，AVAudioPlayerDelegate,同样也有对应的AVAudioRecorderDelegate ，都显示IOS8以后废弃掉。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Audio Queue Services, I/O audio unit&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;OpenAL ，Notification&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;System Sound Services&lt;/p&gt;
-&lt;p&gt;  发生则直接静音，中断终止可以重新再次播放，无需额外处理。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;###4、优化硬件音频数据&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;指定首选硬件设置采样率和I / O的缓冲时间&lt;/li&gt;
-&lt;li&gt;查询许多硬件特征,其中包括输入和输出延迟,输入和输出通道数,硬件采样率、硬件体积设定,是否可用的音频输入应对设备具体通知最常用的属性值更改事件路线变化,覆盖在应对变化。&lt;/li&gt;
-&lt;li&gt;编写回调侦听硬件输出音量的变化和变化的可用性的音频输入。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;###5、响应路线变化&lt;/p&gt;
-&lt;p&gt;作为您的应用程序运行时,用户可能插入或拔掉耳机,或者使用接上音频连接等，通过注册AVAudioSessionRouteChangeNotification通知去响应。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/Users/Catoo/Documents/images/audio_route_change_2x.png&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
-&lt;p&gt;###6、调整音频会话的球员&lt;br&gt;从用户的音乐播放音频库以及你自己的声音，多个播放器混合播放。针对游戏App、音频记录播放App、VOIP聊天App、音频计量App等，要随时切换和配置类型。&lt;/p&gt;
-&lt;p&gt;##2、代码实践&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;####import “TTAudioPlayer.h”&lt;/p&gt;
-&lt;p&gt;####import “TTAudioRecorder.h”&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;a href=&quot;#个人博客搭建推荐Hexo&quot; class=&quot;headerlink&quot; title=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;/a&gt;个人博客搭建推荐Hexo&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是自己的，大概程序员的内心都流淌着这样的独白。&lt;/p&gt;
+&lt;p&gt;博客搭建框架组件很多，从WordPress到FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用,在网上各路大神的推荐之下，试过几款框架,基本都是在读完安装说明并开始有点小激动的时候，痛苦的安装过程让我放弃了这一方式。现在回想，一方面是由于个人那些年的电脑和网络都很烂，另一方面也是自己年轻冲动没经验和耐心，搭建过程很多东西都需要一点点的搜索去学习，电脑一卡一慢就各种不爽就搞不下去了。不过最后我还是搭建了自己的博客，并没有使用上述的哪种框架,前面的过程学习并知道了博客的搭建方式，索性自己就用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，这样博客的结界面就出来了，自己动手丰衣足食，然而它只是个静态的…到编译这一环节过不去了，毕竟JS属于前端的江湖，咋整…于是找了个python脚本(这里感谢@上山打老虎的友情赞助)，动态编译产生静态文件，只需要专心的写文字就好，随后可上传到github通过域名映射直接展示。这样，我就搭建好了自己的博客，高端大气上档次，简直满意的不得了！结果是非常符合我自己的审美设计要求，内心那个开心呐，随后开始了我的博客之路。&lt;/p&gt;
+&lt;p&gt;到后来接触了Hexo,它就是我上述过程的一个更为优化的方案，功能完善，扩展强大。通过Hexo的使用也发现上手很快，我几乎是在几分钟之内就搭建起了博客，这速度让我为之欢呼，所以我决定转到Hexo来写作，那么，这里就写个文章来推荐一下吧。&lt;/p&gt;
+&lt;h3 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;安装说明&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;##3、问题回顾&lt;/p&gt;
-&lt;p&gt;###1、WAV转化AMR声音变形：&lt;/p&gt;
-&lt;p&gt;####现象：&lt;br&gt;录制WAV格式本地正常播放，转化为AMR后，把AMR格式文件在电脑端播放，声音严重变形，无法识别，再转化会WAV,，手机还是无法识别。&lt;/p&gt;
-&lt;p&gt;####原因与解决&lt;br&gt;声音格式转化采用的是#include “amrFileCodec.h”，一个第三方常用转化库libopencore，并且没有找到第二个转化库，它对转化的音频输入源是有格式要求的，要求转化的采样率为标准的8k，如果录制的音频频率采用高频率44.1K的话就会出现变形，我想这里的设定依据来自于amr格式的采样率为8K。&lt;/p&gt;
-&lt;p&gt;AMR格式：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;维基百科    &lt;/p&gt;
-&lt;p&gt;采样率 8 kHz/13-bit (160 采样点每20ms)，滤波后只保留 200-3400 Hz 范围内的信号.&lt;/p&gt;
-&lt;p&gt;编码器使用8个位速：12.2、10.2、7.95、7.40、6.70、5.90、5.15和4.75 kbit/s.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;amrFileCodec_h:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;#define AMR_MAGIC_NUMBER “#!AMR\n”&lt;/p&gt;
-&lt;p&gt;#define PCM_FRAME_SIZE 160 // 8khz 8000*0.02=160&lt;/p&gt;
-&lt;p&gt;#define MAX_AMR_FRAME_SIZE 32&lt;/p&gt;
-&lt;p&gt;#define AMR_FRAME_COUNT_PER_SECOND 50&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;###2、先转后播一直长时间等待：&lt;/p&gt;
-&lt;p&gt;####现象：&lt;br&gt;界面UI点击播放之后，一直处于播放状态但是没有声音。&lt;/p&gt;
-&lt;p&gt;####原因与解决&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;UI状态显示问题，与AUDIO有一个实际的播放误差，以为需要等待一段的转化时间，但实际上以及音频已经播放失败，导致多次重复点击，最后界面显示一直未播放中，但实际上，音频本身早就停止播放，这是由于对界面事件响应以及player实际播放状态判断的不完整导致。&lt;/li&gt;
-&lt;li&gt;网络错误请求，音频数据的源的请求返回错误，UI显示为在播放，实际返回错误。这与服务端有关系，经抓包查实，同样参数同样网络的相同请求有可能出现成功和失败两种结果。&lt;/li&gt;
+&lt;h5 id=&quot;一、准备工作&quot;&gt;&lt;a href=&quot;#一、准备工作&quot; class=&quot;headerlink&quot; title=&quot;一、准备工作&quot;&gt;&lt;/a&gt;一、准备工作&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;你得有自己的域名，买域名的地方比较多，有的坑有的好，我是在godaddy上买的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;注册github账号，你将会免费使用到它提供的各种便利而强大的功能，免费的存储空间，下载开源项目等等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装Node.js, npm&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装git,生成SSH-KEY管理权限，配置域名到github关联，网上多查查&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h5 id=&quot;二、安装Hexo&quot;&gt;&lt;a href=&quot;#二、安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;二、安装Hexo&quot;&gt;&lt;/a&gt;二、安装Hexo&lt;/h5&gt;&lt;p&gt;1、hexo程序环境&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm install -g hexo&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2、hexo工程&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$ hexo init 文件夹名称&lt;/p&gt;
+&lt;p&gt;$ cd 文件夹名称&lt;/p&gt;
+&lt;p&gt;$ npm install&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;3、会得到文件夹目录&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;├ ── _config.yml&lt;/p&gt;
+&lt;p&gt;├ ── package.json&lt;/p&gt;
+&lt;p&gt;├ ── scaffolds&lt;/p&gt;
+&lt;p&gt;├ ── source&lt;/p&gt;
+&lt;p&gt;├ ── _drafts&lt;/p&gt;
+&lt;p&gt;└ ── _posts&lt;/p&gt;
+&lt;p&gt;└ ── themes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;4、按照命令行操作，此时到这里，别管这些文件是干啥的，来，我们接着往下走。&lt;/p&gt;
+&lt;h5 id=&quot;三、生成第一篇文章&quot;&gt;&lt;a href=&quot;#三、生成第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;三、生成第一篇文章&quot;&gt;&lt;/a&gt;三、生成第一篇文章&lt;/h5&gt;&lt;p&gt;1、创建文章&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hexo new 你的文章名称&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2、编辑你的文章&lt;/p&gt;
+&lt;p&gt;上面一步在你对应的文件夹下新建了一个Markdown文件，此时需要你使用对应的语法去编写文档，不知道的可以去学习下，用语言命令号来写Word文档，该有的有，不该有的没有，简直就是最爱&lt;/p&gt;
+&lt;p&gt;3、编译&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hexo generate&lt;/p&gt;
+&lt;p&gt;hexo server&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;此时打开你的浏览器，默认地址是（&lt;a href=&quot;http://0.0.0.0:4000/），你就可以看到你的文章了，就是你刚才编写的文章。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://0.0.0.0:4000/），你就可以看到你的文章了，就是你刚才编写的文章。&lt;/a&gt;  &lt;/p&gt;
+&lt;h5 id=&quot;四、发布到github&quot;&gt;&lt;a href=&quot;#四、发布到github&quot; class=&quot;headerlink&quot; title=&quot;四、发布到github&quot;&gt;&lt;/a&gt;四、发布到github&lt;/h5&gt;&lt;p&gt;由于前面你做好了准备工作，所以这里只需要&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git commit -a -m “&lt;em&gt;*&lt;/em&gt;文章”&lt;/p&gt;
+&lt;p&gt;git push&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;此时打开你的浏览器，比如你买的域名是&lt;a href=&quot;http://baidu.com/，你打开它，和你在（http://0.0.0.0:4000/）看到的一毛一样，可以发给你的朋友看了。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://baidu.com/，你打开它，和你在（http://0.0.0.0:4000/）看到的一毛一样，可以发给你的朋友看了。&lt;/a&gt; &lt;/p&gt;
+&lt;h3 id=&quot;小结&quot;&gt;&lt;a href=&quot;#小结&quot; class=&quot;headerlink&quot; title=&quot;小结&quot;&gt;&lt;/a&gt;小结&lt;/h3&gt;&lt;p&gt;对于Hexo的使用，前后值介绍了关键的几个，都是基础入门，可以快速搭建，很方面，麻烦的到是前面的准备工作，得一步步挨着来，有不懂得可以留言哈。Hexo的其他功能，例如更换主题，连接同步第三方图片等，请直接浏览Hexo的官网学习，我这里就不做没有必要的翻译了。&lt;/p&gt;
+&lt;p&gt;PS：&lt;br&gt;看完本篇文章，您是否有如下感觉。&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;##IOS 音频录制 — AVFoundation&lt;/p&gt;
-&lt;p&gt;上一期我们讲解了视频的录制所需要使用的一些API以及方式方法，都是建立在AVFoundation框架基础上，这次我们继续讲解此框架基础上的音频录制。一般场景有录制语音并播放；当静音开关被关闭的时候，音频怎么播
+      &lt;h2 id=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;a href=&quot;#个人博客搭建推荐Hexo&quot; class=&quot;headerlink&quot; title=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;/a&gt;个人博客搭建推荐Hexo&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;
     
     </summary>
     
+    
+      <category term="程序开发" scheme="http://xuzichao.com/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
