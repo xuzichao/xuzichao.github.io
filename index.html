@@ -332,7 +332,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="IOS-视频录制-—-AVFoundation"><a href="#IOS-视频录制-—-AVFoundation" class="headerlink" title="IOS 视频录制 — AVFoundation"></a>IOS 视频录制 — AVFoundation</h1><p>AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。</p>
-<p><img src="/assets/images/frameworksBlockDiagram_2x.png" alt=""></p>
 <h2 id="一、概念引导："><a href="#一、概念引导：" class="headerlink" title="一、概念引导："></a>一、概念引导：</h2><h3 id="1、ASSets媒体文件"><a href="#1、ASSets媒体文件" class="headerlink" title="1、ASSets媒体文件:"></a>1、ASSets媒体文件:</h3><p>1）AVAsset</p>
 <p>一个抽象类来表示时间等视听媒体视频和声音。每个资产包含一组跟踪旨在呈现或加工在一起,一个统一的媒体类型,包括但不限于音频、视频、文本、关闭字幕,字幕。</p>
 <p>AVURLAsset *anAsset = [[AVURLAsset alloc] initWithURL:url options:nil];属性有<br>tracks、duration、preferredVolume、preferredTransform等等。</p>
@@ -599,15 +598,16 @@ if (videoHeight % 2 == 1) {
 <p>hexo generate</p>
 <p>hexo server</p>
 </blockquote>
-<p>此时打开你的浏览器，默认地址是（<a href="http://0.0.0.0:4000/），你就可以看到你的文章了，就是你刚才编写的文章。" target="_blank" rel="external">http://0.0.0.0:4000/），你就可以看到你的文章了，就是你刚才编写的文章。</a>  </p>
+<p>此时打开你的浏览器，默认地址是（ <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a> ），你就可以看到你的文章了，就是你刚才编写的文章。  </p>
 <h5 id="四、发布到github"><a href="#四、发布到github" class="headerlink" title="四、发布到github"></a>四、发布到github</h5><p>由于前面你做好了准备工作，所以这里只需要</p>
 <blockquote>
 <p>git commit -a -m “<em>*</em>文章”</p>
 <p>git push</p>
 </blockquote>
-<p>此时打开你的浏览器，比如你买的域名是<a href="http://baidu.com/，你打开它，和你在（http://0.0.0.0:4000/）看到的一毛一样，可以发给你的朋友看了。" target="_blank" rel="external">http://baidu.com/，你打开它，和你在（http://0.0.0.0:4000/）看到的一毛一样，可以发给你的朋友看了。</a> </p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>对于Hexo的使用，前后值介绍了关键的几个，都是基础入门，可以快速搭建，很方面，麻烦的到是前面的准备工作，得一步步挨着来，有不懂得可以留言哈。Hexo的其他功能，例如更换主题，连接同步第三方图片等，请直接浏览Hexo的官网学习，我这里就不做没有必要的翻译了。</p>
-<p>PS：<br>看完本篇文章，您是否有如下感觉。</p>
+<p>此时打开你的浏览器，比如你买的域名是( <a href="http://baidu.com/" target="_blank" rel="external">http://baidu.com/</a> )，你打开它，和你在（ <a href="http://0.0.0.0:4000" target="_blank" rel="external">http://0.0.0.0:4000</a> ）看到的一毛一样，可以发给你的朋友看了。 </p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>对于Hexo的使用，前后只介绍了关键的几个命令，为了可以可以快速搭建，都是基础入门很方便，麻烦的到是前面的准备工作，得一步步挨着来，有不懂的可以搜索和咨询。Hexo可以更换主题，也可以参照他人的主题制作，比如本站的主题yilia就是从github上找的开源主题，作者是我科的学长，已经获得了近2000颗星，这就是开源的力量，感谢学长litten的贡献。Hexo的其他扩展功能，请直接浏览Hexo的官网学习，我这里就不做没有必要的翻译了。</p>
+<p>写作此文时候的内心OS：</p>
+<p><img src="/assets/images/aoteman.png" alt=""></p>
 
       
     </div>

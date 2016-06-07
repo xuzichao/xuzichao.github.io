@@ -119,10 +119,9 @@
     <link href="http://xuzichao.com/2015/01/28/IOS%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6--AVFoudation/"/>
     <id>http://xuzichao.com/2015/01/28/IOS视频录制--AVFoudation/</id>
     <published>2015-01-28T11:09:59.000Z</published>
-    <updated>2016-06-07T12:59:45.000Z</updated>
+    <updated>2016-06-07T14:53:55.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;IOS-视频录制-—-AVFoundation&quot;&gt;&lt;a href=&quot;#IOS-视频录制-—-AVFoundation&quot; class=&quot;headerlink&quot; title=&quot;IOS 视频录制 — AVFoundation&quot;&gt;&lt;/a&gt;IOS 视频录制 — AVFoundation&lt;/h1&gt;&lt;p&gt;AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/frameworksBlockDiagram_2x.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;一、概念引导：&quot;&gt;&lt;a href=&quot;#一、概念引导：&quot; class=&quot;headerlink&quot; title=&quot;一、概念引导：&quot;&gt;&lt;/a&gt;一、概念引导：&lt;/h2&gt;&lt;h3 id=&quot;1、ASSets媒体文件&quot;&gt;&lt;a href=&quot;#1、ASSets媒体文件&quot; class=&quot;headerlink&quot; title=&quot;1、ASSets媒体文件:&quot;&gt;&lt;/a&gt;1、ASSets媒体文件:&lt;/h3&gt;&lt;p&gt;1）AVAsset&lt;/p&gt;
 &lt;p&gt;一个抽象类来表示时间等视听媒体视频和声音。每个资产包含一组跟踪旨在呈现或加工在一起,一个统一的媒体类型,包括但不限于音频、视频、文本、关闭字幕,字幕。&lt;/p&gt;
 &lt;p&gt;AVURLAsset *anAsset = [[AVURLAsset alloc] initWithURL:url options:nil];属性有&lt;br&gt;tracks、duration、preferredVolume、preferredTransform等等。&lt;/p&gt;
@@ -305,7 +304,7 @@ if (videoHeight % 2 == 1) {
     <link href="http://xuzichao.com/2014/03/07/Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
     <id>http://xuzichao.com/2014/03/07/Hexo-个人博客使用介绍/</id>
     <published>2014-03-07T11:09:59.000Z</published>
-    <updated>2016-06-07T14:41:01.000Z</updated>
+    <updated>2016-06-07T15:20:20.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;a href=&quot;#个人博客搭建推荐Hexo&quot; class=&quot;headerlink&quot; title=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;/a&gt;个人博客搭建推荐Hexo&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是自己的，大概程序员的内心都流淌着这样的独白。&lt;/p&gt;
 &lt;p&gt;博客搭建框架组件很多，从WordPress到FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用,在网上各路大神的推荐之下，试过几款框架,基本都是在读完安装说明并开始有点小激动的时候，痛苦的安装过程让我放弃了这一方式。现在回想，一方面是由于个人那些年的电脑和网络都很烂，另一方面也是自己年轻冲动没经验和耐心，搭建过程很多东西都需要一点点的搜索去学习，电脑一卡一慢就各种不爽就搞不下去了。不过最后我还是搭建了自己的博客，并没有使用上述的哪种框架,前面的过程学习并知道了博客的搭建方式，索性自己就用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，这样博客的结界面就出来了，自己动手丰衣足食，然而它只是个静态的…到编译这一环节过不去了，毕竟JS属于前端的江湖，咋整…于是找了个python脚本(这里感谢@上山打老虎的友情赞助)，动态编译产生静态文件，只需要专心的写文字就好，随后可上传到github通过域名映射直接展示。这样，我就搭建好了自己的博客，高端大气上档次，简直满意的不得了！结果是非常符合我自己的审美设计要求，内心那个开心呐，随后开始了我的博客之路。&lt;/p&gt;
@@ -355,15 +354,16 @@ if (videoHeight % 2 == 1) {
 &lt;p&gt;hexo generate&lt;/p&gt;
 &lt;p&gt;hexo server&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;此时打开你的浏览器，默认地址是（&lt;a href=&quot;http://0.0.0.0:4000/），你就可以看到你的文章了，就是你刚才编写的文章。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://0.0.0.0:4000/），你就可以看到你的文章了，就是你刚才编写的文章。&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;此时打开你的浏览器，默认地址是（ &lt;a href=&quot;http://0.0.0.0:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://0.0.0.0:4000/&lt;/a&gt; ），你就可以看到你的文章了，就是你刚才编写的文章。  &lt;/p&gt;
 &lt;h5 id=&quot;四、发布到github&quot;&gt;&lt;a href=&quot;#四、发布到github&quot; class=&quot;headerlink&quot; title=&quot;四、发布到github&quot;&gt;&lt;/a&gt;四、发布到github&lt;/h5&gt;&lt;p&gt;由于前面你做好了准备工作，所以这里只需要&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;git commit -a -m “&lt;em&gt;*&lt;/em&gt;文章”&lt;/p&gt;
 &lt;p&gt;git push&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;此时打开你的浏览器，比如你买的域名是&lt;a href=&quot;http://baidu.com/，你打开它，和你在（http://0.0.0.0:4000/）看到的一毛一样，可以发给你的朋友看了。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://baidu.com/，你打开它，和你在（http://0.0.0.0:4000/）看到的一毛一样，可以发给你的朋友看了。&lt;/a&gt; &lt;/p&gt;
-&lt;h3 id=&quot;小结&quot;&gt;&lt;a href=&quot;#小结&quot; class=&quot;headerlink&quot; title=&quot;小结&quot;&gt;&lt;/a&gt;小结&lt;/h3&gt;&lt;p&gt;对于Hexo的使用，前后值介绍了关键的几个，都是基础入门，可以快速搭建，很方面，麻烦的到是前面的准备工作，得一步步挨着来，有不懂得可以留言哈。Hexo的其他功能，例如更换主题，连接同步第三方图片等，请直接浏览Hexo的官网学习，我这里就不做没有必要的翻译了。&lt;/p&gt;
-&lt;p&gt;PS：&lt;br&gt;看完本篇文章，您是否有如下感觉。&lt;/p&gt;
+&lt;p&gt;此时打开你的浏览器，比如你买的域名是( &lt;a href=&quot;http://baidu.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://baidu.com/&lt;/a&gt; )，你打开它，和你在（ &lt;a href=&quot;http://0.0.0.0:4000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://0.0.0.0:4000&lt;/a&gt; ）看到的一毛一样，可以发给你的朋友看了。 &lt;/p&gt;
+&lt;h3 id=&quot;小结&quot;&gt;&lt;a href=&quot;#小结&quot; class=&quot;headerlink&quot; title=&quot;小结&quot;&gt;&lt;/a&gt;小结&lt;/h3&gt;&lt;p&gt;对于Hexo的使用，前后只介绍了关键的几个命令，为了可以可以快速搭建，都是基础入门很方便，麻烦的到是前面的准备工作，得一步步挨着来，有不懂的可以搜索和咨询。Hexo可以更换主题，也可以参照他人的主题制作，比如本站的主题yilia就是从github上找的开源主题，作者是我科的学长，已经获得了近2000颗星，这就是开源的力量，感谢学长litten的贡献。Hexo的其他扩展功能，请直接浏览Hexo的官网学习，我这里就不做没有必要的翻译了。&lt;/p&gt;
+&lt;p&gt;写作此文时候的内心OS：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/aoteman.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">

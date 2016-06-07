@@ -6,29 +6,25 @@
   <title>IOS视频录制 | 徐子超的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="IOS 视频录制 — AVFoundationAVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。
-
 一、概念引导：1、ASSets媒体文件:1）AVAsset
-一个抽象类来表示">
+一个抽象类来表示时">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IOS视频录制">
 <meta property="og:url" content="http://xuzichao.com/2015/01/28/IOS视频录制--AVFoudation/index.html">
 <meta property="og:site_name" content="徐子超的博客">
 <meta property="og:description" content="IOS 视频录制 — AVFoundationAVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。
-
 一、概念引导：1、ASSets媒体文件:1）AVAsset
-一个抽象类来表示">
-<meta property="og:image" content="http://xuzichao.com/assets/images/frameworksBlockDiagram_2x.png">
+一个抽象类来表示时">
 <meta property="og:image" content="http://xuzichao.com/assets/images/AVAssetExportSession.jpg">
 <meta property="og:image" content="http://xuzichao.com/assets/images/AVMutableComposition.jpg">
 <meta property="og:image" content="http://xuzichao.com/assets/images/AVCaptureConnection.jpg">
-<meta property="og:updated_time" content="2016-06-07T12:59:45.000Z">
+<meta property="og:updated_time" content="2016-06-07T14:53:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOS视频录制">
 <meta name="twitter:description" content="IOS 视频录制 — AVFoundationAVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。
-
 一、概念引导：1、ASSets媒体文件:1）AVAsset
-一个抽象类来表示">
-<meta name="twitter:image" content="http://xuzichao.com/assets/images/frameworksBlockDiagram_2x.png">
+一个抽象类来表示时">
+<meta name="twitter:image" content="http://xuzichao.com/assets/images/AVAssetExportSession.jpg">
   
     <link rel="alternative" href="/atom.xml" title="徐子超的博客" type="application/atom+xml">
   
@@ -223,7 +219,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="IOS-视频录制-—-AVFoundation"><a href="#IOS-视频录制-—-AVFoundation" class="headerlink" title="IOS 视频录制 — AVFoundation"></a>IOS 视频录制 — AVFoundation</h1><p>AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。</p>
-<p><img src="/assets/images/frameworksBlockDiagram_2x.png" alt=""></p>
 <h2 id="一、概念引导："><a href="#一、概念引导：" class="headerlink" title="一、概念引导："></a>一、概念引导：</h2><h3 id="1、ASSets媒体文件"><a href="#1、ASSets媒体文件" class="headerlink" title="1、ASSets媒体文件:"></a>1、ASSets媒体文件:</h3><p>1）AVAsset</p>
 <p>一个抽象类来表示时间等视听媒体视频和声音。每个资产包含一组跟踪旨在呈现或加工在一起,一个统一的媒体类型,包括但不限于音频、视频、文本、关闭字幕,字幕。</p>
 <p>AVURLAsset *anAsset = [[AVURLAsset alloc] initWithURL:url options:nil];属性有<br>tracks、duration、preferredVolume、preferredTransform等等。</p>
