@@ -1,28 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Mr.Catoo</title>
-  <subtitle>徐子超的博客</subtitle>
+  <title>Catoo的博客</title>
+  <subtitle>程先生，你好。客气，叫我序员吧。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuzichao.com/"/>
-  <updated>2016-03-24T14:39:52.000Z</updated>
+  <updated>2016-06-07T04:58:50.000Z</updated>
   <id>http://xuzichao.com/</id>
   
   <author>
-    <name>徐子超</name>
-    
+    <name>卡图菌</name>
+    <email>529841962@qq.com</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://xuzichao.com/2016/03/24/IOS%20%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6--AVFoudation/"/>
-    <id>http://xuzichao.com/2016/03/24/IOS 视频录制--AVFoudation/</id>
-    <published>2016-03-24T14:39:52.000Z</published>
-    <updated>2016-03-24T14:39:52.000Z</updated>
+    <title>Hexo--个人博客</title>
+    <link href="http://xuzichao.com/2016/03/07/Hexo-%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://xuzichao.com/2016/03/07/Hexo-轻松搭建个人博客/</id>
+    <published>2016-03-07T11:09:59.000Z</published>
+    <updated>2016-06-07T04:58:50.000Z</updated>
     
-    <content type="html">&lt;p&gt;#ios 视频录制 — AVFoundation&lt;br&gt;AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。&lt;/p&gt;
+    <content type="html">&lt;p&gt;###Hexo–个人博客&lt;/p&gt;
+&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。网上搭建博客的方式不外乎两种，一个在一些博客网站注册一个账号，比如博客园，另一个就是使用博客框架搭建个人的博客，比如wordpress。我个人一直倾向于后者，因为一些博客网站的设计界面差强人意，希望通过自己搭建的方式能呈现自己喜欢的界面，有喜欢的界面，我想我自己才会乐意去更新内容。个人博客搭建从我开始接触时候，最多的该是WordPress，逐渐发展到后来框架越来越多，FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用。在这过程中，我搜索讯息，在网上各路大神的推荐之下，试过几款框架的搭建，基本都是当我在github上读完安装说明并开心有点小激动的时候，痛苦的安装过程让我放弃了这一方式。现在回想，一方面是由于个人那些年的电脑和网络都很烂，另一方面也是自己年轻冲动没经验和耐心，搭建过程很多东西都需要一点点的搜索去学习，电脑一卡一慢就各种不爽看不下去了（可能你真的不信我的电脑当时有多烂）。不过最后我还是搭建了自己的博客，并没有使用上述的哪种框架。因为前面的过程也知道了博客的搭建方式，自己用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，到编译这一环节过不去了，就去别人那里找来了一个简单的python脚本，每次只要运行编译一下就和上述框架一样产生对应的HTML文件了，随后上传到github静态展示了。基本符合我自己的设计要求，虽然也是借鉴了各路大神的博客设计。不过后来，还是比较懒，没写几篇。&lt;br&gt;通过这次对Hexo的使用，我几乎是在几分钟之内就搭建起了博客，这速度让我为之欢呼，于是写个文章来推荐一下吧，虽然使用还不熟悉，但是看过指令的作者的说明，也基本明白了，重要的是，它的出现让我开始燃起重新写博客的愿望。接下来我说明一下，Hexo使用方式。&lt;/p&gt;
+&lt;p&gt;###环境前提&lt;/p&gt;
+&lt;p&gt;###安装Hexo&lt;/p&gt;
+&lt;p&gt;###生成第一篇文章&lt;/p&gt;
+&lt;p&gt;###发布到github&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;###Hexo–个人博客&lt;/p&gt;
+&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。网上搭建博客的方式不外乎两种，一个在一些博客网站注册一个账号，比如博客园，另一个就是使用博客框架搭建个人的博客，比如w
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>IOS视频录制</title>
+    <link href="http://xuzichao.com/2016/02/07/IOS%20%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6--AVFoudation/"/>
+    <id>http://xuzichao.com/2016/02/07/IOS 视频录制--AVFoudation/</id>
+    <published>2016-02-07T11:09:59.000Z</published>
+    <updated>2016-06-07T04:59:44.000Z</updated>
+    
+    <content type="html">&lt;p&gt;#IOS 视频录制 — AVFoundation&lt;br&gt;AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;../images/frameworksBlockDiagram_2x.png&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
 &lt;p&gt;##一、概念引导：&lt;/p&gt;
 &lt;p&gt;###1、ASSets媒体文件:&lt;/p&gt;
@@ -210,7 +235,7 @@ if (videoHeight % 2 == 1) {
     
     <summary type="html">
     
-      &lt;p&gt;#ios 视频录制 — AVFoundation&lt;br&gt;AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode
+      &lt;p&gt;#IOS 视频录制 — AVFoundation&lt;br&gt;AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode
     
     </summary>
     
@@ -218,26 +243,110 @@ if (videoHeight % 2 == 1) {
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://xuzichao.com/2016/03/07/Hexo-%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://xuzichao.com/2016/03/07/Hexo-轻松搭建个人博客/</id>
-    <published>2016-03-07T13:07:06.000Z</published>
-    <updated>2016-03-07T13:07:06.000Z</updated>
+    <title>IOS音频录制</title>
+    <link href="http://xuzichao.com/2016/01/07/ios%20%E9%9F%B3%E9%A2%91%E5%BD%95%E5%88%B6%20---%20AVFoundation/"/>
+    <id>http://xuzichao.com/2016/01/07/ios 音频录制 --- AVFoundation/</id>
+    <published>2016-01-07T11:09:59.000Z</published>
+    <updated>2016-06-07T04:59:12.000Z</updated>
     
-    <content type="html">&lt;p&gt;title: Hexo–轻松搭建个人博客&lt;br&gt;date: 2016-03-07 19:09:59&lt;/p&gt;
-&lt;p&gt;###Hexo–轻松搭建个人博客&lt;/p&gt;
-&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。网上搭建博客的方式不外乎两种，一个在一些博客网站注册一个账号，比如博客园，另一个就是使用博客框架搭建个人的博客，比如wordpress。我个人一直倾向于后者，因为一些博客网站的设计界面差强人意，希望通过自己搭建的方式能呈现自己喜欢的界面，有喜欢的界面，我想我自己才会乐意去更新内容。个人博客搭建从我开始接触时候，最多的该是WordPress，逐渐发展到后来框架越来越多，FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用。在这过程中，我搜索讯息，在网上各路大神的推荐之下，试过几款框架的搭建，基本都是当我在github上读完安装说明并开心有点小激动的时候，痛苦的安装过程让我放弃了这一方式。现在回想，一方面是由于个人那些年的电脑和网络都很烂，另一方面也是自己年轻冲动没经验和耐心，搭建过程很多东西都需要一点点的搜索去学习，电脑一卡一慢就各种不爽看不下去了（可能你真的不信我的电脑当时有多烂）。不过最后我还是搭建了自己的博客，并没有使用上述的哪种框架。因为前面的过程也知道了博客的搭建方式，自己用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，到编译这一环节过不去了，就去别人那里找来了一个简单的python脚本，每次只要运行编译一下就和上述框架一样产生对应的HTML文件了，随后上传到github静态展示了。基本符合我自己的设计要求，虽然也是借鉴了各路大神的博客设计。不过后来，还是比较懒，没写几篇。&lt;br&gt;通过这次对Hexo的使用，我几乎是在几分钟之内就搭建起了博客，这速度让我为之欢呼，于是写个文章来推荐一下吧，虽然使用还不熟悉，但是看过指令的作者的说明，也基本明白了，重要的是，它的出现让我开始燃起重新写博客的愿望。接下来我说明一下，Hexo使用方式。&lt;/p&gt;
-&lt;p&gt;###环境前提&lt;/p&gt;
-&lt;p&gt;###安装Hexo&lt;/p&gt;
-&lt;p&gt;###生成第一篇文章&lt;/p&gt;
-&lt;p&gt;###发布到github&lt;/p&gt;
+    <content type="html">&lt;p&gt;##IOS 音频录制 — AVFoundation&lt;/p&gt;
+&lt;p&gt;上一期我们讲解了视频的录制所需要使用的一些API以及方式方法，都是建立在AVFoundation框架基础上，这次我们继续讲解此框架基础上的音频录制。一般场景有录制语音并播放；当静音开关被关闭的时候，音频怎么播放；当闹钟和手机电话响起的时候，音频播放做什么样的处理等等，整个交互都将使用到 AVAudioSession ，打通音频硬件设备到软件数据流的关键。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/Users/Catoo/Documents/images/aspg_intro_2x.png&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
+&lt;p&gt;##一、概念引导&lt;/p&gt;
+&lt;p&gt;###1、创建Audio Session&lt;br&gt;当你的APP启动之后，你就获得了一个单利的session,通过它你可以决定音乐上的各种使用场景，可以配置音频录制的参数，直接连接音频硬件。&lt;/p&gt;
+&lt;p&gt;1) 默认行为 （AVAudioSessionCategorySoloAmbient）&lt;/p&gt;
+&lt;p&gt;可以回放，关闭录制，静音键关闭则音量播放关闭，锁屏时候音量关闭，当其他音量想起，你的播放直接关闭。&lt;/p&gt;
+&lt;p&gt;当你开始录制的时候，你的session在运行，结束后你可以关闭，能够自己忽略的播放系统运行api的有&lt;system sound=&quot;&quot; services=&quot;&quot; reference=&quot;&quot;&gt;和&lt;audio ui=&quot;&quot; sounds=&quot;&quot;&gt;。&lt;/audio&gt;&lt;/system&gt;&lt;/p&gt;
+&lt;p&gt;2) 合并行为AVCaptureSession&lt;/p&gt;
+&lt;p&gt;AVCaptureSession AVCaptureDevice在录制视频的时候也是一起录制了音频的，这是因为AVCaptureSession会默认的配置AVAudioSession，我们可以通过设置automaticallyConfiguresApplicationAudioSession为NO，然后自己去配置AVAudioSession。&lt;/p&gt;
+&lt;p&gt;3）MPVolumeView&lt;/p&gt;
+&lt;p&gt;为用户显示一个滑块控件设置系统音频输出音量和一个按钮选择音频输出路线。当第一次显示,滑块的位置反映了当前系统音频输出音量，当用户拖动滑块,体积变化更新，如果用户按下设备播放时,声音音量按钮滑块移动到反映新的体积。&lt;/p&gt;
+&lt;p&gt;4）一般方法举例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;sharedInstance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;otherAudioPlaying&lt;/li&gt;
+&lt;li&gt;requestRecordPermission&lt;/li&gt;
+&lt;li&gt;availableCategories&lt;/li&gt;
+&lt;li&gt;setActive:error:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###2、使用类别Categories&lt;/p&gt;
+&lt;p&gt;1) 行为类别分布：&lt;/p&gt;
+&lt;p&gt;类作为一个关键值，定义了一组app的音频行为。苹果在iOS的未来版本可能细化分类行为。你最好的策略是选择最准确地描述了你的意图的类别音频你想要的行为，它们都遵循“last in wins” 规则。&lt;br&gt;&lt;img src=&quot;/Users/Catoo/Documents/images/1.pic.jpg&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
+&lt;p&gt;2）选用特殊话的模式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AVAudioSessionModeVoiceChat—For Voice over IP (VoIP) apps&lt;/li&gt;
+&lt;li&gt;AVAudioSessionModeVideoChat—For video chat apps such as FaceTime&lt;/li&gt;
+&lt;li&gt;AVAudioSessionModeGameChat—For game apps&lt;/li&gt;
+&lt;li&gt;AVAudioSessionModeVideoRecording—For apps that use the camera to capture video&lt;/li&gt;
+&lt;li&gt;AVAudioSessionModeMoviePlayback—For apps that play movies.&lt;/li&gt;
+&lt;li&gt;AVAudioSessionModeMeasurement—For apps that processing to input and output signals.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/Users/Catoo/Documents/images/2.pic.jpg&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
+&lt;p&gt;###3、响应中断事件&lt;br&gt;中断事件可以来自电话、闹钟、日历提醒、siri等。&lt;/p&gt;
+&lt;p&gt;1) 响应的处理过程：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/Users/Catoo/Documents/images/3.pic.jpg&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
+&lt;p&gt;2）监听响应的方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;AVAudioSession 通知&lt;/p&gt;
+&lt;p&gt;  AVAudioSessionInterruptionNotification&lt;br&gt;AVAudioSessionRouteChangeNotification&lt;br&gt;AVAudioSessionMediaServicesWereLostNotification&lt;br&gt;AVAudioSessionMediaServicesWereResetNotification&lt;br&gt;AVAudioSessionSilenceSecondaryAudioHintNotification&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;AV Foundation framework&lt;/p&gt;
+&lt;p&gt;  AVAudioPlayer如果正在音频播放过程中可以有对应的代理来接收事件，AVAudioPlayerDelegate,同样也有对应的AVAudioRecorderDelegate ，都显示IOS8以后废弃掉。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Audio Queue Services, I/O audio unit&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;OpenAL ，Notification&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;System Sound Services&lt;/p&gt;
+&lt;p&gt;  发生则直接静音，中断终止可以重新再次播放，无需额外处理。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###4、优化硬件音频数据&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;指定首选硬件设置采样率和I / O的缓冲时间&lt;/li&gt;
+&lt;li&gt;查询许多硬件特征,其中包括输入和输出延迟,输入和输出通道数,硬件采样率、硬件体积设定,是否可用的音频输入应对设备具体通知最常用的属性值更改事件路线变化,覆盖在应对变化。&lt;/li&gt;
+&lt;li&gt;编写回调侦听硬件输出音量的变化和变化的可用性的音频输入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###5、响应路线变化&lt;/p&gt;
+&lt;p&gt;作为您的应用程序运行时,用户可能插入或拔掉耳机,或者使用接上音频连接等，通过注册AVAudioSessionRouteChangeNotification通知去响应。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/Users/Catoo/Documents/images/audio_route_change_2x.png&quot; alt=&quot;Alt text&quot; title=&quot;Optional title&quot;&gt;&lt;/p&gt;
+&lt;p&gt;###6、调整音频会话的球员&lt;br&gt;从用户的音乐播放音频库以及你自己的声音，多个播放器混合播放。针对游戏App、音频记录播放App、VOIP聊天App、音频计量App等，要随时切换和配置类型。&lt;/p&gt;
+&lt;p&gt;##2、代码实践&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;####import “TTAudioPlayer.h”&lt;/p&gt;
+&lt;p&gt;####import “TTAudioRecorder.h”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;##3、问题回顾&lt;/p&gt;
+&lt;p&gt;###1、WAV转化AMR声音变形：&lt;/p&gt;
+&lt;p&gt;####现象：&lt;br&gt;录制WAV格式本地正常播放，转化为AMR后，把AMR格式文件在电脑端播放，声音严重变形，无法识别，再转化会WAV,，手机还是无法识别。&lt;/p&gt;
+&lt;p&gt;####原因与解决&lt;br&gt;声音格式转化采用的是#include “amrFileCodec.h”，一个第三方常用转化库libopencore，并且没有找到第二个转化库，它对转化的音频输入源是有格式要求的，要求转化的采样率为标准的8k，如果录制的音频频率采用高频率44.1K的话就会出现变形，我想这里的设定依据来自于amr格式的采样率为8K。&lt;/p&gt;
+&lt;p&gt;AMR格式：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;维基百科    &lt;/p&gt;
+&lt;p&gt;采样率 8 kHz/13-bit (160 采样点每20ms)，滤波后只保留 200-3400 Hz 范围内的信号.&lt;/p&gt;
+&lt;p&gt;编码器使用8个位速：12.2、10.2、7.95、7.40、6.70、5.90、5.15和4.75 kbit/s.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;amrFileCodec_h:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;#define AMR_MAGIC_NUMBER “#!AMR\n”&lt;/p&gt;
+&lt;p&gt;#define PCM_FRAME_SIZE 160 // 8khz 8000*0.02=160&lt;/p&gt;
+&lt;p&gt;#define MAX_AMR_FRAME_SIZE 32&lt;/p&gt;
+&lt;p&gt;#define AMR_FRAME_COUNT_PER_SECOND 50&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;###2、先转后播一直长时间等待：&lt;/p&gt;
+&lt;p&gt;####现象：&lt;br&gt;界面UI点击播放之后，一直处于播放状态但是没有声音。&lt;/p&gt;
+&lt;p&gt;####原因与解决&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;UI状态显示问题，与AUDIO有一个实际的播放误差，以为需要等待一段的转化时间，但实际上以及音频已经播放失败，导致多次重复点击，最后界面显示一直未播放中，但实际上，音频本身早就停止播放，这是由于对界面事件响应以及player实际播放状态判断的不完整导致。&lt;/li&gt;
+&lt;li&gt;网络错误请求，音频数据的源的请求返回错误，UI显示为在播放，实际返回错误。这与服务端有关系，经抓包查实，同样参数同样网络的相同请求有可能出现成功和失败两种结果。&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;title: Hexo–轻松搭建个人博客&lt;br&gt;date: 2016-03-07 19:09:59&lt;/p&gt;
-&lt;p&gt;###Hexo–轻松搭建个人博客&lt;/p&gt;
-&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕
+      &lt;p&gt;##IOS 音频录制 — AVFoundation&lt;/p&gt;
+&lt;p&gt;上一期我们讲解了视频的录制所需要使用的一些API以及方式方法，都是建立在AVFoundation框架基础上，这次我们继续讲解此框架基础上的音频录制。一般场景有录制语音并播放；当静音开关被关闭的时候，音频怎么播
     
     </summary>
     
