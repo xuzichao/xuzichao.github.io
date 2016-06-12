@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo一下，博客诞生 | 徐子超的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="个人博客搭建推荐Hexo前言事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo一下，博客诞生">
+<meta property="og:url" content="http://xuzichao.com/2014/11/07/Hexo-个人博客使用介绍/index.html">
+<meta property="og:site_name" content="徐子超的博客">
+<meta property="og:description" content="个人博客搭建推荐Hexo前言事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是">
+<meta property="og:image" content="http://xuzichao.com/assets/images/aoteman.png">
+<meta property="og:updated_time" content="2016-06-08T13:32:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo一下，博客诞生">
+<meta name="twitter:description" content="个人博客搭建推荐Hexo前言事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是">
+<meta name="twitter:image" content="http://xuzichao.com/assets/images/aoteman.png">
+  
+    <link rel="alternative" href="/atom.xml" title="徐子超的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/photo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b8e8ee87e4708173f00d9048c309301";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/photo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">卡图睡不醒</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">程先生，你好。客气，叫我序员吧。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="weibo" target="_blank" href="http://weibo.com/2356167600/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/zichao.xu.5" title="facebook">facebook</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/时光相册/" style="font-size: 15px;">时光相册</a> <a href="/tags/程序开发/" style="font-size: 20px;">程序开发</a> <a href="/tags/随笔小结/" style="font-size: 10px;">随笔小结</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">IOS开发,毕业于华中科技大学,今日头条在职</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">卡图睡不醒</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/assets/photo.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">卡图睡不醒</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">程先生，你好。客气，叫我序员吧。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="weibo" target="_blank" href="http://weibo.com/2356167600/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/zichao.xu.5" title="facebook">facebook</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Hexo-个人博客使用介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/07/Hexo-个人博客使用介绍/" class="article-date">
+  	<time datetime="2014-11-07T11:09:59.000Z" itemprop="datePublished">Nov 7</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo一下，博客诞生
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序开发/">程序开发</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="个人博客搭建推荐Hexo"><a href="#个人博客搭建推荐Hexo" class="headerlink" title="个人博客搭建推荐Hexo"></a>个人博客搭建推荐Hexo</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是自己的，大概程序员的内心都流淌着这样的独白。</p>
+<p>博客搭建框架组件很多，从WordPress到FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用,在网上各路大神的推荐之下，试过几款框架,基本都是在读完安装说明并开始有点小激动的时候，痛苦的安装过程让我放弃了这一方式。现在回想，一方面是由于个人那些年的电脑和网络都很烂，另一方面也是自己年轻冲动没经验和耐心，搭建过程很多东西都需要一点点的搜索去学习，电脑一卡一慢就各种不爽就搞不下去了。不过最后我还是搭建了自己的博客，并没有使用上述的哪种框架,前面的过程学习并知道了博客的搭建方式，索性自己就用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，这样博客的结界面就出来了，自己动手丰衣足食，然而它只是个静态的…到编译这一环节过不去了，毕竟JS属于前端的江湖，咋整…于是找了个python脚本(这里感谢@上山打老虎的友情赞助)，动态编译产生静态文件，只需要专心的写文字就好，随后可上传到github通过域名映射直接展示。这样，我就搭建好了自己的博客，高端大气上档次，简直满意的不得了！结果是非常符合我自己的审美设计要求，内心那个开心呐，随后开始了我的博客之路。</p>
+<p>到后来接触了Hexo,它就是我上述过程的一个更为优化的方案，功能完善，扩展强大。通过Hexo的使用也发现上手很快，我几乎是在几分钟之内就搭建起了博客，这速度让我为之欢呼，所以我决定转到Hexo来写作，那么，这里就写个文章来推荐一下吧。</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><blockquote>
+<p>安装说明</p>
+</blockquote>
+<h5 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h5><ul>
+<li><p>你得有自己的域名，买域名的地方比较多，有的坑有的好，我是在godaddy上买的。</p>
+</li>
+<li><p>注册github账号，你将会免费使用到它提供的各种便利而强大的功能，免费的存储空间，下载开源项目等等。</p>
+</li>
+<li><p>安装Node.js, npm</p>
+</li>
+<li><p>安装git,生成SSH-KEY管理权限，配置域名到github关联，网上多查查</p>
+</li>
+</ul>
+<h5 id="二、安装Hexo"><a href="#二、安装Hexo" class="headerlink" title="二、安装Hexo"></a>二、安装Hexo</h5><p>1、hexo程序环境</p>
+<blockquote>
+<p>npm install -g hexo</p>
+</blockquote>
+<p>2、hexo工程</p>
+<blockquote>
+<p>$ hexo init 文件夹名称</p>
+<p>$ cd 文件夹名称</p>
+<p>$ npm install</p>
+</blockquote>
+<p>3、会得到文件夹目录</p>
+<blockquote>
+<p>├ ── _config.yml</p>
+<p>├ ── package.json</p>
+<p>├ ── scaffolds</p>
+<p>├ ── source</p>
+<p>├ ── _drafts</p>
+<p>└ ── _posts</p>
+<p>└ ── themes</p>
+</blockquote>
+<p>4、按照命令行操作，此时到这里，别管这些文件是干啥的，来，我们接着往下走。</p>
+<h5 id="三、生成第一篇文章"><a href="#三、生成第一篇文章" class="headerlink" title="三、生成第一篇文章"></a>三、生成第一篇文章</h5><p>1、创建文章</p>
+<blockquote>
+<p>hexo new 你的文章名称</p>
+</blockquote>
+<p>2、编辑你的文章</p>
+<p>上面一步在你对应的文件夹下新建了一个Markdown文件，此时需要你使用对应的语法去编写文档，不知道的可以去学习下，用语言命令号来写Word文档，该有的有，不该有的没有，简直就是最爱</p>
+<p>3、编译</p>
+<blockquote>
+<p>hexo generate</p>
+<p>hexo server</p>
+</blockquote>
+<p>此时打开你的浏览器，默认地址是（ <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a> ），你就可以看到你的文章了，就是你刚才编写的文章。  </p>
+<h5 id="四、发布到github"><a href="#四、发布到github" class="headerlink" title="四、发布到github"></a>四、发布到github</h5><p>由于前面你做好了准备工作，所以这里只需要</p>
+<blockquote>
+<p>git commit -a -m “<em>*</em>文章”</p>
+<p>git push</p>
+</blockquote>
+<p>此时打开你的浏览器，比如你买的域名是( <a href="http://baidu.com/" target="_blank" rel="external">http://baidu.com/</a> )，你打开它，和你在（ <a href="http://0.0.0.0:4000" target="_blank" rel="external">http://0.0.0.0:4000</a> ）看到的一毛一样，可以发给你的朋友看了。 </p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>对于Hexo的使用，前后只介绍了关键的几个命令，为了可以可以快速搭建，都是基础入门很方便，麻烦的到是前面的准备工作，得一步步挨着来，有不懂的可以搜索和咨询。Hexo可以更换主题，也可以参照他人的主题制作，比如本站的主题yilia就是从github上找的开源主题，作者是我科的学长，已经获得了近2000颗星，这就是开源的力量，感谢学长litten的贡献。Hexo的其他扩展功能，请直接浏览Hexo的官网学习，我这里就不做没有必要的翻译了。</p>
+<p>写作此文时候的内心OS：</p>
+<p><img src="/assets/images/aoteman.png" alt=""></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/01/28/IOS视频录制--AVFoudation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          IOS视频录制
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/06/12/再见，My Hust/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">再见，My Hust</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Hexo-个人博客使用介绍" data-title="Hexo一下，博客诞生" data-url="http://xuzichao.com/2014/11/07/Hexo-个人博客使用介绍/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"catoo-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 卡图睡不醒
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: undefined,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </div>
+</body>
+</html>
