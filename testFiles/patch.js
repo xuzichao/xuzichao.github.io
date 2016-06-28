@@ -1,6 +1,6 @@
 
 
-defineClass('TTMainViewController', {
+defineClass('TTLiveMainViewController', {
     ttLiveFakeNavigationBarEllipsisBtnClicked:function() {
         var model = self.topInfoModel;
         self.setUpShareFollowViewWithModel(model);
