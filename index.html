@@ -802,7 +802,7 @@ NSString *songName = [currentItem valueForProperty:MPMediaItemPropertyTitle];
 </code></pre></li>
 </ul>
 <h2 id="2-4-更多音频方案"><a href="#2-4-更多音频方案" class="headerlink" title="2.4 更多音频方案"></a>2.4 更多音频方案</h2><p>CoreAudio的接口层次：</p>
-<p><img src="api.png" alt=""></p>
+<p><img src="/assets/images/api.png" alt=""></p>
 <h4 id="2-4-1-OpenAL"><a href="#2-4-1-OpenAL" class="headerlink" title="2.4.1 OpenAL"></a>2.4.1 OpenAL</h4><p>OpenAL 是一个跨平台的 API。它提供了位置 (3D) 和低延迟的音频服务。它主要用于跨平台游戏的开发。它有意地模仿了 OpenGL 中 API 的风格。</p>
 <h4 id="2-4-2-Audio-Unit-框架"><a href="#2-4-2-Audio-Unit-框架" class="headerlink" title="2.4.2  Audio Unit 框架"></a>2.4.2  Audio Unit 框架</h4><p>Audio Unit 框架是一个底层的 API；所有 iOS 中的音频技术都构建在 Audio Unit 这个框架之上。音频单元是用来加工音频数据的插件。一个音频单元链叫做音频处理图。</p>
 <p>如果你需要非常低的延迟 (如 VoIP 或合成乐器)、回声消除、混音或者音调均衡的话，你可能需要直接使用音频单元，或者自己写一个音频单元。但是其中的大部分工作可以使用 AVAudioEngine 的 API 来完成。如果你不得不写自己的音频单元的话，你可以将它们与 AVAudioUnit 节点一起集成在 AVAudioEngine 处理图中。</p>

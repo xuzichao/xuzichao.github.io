@@ -17,15 +17,15 @@
 前言：做嘉宾聊天室这个需求的时候接触了音频和视频上的开发，嘉宾可以发布视频和语音以及文字信息出来，观众则可以文字回复，这样主持人嘉宾和观众就形成一个良性的互动过程。在这里把相关整理一下，望给大家带来一些认识。
 
 一、了解音频声音作为信息的一种媒介载体必不可少，在移动端体现为各类语音交流以及音乐等，开发中使用的音频文件通过声音采样、量化、编码几步从而成为人耳可听的声音，频率为20H">
-<meta property="og:image" content="http://xuzichao.com/api.png">
-<meta property="og:updated_time" content="2016-10-24T10:45:20.000Z">
+<meta property="og:image" content="http://xuzichao.com/assets/images/api.png">
+<meta property="og:updated_time" content="2016-10-24T10:51:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOS 音频一览">
 <meta name="twitter:description" content="IOS 音频一览
 前言：做嘉宾聊天室这个需求的时候接触了音频和视频上的开发，嘉宾可以发布视频和语音以及文字信息出来，观众则可以文字回复，这样主持人嘉宾和观众就形成一个良性的互动过程。在这里把相关整理一下，望给大家带来一些认识。
 
 一、了解音频声音作为信息的一种媒介载体必不可少，在移动端体现为各类语音交流以及音乐等，开发中使用的音频文件通过声音采样、量化、编码几步从而成为人耳可听的声音，频率为20H">
-<meta name="twitter:image" content="http://xuzichao.com/api.png">
+<meta name="twitter:image" content="http://xuzichao.com/assets/images/api.png">
   
     <link rel="alternative" href="/atom.xml" title="徐子超的博客" type="application/atom+xml">
   
@@ -317,7 +317,7 @@ NSString *songName = [currentItem valueForProperty:MPMediaItemPropertyTitle];
 </code></pre></li>
 </ul>
 <h2 id="2-4-更多音频方案"><a href="#2-4-更多音频方案" class="headerlink" title="2.4 更多音频方案"></a>2.4 更多音频方案</h2><p>CoreAudio的接口层次：</p>
-<p><img src="api.png" alt=""></p>
+<p><img src="/assets/images/api.png" alt=""></p>
 <h4 id="2-4-1-OpenAL"><a href="#2-4-1-OpenAL" class="headerlink" title="2.4.1 OpenAL"></a>2.4.1 OpenAL</h4><p>OpenAL 是一个跨平台的 API。它提供了位置 (3D) 和低延迟的音频服务。它主要用于跨平台游戏的开发。它有意地模仿了 OpenGL 中 API 的风格。</p>
 <h4 id="2-4-2-Audio-Unit-框架"><a href="#2-4-2-Audio-Unit-框架" class="headerlink" title="2.4.2  Audio Unit 框架"></a>2.4.2  Audio Unit 框架</h4><p>Audio Unit 框架是一个底层的 API；所有 iOS 中的音频技术都构建在 Audio Unit 这个框架之上。音频单元是用来加工音频数据的插件。一个音频单元链叫做音频处理图。</p>
 <p>如果你需要非常低的延迟 (如 VoIP 或合成乐器)、回声消除、混音或者音调均衡的话，你可能需要直接使用音频单元，或者自己写一个音频单元。但是其中的大部分工作可以使用 AVAudioEngine 的 API 来完成。如果你不得不写自己的音频单元的话，你可以将它们与 AVAudioUnit 节点一起集成在 AVAudioEngine 处理图中。</p>
