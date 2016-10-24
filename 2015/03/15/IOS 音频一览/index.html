@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>IOS 音频一览 | 徐子超的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="IOS 音频一览
+前言：做嘉宾聊天室这个需求的时候接触了音频和视频上的开发，嘉宾可以发布视频和语音以及文字信息出来，观众则可以文字回复，这样主持人嘉宾和观众就形成一个良性的互动过程。在这里把相关整理一下，望给大家带来一些认识。
+
+一、了解音频声音作为信息的一种媒介载体必不可少，在移动端体现为各类语音交流以及音乐等，开发中使用的音频文件通过声音采样、量化、编码几步从而成为人耳可听的声音，频率为20H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOS 音频一览">
+<meta property="og:url" content="http://xuzichao.com/2015/03/15/IOS 音频一览/index.html">
+<meta property="og:site_name" content="徐子超的博客">
+<meta property="og:description" content="IOS 音频一览
+前言：做嘉宾聊天室这个需求的时候接触了音频和视频上的开发，嘉宾可以发布视频和语音以及文字信息出来，观众则可以文字回复，这样主持人嘉宾和观众就形成一个良性的互动过程。在这里把相关整理一下，望给大家带来一些认识。
+
+一、了解音频声音作为信息的一种媒介载体必不可少，在移动端体现为各类语音交流以及音乐等，开发中使用的音频文件通过声音采样、量化、编码几步从而成为人耳可听的声音，频率为20H">
+<meta property="og:image" content="http://xuzichao.com/api.png">
+<meta property="og:updated_time" content="2016-10-24T10:45:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOS 音频一览">
+<meta name="twitter:description" content="IOS 音频一览
+前言：做嘉宾聊天室这个需求的时候接触了音频和视频上的开发，嘉宾可以发布视频和语音以及文字信息出来，观众则可以文字回复，这样主持人嘉宾和观众就形成一个良性的互动过程。在这里把相关整理一下，望给大家带来一些认识。
+
+一、了解音频声音作为信息的一种媒介载体必不可少，在移动端体现为各类语音交流以及音乐等，开发中使用的音频文件通过声音采样、量化、编码几步从而成为人耳可听的声音，频率为20H">
+<meta name="twitter:image" content="http://xuzichao.com/api.png">
+  
+    <link rel="alternative" href="/atom.xml" title="徐子超的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/photo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b8e8ee87e4708173f00d9048c309301";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/photo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">卡图睡不醒</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">程先生，你好。客气，叫我序员吧。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="weibo" target="_blank" href="http://weibo.com/2356167600/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/zichao.xu.5" title="facebook">facebook</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/时光相册/" style="font-size: 15px;">时光相册</a> <a href="/tags/程序开发/" style="font-size: 20px;">程序开发</a> <a href="/tags/随笔小结/" style="font-size: 10px;">随笔小结</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">IOS开发,毕业于华中科技大学,今日头条在职</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">卡图睡不醒</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/assets/photo.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">卡图睡不醒</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">程先生，你好。客气，叫我序员吧。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="weibo" target="_blank" href="http://weibo.com/2356167600/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/zichao.xu.5" title="facebook">facebook</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-IOS 音频一览" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/03/15/IOS 音频一览/" class="article-date">
+  	<time datetime="2015-03-15T04:34:11.000Z" itemprop="datePublished">Mar 15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      IOS 音频一览
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序开发/">程序开发</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="IOS-音频一览"><a href="#IOS-音频一览" class="headerlink" title="IOS 音频一览"></a>IOS 音频一览</h4><blockquote>
+<p>前言：<br>做嘉宾聊天室这个需求的时候接触了音频和视频上的开发，嘉宾可以发布视频和语音以及文字信息出来，观众则可以文字回复，这样主持人嘉宾和观众就形成一个良性的互动过程。在这里把相关整理一下，望给大家带来一些认识。</p>
+</blockquote>
+<h1 id="一、了解音频"><a href="#一、了解音频" class="headerlink" title="一、了解音频"></a>一、了解音频</h1><p>声音作为信息的一种媒介载体必不可少，在移动端体现为各类语音交流以及音乐等，开发中使用的音频文件通过声音采样、量化、编码几步从而成为人耳可听的声音，频率为20HZ到20KHZ，奈奎斯特的理论表明采样率高于最高频2倍时候，是可以将数字信号还原为原来的模拟信号的，所以通常我们在网上看到的音频文件的采样率为44.1KHZ。</p>
+<p>采样后通过量化的脉冲编码调制，我们得到了PCM类型的数据，比如在使用AVAudioRecorder采样的时候可以看到采样类型kAudioFormatLinearPCM。但是这样拿到的数据是很大的，不便于使用和传输，通过对人类不敏感的声音区域进行过滤压缩，就有了MP3、AAC、OGG、WMA等数据格式类型，这些都是有损压缩。</p>
+<p>码率代码了压缩质量，比如MP3常用码率有128kbit/s、160kbit/s、320kbit/s等等，越高代表着声音音质越好。MP3中的数据有ID3和音频数据组成，ID3用于存储歌名、演唱者、专辑、音轨等我们可以常见的信息。</p>
+<h1 id="二、IOS对音频的操作"><a href="#二、IOS对音频的操作" class="headerlink" title="二、IOS对音频的操作"></a>二、IOS对音频的操作</h1><p>开发实际上是为了解决需求，需求对应的是使用场景，开发的方式很多，不同的使用场景可以使用的方法不同。IOS开发提供了以下几种常用方式供我们解决对应的音频需求。</p>
+<ul>
+<li>System Sound Services </li>
+<li>AVFoundation 框架</li>
+<li>Media Player 框架</li>
+</ul>
+<h2 id="2-1-System-Sound-Services"><a href="#2-1-System-Sound-Services" class="headerlink" title="2.1  System Sound Services"></a>2.1  System Sound Services</h2><h4 id="2-1-1-场景特点"><a href="#2-1-1-场景特点" class="headerlink" title="2.1.1 场景特点"></a>2.1.1 场景特点</h4><p>最底层也是简单的声音播放服务，此方法是适合播放提示警告类型的短小的声音</p>
+<h4 id="2-1-2-存在限制"><a href="#2-1-2-存在限制" class="headerlink" title="2.1.2 存在限制"></a>2.1.2 存在限制</h4><ul>
+<li>声音长度要小于 30 秒</li>
+<li>In linear PCM 或者 IMA4 (IMA/ADPCM) 格式的</li>
+<li>打包成 .caf, .aif, 或者 .wav 的文件</li>
+<li>不能控制播放的进度</li>
+<li>调用方法后立即播放声音</li>
+<li>没有循环播放和立体声控制：</li>
+</ul>
+<h4 id="2-1-3-使用方式"><a href="#2-1-3-使用方式" class="headerlink" title="2.1.3 使用方式"></a>2.1.3 使用方式</h4><p>调用 AudioServicesCreateSystemSoundID(CFURLRef inFileURL,SystemSoundID *outSystemSoundID) 该函数的第一个参数代表音频文件的URL（可通过NSURL转换成CFURLRef），第二个参数代表注册音频文件的SystemSoundID。</p>
+<p>调用AudioServicesAddSystemSoundCompletion()函数为制定SystemSoundID注册Callback函数。有了 CallBack 函数我们可以解决不少问题，比如可以克服 System Sound Services 本身不支持循环播放的问题。</p>
+<p>调用AudioServicePlaySystemSound函数或者AudioServicePlayAlertSound（调用系统振动功能）。</p>
+<pre><code>- (void)viewDidLoad
+{
+[super viewDidLoad];
+
+// 1. 定义要播放的音频文件的URL
+NSURL *voiceURL = [[NSBundle mainBundle]URLForResource:@&quot;CleanDidFinish&quot; withExtension:@&quot;aiff&quot;];
+
+// 2. 注册音频文件（第一个参数是音频文件的URL 第二个参数是音频文件的SystemSoundID）
+AudioServicesCreateSystemSoundID((__bridge CFURLRef)(voiceURL),&amp;ditaVoice);
+
+// 3. 为crash播放完成绑定回调函数AudioServicesAddSystemSoundCompletion(ditaVoice,NULL,NULL,(void*)completionCallback,NULL);
+
+// 4. 播放 ditaVoice 注册的音频 并控制手机震动
+AudioServicesPlayAlertSound(ditaVoice);
+
+//    AudioServicesPlaySystemSound(ditaVoice);
+//    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); // 控制手机振动
+
+}
+</code></pre><h2 id="2-2-AVFoundation-框架"><a href="#2-2-AVFoundation-框架" class="headerlink" title="2.2  AVFoundation 框架"></a>2.2  AVFoundation 框架</h2><h4 id="2-2-1-场景特点"><a href="#2-2-1-场景特点" class="headerlink" title="2.2.1 场景特点"></a>2.2.1 场景特点</h4><p>如果播放较大的音频或者要对音频有精确的控制，则System Sound Service可能就很难满足实际需求了，通常这种情况会选择使用AVFoundation，它可以满足我们通常意义上的绝大部分的场景需求，包括音乐的交互、声音的制作等等，根据自己的业务需求实现自定义的定制化。如果你只是想实现音频的播放或者录制，没有其他需求，AVFoundation会很好的满足你，它的接口使用简单、不用关心其中的细节。</p>
+<h4 id="2-2-2-关键点和API浏览"><a href="#2-2-2-关键点和API浏览" class="headerlink" title="2.2.2 关键点和API浏览"></a>2.2.2 关键点和API浏览</h4><blockquote>
+<p>Background Modes</p>
+</blockquote>
+<p>打开后台模式的音乐播放，或者在info.plist文件中添加Required Background Modes键，其值是App plays audio or streams audio/video using AirPlay</p>
+<blockquote>
+<p>AVAudioSession</p>
+</blockquote>
+<p>用于 iOS 系统中协调应用程序之间的音频播放的 API 的。例如，当有电话打进来时，音频的播放就会被暂停；在用户启动电影时，音乐的播放就会停止。我们需要使用这些 API 来确保一个应用程序能够正确响应并处理这类事件。</p>
+<blockquote>
+<p>AVAudioPlayer</p>
+</blockquote>
+<p>这个高层级的 API 为你提供一个简单的接口，用来播放本地或者内存中的音频。这是一个无界面的音频播放器 (也就是说没有提供 UI 元素)，使用起来也很直接简单。它不适用于网络音频流或者低延迟的实时音频播放。如果这些问题都不需要担心，那么 AVAudioPlayer 可能就是正确的选择。音频播放器的 API 也为我们带来了一些额外的功能，比如循环播放、获取音频的音量强度等等。</p>
+<blockquote>
+<p>AVAudioRecorder</p>
+</blockquote>
+<p>作为与 AVAudioPlayer 相对应的 API，AVAudioRecorder 是将音频录制为文件的最简单的方法。除了用一个音量计接受音量的峰值和平均值以外，这个 API 简单粗暴，但要是你的使用场景很简单的话，这可能恰恰就是你想要的方法。</p>
+<blockquote>
+<p>AVPlayer</p>
+</blockquote>
+<p>AVPlayer 与上面提到的 API 相比，提供了更多的灵活性和可控性。它基于 AVPlayerItem 和 AVAsset，为你提供了颗粒度更细的权限来获取资源，比如选择指定的音轨。它还通过 AVQueuePlayer 子类支持播放列表，而且你可以控制这些资源是否能够通过 AirPlay 发送。</p>
+<h4 id="与-AVAudioPlayer-最主要的区别是，AVPlayer-对来自网络的流媒体资源的-“开箱即用”-支持。这增加了处理播放状态的复杂性，但是你可以使用-KVO-来观测所有的状态参数来解决这个问题。"><a href="#与-AVAudioPlayer-最主要的区别是，AVPlayer-对来自网络的流媒体资源的-“开箱即用”-支持。这增加了处理播放状态的复杂性，但是你可以使用-KVO-来观测所有的状态参数来解决这个问题。" class="headerlink" title="与 AVAudioPlayer 最主要的区别是，AVPlayer 对来自网络的流媒体资源的 “开箱即用” 支持。这增加了处理播放状态的复杂性，但是你可以使用 KVO 来观测所有的状态参数来解决这个问题。"></a>与 AVAudioPlayer 最主要的区别是，AVPlayer 对来自网络的流媒体资源的 “开箱即用” 支持。这增加了处理播放状态的复杂性，但是你可以使用 KVO 来观测所有的状态参数来解决这个问题。</h4><blockquote>
+<p> AVAudioEngine</p>
+</blockquote>
+<p>AVAudioEngine 是播放和录制的 Objective-C 接口。它提供了以前需要深入到 Audio Toolbox 框架的 C API 才能做的控制 (例如一些实时音频任务)。该音频引擎 API 对底层的 API 建立了优秀的接口。如果你不得不处理底层的问题，你仍然可以使用 Audio Toolbox 框架。</p>
+<p>这个 API 的基本概念是建立一个音频的节点图，从源节点 (播放器和麦克风) 以及过处理 (overprocessing) 节点 (混音器和效果器) 到目标节点 (硬件输出)。每一个节点都具有一定数量的输入和输出总线，同时这些总线也有良好定义的数据格式。这种结构使得它非常的灵活和强大。而且它集成了音频单元 (audio unit)。</p>
+<h2 id="2-3-Media-Player-框架"><a href="#2-3-Media-Player-框架" class="headerlink" title="2.3 Media Player 框架"></a>2.3 Media Player 框架</h2><h4 id="2-3-1-场景特点"><a href="#2-3-1-场景特点" class="headerlink" title="2.3.1 场景特点"></a>2.3.1 场景特点</h4><p>众所周知音乐是iOS的重要组成播放，无论是iPod、iTouch、iPhone还是iPad都可以在iTunes购买音乐或添加本地音乐到音乐库中同步到你的iOS设备。在MediaPlayer.frameowork中有一个MPMusicPlayerController用于播放音乐库中的音乐。Media Player 框架是 iOS 平台上一个用于音频和视频播放的高层级接口，它包含了一个你可以在应用中直接使用的默认的用户界面。你可以使用它来播放用户在 iPod 库中的项目，或者播放本地文件以及网络流。这个框架也包括了查找用户媒体库中内容的 API，同时还可以配置像是在锁屏界面或者控制中心里的音频控件。</p>
+<h4 id="2-3-2-使用方式"><a href="#2-3-2-使用方式" class="headerlink" title="2.3.2 使用方式"></a>2.3.2 使用方式</h4><p>使用MPMusicPlayerController实例化对象来播放内置音乐库的媒体文件，有以下两种类方法来实例化对象：</p>
+<p>MPMusicPlayerController *playController = [MPMusicPlayerController systemMusicPlayer]; </p>
+<p>说明：播放内置媒体库项目取代用户目前播放状态（如果是用网易云音乐或QQQ音乐在播放歌曲）</p>
+<p>MPMusicPlayerController *playController = [MPMusicPlayerController applicationMusicPlayer]; </p>
+<p>说明：播放该应用内的歌曲，不影响本机自带音乐播放器的状态。</p>
+<ul>
+<li><p>判断有没有正在播放的媒体</p>
+<pre><code>[MPMusicPlayerController indexOfNowPlayingItem] == NSNotFound
+</code></pre></li>
+<li><p>创建媒体队列</p>
+<pre><code>[MPMediaQuery songsQuery];
+[MPMusicPlayerController setQueueWithQuery:nil];
+</code></pre></li>
+<li><p>获取媒体曲目的信息</p>
+</li>
+</ul>
+<pre><code>MPMediaItem *currentItem = ....
+NSString *artist = [currentItem valueForProperty:MPMediaItemPropertyArtist];
+NSString *songName = [currentItem valueForProperty:MPMediaItemPropertyTitle];
+</code></pre><ul>
+<li><p>监听媒体通知</p>
+<pre><code>NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];[notificationCenter addObserver:self
+              selector:@selector()
+                       name:MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+                     object:nil];
+</code></pre></li>
+</ul>
+<h2 id="2-4-更多音频方案"><a href="#2-4-更多音频方案" class="headerlink" title="2.4 更多音频方案"></a>2.4 更多音频方案</h2><p>CoreAudio的接口层次：</p>
+<p><img src="api.png" alt=""></p>
+<h4 id="2-4-1-OpenAL"><a href="#2-4-1-OpenAL" class="headerlink" title="2.4.1 OpenAL"></a>2.4.1 OpenAL</h4><p>OpenAL 是一个跨平台的 API。它提供了位置 (3D) 和低延迟的音频服务。它主要用于跨平台游戏的开发。它有意地模仿了 OpenGL 中 API 的风格。</p>
+<h4 id="2-4-2-Audio-Unit-框架"><a href="#2-4-2-Audio-Unit-框架" class="headerlink" title="2.4.2  Audio Unit 框架"></a>2.4.2  Audio Unit 框架</h4><p>Audio Unit 框架是一个底层的 API；所有 iOS 中的音频技术都构建在 Audio Unit 这个框架之上。音频单元是用来加工音频数据的插件。一个音频单元链叫做音频处理图。</p>
+<p>如果你需要非常低的延迟 (如 VoIP 或合成乐器)、回声消除、混音或者音调均衡的话，你可能需要直接使用音频单元，或者自己写一个音频单元。但是其中的大部分工作可以使用 AVAudioEngine 的 API 来完成。如果你不得不写自己的音频单元的话，你可以将它们与 AVAudioUnit 节点一起集成在 AVAudioEngine 处理图中。</p>
+<h4 id="2-4-2-AudioToolBox-框架"><a href="#2-4-2-AudioToolBox-框架" class="headerlink" title="2.4.2 AudioToolBox 框架"></a>2.4.2 AudioToolBox 框架</h4><p>通过AudioToolbox框架，可以将短声音注册到system sound服务上，被注册到system sound服务上的声音称之为 system sounds。<br>前面常用的System Sound Services 就来自这里的框架。</p>
+<p>它必须满足下面几个条件：</p>
+<p>(1).播放的时间不能超过30秒</p>
+<p>(2).数据必须是 PCM或者IMA4流格式</p>
+<p>(3).必须被打包成下面三个格式之一：Core Audio Format (.caf), Waveform audio (.wav), 或者 Audio Interchange File (.aiff)</p>
+<p>(4）声音文件必须放到设备的本地文件夹下面。通过AudioServicesCreateSystemSoundID方法注册这个声音文件.</p>
+<h4 id="2-4-3-CoreMIDI-和-CoreAudioKit-框架"><a href="#2-4-3-CoreMIDI-和-CoreAudioKit-框架" class="headerlink" title="2.4.3 CoreMIDI 和 CoreAudioKit 框架"></a>2.4.3 CoreMIDI 和 CoreAudioKit 框架</h4><p>在 iOS 上，Core MIDI 和 CoreAudioKit 可以被用来使应用程序表现为 MIDI 设备。在 OS X 上，Music Sequencing 服务提供了基于 MIDI 的控制和对音乐数据访问的权限。Core MIDI 服务为服务器和驱动程序提供了支持。</p>
+<h4 id="2-4-4-QTKit-和-QuickTime-框架"><a href="#2-4-4-QTKit-和-QuickTime-框架" class="headerlink" title="2.4.4 QTKit 和 QuickTime 框架"></a>2.4.4 QTKit 和 QuickTime 框架</h4><p>现在已经过时了，它们不应该被用在以后的开发中。我们应该使用 AVFoundation (和 AVKit) 来代替它们</p>
+<h1 id="三、今日头条嘉宾聊天室音频实践"><a href="#三、今日头条嘉宾聊天室音频实践" class="headerlink" title="三、今日头条嘉宾聊天室音频实践"></a>三、今日头条嘉宾聊天室音频实践</h1><h2 id="3-1-背景"><a href="#3-1-背景" class="headerlink" title="3.1 背景"></a>3.1 背景</h2><p>嘉宾聊天室是头条16年初新起的一个项目服务，目标是为了引进明星嘉宾访谈类型和体育赛事线上直播的节目，丰富头条在直播领域的内容，聊天室一期是属于图文、语音、短视频直播，后期发展可成为视频线上直播。表现形式与网易直播频道类似，但更丰富。</p>
+<h2 id="3-2-IOS端实现"><a href="#3-2-IOS端实现" class="headerlink" title="3.2 IOS端实现"></a>3.2 IOS端实现</h2><p>根据聊天室在语音和视频的需求，使用系统自带实现的MPMoviePlayerController没法符合自定义的需求，包括功能与交互设计，并且MPMoviePlayerController已经不被苹果官方提倡，将要通过AVPlayer方案代替。需求本身的属于基本的语音和视频沟通，只对音频视频的录制与播放，符合音质画质要求和大小要求，因此采用AVFoundation框架即可，能够满足聊天室的需求。主要使用了AVPlayer、AVAudioRecorder、AVAudioSession等主要的类。</p>
+<p>实现类有如下等：</p>
+<pre><code>#import &quot;TTAudioRecorder.h&quot;
+#import &quot;TTAudioPlayer.h&quot;
+#import &quot;TTLiveCameraViewController.h&quot;
+#import &quot;TTUploadVideoAudioManager.h&quot;
+#import &quot;TTLiveAudioManager.h&quot;
+</code></pre><h2 id="3-3-问题与解决"><a href="#3-3-问题与解决" class="headerlink" title="3.3 问题与解决"></a>3.3 问题与解决</h2><p>整个需求的实现过程还算顺利，按照API说明理解即可，提两三点说明下都会遇见哪一类的问题。</p>
+<h4 id="3-1-音频格式为AMR"><a href="#3-1-音频格式为AMR" class="headerlink" title="3.1 音频格式为AMR"></a>3.1 音频格式为AMR</h4><p>AVPlayer来播放视频音频都相当强大，但是它也存在着一些不可回避的问题，那就是目前IOS已经不再支持AMR格式的播放。</p>
+<pre><code>AMR format is no longer supported by Apple (since iOS 4.3)
+</code></pre><p>与安卓同步开发的时候对接确立的通用的格式为AMR，因为AAC文件在网络传输下载播放的时候显得很大，AMR相对来说会好很多，同时我们也看了微博和微信的实现都是使用AMR，鉴于头条的用户量和使用体验，于是就采用了同样的方式。安卓可以很好支持AMR，在iOS平台上需要进行WAV和AMR之间的转换，好在libopencore可以解决这个事。网络上有好些所谓的相互转化的库，仔细看了下，都没有脱离这个core本身。</p>
+<p>libopencore库：</p>
+<pre><code>interf_dec.h 
+interf_enc.h
+dec_if.h
+if_rom.h
+libopencore-amrnb.a
+libopencore-amrwb.a
+</code></pre><p>主要方法：</p>
+<pre><code>EncodeWAVEFileToAMRFile 、 DecodeAMRFileToWAVEFile
+</code></pre><p>封装一个mannager：        </p>
+<pre><code>#import &lt;Foundation/Foundation.h&gt;
+
+@interface VoiceConverter : NSObject
+
++ (int)amrToWav:(NSString*)_amrPath wavSavePath:(NSString*)_savePath;
+
++ (int)wavToAmr:(NSString*)_wavPath amrSavePath:(NSString*)_savePath;
+
+@end
+</code></pre><h4 id="3-2-WAV转化AMR声音变形："><a href="#3-2-WAV转化AMR声音变形：" class="headerlink" title="3.2 WAV转化AMR声音变形："></a>3.2 WAV转化AMR声音变形：</h4><p>录制WAV格式本地正常播放，转化为AMR后，把AMR格式文件在电脑端播放，声音严重变形，无法识别，再转化会WAV,，手机还是无法识别。<br>原因与解决<br>声音格式转化采用的是”amrFileCodec.h”，它对转化的音频输入源是有格式要求的，要求转化的采样率为标准的8k，如果录制的音频频率采用高频率44.1K的话就会出现变形，我想这里的设定依据来自于amr格式的采样率通常为8K。通过AVAudioRecorder把采样率设置为8K后，可以正常互相转化。</p>
+<blockquote>
+<p>AMR维基百科：</p>
+<p>采样率 8 kHz/13-bit (160 采样点每20ms)，滤波后只保留 200-3400 Hz 范围内的信号.</p>
+<p>编码器使用8个位速：12.2、10.2、7.95、7.40、6.70、5.90、5.15和4.75 kbit/s.</p>
+</blockquote>
+<pre><code>NSMutableDictionary *settings=[NSMutableDictionary dictionary];
+[settings setObject:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
+[settings setObject:@(8000) forKey:AVSampleRateKey]; //必须和amr文件解码参数保持一致
+[settings setObject:@(1) forKey:AVNumberOfChannelsKey];
+[settings setObject:@(16) forKey:AVLinearPCMBitDepthKey];
+[settings setObject:@(NO) forKey:AVLinearPCMIsFloatKey];
+[settings setValue:@(NO) forKey:AVLinearPCMIsNonInterleaved];
+[settings setValue:@(NO) forKey:AVLinearPCMIsBigEndianKey];
+[settings setValue:@(AVAudioQualityHigh) forKey:AVEncoderAudioQualityKey];
+AVAudioRecorder *recorderTemp = [[AVAudioRecorder alloc] initWithURL:fileUrl settings:settings error:nil];
+</code></pre><h4 id="3-3-AVPlayer的准备状态"><a href="#3-3-AVPlayer的准备状态" class="headerlink" title="3.3 AVPlayer的准备状态"></a>3.3 AVPlayer的准备状态</h4><p>当AVPlayer的status变为AVPlayerStatusReadyToPlay后，依旧可能无法开始播放？</p>
+<p>AVPlayerStatusReadyToPlay属性只是表明了AVPlayer已经成功的载入了AVPlayerItem，并且准备好，但是实际的是否能播放时由AVPlayerItem的status到达AVPlayerItemStatusReadyToPlay的时候，才能开始正常播放的。<br>如果我们的App使用CPU过多，I/O读写过多时，有可能导致直接无法播放，我们再调用play或者seekToTime:方法都无法正常播放，尤其是视频。所以我们需要做一个真正播放状态准备好的判断，也可以通过KVO去监听AVPlayerItem的status。</p>
+<pre><code>//播放器是否准备好
+if (self.videoPrePlayer.status == AVPlayerStatusReadyToPlay) 
+{
+    //视频是否加载成功
+    if(self.videoPrePlayer.currentItem.status == AVPlayerItemStatusFailed){   
+        return;
+    }
+        [self.videoPrePlayer play];
+
+}
+</code></pre><h1 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h1><p>文章主要对音频的使用范畴做了概括，并列举了两三实践点，其他的并没有做详细的论述，因为本篇比较偏向音频知识的介绍，知道用什么工具框架后再具体解决就好。比如如何播放流畅的网络音频，如何实现音频的快放与慢放等具体问题，此次需求内容并不复杂没有涉及，他们都可以通过 AudioToolBox框架实现。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/12/2016高考毕业生本科专业选择推荐/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          2016高考毕业生本科专业选择推荐
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/01/28/IOS视频录制--AVFoudation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">IOS视频录制</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="IOS 音频一览" data-title="IOS 音频一览" data-url="http://xuzichao.com/2015/03/15/IOS 音频一览/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"catoo-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 卡图睡不醒
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: undefined,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </div>
+</body>
+</html>

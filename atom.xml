@@ -491,96 +491,188 @@
   </entry>
   
   <entry>
-    <title>IOS音频录制</title>
-    <link href="http://xuzichao.com/2015/02/01/IOS%E9%9F%B3%E9%A2%91%E5%BD%95%E5%88%B6%20---%20AVFoundation/"/>
-    <id>http://xuzichao.com/2015/02/01/IOS音频录制 --- AVFoundation/</id>
-    <published>2015-02-01T11:09:59.000Z</published>
-    <updated>2016-06-07T13:00:21.000Z</updated>
+    <title>IOS 音频一览</title>
+    <link href="http://xuzichao.com/2015/03/15/IOS%20%E9%9F%B3%E9%A2%91%E4%B8%80%E8%A7%88/"/>
+    <id>http://xuzichao.com/2015/03/15/IOS 音频一览/</id>
+    <published>2015-03-15T04:34:11.000Z</published>
+    <updated>2016-10-24T10:45:20.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;IOS-音频录制-—-AVFoundation&quot;&gt;&lt;a href=&quot;#IOS-音频录制-—-AVFoundation&quot; class=&quot;headerlink&quot; title=&quot;IOS 音频录制 — AVFoundation&quot;&gt;&lt;/a&gt;IOS 音频录制 — AVFoundation&lt;/h2&gt;&lt;p&gt;我们已经讲解了视频的录制所需要使用的一些API以及方式方法，都是建立在AVFoundation框架基础上，这次我们继续讲解此框架基础上的音频录制。一般场景有录制语音并播放；当静音开关被关闭的时候，音频怎么播放；当闹钟和手机电话响起的时候，音频播放做什么样的处理等等，整个交互都将使用到 AVAudioSession ，打通音频硬件设备到软件数据流的关键。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/aspg_intro_2x.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;一、概念引导&quot;&gt;&lt;a href=&quot;#一、概念引导&quot; class=&quot;headerlink&quot; title=&quot;一、概念引导&quot;&gt;&lt;/a&gt;一、概念引导&lt;/h2&gt;&lt;h3 id=&quot;1、创建Audio-Session&quot;&gt;&lt;a href=&quot;#1、创建Audio-Session&quot; class=&quot;headerlink&quot; title=&quot;1、创建Audio Session&quot;&gt;&lt;/a&gt;1、创建Audio Session&lt;/h3&gt;&lt;p&gt;当你的APP启动之后，你就获得了一个单利的session,通过它你可以决定音乐上的各种使用场景，可以配置音频录制的参数，直接连接音频硬件。&lt;/p&gt;
-&lt;p&gt;1) 默认行为 （AVAudioSessionCategorySoloAmbient）&lt;/p&gt;
-&lt;p&gt;可以回放，关闭录制，静音键关闭则音量播放关闭，锁屏时候音量关闭，当其他音量想起，你的播放直接关闭。&lt;/p&gt;
-&lt;p&gt;当你开始录制的时候，你的session在运行，结束后你可以关闭，能够自己忽略的播放系统运行api的有&lt;system sound=&quot;&quot; services=&quot;&quot; reference=&quot;&quot;&gt;和&lt;audio ui=&quot;&quot; sounds=&quot;&quot;&gt;。&lt;/audio&gt;&lt;/system&gt;&lt;/p&gt;
-&lt;p&gt;2) 合并行为AVCaptureSession&lt;/p&gt;
-&lt;p&gt;AVCaptureSession AVCaptureDevice在录制视频的时候也是一起录制了音频的，这是因为AVCaptureSession会默认的配置AVAudioSession，我们可以通过设置automaticallyConfiguresApplicationAudioSession为NO，然后自己去配置AVAudioSession。&lt;/p&gt;
-&lt;p&gt;3）MPVolumeView&lt;/p&gt;
-&lt;p&gt;为用户显示一个滑块控件设置系统音频输出音量和一个按钮选择音频输出路线。当第一次显示,滑块的位置反映了当前系统音频输出音量，当用户拖动滑块,体积变化更新，如果用户按下设备播放时,声音音量按钮滑块移动到反映新的体积。&lt;/p&gt;
-&lt;p&gt;4）一般方法举例：&lt;/p&gt;
+    <content type="html">&lt;h4 id=&quot;IOS-音频一览&quot;&gt;&lt;a href=&quot;#IOS-音频一览&quot; class=&quot;headerlink&quot; title=&quot;IOS 音频一览&quot;&gt;&lt;/a&gt;IOS 音频一览&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;前言：&lt;br&gt;做嘉宾聊天室这个需求的时候接触了音频和视频上的开发，嘉宾可以发布视频和语音以及文字信息出来，观众则可以文字回复，这样主持人嘉宾和观众就形成一个良性的互动过程。在这里把相关整理一下，望给大家带来一些认识。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;一、了解音频&quot;&gt;&lt;a href=&quot;#一、了解音频&quot; class=&quot;headerlink&quot; title=&quot;一、了解音频&quot;&gt;&lt;/a&gt;一、了解音频&lt;/h1&gt;&lt;p&gt;声音作为信息的一种媒介载体必不可少，在移动端体现为各类语音交流以及音乐等，开发中使用的音频文件通过声音采样、量化、编码几步从而成为人耳可听的声音，频率为20HZ到20KHZ，奈奎斯特的理论表明采样率高于最高频2倍时候，是可以将数字信号还原为原来的模拟信号的，所以通常我们在网上看到的音频文件的采样率为44.1KHZ。&lt;/p&gt;
+&lt;p&gt;采样后通过量化的脉冲编码调制，我们得到了PCM类型的数据，比如在使用AVAudioRecorder采样的时候可以看到采样类型kAudioFormatLinearPCM。但是这样拿到的数据是很大的，不便于使用和传输，通过对人类不敏感的声音区域进行过滤压缩，就有了MP3、AAC、OGG、WMA等数据格式类型，这些都是有损压缩。&lt;/p&gt;
+&lt;p&gt;码率代码了压缩质量，比如MP3常用码率有128kbit/s、160kbit/s、320kbit/s等等，越高代表着声音音质越好。MP3中的数据有ID3和音频数据组成，ID3用于存储歌名、演唱者、专辑、音轨等我们可以常见的信息。&lt;/p&gt;
+&lt;h1 id=&quot;二、IOS对音频的操作&quot;&gt;&lt;a href=&quot;#二、IOS对音频的操作&quot; class=&quot;headerlink&quot; title=&quot;二、IOS对音频的操作&quot;&gt;&lt;/a&gt;二、IOS对音频的操作&lt;/h1&gt;&lt;p&gt;开发实际上是为了解决需求，需求对应的是使用场景，开发的方式很多，不同的使用场景可以使用的方法不同。IOS开发提供了以下几种常用方式供我们解决对应的音频需求。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;sharedInstance&lt;/li&gt;
+&lt;li&gt;System Sound Services &lt;/li&gt;
+&lt;li&gt;AVFoundation 框架&lt;/li&gt;
+&lt;li&gt;Media Player 框架&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;otherAudioPlaying&lt;/li&gt;
-&lt;li&gt;requestRecordPermission&lt;/li&gt;
-&lt;li&gt;availableCategories&lt;/li&gt;
-&lt;li&gt;setActive:error:&lt;/li&gt;
+&lt;h2 id=&quot;2-1-System-Sound-Services&quot;&gt;&lt;a href=&quot;#2-1-System-Sound-Services&quot; class=&quot;headerlink&quot; title=&quot;2.1  System Sound Services&quot;&gt;&lt;/a&gt;2.1  System Sound Services&lt;/h2&gt;&lt;h4 id=&quot;2-1-1-场景特点&quot;&gt;&lt;a href=&quot;#2-1-1-场景特点&quot; class=&quot;headerlink&quot; title=&quot;2.1.1 场景特点&quot;&gt;&lt;/a&gt;2.1.1 场景特点&lt;/h4&gt;&lt;p&gt;最底层也是简单的声音播放服务，此方法是适合播放提示警告类型的短小的声音&lt;/p&gt;
+&lt;h4 id=&quot;2-1-2-存在限制&quot;&gt;&lt;a href=&quot;#2-1-2-存在限制&quot; class=&quot;headerlink&quot; title=&quot;2.1.2 存在限制&quot;&gt;&lt;/a&gt;2.1.2 存在限制&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;声音长度要小于 30 秒&lt;/li&gt;
+&lt;li&gt;In linear PCM 或者 IMA4 (IMA/ADPCM) 格式的&lt;/li&gt;
+&lt;li&gt;打包成 .caf, .aif, 或者 .wav 的文件&lt;/li&gt;
+&lt;li&gt;不能控制播放的进度&lt;/li&gt;
+&lt;li&gt;调用方法后立即播放声音&lt;/li&gt;
+&lt;li&gt;没有循环播放和立体声控制：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;2、使用类别Categories&quot;&gt;&lt;a href=&quot;#2、使用类别Categories&quot; class=&quot;headerlink&quot; title=&quot;2、使用类别Categories&quot;&gt;&lt;/a&gt;2、使用类别Categories&lt;/h3&gt;&lt;p&gt;1) 行为类别分布：&lt;/p&gt;
-&lt;p&gt;类作为一个关键值，定义了一组app的音频行为。苹果在iOS的未来版本可能细化分类行为。你最好的策略是选择最准确地描述了你的意图的类别音频你想要的行为，它们都遵循“last in wins” 规则。&lt;br&gt;&lt;img src=&quot;/assets/images/1.pic.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;2）选用特殊话的模式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;AVAudioSessionModeVoiceChat—For Voice over IP (VoIP) apps&lt;/li&gt;
-&lt;li&gt;AVAudioSessionModeVideoChat—For video chat apps such as FaceTime&lt;/li&gt;
-&lt;li&gt;AVAudioSessionModeGameChat—For game apps&lt;/li&gt;
-&lt;li&gt;AVAudioSessionModeVideoRecording—For apps that use the camera to capture video&lt;/li&gt;
-&lt;li&gt;AVAudioSessionModeMoviePlayback—For apps that play movies.&lt;/li&gt;
-&lt;li&gt;AVAudioSessionModeMeasurement—For apps that processing to input and output signals.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/2.pic.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3、响应中断事件&quot;&gt;&lt;a href=&quot;#3、响应中断事件&quot; class=&quot;headerlink&quot; title=&quot;3、响应中断事件&quot;&gt;&lt;/a&gt;3、响应中断事件&lt;/h3&gt;&lt;p&gt;中断事件可以来自电话、闹钟、日历提醒、siri等。&lt;/p&gt;
-&lt;p&gt;1) 响应的处理过程：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/3.pic.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;2）监听响应的方式：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;AVAudioSession 通知&lt;/p&gt;
-&lt;p&gt;  AVAudioSessionInterruptionNotification&lt;br&gt;AVAudioSessionRouteChangeNotification&lt;br&gt;AVAudioSessionMediaServicesWereLostNotification&lt;br&gt;AVAudioSessionMediaServicesWereResetNotification&lt;br&gt;AVAudioSessionSilenceSecondaryAudioHintNotification&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;AV Foundation framework&lt;/p&gt;
-&lt;p&gt;  AVAudioPlayer如果正在音频播放过程中可以有对应的代理来接收事件，AVAudioPlayerDelegate,同样也有对应的AVAudioRecorderDelegate ，都显示IOS8以后废弃掉。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Audio Queue Services, I/O audio unit&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;OpenAL ，Notification&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;System Sound Services&lt;/p&gt;
-&lt;p&gt;  发生则直接静音，中断终止可以重新再次播放，无需额外处理。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;4、优化硬件音频数据&quot;&gt;&lt;a href=&quot;#4、优化硬件音频数据&quot; class=&quot;headerlink&quot; title=&quot;4、优化硬件音频数据&quot;&gt;&lt;/a&gt;4、优化硬件音频数据&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;指定首选硬件设置采样率和I / O的缓冲时间&lt;/li&gt;
-&lt;li&gt;查询许多硬件特征,其中包括输入和输出延迟,输入和输出通道数,硬件采样率、硬件体积设定,是否可用的音频输入应对设备具体通知最常用的属性值更改事件路线变化,覆盖在应对变化。&lt;/li&gt;
-&lt;li&gt;编写回调侦听硬件输出音量的变化和变化的可用性的音频输入。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;5、响应路线变化&quot;&gt;&lt;a href=&quot;#5、响应路线变化&quot; class=&quot;headerlink&quot; title=&quot;5、响应路线变化&quot;&gt;&lt;/a&gt;5、响应路线变化&lt;/h3&gt;&lt;p&gt;作为您的应用程序运行时,用户可能插入或拔掉耳机,或者使用接上音频连接等，通过注册AVAudioSessionRouteChangeNotification通知去响应。&lt;br&gt;&lt;img src=&quot;/assets/images/audio_route_change_2x.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;6、调整音频会话的球员&quot;&gt;&lt;a href=&quot;#6、调整音频会话的球员&quot; class=&quot;headerlink&quot; title=&quot;6、调整音频会话的球员&quot;&gt;&lt;/a&gt;6、调整音频会话的球员&lt;/h3&gt;&lt;p&gt;从用户的音乐播放音频库以及你自己的声音，多个播放器混合播放。针对游戏App、音频记录播放App、VOIP聊天App、音频计量App等，要随时切换和配置类型。&lt;/p&gt;
-&lt;h2 id=&quot;2、代码实践&quot;&gt;&lt;a href=&quot;#2、代码实践&quot; class=&quot;headerlink&quot; title=&quot;2、代码实践&quot;&gt;&lt;/a&gt;2、代码实践&lt;/h2&gt;&lt;blockquote&gt;
-&lt;h3 id=&quot;import-“TTAudioPlayer-h”&quot;&gt;&lt;a href=&quot;#import-“TTAudioPlayer-h”&quot; class=&quot;headerlink&quot; title=&quot;#import “TTAudioPlayer.h”&quot;&gt;&lt;/a&gt;#import “TTAudioPlayer.h”&lt;/h3&gt;&lt;h3 id=&quot;import-“TTAudioRecorder-h”&quot;&gt;&lt;a href=&quot;#import-“TTAudioRecorder-h”&quot; class=&quot;headerlink&quot; title=&quot;#import “TTAudioRecorder.h”&quot;&gt;&lt;/a&gt;#import “TTAudioRecorder.h”&lt;/h3&gt;&lt;/blockquote&gt;
-&lt;h2 id=&quot;3、问题回顾&quot;&gt;&lt;a href=&quot;#3、问题回顾&quot; class=&quot;headerlink&quot; title=&quot;3、问题回顾&quot;&gt;&lt;/a&gt;3、问题回顾&lt;/h2&gt;&lt;h3 id=&quot;1、WAV转化AMR声音变形：&quot;&gt;&lt;a href=&quot;#1、WAV转化AMR声音变形：&quot; class=&quot;headerlink&quot; title=&quot;1、WAV转化AMR声音变形：&quot;&gt;&lt;/a&gt;1、WAV转化AMR声音变形：&lt;/h3&gt;&lt;h4 id=&quot;现象：&quot;&gt;&lt;a href=&quot;#现象：&quot; class=&quot;headerlink&quot; title=&quot;现象：&quot;&gt;&lt;/a&gt;现象：&lt;/h4&gt;&lt;p&gt;录制WAV格式本地正常播放，转化为AMR后，把AMR格式文件在电脑端播放，声音严重变形，无法识别，再转化会WAV,，手机还是无法识别。&lt;/p&gt;
-&lt;h4 id=&quot;原因与解决&quot;&gt;&lt;a href=&quot;#原因与解决&quot; class=&quot;headerlink&quot; title=&quot;原因与解决&quot;&gt;&lt;/a&gt;原因与解决&lt;/h4&gt;&lt;p&gt;声音格式转化采用的是#include “amrFileCodec.h”，一个第三方常用转化库libopencore，并且没有找到第二个转化库，它对转化的音频输入源是有格式要求的，要求转化的采样率为标准的8k，如果录制的音频频率采用高频率44.1K的话就会出现变形，我想这里的设定依据来自于amr格式的采样率为8K。&lt;/p&gt;
-&lt;p&gt;AMR格式：&lt;/p&gt;
+&lt;h4 id=&quot;2-1-3-使用方式&quot;&gt;&lt;a href=&quot;#2-1-3-使用方式&quot; class=&quot;headerlink&quot; title=&quot;2.1.3 使用方式&quot;&gt;&lt;/a&gt;2.1.3 使用方式&lt;/h4&gt;&lt;p&gt;调用 AudioServicesCreateSystemSoundID(CFURLRef inFileURL,SystemSoundID *outSystemSoundID) 该函数的第一个参数代表音频文件的URL（可通过NSURL转换成CFURLRef），第二个参数代表注册音频文件的SystemSoundID。&lt;/p&gt;
+&lt;p&gt;调用AudioServicesAddSystemSoundCompletion()函数为制定SystemSoundID注册Callback函数。有了 CallBack 函数我们可以解决不少问题，比如可以克服 System Sound Services 本身不支持循环播放的问题。&lt;/p&gt;
+&lt;p&gt;调用AudioServicePlaySystemSound函数或者AudioServicePlayAlertSound（调用系统振动功能）。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- (void)viewDidLoad
+{
+[super viewDidLoad];
+
+// 1. 定义要播放的音频文件的URL
+NSURL *voiceURL = [[NSBundle mainBundle]URLForResource:@&amp;quot;CleanDidFinish&amp;quot; withExtension:@&amp;quot;aiff&amp;quot;];
+
+// 2. 注册音频文件（第一个参数是音频文件的URL 第二个参数是音频文件的SystemSoundID）
+AudioServicesCreateSystemSoundID((__bridge CFURLRef)(voiceURL),&amp;amp;ditaVoice);
+
+// 3. 为crash播放完成绑定回调函数AudioServicesAddSystemSoundCompletion(ditaVoice,NULL,NULL,(void*)completionCallback,NULL);
+
+// 4. 播放 ditaVoice 注册的音频 并控制手机震动
+AudioServicesPlayAlertSound(ditaVoice);
+
+//    AudioServicesPlaySystemSound(ditaVoice);
+//    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); // 控制手机振动
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;2-2-AVFoundation-框架&quot;&gt;&lt;a href=&quot;#2-2-AVFoundation-框架&quot; class=&quot;headerlink&quot; title=&quot;2.2  AVFoundation 框架&quot;&gt;&lt;/a&gt;2.2  AVFoundation 框架&lt;/h2&gt;&lt;h4 id=&quot;2-2-1-场景特点&quot;&gt;&lt;a href=&quot;#2-2-1-场景特点&quot; class=&quot;headerlink&quot; title=&quot;2.2.1 场景特点&quot;&gt;&lt;/a&gt;2.2.1 场景特点&lt;/h4&gt;&lt;p&gt;如果播放较大的音频或者要对音频有精确的控制，则System Sound Service可能就很难满足实际需求了，通常这种情况会选择使用AVFoundation，它可以满足我们通常意义上的绝大部分的场景需求，包括音乐的交互、声音的制作等等，根据自己的业务需求实现自定义的定制化。如果你只是想实现音频的播放或者录制，没有其他需求，AVFoundation会很好的满足你，它的接口使用简单、不用关心其中的细节。&lt;/p&gt;
+&lt;h4 id=&quot;2-2-2-关键点和API浏览&quot;&gt;&lt;a href=&quot;#2-2-2-关键点和API浏览&quot; class=&quot;headerlink&quot; title=&quot;2.2.2 关键点和API浏览&quot;&gt;&lt;/a&gt;2.2.2 关键点和API浏览&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Background Modes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;打开后台模式的音乐播放，或者在info.plist文件中添加Required Background Modes键，其值是App plays audio or streams audio/video using AirPlay&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;维基百科    &lt;/p&gt;
+&lt;p&gt;AVAudioSession&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;用于 iOS 系统中协调应用程序之间的音频播放的 API 的。例如，当有电话打进来时，音频的播放就会被暂停；在用户启动电影时，音乐的播放就会停止。我们需要使用这些 API 来确保一个应用程序能够正确响应并处理这类事件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AVAudioPlayer&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个高层级的 API 为你提供一个简单的接口，用来播放本地或者内存中的音频。这是一个无界面的音频播放器 (也就是说没有提供 UI 元素)，使用起来也很直接简单。它不适用于网络音频流或者低延迟的实时音频播放。如果这些问题都不需要担心，那么 AVAudioPlayer 可能就是正确的选择。音频播放器的 API 也为我们带来了一些额外的功能，比如循环播放、获取音频的音量强度等等。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AVAudioRecorder&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作为与 AVAudioPlayer 相对应的 API，AVAudioRecorder 是将音频录制为文件的最简单的方法。除了用一个音量计接受音量的峰值和平均值以外，这个 API 简单粗暴，但要是你的使用场景很简单的话，这可能恰恰就是你想要的方法。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AVPlayer&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;AVPlayer 与上面提到的 API 相比，提供了更多的灵活性和可控性。它基于 AVPlayerItem 和 AVAsset，为你提供了颗粒度更细的权限来获取资源，比如选择指定的音轨。它还通过 AVQueuePlayer 子类支持播放列表，而且你可以控制这些资源是否能够通过 AirPlay 发送。&lt;/p&gt;
+&lt;h4 id=&quot;与-AVAudioPlayer-最主要的区别是，AVPlayer-对来自网络的流媒体资源的-“开箱即用”-支持。这增加了处理播放状态的复杂性，但是你可以使用-KVO-来观测所有的状态参数来解决这个问题。&quot;&gt;&lt;a href=&quot;#与-AVAudioPlayer-最主要的区别是，AVPlayer-对来自网络的流媒体资源的-“开箱即用”-支持。这增加了处理播放状态的复杂性，但是你可以使用-KVO-来观测所有的状态参数来解决这个问题。&quot; class=&quot;headerlink&quot; title=&quot;与 AVAudioPlayer 最主要的区别是，AVPlayer 对来自网络的流媒体资源的 “开箱即用” 支持。这增加了处理播放状态的复杂性，但是你可以使用 KVO 来观测所有的状态参数来解决这个问题。&quot;&gt;&lt;/a&gt;与 AVAudioPlayer 最主要的区别是，AVPlayer 对来自网络的流媒体资源的 “开箱即用” 支持。这增加了处理播放状态的复杂性，但是你可以使用 KVO 来观测所有的状态参数来解决这个问题。&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt; AVAudioEngine&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;AVAudioEngine 是播放和录制的 Objective-C 接口。它提供了以前需要深入到 Audio Toolbox 框架的 C API 才能做的控制 (例如一些实时音频任务)。该音频引擎 API 对底层的 API 建立了优秀的接口。如果你不得不处理底层的问题，你仍然可以使用 Audio Toolbox 框架。&lt;/p&gt;
+&lt;p&gt;这个 API 的基本概念是建立一个音频的节点图，从源节点 (播放器和麦克风) 以及过处理 (overprocessing) 节点 (混音器和效果器) 到目标节点 (硬件输出)。每一个节点都具有一定数量的输入和输出总线，同时这些总线也有良好定义的数据格式。这种结构使得它非常的灵活和强大。而且它集成了音频单元 (audio unit)。&lt;/p&gt;
+&lt;h2 id=&quot;2-3-Media-Player-框架&quot;&gt;&lt;a href=&quot;#2-3-Media-Player-框架&quot; class=&quot;headerlink&quot; title=&quot;2.3 Media Player 框架&quot;&gt;&lt;/a&gt;2.3 Media Player 框架&lt;/h2&gt;&lt;h4 id=&quot;2-3-1-场景特点&quot;&gt;&lt;a href=&quot;#2-3-1-场景特点&quot; class=&quot;headerlink&quot; title=&quot;2.3.1 场景特点&quot;&gt;&lt;/a&gt;2.3.1 场景特点&lt;/h4&gt;&lt;p&gt;众所周知音乐是iOS的重要组成播放，无论是iPod、iTouch、iPhone还是iPad都可以在iTunes购买音乐或添加本地音乐到音乐库中同步到你的iOS设备。在MediaPlayer.frameowork中有一个MPMusicPlayerController用于播放音乐库中的音乐。Media Player 框架是 iOS 平台上一个用于音频和视频播放的高层级接口，它包含了一个你可以在应用中直接使用的默认的用户界面。你可以使用它来播放用户在 iPod 库中的项目，或者播放本地文件以及网络流。这个框架也包括了查找用户媒体库中内容的 API，同时还可以配置像是在锁屏界面或者控制中心里的音频控件。&lt;/p&gt;
+&lt;h4 id=&quot;2-3-2-使用方式&quot;&gt;&lt;a href=&quot;#2-3-2-使用方式&quot; class=&quot;headerlink&quot; title=&quot;2.3.2 使用方式&quot;&gt;&lt;/a&gt;2.3.2 使用方式&lt;/h4&gt;&lt;p&gt;使用MPMusicPlayerController实例化对象来播放内置音乐库的媒体文件，有以下两种类方法来实例化对象：&lt;/p&gt;
+&lt;p&gt;MPMusicPlayerController *playController = [MPMusicPlayerController systemMusicPlayer]; &lt;/p&gt;
+&lt;p&gt;说明：播放内置媒体库项目取代用户目前播放状态（如果是用网易云音乐或QQQ音乐在播放歌曲）&lt;/p&gt;
+&lt;p&gt;MPMusicPlayerController *playController = [MPMusicPlayerController applicationMusicPlayer]; &lt;/p&gt;
+&lt;p&gt;说明：播放该应用内的歌曲，不影响本机自带音乐播放器的状态。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;判断有没有正在播放的媒体&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[MPMusicPlayerController indexOfNowPlayingItem] == NSNotFound
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;创建媒体队列&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[MPMediaQuery songsQuery];
+[MPMusicPlayerController setQueueWithQuery:nil];
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;获取媒体曲目的信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;MPMediaItem *currentItem = ....
+NSString *artist = [currentItem valueForProperty:MPMediaItemPropertyArtist];
+NSString *songName = [currentItem valueForProperty:MPMediaItemPropertyTitle];
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;监听媒体通知&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];[notificationCenter addObserver:self
+              selector:@selector()
+                       name:MPMusicPlayerControllerNowPlayingItemDidChangeNotification
+                     object:nil];
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;2-4-更多音频方案&quot;&gt;&lt;a href=&quot;#2-4-更多音频方案&quot; class=&quot;headerlink&quot; title=&quot;2.4 更多音频方案&quot;&gt;&lt;/a&gt;2.4 更多音频方案&lt;/h2&gt;&lt;p&gt;CoreAudio的接口层次：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;api.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2-4-1-OpenAL&quot;&gt;&lt;a href=&quot;#2-4-1-OpenAL&quot; class=&quot;headerlink&quot; title=&quot;2.4.1 OpenAL&quot;&gt;&lt;/a&gt;2.4.1 OpenAL&lt;/h4&gt;&lt;p&gt;OpenAL 是一个跨平台的 API。它提供了位置 (3D) 和低延迟的音频服务。它主要用于跨平台游戏的开发。它有意地模仿了 OpenGL 中 API 的风格。&lt;/p&gt;
+&lt;h4 id=&quot;2-4-2-Audio-Unit-框架&quot;&gt;&lt;a href=&quot;#2-4-2-Audio-Unit-框架&quot; class=&quot;headerlink&quot; title=&quot;2.4.2  Audio Unit 框架&quot;&gt;&lt;/a&gt;2.4.2  Audio Unit 框架&lt;/h4&gt;&lt;p&gt;Audio Unit 框架是一个底层的 API；所有 iOS 中的音频技术都构建在 Audio Unit 这个框架之上。音频单元是用来加工音频数据的插件。一个音频单元链叫做音频处理图。&lt;/p&gt;
+&lt;p&gt;如果你需要非常低的延迟 (如 VoIP 或合成乐器)、回声消除、混音或者音调均衡的话，你可能需要直接使用音频单元，或者自己写一个音频单元。但是其中的大部分工作可以使用 AVAudioEngine 的 API 来完成。如果你不得不写自己的音频单元的话，你可以将它们与 AVAudioUnit 节点一起集成在 AVAudioEngine 处理图中。&lt;/p&gt;
+&lt;h4 id=&quot;2-4-2-AudioToolBox-框架&quot;&gt;&lt;a href=&quot;#2-4-2-AudioToolBox-框架&quot; class=&quot;headerlink&quot; title=&quot;2.4.2 AudioToolBox 框架&quot;&gt;&lt;/a&gt;2.4.2 AudioToolBox 框架&lt;/h4&gt;&lt;p&gt;通过AudioToolbox框架，可以将短声音注册到system sound服务上，被注册到system sound服务上的声音称之为 system sounds。&lt;br&gt;前面常用的System Sound Services 就来自这里的框架。&lt;/p&gt;
+&lt;p&gt;它必须满足下面几个条件：&lt;/p&gt;
+&lt;p&gt;(1).播放的时间不能超过30秒&lt;/p&gt;
+&lt;p&gt;(2).数据必须是 PCM或者IMA4流格式&lt;/p&gt;
+&lt;p&gt;(3).必须被打包成下面三个格式之一：Core Audio Format (.caf), Waveform audio (.wav), 或者 Audio Interchange File (.aiff)&lt;/p&gt;
+&lt;p&gt;(4）声音文件必须放到设备的本地文件夹下面。通过AudioServicesCreateSystemSoundID方法注册这个声音文件.&lt;/p&gt;
+&lt;h4 id=&quot;2-4-3-CoreMIDI-和-CoreAudioKit-框架&quot;&gt;&lt;a href=&quot;#2-4-3-CoreMIDI-和-CoreAudioKit-框架&quot; class=&quot;headerlink&quot; title=&quot;2.4.3 CoreMIDI 和 CoreAudioKit 框架&quot;&gt;&lt;/a&gt;2.4.3 CoreMIDI 和 CoreAudioKit 框架&lt;/h4&gt;&lt;p&gt;在 iOS 上，Core MIDI 和 CoreAudioKit 可以被用来使应用程序表现为 MIDI 设备。在 OS X 上，Music Sequencing 服务提供了基于 MIDI 的控制和对音乐数据访问的权限。Core MIDI 服务为服务器和驱动程序提供了支持。&lt;/p&gt;
+&lt;h4 id=&quot;2-4-4-QTKit-和-QuickTime-框架&quot;&gt;&lt;a href=&quot;#2-4-4-QTKit-和-QuickTime-框架&quot; class=&quot;headerlink&quot; title=&quot;2.4.4 QTKit 和 QuickTime 框架&quot;&gt;&lt;/a&gt;2.4.4 QTKit 和 QuickTime 框架&lt;/h4&gt;&lt;p&gt;现在已经过时了，它们不应该被用在以后的开发中。我们应该使用 AVFoundation (和 AVKit) 来代替它们&lt;/p&gt;
+&lt;h1 id=&quot;三、今日头条嘉宾聊天室音频实践&quot;&gt;&lt;a href=&quot;#三、今日头条嘉宾聊天室音频实践&quot; class=&quot;headerlink&quot; title=&quot;三、今日头条嘉宾聊天室音频实践&quot;&gt;&lt;/a&gt;三、今日头条嘉宾聊天室音频实践&lt;/h1&gt;&lt;h2 id=&quot;3-1-背景&quot;&gt;&lt;a href=&quot;#3-1-背景&quot; class=&quot;headerlink&quot; title=&quot;3.1 背景&quot;&gt;&lt;/a&gt;3.1 背景&lt;/h2&gt;&lt;p&gt;嘉宾聊天室是头条16年初新起的一个项目服务，目标是为了引进明星嘉宾访谈类型和体育赛事线上直播的节目，丰富头条在直播领域的内容，聊天室一期是属于图文、语音、短视频直播，后期发展可成为视频线上直播。表现形式与网易直播频道类似，但更丰富。&lt;/p&gt;
+&lt;h2 id=&quot;3-2-IOS端实现&quot;&gt;&lt;a href=&quot;#3-2-IOS端实现&quot; class=&quot;headerlink&quot; title=&quot;3.2 IOS端实现&quot;&gt;&lt;/a&gt;3.2 IOS端实现&lt;/h2&gt;&lt;p&gt;根据聊天室在语音和视频的需求，使用系统自带实现的MPMoviePlayerController没法符合自定义的需求，包括功能与交互设计，并且MPMoviePlayerController已经不被苹果官方提倡，将要通过AVPlayer方案代替。需求本身的属于基本的语音和视频沟通，只对音频视频的录制与播放，符合音质画质要求和大小要求，因此采用AVFoundation框架即可，能够满足聊天室的需求。主要使用了AVPlayer、AVAudioRecorder、AVAudioSession等主要的类。&lt;/p&gt;
+&lt;p&gt;实现类有如下等：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#import &amp;quot;TTAudioRecorder.h&amp;quot;
+#import &amp;quot;TTAudioPlayer.h&amp;quot;
+#import &amp;quot;TTLiveCameraViewController.h&amp;quot;
+#import &amp;quot;TTUploadVideoAudioManager.h&amp;quot;
+#import &amp;quot;TTLiveAudioManager.h&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;3-3-问题与解决&quot;&gt;&lt;a href=&quot;#3-3-问题与解决&quot; class=&quot;headerlink&quot; title=&quot;3.3 问题与解决&quot;&gt;&lt;/a&gt;3.3 问题与解决&lt;/h2&gt;&lt;p&gt;整个需求的实现过程还算顺利，按照API说明理解即可，提两三点说明下都会遇见哪一类的问题。&lt;/p&gt;
+&lt;h4 id=&quot;3-1-音频格式为AMR&quot;&gt;&lt;a href=&quot;#3-1-音频格式为AMR&quot; class=&quot;headerlink&quot; title=&quot;3.1 音频格式为AMR&quot;&gt;&lt;/a&gt;3.1 音频格式为AMR&lt;/h4&gt;&lt;p&gt;AVPlayer来播放视频音频都相当强大，但是它也存在着一些不可回避的问题，那就是目前IOS已经不再支持AMR格式的播放。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AMR format is no longer supported by Apple (since iOS 4.3)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;与安卓同步开发的时候对接确立的通用的格式为AMR，因为AAC文件在网络传输下载播放的时候显得很大，AMR相对来说会好很多，同时我们也看了微博和微信的实现都是使用AMR，鉴于头条的用户量和使用体验，于是就采用了同样的方式。安卓可以很好支持AMR，在iOS平台上需要进行WAV和AMR之间的转换，好在libopencore可以解决这个事。网络上有好些所谓的相互转化的库，仔细看了下，都没有脱离这个core本身。&lt;/p&gt;
+&lt;p&gt;libopencore库：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;interf_dec.h 
+interf_enc.h
+dec_if.h
+if_rom.h
+libopencore-amrnb.a
+libopencore-amrwb.a
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;主要方法：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;EncodeWAVEFileToAMRFile 、 DecodeAMRFileToWAVEFile
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;封装一个mannager：        &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#import &amp;lt;Foundation/Foundation.h&amp;gt;
+
+@interface VoiceConverter : NSObject
+
++ (int)amrToWav:(NSString*)_amrPath wavSavePath:(NSString*)_savePath;
+
++ (int)wavToAmr:(NSString*)_wavPath amrSavePath:(NSString*)_savePath;
+
+@end
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;3-2-WAV转化AMR声音变形：&quot;&gt;&lt;a href=&quot;#3-2-WAV转化AMR声音变形：&quot; class=&quot;headerlink&quot; title=&quot;3.2 WAV转化AMR声音变形：&quot;&gt;&lt;/a&gt;3.2 WAV转化AMR声音变形：&lt;/h4&gt;&lt;p&gt;录制WAV格式本地正常播放，转化为AMR后，把AMR格式文件在电脑端播放，声音严重变形，无法识别，再转化会WAV,，手机还是无法识别。&lt;br&gt;原因与解决&lt;br&gt;声音格式转化采用的是”amrFileCodec.h”，它对转化的音频输入源是有格式要求的，要求转化的采样率为标准的8k，如果录制的音频频率采用高频率44.1K的话就会出现变形，我想这里的设定依据来自于amr格式的采样率通常为8K。通过AVAudioRecorder把采样率设置为8K后，可以正常互相转化。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AMR维基百科：&lt;/p&gt;
 &lt;p&gt;采样率 8 kHz/13-bit (160 采样点每20ms)，滤波后只保留 200-3400 Hz 范围内的信号.&lt;/p&gt;
 &lt;p&gt;编码器使用8个位速：12.2、10.2、7.95、7.40、6.70、5.90、5.15和4.75 kbit/s.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;amrFileCodec_h:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;#define AMR_MAGIC_NUMBER “#!AMR\n”&lt;/p&gt;
-&lt;p&gt;#define PCM_FRAME_SIZE 160 // 8khz 8000*0.02=160&lt;/p&gt;
-&lt;p&gt;#define MAX_AMR_FRAME_SIZE 32&lt;/p&gt;
-&lt;p&gt;#define AMR_FRAME_COUNT_PER_SECOND 50&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;2、先转后播一直长时间等待：&quot;&gt;&lt;a href=&quot;#2、先转后播一直长时间等待：&quot; class=&quot;headerlink&quot; title=&quot;2、先转后播一直长时间等待：&quot;&gt;&lt;/a&gt;2、先转后播一直长时间等待：&lt;/h3&gt;&lt;h4 id=&quot;现象：-1&quot;&gt;&lt;a href=&quot;#现象：-1&quot; class=&quot;headerlink&quot; title=&quot;现象：&quot;&gt;&lt;/a&gt;现象：&lt;/h4&gt;&lt;p&gt;界面UI点击播放之后，一直处于播放状态但是没有声音。&lt;/p&gt;
-&lt;h4 id=&quot;原因与解决-1&quot;&gt;&lt;a href=&quot;#原因与解决-1&quot; class=&quot;headerlink&quot; title=&quot;原因与解决&quot;&gt;&lt;/a&gt;原因与解决&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;UI状态显示问题，与AUDIO有一个实际的播放误差，以为需要等待一段的转化时间，但实际上以及音频已经播放失败，导致多次重复点击，最后界面显示一直未播放中，但实际上，音频本身早就停止播放，这是由于对界面事件响应以及player实际播放状态判断的不完整导致。&lt;/li&gt;
-&lt;li&gt;网络错误请求，音频数据的源的请求返回错误，UI显示为在播放，实际返回错误。这与服务端有关系，经抓包查实，同样参数同样网络的相同请求有可能出现成功和失败两种结果。&lt;/li&gt;
-&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;NSMutableDictionary *settings=[NSMutableDictionary dictionary];
+[settings setObject:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
+[settings setObject:@(8000) forKey:AVSampleRateKey]; //必须和amr文件解码参数保持一致
+[settings setObject:@(1) forKey:AVNumberOfChannelsKey];
+[settings setObject:@(16) forKey:AVLinearPCMBitDepthKey];
+[settings setObject:@(NO) forKey:AVLinearPCMIsFloatKey];
+[settings setValue:@(NO) forKey:AVLinearPCMIsNonInterleaved];
+[settings setValue:@(NO) forKey:AVLinearPCMIsBigEndianKey];
+[settings setValue:@(AVAudioQualityHigh) forKey:AVEncoderAudioQualityKey];
+AVAudioRecorder *recorderTemp = [[AVAudioRecorder alloc] initWithURL:fileUrl settings:settings error:nil];
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&quot;3-3-AVPlayer的准备状态&quot;&gt;&lt;a href=&quot;#3-3-AVPlayer的准备状态&quot; class=&quot;headerlink&quot; title=&quot;3.3 AVPlayer的准备状态&quot;&gt;&lt;/a&gt;3.3 AVPlayer的准备状态&lt;/h4&gt;&lt;p&gt;当AVPlayer的status变为AVPlayerStatusReadyToPlay后，依旧可能无法开始播放？&lt;/p&gt;
+&lt;p&gt;AVPlayerStatusReadyToPlay属性只是表明了AVPlayer已经成功的载入了AVPlayerItem，并且准备好，但是实际的是否能播放时由AVPlayerItem的status到达AVPlayerItemStatusReadyToPlay的时候，才能开始正常播放的。&lt;br&gt;如果我们的App使用CPU过多，I/O读写过多时，有可能导致直接无法播放，我们再调用play或者seekToTime:方法都无法正常播放，尤其是视频。所以我们需要做一个真正播放状态准备好的判断，也可以通过KVO去监听AVPlayerItem的status。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//播放器是否准备好
+if (self.videoPrePlayer.status == AVPlayerStatusReadyToPlay) 
+{
+    //视频是否加载成功
+    if(self.videoPrePlayer.currentItem.status == AVPlayerItemStatusFailed){   
+        return;
+    }
+        [self.videoPrePlayer play];
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;四、小结&quot;&gt;&lt;a href=&quot;#四、小结&quot; class=&quot;headerlink&quot; title=&quot;四、小结&quot;&gt;&lt;/a&gt;四、小结&lt;/h1&gt;&lt;p&gt;文章主要对音频的使用范畴做了概括，并列举了两三实践点，其他的并没有做详细的论述，因为本篇比较偏向音频知识的介绍，知道用什么工具框架后再具体解决就好。比如如何播放流畅的网络音频，如何实现音频的快放与慢放等具体问题，此次需求内容并不复杂没有涉及，他们都可以通过 AudioToolBox框架实现。&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;IOS-音频录制-—-AVFoundation&quot;&gt;&lt;a href=&quot;#IOS-音频录制-—-AVFoundation&quot; class=&quot;headerlink&quot; title=&quot;IOS 音频录制 — AVFoundation&quot;&gt;&lt;/a&gt;IOS 音频录制 — AVFoun
+      &lt;h4 id=&quot;IOS-音频一览&quot;&gt;&lt;a href=&quot;#IOS-音频一览&quot; class=&quot;headerlink&quot; title=&quot;IOS 音频一览&quot;&gt;&lt;/a&gt;IOS 音频一览&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;前言：&lt;br&gt;做嘉宾聊天室这个需求的时候接触了音频和视频上的开发，
     
     </summary>
     
