@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>对 Run Loop 的理解 | 徐子超的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="对 Run Loop 的理解一、Run Loop为何存在?我们从编写命令式的语句开始理解，一般我们写一个运行函数，只要顺序执行，一遍就过了，比如简单的NSLog一个“hello word”，这样我们就算完成了一个问候世界的程序。好简单的程序，但是一个复杂的系统，一个能称之为系统的程序，比如我们的手机App，它是不可能按照执行顺序一下执行完成就结束的，它包含了我们各类需求，会接受我们不同的操作，所以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对 Run Loop 的理解">
+<meta property="og:url" content="http://xuzichao.com/2014/11/05/对 Run Loop 的理解/index.html">
+<meta property="og:site_name" content="徐子超的博客">
+<meta property="og:description" content="对 Run Loop 的理解一、Run Loop为何存在?我们从编写命令式的语句开始理解，一般我们写一个运行函数，只要顺序执行，一遍就过了，比如简单的NSLog一个“hello word”，这样我们就算完成了一个问候世界的程序。好简单的程序，但是一个复杂的系统，一个能称之为系统的程序，比如我们的手机App，它是不可能按照执行顺序一下执行完成就结束的，它包含了我们各类需求，会接受我们不同的操作，所以">
+<meta property="og:image" content="http://xuzichao.com/assets/images/RL_CF.jpg">
+<meta property="og:image" content="http://xuzichao.com/assets/images/RL_normal.jpg">
+<meta property="og:image" content="http://xuzichao.com/assets/images/RL_zhan.jpg">
+<meta property="og:image" content="http://xuzichao.com/assets/images/RL_consist.jpg">
+<meta property="og:image" content="http://xuzichao.com/assets/images/RL_Source0.jpg">
+<meta property="og:image" content="http://xuzichao.com/assets/images/RL_Observer.jpg">
+<meta property="og:image" content="http://xuzichao.com/assets/images/RL_Mode_Change.jpg">
+<meta property="og:image" content="http://xuzichao.com/assets/images/RL_GCD.jpg">
+<meta property="og:image" content="http://xuzichao.com/assets/images/RL_Port.jpg">
+<meta property="og:updated_time" content="2017-01-25T03:06:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对 Run Loop 的理解">
+<meta name="twitter:description" content="对 Run Loop 的理解一、Run Loop为何存在?我们从编写命令式的语句开始理解，一般我们写一个运行函数，只要顺序执行，一遍就过了，比如简单的NSLog一个“hello word”，这样我们就算完成了一个问候世界的程序。好简单的程序，但是一个复杂的系统，一个能称之为系统的程序，比如我们的手机App，它是不可能按照执行顺序一下执行完成就结束的，它包含了我们各类需求，会接受我们不同的操作，所以">
+<meta name="twitter:image" content="http://xuzichao.com/assets/images/RL_CF.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="徐子超的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/photo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b8e8ee87e4708173f00d9048c309301";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/photo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">卡图睡不醒</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">程先生，你好。客气，叫我序员吧。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="weibo" target="_blank" href="http://weibo.com/2356167600/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/zichao.xu.5" title="facebook">facebook</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/时光相册/" style="font-size: 10px;">时光相册</a> <a href="/tags/程序开发/" style="font-size: 20px;">程序开发</a> <a href="/tags/随笔小结/" style="font-size: 10px;">随笔小结</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">IOS开发,毕业于华中科技大学,今日头条在职</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">卡图睡不醒</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/assets/photo.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">卡图睡不醒</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">程先生，你好。客气，叫我序员吧。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="weibo" target="_blank" href="http://weibo.com/2356167600/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/zichao.xu.5" title="facebook">facebook</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-对 Run Loop 的理解" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/05/对 Run Loop 的理解/" class="article-date">
+  	<time datetime="2014-11-05T06:34:12.000Z" itemprop="datePublished">Nov 5</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      对 Run Loop 的理解
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序开发/">程序开发</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="对-Run-Loop-的理解"><a href="#对-Run-Loop-的理解" class="headerlink" title="对 Run Loop 的理解"></a>对 Run Loop 的理解</h1><h2 id="一、Run-Loop为何存在"><a href="#一、Run-Loop为何存在" class="headerlink" title="一、Run Loop为何存在?"></a>一、Run Loop为何存在?</h2><p>我们从编写命令式的语句开始理解，一般我们写一个运行函数，只要顺序执行，一遍就过了，比如简单的NSLog一个“hello word”，这样我们就算完成了一个问候世界的程序。好简单的程序，但是一个复杂的系统，一个能称之为系统的程序，比如我们的手机App，它是不可能按照执行顺序一下执行完成就结束的，它包含了我们各类需求，会接受我们不同的操作，所以这个程序需要有一个设计的模式能够符合这样的应用场景，能够响应操作。所以，有了Event驱动的模式。</p>
+<p>特点：</p>
+<ul>
+<li>程序可以一直运行并且接受用户的输入</li>
+<li>决定程序应该处理哪些Event</li>
+<li>主调方不能被被调方卡主，所以需要调用解耦。主调方就发个消息就完事了，就不管了，就可以去做别的了，被调防根据消息去派发、操作等等。这个概念就是(Message Queue) </li>
+<li>节省了CPU时间，比如时间片执行，这就是操作系统里的概念。</li>
+<li>没事的时候闲着，有事的时候激活它</li>
+</ul>
+<h2 id="二、Run-Loop-都包含了什么相关内容？"><a href="#二、Run-Loop-都包含了什么相关内容？" class="headerlink" title="二、Run Loop 都包含了什么相关内容？"></a>二、Run Loop 都包含了什么相关内容？</h2><h3 id="1、CF层和F层"><a href="#1、CF层和F层" class="headerlink" title="1、CF层和F层"></a>1、CF层和F层</h3><p>CF层是C写的，跨平台，F层其实不干事的。GCD 有部分联系。</p>
+<p><img src="/assets/images/RL_CF.jpg" alt=""></p>
+<h3 id="2、常用"><a href="#2、常用" class="headerlink" title="2、常用"></a>2、常用</h3><p>NSTimer 完全依赖于RunLoop，UIEvent 都是RunLoop 跑的，AutoRelease 面试问题</p>
+<p><img src="/assets/images/RL_normal.jpg" alt=""></p>
+<h2 id="三、RunLoop调用堆栈"><a href="#三、RunLoop调用堆栈" class="headerlink" title="三、RunLoop调用堆栈"></a>三、RunLoop调用堆栈</h2><p><img src="/assets/images/RL_zhan.jpg" alt=""></p>
+<h2 id="四、RunLoop构成元素"><a href="#四、RunLoop构成元素" class="headerlink" title="四、RunLoop构成元素"></a>四、RunLoop构成元素</h2><h3 id="1、构成元素"><a href="#1、构成元素" class="headerlink" title="1、构成元素"></a>1、构成元素</h3><p>thread里面不是只能起一个RL，是可以多个的，但是必须嵌套。<br>RunLoop机制存在的一对多的关系，比如Mode和Timer<br>CFRunLoopSurece、CFRunLoopTimer、CFRunLoopObserver，主要的核心就是这三个。</p>
+<p><img src="/assets/images/RL_consist.jpg" alt=""></p>
+<h3 id="2、对CFRunLoopTimer的封装"><a href="#2、对CFRunLoopTimer的封装" class="headerlink" title="2、对CFRunLoopTimer的封装"></a>2、对CFRunLoopTimer的封装</h3><p>NSTimer、 performSelector:after 、 displayLink</p>
+<h3 id="3、对CFRunLoopSurece的理解"><a href="#3、对CFRunLoopSurece的理解" class="headerlink" title="3、对CFRunLoopSurece的理解"></a>3、对CFRunLoopSurece的理解</h3><p>source是RL的数据源的抽象类，类似proctol，定义了两个version的source：</p>
+<ul>
+<li>source0：处理APP内部的世界、APP自己管理触发，比如UIEvent、CFSocket</li>
+<li>source1: 又RL和内核管理，Mach port 驱动 ，进程兼通讯的方式，往某个进程方法可以发到这个port上，对面的进程监听这个port 就是可以获得消息。比如：CFMachPort，CFMessagePort</li>
+</ul>
+<p><img src="/assets/images/RL_Source0.jpg" alt=""></p>
+<h3 id="4、对CFRunLoopServer对外报告状态"><a href="#4、对CFRunLoopServer对外报告状态" class="headerlink" title="4、对CFRunLoopServer对外报告状态"></a>4、对CFRunLoopServer对外报告状态</h3><p>比如我们在CAAnimation数组，多个动画，RL会通过判断依次的状态，将全部收集到一起后再开始执行。</p>
+<p><img src="/assets/images/RL_Observer.jpg" alt=""></p>
+<h3 id="5、CFRunLoopMode"><a href="#5、CFRunLoopMode" class="headerlink" title="5、CFRunLoopMode"></a>5、CFRunLoopMode</h3><p>RunLoop在同一时间段内，只能在唯一的特点的mode下Run。<br>更换Mode时，需要停止当前的Loop，然后重启动新的Loop。<br>Mode是个保证IOS滑动顺畅的关键，在这个mode下只执行滑动计算相关<br>可以创建自己的mode</p>
+<p>NSDefaultRunLoopMode: 默认的<br>UITrackingRunLoopMode:scrollView滑动<br>UIInitializationRunLoopMode: 启动的时候，私有的<br>NSRunLoopCommomModes: 1和2都能执行，作为一个数组，并无优先级</p>
+<blockquote>
+<p>相关Topic：</p>
+</blockquote>
+<ul>
+<li><p>NSTimer 默认被加入NSDefaultRunLoopMode中，如果不希望被SCrollView影响，让滑动的时候timer也依然进行运行，就需要添加到NSRunLoopCommomModes中。</p>
+</li>
+<li><p>RunLoopMode切换<br>都是重新起，不是切换回原来的</p>
+</li>
+</ul>
+<p><img src="/assets/images/RL_Mode_Change.jpg" alt=""></p>
+<ul>
+<li>GCD和Run Loop的联系</li>
+</ul>
+<p>GCD的计时器是它自己的计时器，只有main queue的时候有关系。Run Loop 会问一下 GCD 你这边在搞事情吗？有的话就抛出来。</p>
+<p><img src="/assets/images/RL_GCD.jpg" alt=""></p>
+<ul>
+<li>Auto Release<br>UIKit 通过的RunLoopServer在RunLoop两次Sleep间对Autorelease进行Pop和Push将这次Loop中产生的AutoRelease对象释放。两圈之间自动释放UI上自动释放池的东西，比如UITouch。</li>
+</ul>
+<h3 id="六、RunLoop的挂起和唤醒"><a href="#六、RunLoop的挂起和唤醒" class="headerlink" title="六、RunLoop的挂起和唤醒"></a>六、RunLoop的挂起和唤醒</h3><p>CGRunLoopServiceMachPort 的作用就是发送消息，表示暂停还是激活，与内核进行交互。</p>
+<p><img src="/assets/images/RL_Port.jpg" alt=""></p>
+<h3 id="七、RunLoop的实践"><a href="#七、RunLoop的实践" class="headerlink" title="七、RunLoop的实践"></a>七、RunLoop的实践</h3><p>1、AFNetworking<br>常驻线程，NSURLConnetion需要一个RL常驻，不然跑一次就没了。<br>比如有个需求需要一直在线程里面呆着。</p>
+<pre><code>+ (void)networkRequestThreadEntryPoint:(id)__unused object {
+@autoreleasepool {
+    [[NSThread currentThread] setName:@&quot;AFNetworking&quot;];
+
+    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+    [runLoop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
+    [runLoop run];
+}
+}
++ (NSThread *)networkRequestThread {
+static NSThread *_networkRequestThread = nil;
+static dispatch_once_t oncePredicate;
+dispatch_once(&amp;oncePredicate, ^{
+    _networkRequestThread = [[NSThread alloc] initWithTarget:self selector:@selector(networkRequestThreadEntryPoint:) object:nil];
+    [_networkRequestThread start];
+});
+
+return _networkRequestThread;
+</code></pre><p>}</p>
+<p>2、 延迟加载tableview的图片</p>
+<pre><code>UIImage *downLoadImage = ...;  
+[self.avatarImageView performSelector:@selector(setImage:)  
+                    withObject:downloadImage  
+                    afterDelay:0  
+                    inModes:@[NSDefaultRunLoopMode]];
+</code></pre><p>3、让Crash的APP回光返照</p>
+<pre><code>// 创建RunLoop
+CFRunLoopRef runLoop = CFRunLoopGetCurrent();
+// 设置Mode
+NSArray *allModes = CFBridgingRelease(CFRunLoopCopyAllModes(runLoop));
+// 弹窗告知 程序挂了
+UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@&quot;程序崩溃了&quot; message:@&quot;崩溃信息&quot; delegate:nil cancelButtonTitle:@&quot;取消&quot; otherButtonTitles:nil];
+[alertView show];
+while (1) {
+for (NSString *mode in allModes) {
+// 快速的切换 Mode  就能处理滚动、点击等事件
+CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
+}
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/11/07/Hexo-个人博客使用介绍/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Hexo一下，博客诞生
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/06/12/再见，My Hust/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">再见，My Hust</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="对 Run Loop 的理解" data-title="对 Run Loop 的理解" data-url="http://xuzichao.com/2014/11/05/对 Run Loop 的理解/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"catoo-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 卡图睡不醒
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: undefined,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+  </div>
+</body>
+</html>
