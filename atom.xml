@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>徐子超的博客</title>
-  <subtitle>程先生，你好。客气，叫我序员吧。</subtitle>
+  <subtitle>程先生，你好。客气，叫我序员就行。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuzichao.com/"/>
-  <updated>2017-01-25T03:26:50.000Z</updated>
+  <updated>2017-06-04T06:40:53.000Z</updated>
   <id>http://xuzichao.com/</id>
   
   <author>
@@ -16,14 +16,59 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>使用CocoaPods创建私有仓库</title>
+    <link href="http://xuzichao.com/2016/11/22/%E4%BD%BF%E7%94%A8CocoaPods%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/"/>
+    <id>http://xuzichao.com/2016/11/22/使用CocoaPods创建私有仓库/</id>
+    <published>2016-11-22T11:09:59.000Z</published>
+    <updated>2017-06-04T06:40:53.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;CocoaPods创建私有仓库&quot;&gt;&lt;a href=&quot;#CocoaPods创建私有仓库&quot; class=&quot;headerlink&quot; title=&quot;CocoaPods创建私有仓库&quot;&gt;&lt;/a&gt;CocoaPods创建私有仓库&lt;/h1&gt;&lt;h2 id=&quot;一、两个概念：&quot;&gt;&lt;a href=&quot;#一、两个概念：&quot; class=&quot;headerlink&quot; title=&quot;一、两个概念：&quot;&gt;&lt;/a&gt;一、两个概念：&lt;/h2&gt;&lt;h3 id=&quot;1、XXX-podspec-配置文件&quot;&gt;&lt;a href=&quot;#1、XXX-podspec-配置文件&quot; class=&quot;headerlink&quot; title=&quot;1、XXX.podspec   配置文件&quot;&gt;&lt;/a&gt;1、XXX.podspec   配置文件&lt;/h3&gt;&lt;p&gt;spec 配置文件是cocoapods的每一个代码仓库所对应的信息管理文件，主要是对仓库的行为进行配置，每一个版本的代码仓库都对应有一个配置文件。&lt;/p&gt;
+&lt;p&gt;包括仓库的名称、版本号、描述、主页地址、证书说明、作者、版本指定方式、工程的目标版本号、文件和资源的路径、依赖的库关系等。举例如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Be sure to run `pod lib lint TTJSPatch.podspec&#39; to ensure this is a&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# valid spec before submitting.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Any lines starting with a # are optional, but their use is encouraged&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Pod::Spec.&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt; |s|&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.name             = &lt;span class=&quot;string&quot;&gt;&#39;AFNetwork&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.version          = &lt;span class=&quot;string&quot;&gt;&#39;0.0.2&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.summary          = &lt;span class=&quot;string&quot;&gt;&#39;AFNetwork is used for ios-network&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# This description is used to generate tags and improve search results.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   * Think: What does it do? Why did you write it? What is the focus?&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   * Try to keep it short, snappy and to the point.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   * Write the description between the DESC delimiters below.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#   * Finally, don&#39;t worry about the indent, CocoaPods strips it!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.description      = &amp;lt;&amp;lt;-DESC&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.homepage         = &lt;span class=&quot;string&quot;&gt;&#39;http://www.example.com&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;# s.screenshots     = &#39;www.example.com/screenshots_1&#39;, &#39;www.example.com/screenshots_2&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.license          = &amp;#123; :type =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;MIT&#39;&lt;/span&gt;, :file =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;LICENSE&#39;&lt;/span&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.author           = &amp;#123; &lt;span class=&quot;string&quot;&gt;&#39;xuzichao&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;xuzichao03@gmail.com&#39;&lt;/span&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.source           = &amp;#123; :git =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;git@code.xuzichao.org:tt_pods_AFNetwork.git&#39;&lt;/span&gt;, :tag =&amp;gt; s.version.to_s  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;# s.social_media_url = &#39;https://twitter.com/&amp;lt;TWITTER_USERNAME&amp;gt;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.ios.deployment_target = &lt;span class=&quot;string&quot;&gt;&#39;6.0&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.source_files = &lt;span class=&quot;string&quot;&gt;&#39;TTJSPatch/Classes/**/*&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  s.resource_bundles = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;TTJSPatch&#39;&lt;/span&gt; =&amp;gt; [&lt;span class=&quot;string&quot;&gt;&#39;TTJSPatch/Resources/*&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;# s.public_header_files = &#39;Pod/Classes/**/*.h&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;# s.frameworks = &#39;UIKit&#39;, &#39;MapKit&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;# s.dependency &#39;AFNetworking&#39;, &#39;~&amp;gt; 2.3&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;2、Spec-repo&quot;&gt;&lt;a href=&quot;#2、Spec-repo&quot; class=&quot;headerlink&quot; title=&quot;2、Spec repo&quot;&gt;&lt;/a&gt;2、Spec repo&lt;/h3&gt;&lt;p&gt;组合词，表示仓库的概念，主要是用于存储pod代码库对应的podspec文件，管理各个仓库的各个版本的代码，它其实就是一个容器。Cocoapods会默认在本地建立一个容器，包含了你各个工程对应的代码仓库，当你使用了Cocoapods后，它们就会被clone到本地的~/.cocoapods/repos目录下。这里指代的是Cocoapods默认创建的仓库，其实我们不需要关心。&lt;/p&gt;
+&lt;p&gt;当我们创建私有库的时候，我们需要有自己的容器，用于存放自己的各个代码库，和上面的Cocoapods创建的是区别开的。我们自己创建的容器，其实就是一个远端的git仓库，我们把代码库对应的各个版本配置文件提交上去。&lt;/p&gt;
+&lt;h2 id=&quot;二、创建的操作：&quot;&gt;&lt;a href=&quot;#二、创建的操作：&quot; class=&quot;headerlink&quot; title=&quot;二、创建的操作：&quot;&gt;&lt;/a&gt;二、创建的操作：&lt;/h2&gt;&lt;h3 id=&quot;1、使用cocoapods：&quot;&gt;&lt;a href=&quot;#1、使用cocoapods：&quot; class=&quot;headerlink&quot; title=&quot;1、使用cocoapods：&quot;&gt;&lt;/a&gt;1、使用cocoapods：&lt;/h3&gt;&lt;p&gt;1.1 命令&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo gem &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; cocoapods&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;touch podfile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pod &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pod &lt;span class=&quot;keyword&quot;&gt;update&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;1.2 pod install 、 pod update&lt;/p&gt;
+&lt;p&gt;pod install 将pod的版本写入Podfile.lock文件中.对于已经在Podfile.lock中有记录的Pod下载对应的版本，即便有新的版本，也不会去更新.对于没有记录的，根据Podfile中的约定，下载版本，并把版本信息写入Podfile.lock中.&lt;/p&gt;
+&lt;p&gt;只有当需要更新pod版本时，才用pod update,其余时间都用pod install&lt;/p&gt;
+&lt;h3 id=&quot;2、私有库&quot;&gt;&lt;a href=&quot;#2、私有库&quot; class=&quot;headerlink&quot; title=&quot;2、私有库&quot;&gt;&lt;/a&gt;2、私有库&lt;/h3&gt;&lt;p&gt;2.1 创建并设置一个私有的Spec Repo。&lt;/p&gt;
+&lt;figure class=&quot;highlight elixir&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;pod repo add TestSpecs &lt;span class=&quot;symbol&quot;&gt;https:&lt;/span&gt;/&lt;span class=&quot;regexp&quot;&gt;/coding.net/test&lt;/span&gt;.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;2.2 创建Pod的所需要的项目工程文件，并且有可访问的项目版本控制地址。&lt;/p&gt;
+&lt;figure class=&quot;highlight elixir&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;git commit -s -m &lt;span class=&quot;string&quot;&gt;&quot;我的工程代码文件&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;git remote add origin git&lt;span class=&quot;variable&quot;&gt;@coding&lt;/span&gt;.&lt;span class=&quot;symbol&quot;&gt;net:&lt;/span&gt;ios-category.git     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;git push origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;2.3 创建Pod所对应的podspec文件。&lt;/p&gt;
+&lt;figure class=&quot;highlight crmsh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ pod &lt;span class=&quot;keyword&quot;&gt;spec&lt;/span&gt; create ios-category.podspec&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;2.4 本地测试配置好的podspec文件是否可用。&lt;/p&gt;
+&lt;figure class=&quot;highlight crystal&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ pod &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;lib&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;lint&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ pod &lt;span class=&quot;string&quot;&gt;&#39;ios-category&#39;&lt;/span&gt;, :podspec =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;~/Users/ios-category.podspec&#39;&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;#指定podspec文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;2.5 向私有的Spec Repo中提交podspec。&lt;/p&gt;
+&lt;figure class=&quot;highlight armasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;pod&lt;/span&gt; repo &lt;span class=&quot;keyword&quot;&gt;push &lt;/span&gt;TestSpecs ios-category.podspec&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;2.6 在个人项目中的Podfile中增加刚刚制作的好的Pod并使用。&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# private&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;https://coding.net/test.git&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# public&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;https://github.com/CocoaPods/Specs.git&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;target &lt;span class=&quot;string&quot;&gt;&#39;ReactiveCocoaDemo&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pod &lt;span class=&quot;string&quot;&gt;&quot;ios-category&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;0.1.0&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;三、其他说明&quot;&gt;&lt;a href=&quot;#三、其他说明&quot; class=&quot;headerlink&quot; title=&quot;三、其他说明&quot;&gt;&lt;/a&gt;三、其他说明&lt;/h2&gt;&lt;p&gt;按照阶段二进行操作，即可顺利完成pod工程的引用，其他介绍说明文档中可能出现的，testpod 工程，其实可以不用管。比如：&lt;/p&gt;
+&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pod spec create PodTestLibrary git&lt;span class=&quot;meta&quot;&gt;@coding&lt;/span&gt;.&lt;span class=&quot;string&quot;&gt;net:&lt;/span&gt;test.gitt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;以及由于pod的各个版本变化，spec文件有可能本来是正确的，但是pod lib lint这一步始终不能通过，这样pod repo push这一步就无法完成。可以直接将spec文件通过git 提交的方式放进远端的Spec Repo中，依然可以正常运行。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;CocoaPods创建私有仓库&quot;&gt;&lt;a href=&quot;#CocoaPods创建私有仓库&quot; class=&quot;headerlink&quot; title=&quot;CocoaPods创建私有仓库&quot;&gt;&lt;/a&gt;CocoaPods创建私有仓库&lt;/h1&gt;&lt;h2 id=&quot;一、两个概念：&quot;&gt;&lt;a h
+    
+    </summary>
+    
+    
+      <category term="程序开发" scheme="http://xuzichao.com/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>重开日，再无少年</title>
     <link href="http://xuzichao.com/2016/10/25/%E9%87%8D%E5%BC%80%E6%97%A5%EF%BC%8C%E6%97%A0%E5%86%8D%E5%B0%91%E5%B9%B4/"/>
     <id>http://xuzichao.com/2016/10/25/重开日，无再少年/</id>
     <published>2016-10-25T14:59:12.000Z</published>
-    <updated>2017-01-25T03:26:50.000Z</updated>
+    <updated>2017-06-04T03:59:23.000Z</updated>
     
     <content type="html">&lt;p&gt;现在已经是16年的年尾了，想起元旦节那天和几个老基友在一棵年树下合影留念，恰好是自己入职今日头条第一天，在工作上又上了一个台阶，特别开心。&lt;/p&gt;
-&lt;p&gt;一月的时候给自己定了16年的目标，16年是本命年啊，要好好的过好这一年，针对个人的各方面规划，看起来真是个美好的愿景，一天天按部就班的做着事情，希望能再年底的时候给自己惊喜。如今回头去看，有的目标还没有进展！贼哈哈哈哈哈！想起来我也是快乐的！是啊，这大半年有些浪。总结回顾，大概去年创业大半年给整累了，来了头条后，各种优越的生活，各种轻松的姿态，逐渐的也就有些懒散，当然头条也是创业驱动型公司，氛围是很强烈的，不过对于我这样从创业公司过来的，还是觉得条件优越太多了。目标这个东西确实容易让人清醒，想起当时的积极澎湃都去哪了，看着一个个目标的进度，上哪说理去？客观原因分析后，主要是一年自己没有想好怎么过，年初定的目标有偏颇，总是一个探索的心，自己尝试了好多方向去认识自己，在知道想干什么的前提下，尝试去判断自己能不能做到。而这些尝试呢，和原本设定的目标是有出入的。既定的目标的实现时机由于一个客观原因也发生了变化，在今年是完成不了的。就这样，在一个个夜里深睡去，直到每日早上九十点，偶尔自己的生活节奏也在被打断。期间，找我的头聊了聊，他也看出了我的一些困惑，觉得我可能是有些茫然，大概对应了工作两年的人都会有的现象，这又让我想起了大学的时候，好像大二是有点茫然，未来那么长，我该做点什么。对，是的，我该做点什么了。中间我也修正过一些计划，在中秋节的时候总结了一下，但是没有从根本上做出变动。&lt;/p&gt;
+&lt;p&gt;一月的时候给自己定了16年的目标，16年是本命年啊，要好好的过好这一年，针对个人的各方面规划，看起来真是个美好的愿景，一天天按部就班的做着事情，希望能再年底的时候给自己惊喜。如今回头去看，有的目标还没有进展！贼哈哈哈哈哈！想起来我也是快乐的！是啊，这大半年有些浪。总结回顾，大概去年创业大半年给整累了，来了头条后，各种&lt;br&gt;更好的生活，各种轻松的姿态，逐渐的也就有些懒散，当然头条也是创业驱动型公司，氛围是很强烈的，不过对于我这样从创业公司过来的，还是觉得条件会好些。目标这个东西确实容易让人清醒，想起当时的积极澎湃都去哪了，看着一个个目标的进度，上哪说理去？客观原因分析后，主要是一年自己没有想好怎么过，年初定的目标有偏颇，总是一个探索的心，自己尝试了好多方向去认识自己，在知道想干什么的前提下，尝试去判断自己能不能做到。而这些尝试呢，和原本设定的目标是有出入的。既定的目标的实现时机由于一个客观原因也发生了变化，在今年是完成不了的。就这样，在一个个夜里深睡去，直到每日早上九十点，经常自己的生活节奏也在被打断。期间，找我的头聊了聊，他也看出了我的一些困惑，觉得我可能是有些茫然，大概对应了工作两年的人都会有的现象，这又让我想起了大学的时候，好像大二是有点茫然，未来那么长，我该做点什么。对，是的，我该做点什么了。中间我也修正过一些计划，在中秋节的时候总结了一下，但是没有从根本上做出变动。&lt;/p&gt;
 &lt;p&gt;经过不断的自我认识，不断的尝试，我觉得现在比较清楚自己之后的安排了，可以拟定一些方向性质上的目标，以前定目标都是相对较短期目标，接下来要完成这些目标的时间是相对较长的，是到17年年底的时候才会来check的。因为是从自己本身目前的情况来看，这样做合适，这段时间内，我也做不了比这些更大的事情了。总感觉这次和以往定目标时不太一样，也许这就是成长。&lt;/p&gt;
 &lt;h2 id=&quot;目标&quot;&gt;&lt;a href=&quot;#目标&quot; class=&quot;headerlink&quot; title=&quot;目标&quot;&gt;&lt;/a&gt;目标&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;目标 1： IOS技术扩展挖深&lt;/p&gt;
@@ -32,7 +77,7 @@
 &lt;pre&gt;&lt;code&gt;头条数据分析；网站上学习理论知识，应用在独立App上
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;目标 3： 维护一个头条号&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;每周发两篇
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;目标 4： 推送工作性质的独立APP研发&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;目标 4： 争取能够自己发一款独立APP&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;IOS端至少能够达到演示的目的
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;目标 5： 托福考试过100分&lt;/p&gt;
 &lt;p&gt;目标 6： 申请香港或新加坡的硕士&lt;/p&gt;
@@ -49,20 +94,24 @@
 &lt;li&gt;目标 1： &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;问答业务进展顺利，即将做独立的APP，由我Cover原先业务，加油！&lt;/p&gt;
+&lt;p&gt;开始做平台化后，针对IOS各个面试方向开始做技术挖掘，正式开始产出博客内容。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;目标 2：&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;一直在看产品的文章，还不算多&lt;/p&gt;
+&lt;p&gt;看大咖的文章收益不大，需要一点点的做实验做起&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;目标 4： &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;做了部分APP的组件和雏形，在做解耦拆分，工作量大。&lt;/p&gt;
 &lt;p&gt;目标 5：&lt;/p&gt;
 &lt;p&gt;前后加起来背了有两千单词，中间中断，各种事情杂事太多，需要肃清需求，春节回来先专注在这一件事情上。&lt;/p&gt;
+&lt;p&gt;买了一本托福阅读的书籍，快做完了。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;目标 7： &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;从11月份和12月份的观察，到1月份回去查看了各处的楼盘，对这事情的认识有所改观，房子这个事情先不着急，但是也可以做，牵扯到的东西多，春节回来办公积金卡，5月份的时候可以再去看看。&lt;/p&gt;
+&lt;p&gt;4月份的时候回了重庆，买在了照母山旁边，目标完成。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;目标 8：&lt;/li&gt;
 &lt;/ul&gt;
@@ -71,6 +120,7 @@
 &lt;li&gt;目标 9：&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;开始打乒乓球和羽毛球了，力量训练少。&lt;/p&gt;
+&lt;p&gt;偶尔去健身房跑步，拉练。&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -82,6 +132,207 @@
     
     
       <category term="随笔小结" scheme="http://xuzichao.com/tags/%E9%9A%8F%E7%AC%94%E5%B0%8F%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>今日头条IOS热修复解决方案</title>
+    <link href="http://xuzichao.com/2016/09/11/%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1IOS%E7%83%AD%E4%BF%AE%E5%A4%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://xuzichao.com/2016/09/11/今日头条IOS热修复解决方案/</id>
+    <published>2016-09-11T14:59:12.000Z</published>
+    <updated>2017-06-04T05:30:32.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;TTSparkRescue&quot;&gt;&lt;a href=&quot;#TTSparkRescue&quot; class=&quot;headerlink&quot; title=&quot;TTSparkRescue&quot;&gt;&lt;/a&gt;TTSparkRescue&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;备注：2017年4月开始出现使用热修复审核不通过的情况，经过混淆的方式后，绕过了苹果的检测，但是到5月初的时候，苹果全方面严打IOS热修复策略，各方APP包括头条在内的方案被迫下架。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1. 简介&quot;&gt;&lt;/a&gt;1. 简介&lt;/h1&gt;&lt;p&gt;TTSparkRescue是头条公司层面的通用的热修复库，同时提供给其他产品线使用。设计包括如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;启动崩溃计数修改为3秒后清除&lt;/li&gt;
+&lt;li&gt;启动初始化的预清理&lt;/li&gt;
+&lt;li&gt;启动崩溃本地有缓存预先执行&lt;/li&gt;
+&lt;li&gt;启动崩溃第二次，启动上报逻辑和预处理&lt;/li&gt;
+&lt;li&gt;启动崩溃第三次，开始启动修复逻辑&lt;/li&gt;
+&lt;li&gt;启动后修复&lt;/li&gt;
+&lt;li&gt;补丁下发更新机制&lt;/li&gt;
+&lt;li&gt;客户端本地处理下发的patch错误&lt;/li&gt;
+&lt;li&gt;下发JS空白&lt;/li&gt;
+&lt;li&gt;下发前，本地预先运行，验证JS脚本&lt;/li&gt;
+&lt;li&gt;本地模拟crash&lt;/li&gt;
+&lt;li&gt;管理的系统版本号粒度更精细&lt;/li&gt;
+&lt;li&gt;增加端监控，传出参数，由TTMonitor在外部配合调到 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;2-快速集成&quot;&gt;&lt;a href=&quot;#2-快速集成&quot; class=&quot;headerlink&quot; title=&quot;2. 快速集成&quot;&gt;&lt;/a&gt;2. 快速集成&lt;/h1&gt;&lt;h2 id=&quot;2-1-Podfile引用&quot;&gt;&lt;a href=&quot;#2-1-Podfile引用&quot; class=&quot;headerlink&quot; title=&quot;2.1 Podfile引用&quot;&gt;&lt;/a&gt;2.1 Podfile引用&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;头条内部的git地址&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pod &lt;span class=&quot;string&quot;&gt;&#39;TTSparkRescue&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;2.3&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;2-2-代码块替换&quot;&gt;&lt;a href=&quot;#2-2-代码块替换&quot; class=&quot;headerlink&quot; title=&quot;2.2 代码块替换&quot;&gt;&lt;/a&gt;2.2 代码块替换&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;方法A: &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;APP原本的didFinishLaunchingWithOptions的全部逻辑didFinishLaunchingWithOptions&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;方法B :&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;新建并复制，参数和函数体与方法A保持一致&lt;/p&gt;
+&lt;figure class=&quot;highlight erlang&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(BOOL)&lt;/span&gt;application:&lt;span class=&quot;params&quot;&gt;(UIApplication *)&lt;/span&gt;application&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; normalLaunchProcessWithOptions:&lt;span class=&quot;params&quot;&gt;(NSDictionary *)&lt;/span&gt;launchOptions&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;使用TTJSPatch结构替换方法A，下面部分可以直接复制即可用：&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;)application:(&lt;span class=&quot;built_in&quot;&gt;UIApplication&lt;/span&gt; *)application didFinishLaunchingWithOptions:(&lt;span class=&quot;built_in&quot;&gt;NSDictionary&lt;/span&gt; *)launchOptions &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    __&lt;span class=&quot;keyword&quot;&gt;weak&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;) wself = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#if DEBUG&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//默认注释关闭&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//    [[TTSparkRescue shareInstance] setTestPatch:YES simulationCrash:YES];&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#endif&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//内部监控上报&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [[TTSparkRescue shareInstance] setReportBlock:^(&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *key, &lt;span class=&quot;built_in&quot;&gt;NSDictionary&lt;/span&gt; *info) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//crash的预处理逻辑&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ([key isEqualToString:TTJSPatchLaunchCrash]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//优先清理coredata缓存&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//解决可能造成的crash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//连续崩溃第四次才启用安全模式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        [[TTMonitor shareManager] trackService:key status:&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; extra:info];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//运行错误处理，内部已加监控, type == 1 for JS, type == 2 for OC&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [[TTSparkRescue shareInstance] setJSCrashHanlder:^(&lt;span class=&quot;built_in&quot;&gt;NSInteger&lt;/span&gt; type, &lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *msg) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//CompletionBlock:头条正常启动逻辑&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [[TTSparkRescue shareInstance] setBoolCompletionBlock:^&lt;span class=&quot;built_in&quot;&gt;BOOL&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#if DEBUG&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//本地测试的时候模拟crash，不必注释，由前面的开关控制即可&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        [[TTSparkRescue shareInstance] simulationLauchCrash];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        [[TTSparkRescue shareInstance] simulationLauchDelayCrash];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        [[TTSparkRescue shareInstance] simulationActiveCrash];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#endif&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; [wself application:application normalLaunchProcessWithOptions:launchOptions];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//启动执行逻辑，完成后调用CompletionBlock&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; [[TTSparkRescue shareInstance] launchContinuousCrashProcess];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;3-功能设计&quot;&gt;&lt;a href=&quot;#3-功能设计&quot; class=&quot;headerlink&quot; title=&quot;3. 功能设计&quot;&gt;&lt;/a&gt;3. 功能设计&lt;/h1&gt;&lt;h2 id=&quot;3-1、说明：&quot;&gt;&lt;a href=&quot;#3-1、说明：&quot; class=&quot;headerlink&quot; title=&quot;3.1、说明：&quot;&gt;&lt;/a&gt;3.1、说明：&lt;/h2&gt;&lt;h4 id=&quot;1、启动崩溃计数修改为12秒后清除&quot;&gt;&lt;a href=&quot;#1、启动崩溃计数修改为12秒后清除&quot; class=&quot;headerlink&quot; title=&quot;1、启动崩溃计数修改为12秒后清除&quot;&gt;&lt;/a&gt;1、启动崩溃计数修改为12秒后清除&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;如果启动过程中，出现延迟操作，操作时间在原先的5秒之外，那么这次操作如果出现崩溃将无法被记录下。也就无法再启动中修复。&lt;br&gt;     将清除时间调大，设置为一个网络请求的返回时间，覆盖了延迟造作造成的crash。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;2、启动初始化的预清理&quot;&gt;&lt;a href=&quot;#2、启动初始化的预清理&quot; class=&quot;headerlink&quot; title=&quot;2、启动初始化的预清理&quot;&gt;&lt;/a&gt;2、启动初始化的预清理&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;当我们判断当前版本号发生变化时，直接清除本地的patch文件，避免升级覆盖安装后，还持有原先逻辑或者错误。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;3、启动崩溃本地有缓存预先执行&quot;&gt;&lt;a href=&quot;#3、启动崩溃本地有缓存预先执行&quot; class=&quot;headerlink&quot; title=&quot;3、启动崩溃本地有缓存预先执行&quot;&gt;&lt;/a&gt;3、启动崩溃本地有缓存预先执行&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;因为是修复崩溃的逻辑，之前需要达到崩溃条件后才开始请求下发，原本就体验差了，如果再遇上网络缓慢的时候，启动会很慢，&lt;br&gt;  体验更差。并且每次都会崩溃后重新启动。此次修改后，出现一次之后同步请求返回patch,正常启动，下次进入，判断有缓存就直接执行，&lt;br&gt;  执行异步的请求更新。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;4、启动崩溃第二次，启动上报逻辑和预处理&quot;&gt;&lt;a href=&quot;#4、启动崩溃第二次，启动上报逻辑和预处理&quot; class=&quot;headerlink&quot; title=&quot;4、启动崩溃第二次，启动上报逻辑和预处理&quot;&gt;&lt;/a&gt;4、启动崩溃第二次，启动上报逻辑和预处理&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;APPDelegate 上报和预处理逻辑 ReportBlock，当出现第二次崩溃的时候，可以删除本地的一些可能会导致crash的东西，&lt;br&gt;比如本地的数据库可以先清理掉，等等。然后统计上报。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;5、启动崩溃第三次，开始启动修复逻辑&quot;&gt;&lt;a href=&quot;#5、启动崩溃第三次，开始启动修复逻辑&quot; class=&quot;headerlink&quot; title=&quot;5、启动崩溃第三次，开始启动修复逻辑&quot;&gt;&lt;/a&gt;5、启动崩溃第三次，开始启动修复逻辑&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;如果本地有缓存，则网络异步更新，因为后面的逻辑保证本地已有的缓存patchJS执行没错，所以可以先执行。&lt;br&gt;如果本地无缓存，则网络同步请求，返回补丁，运行成功后再启动APP正常流程。&lt;br&gt;不会再出现再次崩溃3此的情况。&lt;br&gt;只要出现3次崩溃，忽略本地缓存，直接请求更新。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;6、启动后修复&quot;&gt;&lt;a href=&quot;#6、启动后修复&quot; class=&quot;headerlink&quot; title=&quot;6、启动后修复&quot;&gt;&lt;/a&gt;6、启动后修复&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;启动中的时候，判断本地有缓存文件，预先执行，之后，每次active就会请求更新文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;7、补丁下发更新机制&quot;&gt;&lt;a href=&quot;#7、补丁下发更新机制&quot; class=&quot;headerlink&quot; title=&quot;7、补丁下发更新机制&quot;&gt;&lt;/a&gt;7、补丁下发更新机制&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;本地无缓存，直接存储，有缓存，判断版本号。&lt;br&gt; 我们在后台下发补丁的时候，目前依旧保持，升级版本号，全量覆盖。也就是说，app每个版本，在客户端里依旧保持唯一一个补丁，启动前和启动后各自有对应的唯一一个。&lt;br&gt;此处，服务端也有策略，我们上传的参数包含当前，版本，如果服务端有更高版本，就会升级。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;8、客户端本地处理下发的patch错误&quot;&gt;&lt;a href=&quot;#8、客户端本地处理下发的patch错误&quot; class=&quot;headerlink&quot; title=&quot;8、客户端本地处理下发的patch错误&quot;&gt;&lt;/a&gt;8、客户端本地处理下发的patch错误&lt;/h4&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;(void)handleException:(void (^)(NSInteger crashType,NSString *msg))exceptionBlock;&lt;br&gt;crashType == 1 的时候是 JS环境 运行的Crash&lt;br&gt;crashType == 2 的时候是  OC环境 运行的Crash&lt;br&gt;当我们下发的脚本有问题的时候，客户端本地直接删除全部补丁文件，包括启动前和启动后。&lt;br&gt;APPDelegate 中 JSCrashHanlder 被调用，可以填写上报逻辑和反馈运行的错误原因。&lt;br&gt;在此条件下，当用户退到后台之后，自动崩溃，重新打开客户端没有patch，这个留出来及时下发修正后Patch的时机。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;9、下发JS空白&quot;&gt;&lt;a href=&quot;#9、下发JS空白&quot; class=&quot;headerlink&quot; title=&quot;9、下发JS空白&quot;&gt;&lt;/a&gt;9、下发JS空白&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;直接删除本地补丁文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;10、下发前，本地预先运行，验证JS脚本&quot;&gt;&lt;a href=&quot;#10、下发前，本地预先运行，验证JS脚本&quot; class=&quot;headerlink&quot; title=&quot;10、下发前，本地预先运行，验证JS脚本&quot;&gt;&lt;/a&gt;10、下发前，本地预先运行，验证JS脚本&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;直接将要在后台要下发的JS代码，非BASE64编码，贴到工程里的test.js 文件里，此处文件名固定。&lt;br&gt;并在APPDelegate 打开测试运行的开关，然后直接运行即可，测试完毕，防止错误，必须关闭。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;11、本地模拟crash&quot;&gt;&lt;a href=&quot;#11、本地模拟crash&quot; class=&quot;headerlink&quot; title=&quot;11、本地模拟crash&quot;&gt;&lt;/a&gt;11、本地模拟crash&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;增加错误的OC代码导致crash，用于模拟各种情况，包括启动中，启动中延时，启动后。&lt;br&gt;并设置了开关，默认都是关闭的，随测试方法的开关一起，正式提交时，必须关闭。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;2、管理的系统版本号粒度更精细&quot;&gt;&lt;a href=&quot;#2、管理的系统版本号粒度更精细&quot; class=&quot;headerlink&quot; title=&quot;2、管理的系统版本号粒度更精细&quot;&gt;&lt;/a&gt;2、管理的系统版本号粒度更精细&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;整数示例：8，9，10   —-   后台命中：8.x,9.x,10.x   IOS系统版本&lt;br&gt;精确示例：9.1.2 — 后台命中：9.1.2 IOS系统版本&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;13、下发补丁一并写注释&quot;&gt;&lt;a href=&quot;#13、下发补丁一并写注释&quot; class=&quot;headerlink&quot; title=&quot;13、下发补丁一并写注释&quot;&gt;&lt;/a&gt;13、下发补丁一并写注释&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;每次下发补丁，需要填写说明，包括：【事故原因】【下发人】【下发日期】&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;14、启动后的下发调用改为通知&quot;&gt;&lt;a href=&quot;#14、启动后的下发调用改为通知&quot; class=&quot;headerlink&quot; title=&quot;14、启动后的下发调用改为通知&quot;&gt;&lt;/a&gt;14、启动后的下发调用改为通知&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;不需要在applicationDidBecomeActive中再显示调用原来的makePatchRequestAfterLaunch，manager内部监听通知即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;15、增加端监控，传出参数，由TTMonitor在外部配合调到&quot;&gt;&lt;a href=&quot;#15、增加端监控，传出参数，由TTMonitor在外部配合调到&quot; class=&quot;headerlink&quot; title=&quot;15、增加端监控，传出参数，由TTMonitor在外部配合调到&quot;&gt;&lt;/a&gt;15、增加端监控，传出参数，由TTMonitor在外部配合调到&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;监控请求成功和失败、下发更新、版本升级删除的等等用于统计patch的使用情况，后期有利于生成分布和图形。&lt;br&gt;TTSparkRescueLaunchCrash&lt;br&gt;APPDelegate 上报和预处理逻辑 ReportBlock，当出现第二次崩溃的时候，可以删除本地的一些可能会导致crash的东西，&lt;br&gt;比如本地的数据库可以先清理掉，等等。然后统计上报。&lt;br&gt;TTSparkRescueServerCloseCrash&lt;br&gt;服务器端下发关闭运行JSPatch的统计&lt;br&gt;TTSparkRescueDeleteFile&lt;br&gt;删除清空本地文件的统计，下发空白、错误、运行错误、升级都会删除之前的缓存文件，用action字段区分。&lt;br&gt;TTSparkRescueError&lt;br&gt;内部运行的错误报告，文件请求失败和运行失败等。&lt;br&gt;TTSparkRescueUpdateFile&lt;br&gt;统计更新成功的事件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;3-2、测试Case&quot;&gt;&lt;a href=&quot;#3-2、测试Case&quot; class=&quot;headerlink&quot; title=&quot;3.2、测试Case&quot;&gt;&lt;/a&gt;3.2、测试Case&lt;/h2&gt;&lt;p&gt;1、启动中，有崩溃，包括延时崩溃，无缓存文件。正常同步请求返回，APP启动完成。&lt;/p&gt;
+&lt;p&gt;2、启动中，有崩溃，包括延时崩溃，有缓存文件。&lt;br&gt;直接读取本地文件，APP启动完成。&lt;/p&gt;
+&lt;p&gt;3、启动中，有崩溃，包括延时崩溃，下发JS语法的patch文件。&lt;br&gt;无法正常启动，连续crash3次后走同步请求。&lt;/p&gt;
+&lt;p&gt;4、启动后，有崩溃，无缓存文件。正常异步请求返回，APP正常运行。&lt;/p&gt;
+&lt;p&gt;5、启动后，有崩溃，有缓存文件。直接读取本地文件，正常同步请求返回更新文件，APP正常运行。&lt;/p&gt;
+&lt;p&gt;6、启动后，下发错误JS语法的patch文件。客户端判断文件出错，删除全部补丁缓存文件，清零，开始重新请求更新。&lt;/p&gt;
+&lt;p&gt;7、以上case通过线上下发运行一次，再本地测试开关运行一次。testPatch.js 在主工程被正确添加后，都可以正确执行。&lt;/p&gt;
+&lt;p&gt;8、升级版本号，覆盖安装。删除本地原有的补丁文件，清零。&lt;/p&gt;
+&lt;p&gt;9、监控点事件上报。正常对外输出事件和外带信息到APPDelegate中&lt;/p&gt;
+&lt;h1 id=&quot;4-使用说明&quot;&gt;&lt;a href=&quot;#4-使用说明&quot; class=&quot;headerlink&quot; title=&quot;4. 使用说明&quot;&gt;&lt;/a&gt;4. 使用说明&lt;/h1&gt;&lt;h2 id=&quot;4-1-补丁后台管理&quot;&gt;&lt;a href=&quot;#4-1-补丁后台管理&quot; class=&quot;headerlink&quot; title=&quot;4.1 补丁后台管理&quot;&gt;&lt;/a&gt;4.1 补丁后台管理&lt;/h2&gt;&lt;p&gt;客户端的修复需要后端的支持，提供接口和后端管理平台，用于托管修复文件，控制版本和保证传输安全。客户端根据反馈的崩溃信息(版本、名称、设备、用户)，针对某一批用户或者某一个版本号，在后台进行选择对应的版本JS文件，进行下发即可。&lt;/p&gt;
+&lt;h3 id=&quot;4-1-1-热修复接口定义&quot;&gt;&lt;a href=&quot;#4-1-1-热修复接口定义&quot; class=&quot;headerlink&quot; title=&quot;4.1.1 热修复接口定义&quot;&gt;&lt;/a&gt;4.1.1 热修复接口定义&lt;/h3&gt;&lt;p&gt;应用名称和应用ID作用一致，为了兼容老的已经发出去的版本，我们保留app_name，之后的都是用app_id，两者等效力，&lt;br&gt;参数命中其中一个，至少有一个就行，就可以返回值。  &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;参数ID&lt;/th&gt;
+&lt;th&gt;举例说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;应用版本号&lt;/td&gt;
+&lt;td&gt;app_version&lt;/td&gt;
+&lt;td&gt;5.6.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;应用名称&lt;/td&gt;
+&lt;td&gt;app_name&lt;/td&gt;
+&lt;td&gt;今日头条&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;应用ID&lt;/td&gt;
+&lt;td&gt;app_id&lt;/td&gt;
+&lt;td&gt;com.iphone.text&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;启动前后&lt;/td&gt;
+&lt;td&gt;app_launch&lt;/td&gt;
+&lt;td&gt;0前1后&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;设备ID&lt;/td&gt;
+&lt;td&gt;device_id&lt;/td&gt;
+&lt;td&gt;用户的手机设备ID&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;编号&lt;/td&gt;
+&lt;td&gt;无，客户端不作请求参数&lt;/td&gt;
+&lt;td&gt;服务端后台的文件号，随意定，不重复即可&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;百分比&lt;/td&gt;
+&lt;td&gt;无，客户端不作请求参数&lt;/td&gt;
+&lt;td&gt;服务端后台按量下发补丁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ON/OFF&lt;/td&gt;
+&lt;td&gt;无，客户端不作请求参数&lt;/td&gt;
+&lt;td&gt;服务端后台控制补丁开关&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;逗号分隔&lt;/td&gt;
+&lt;td&gt;无，客户端不作请求参数&lt;/td&gt;
+&lt;td&gt;服务端后台下发补丁，支持不同的版本，逗号分隔&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;应用版本号扩展&lt;/td&gt;
+&lt;td&gt;无，客户端不作请求参数&lt;/td&gt;
+&lt;td&gt;服务端后台下发的补丁，补丁本身的版本号，格式约定：应用版本号整数数字.补丁版本号整数数字，比如：570.1，591.21&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;4-1-2-数据格式&quot;&gt;&lt;a href=&quot;#4-1-2-数据格式&quot; class=&quot;headerlink&quot; title=&quot;4.1.2 数据格式&quot;&gt;&lt;/a&gt;4.1.2 数据格式&lt;/h3&gt;&lt;figure class=&quot;highlight dts&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;status:&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;message:&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;data:&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;     js_crash:&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,  &lt;span class=&quot;comment&quot;&gt;//修复代码本身出错的时候打开&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;     js_version:&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;560.4&lt;/span&gt;,         &lt;span class=&quot;comment&quot;&gt;//5.6.0版本的第四个JS版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;     js_value:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot; sfkdsfnldjgdfnkgndkfngdsfgmdfngfjshdbfkhrwnf&quot;&lt;/span&gt;   &lt;span class=&quot;comment&quot;&gt;//js的BASE64编码值，客户端直接解码运行&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;4-2-客户端运行：&quot;&gt;&lt;a href=&quot;#4-2-客户端运行：&quot; class=&quot;headerlink&quot; title=&quot;4.2 客户端运行：&quot;&gt;&lt;/a&gt;4.2 客户端运行：&lt;/h2&gt;&lt;p&gt;补丁分为启动前和启动后，和前面快速集成代码块一样，只需要这里，就已经是全部，启动前后的划分在内部执行，通知监听，不需要手动再调用。&lt;/p&gt;
+&lt;h2 id=&quot;4-3、具体案例：&quot;&gt;&lt;a href=&quot;#4-3、具体案例：&quot; class=&quot;headerlink&quot; title=&quot;4.3、具体案例：&quot;&gt;&lt;/a&gt;4.3、具体案例：&lt;/h2&gt;&lt;p&gt;案例：5.7.0版本上bug修复&lt;/p&gt;
+&lt;p&gt;当我们需要完全替换方法的时候，我们需要注意替换原则，就是尽量使用原生的Native方法，这样JSpatch在转化的过程中可以遵循原生方法规则，生成对应代码，在解析的时候可以还原。&lt;br&gt;比如：&lt;/p&gt;
+&lt;h3 id=&quot;4-3-1-使用注意&quot;&gt;&lt;a href=&quot;#4-3-1-使用注意&quot; class=&quot;headerlink&quot; title=&quot;4.3.1 使用注意&quot;&gt;&lt;/a&gt;4.3.1 使用注意&lt;/h3&gt;&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;inline&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; setAutoresizingMaskFlexibleWidthAndHeight(&lt;span class=&quot;built_in&quot;&gt;UIView&lt;/span&gt; *view)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    view.autoresizingMask = &lt;span class=&quot;built_in&quot;&gt;UIViewAutoresizingFlexibleWidth&lt;/span&gt;|&lt;span class=&quot;built_in&quot;&gt;UIViewAutoresizingFlexibleHeight&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;setAutoresizingMaskFlexibleWidthAndHeight(self.footerView);&lt;br&gt;我们在写的时候得写成：&lt;br&gt;self.footerView.autoresizingMask = 2|16;&lt;br&gt;系统自定义的常量，比如：UIViewAutoresizingFlexibleWidth,在JSPtatch中将被转化为同名的变量，然而这个变量，却在JS环境中没有定义，从而会报错。&lt;br&gt;所以我们直接使用对应的常量数字 2.&lt;/p&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-attr&quot;&gt;[[self.footerView footerScrollView]&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;tt_addDelegate&lt;/span&gt;&lt;span class=&quot;selector-pseudo&quot;&gt;:self&lt;/span&gt; &lt;span class=&quot;selector-tag&quot;&gt;asMainDelegate&lt;/span&gt;&lt;span class=&quot;selector-pseudo&quot;&gt;:NO&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;用于JSPatch自定义的语法为使用下划线区分方法名称，所以当转化为的JS再次被转回来OC方法的时候，会出现[[self.footerView footerScrollView] tt:addDelegate:self asMainDelegate:NO];&lt;br&gt;这样就崩溃了。&lt;/p&gt;
+&lt;h3 id=&quot;4-3-2-示例&quot;&gt;&lt;a href=&quot;#4-3-2-示例&quot; class=&quot;headerlink&quot; title=&quot;4.3.2  示例&quot;&gt;&lt;/a&gt;4.3.2  示例&lt;/h3&gt;&lt;p&gt;Native源代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@implementation&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;TTDetailWebviewContainer&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)addFooterView:(&lt;span class=&quot;built_in&quot;&gt;UIView&lt;/span&gt;&amp;lt;TTDetailFooterViewProtocol&amp;gt; *)footerView&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  detailFooterAddType:(TTDetailNatantStyle)natantStyle&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.natantStyle = natantStyle;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footerView = footerView;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footerView addObserver:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; forKeyPath:&lt;span class=&quot;string&quot;&gt;@&quot;footerScrollView&quot;&lt;/span&gt; options:&lt;span class=&quot;built_in&quot;&gt;NSKeyValueObservingOptionOld&lt;/span&gt; | &lt;span class=&quot;built_in&quot;&gt;NSKeyValueObservingOptionNew&lt;/span&gt; context:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footerView footerScrollView] tt_addDelegate:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; asMainDelegate:&lt;span class=&quot;literal&quot;&gt;NO&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footScrollView = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footerView.footerScrollView;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footerView.frame = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.bounds;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//footerScrollView被赋值后，刷新scrollEnable和scrollToTop的状态；&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footerStatus = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footerStatus;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    setAutoresizingMaskFlexibleWidthAndHeight(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footerView);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ([&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; shouldOpenInsertionOptimization]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; addFooterView];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; addFooterView];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;目标JS代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;defineClass&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;TTDetailWebviewContainer&#39;&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;addFooterView_detailFooterAddType&lt;/span&gt;: function(footerView, natantStyle) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self.setNatantStyle(natantStyle);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.setFooterView&lt;/span&gt;(footerView);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.footerView&lt;/span&gt;()&lt;span class=&quot;selector-class&quot;&gt;.addObserver_forKeyPath_options_context&lt;/span&gt;(self, &lt;span class=&quot;string&quot;&gt;&quot;footerScrollView&quot;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;|&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, null);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.footerView&lt;/span&gt;()&lt;span class=&quot;selector-class&quot;&gt;.footerScrollView&lt;/span&gt;()&lt;span class=&quot;selector-class&quot;&gt;.tt__addDelegate_asMainDelegate&lt;/span&gt;(self, false);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.setFootScrollView&lt;/span&gt;(self.footerView().footerScrollView());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.footerView&lt;/span&gt;()&lt;span class=&quot;selector-class&quot;&gt;.setFrame&lt;/span&gt;(self.bounds());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.setFooterStatus&lt;/span&gt;(self.footerStatus());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.footerView&lt;/span&gt;()&lt;span class=&quot;selector-class&quot;&gt;.setAutoresizingMask&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; | &lt;span class=&quot;number&quot;&gt;16&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;if&lt;/span&gt; (self.shouldOpenInsertionOptimization()) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.addFooterView&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125; else &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.addFooterView&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;5-原理介绍&quot;&gt;&lt;a href=&quot;#5-原理介绍&quot; class=&quot;headerlink&quot; title=&quot;5. 原理介绍&quot;&gt;&lt;/a&gt;5. 原理介绍&lt;/h1&gt;&lt;h2 id=&quot;5-1-三方库&quot;&gt;&lt;a href=&quot;#5-1-三方库&quot; class=&quot;headerlink&quot; title=&quot;5.1 三方库&quot;&gt;&lt;/a&gt;5.1 三方库&lt;/h2&gt;&lt;p&gt;JSPatch(Github链接)诞生于2015年5月，最初是腾讯广研高级iOS开发@bang的个人项目。在Github.com上开源后获得了几千个star和几百个fork，广受关注，目前已被应用在大量腾讯/阿里/百度的App中。只需要在项目里引入极小的引擎文件，就可以使用 JavaScript 调用任何 Objective-C 的原生接口，替换任意 Objective-C 原生方法。所以我们通过下发 JS 脚本替换原生 Objective-C 代码，就可以实时修复线上 bug。针对头条客户端用于解决客户端发布后的崩溃修复问题，尤其是解决客户端的启动崩溃问题。&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#import &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;objc/runtime.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#import &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;objc/message.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;5-2-TTSparkRescue&quot;&gt;&lt;a href=&quot;#5-2-TTSparkRescue&quot; class=&quot;headerlink&quot; title=&quot;5.2 TTSparkRescue&quot;&gt;&lt;/a&gt;5.2 TTSparkRescue&lt;/h2&gt;&lt;h3 id=&quot;5-2-1-修复类型&quot;&gt;&lt;a href=&quot;#5-2-1-修复类型&quot; class=&quot;headerlink&quot; title=&quot;5.2.1 修复类型&quot;&gt;&lt;/a&gt;5.2.1 修复类型&lt;/h3&gt;&lt;h4 id=&quot;5-2-1-1-启动进行中&quot;&gt;&lt;a href=&quot;#5-2-1-1-启动进行中&quot; class=&quot;headerlink&quot; title=&quot;5.2.1.1 启动进行中&quot;&gt;&lt;/a&gt;5.2.1.1 启动进行中&lt;/h4&gt;&lt;p&gt;当发生启动崩溃的时候，通过同步的网络请求，下发JS脚本执行修复。下发的条件由本地的崩溃计数决定，应用每次启动都会在本地增加一次崩溃计数，并在3秒之后将计数清理，如果3秒内崩溃，则判定为一次真实的崩溃。当崩溃次数达到设置的条件的时候，比如连续崩溃3次，客户端就开始执行修复的逻辑过程，向后端发起对此接口的同步请求，由接口信息告知是否需要使用JS修复，是否需要更新JS文件，文件版本号以及JS文件内容的加密值。请求返回后，由客户端本地判断更新文件，下载，并执行。如果本地之前没有修复的JS 文件，默认需要请求更新。更新文件成功后，对应更新本地的文件版本号和MD5值。&lt;/p&gt;
+&lt;p&gt;同步请求：&lt;/p&gt;
+&lt;figure class=&quot;highlight mipsasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;dispatch_semaphore_t &lt;/span&gt;semaphore = &lt;span class=&quot;keyword&quot;&gt;dispatch_semaphore_create(0);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;dispatch_queue_t &lt;/span&gt;queue = &lt;span class=&quot;keyword&quot;&gt;dispatch_queue_create(&quot;queue&quot;, &lt;/span&gt;NULL)&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;dispatch_async(queue, &lt;/span&gt;^(void) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    HandlerBlock semaphoreBlock = ^(TTSparkRescueCrashType type,NSString *msg)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;dispatch_semaphore_signal(semaphore);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;    &amp;#125;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [self getLaunchRequestBlock:semaphoreBlock]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;dispatch_semaphore_wait(semaphore, &lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;DISPATCH_TIME_FOREVER);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;请求返回保存本地&lt;/p&gt;
+&lt;figure class=&quot;highlight erlang&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(void)&lt;/span&gt;updateLaunchLocalJS:&lt;span class=&quot;params&quot;&gt;(NSString *)&lt;/span&gt;launchJS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                versionCode:&lt;span class=&quot;params&quot;&gt;(NSNumber *)&lt;/span&gt;versionCode&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;执行本地JS代码&lt;/p&gt;
+&lt;figure class=&quot;highlight erlang&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(void)&lt;/span&gt;exvalueBase64Script:&lt;span class=&quot;params&quot;&gt;(NSString *)&lt;/span&gt;base64Script;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(void)&lt;/span&gt;exvalueRescueScript:&lt;span class=&quot;params&quot;&gt;(NSString *)&lt;/span&gt;jsScript;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;监听是否有执行错误&lt;/p&gt;
+&lt;figure class=&quot;highlight erlang&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(void)&lt;/span&gt;setJSCrashHanlder:&lt;span class=&quot;params&quot;&gt;(HandlerBlock)&lt;/span&gt;handlerBlock;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;5-2-1-2-启动完成后，使用中&quot;&gt;&lt;a href=&quot;#5-2-1-2-启动完成后，使用中&quot; class=&quot;headerlink&quot; title=&quot;5.2.1.2 启动完成后，使用中&quot;&gt;&lt;/a&gt;5.2.1.2 启动完成后，使用中&lt;/h4&gt;&lt;p&gt;当到达启动崩溃条件的时候，我们直接执行启动热修复逻辑。启动的时间稍微加长，遇见网络慢的情况用户需要等待的时间就会更久，当然为了避免崩溃这都是必要的。还有，另外的情况是，当用户使用我们的应用的时候，在一个层级比较深的地方操作并出现崩溃，当用户用到这里之前才会崩溃都不会有，这种情况我们依然需要进行热修复。流程类似，为异步。&lt;/p&gt;
+&lt;h3 id=&quot;5-2-2-补丁模拟自测&quot;&gt;&lt;a href=&quot;#5-2-2-补丁模拟自测&quot; class=&quot;headerlink&quot; title=&quot;5.2.2 补丁模拟自测&quot;&gt;&lt;/a&gt;5.2.2 补丁模拟自测&lt;/h3&gt;&lt;figure class=&quot;highlight haml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; *  测试环节，用一个方法控制开关&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; *  执行测试的testPatch.js,固定命名，测试完毕提交的时候必须关闭&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; *  模拟启动中崩溃,立刻&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; *  模拟启动中延迟崩溃，延迟启动中网络请求返回的默认时间10s&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; *  模拟激活后崩溃,60s&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-&lt;span class=&quot;ruby&quot;&gt; (void)&lt;span class=&quot;symbol&quot;&gt;setTestPatch:&lt;/span&gt;(BOOL)testJsOn &lt;span class=&quot;symbol&quot;&gt;simulationCrash:&lt;/span&gt;(BOOL)crashOn;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;-&lt;span class=&quot;ruby&quot;&gt; (void)simulationLauchCrash;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;-&lt;span class=&quot;ruby&quot;&gt; (void)simulationLauchDelayCrash;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;-&lt;span class=&quot;ruby&quot;&gt; (void)simulationActiveCrash;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;5-2-2-混淆方式，绕过审核&quot;&gt;&lt;a href=&quot;#5-2-2-混淆方式，绕过审核&quot; class=&quot;headerlink&quot; title=&quot;5.2.2 混淆方式，绕过审核&quot;&gt;&lt;/a&gt;5.2.2 混淆方式，绕过审核&lt;/h3&gt;&lt;h4 id=&quot;5-2-2-1-原理：&quot;&gt;&lt;a href=&quot;#5-2-2-1-原理：&quot; class=&quot;headerlink&quot; title=&quot;5.2.2.1 原理：&quot;&gt;&lt;/a&gt;5.2.2.1 原理：&lt;/h4&gt;&lt;p&gt;我们大致判断，苹果审核部检测应用是否使用JSPatch是通过运行时方法名检测。所以通过宏定义替换的方式，我们将与”JSPatch“有关的字段都用混淆的字符串进行宏定义替换，运行时检测到的都是混淆的不可读名称。&lt;/p&gt;
+&lt;h4 id=&quot;5-2-2-2-脚本替换&quot;&gt;&lt;a href=&quot;#5-2-2-2-脚本替换&quot; class=&quot;headerlink&quot; title=&quot;5.2.2.2 脚本替换&quot;&gt;&lt;/a&gt;5.2.2.2 脚本替换&lt;/h4&gt;&lt;p&gt;shell脚本：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/usr/bin/env bash  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;STRING_SYMBOL_FILE=&lt;span class=&quot;string&quot;&gt;&quot;func.list&quot;&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;HEAD_FILE=&lt;span class=&quot;string&quot;&gt;&quot;./confuseMacro.h&quot;&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; LC_CTYPE=C  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;ramdomString&lt;/span&gt;&lt;/span&gt;()  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    openssl rand -base64 64 | tr -cd &lt;span class=&quot;string&quot;&gt;&#39;a-zA-Z&#39;&lt;/span&gt; |head -c 16  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm &lt;span class=&quot;_&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$HEAD_FILE&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;touch &lt;span class=&quot;variable&quot;&gt;$HEAD_FILE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;#ifndef Demo_codeObfuscation_h  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#define Demo_codeObfuscation_h&#39;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;variable&quot;&gt;$HEAD_FILE&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;//confuse string at `date`&quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;variable&quot;&gt;$HEAD_FILE&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cat &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$STRING_SYMBOL_FILE&lt;/span&gt;&quot;&lt;/span&gt; | &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;read&lt;/span&gt; -ra line; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; [[ ! -z &lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;variable&quot;&gt;$line&lt;/span&gt;&quot;&lt;/span&gt; ]]; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ramdom=`ramdomString`  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$line&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$ramdom&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;#define &lt;span class=&quot;variable&quot;&gt;$line&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$ramdom&lt;/span&gt;&quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;variable&quot;&gt;$HEAD_FILE&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;done&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;#endif&quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class=&quot;variable&quot;&gt;$HEAD_FILE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;宏定义替换结果：&lt;/p&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;ifndef&lt;/span&gt; Demo_codeObfuscation_h  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; Demo_codeObfuscation_h&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//confuse string at 2017年 5月 9日 星期二 15时09分20秒 CST&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; JPEngine zLuEDxRvmBuomcFI&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; JPExtension IoAZxAmFBjgEOaIg&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; JPBoxing wzZsoLGKuQUTRFsi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; startEngine PRqvWWtwFlXUqdBe&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; evaluateScriptWithPath cNHrlJKiZyWXkfKo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; _evaluateScriptWithPath oDyiimPOHiIWBOEI&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; addExtensions MbpkqoMunCfIBgxY&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; defineStruct jIfCtJkMsIshJCvx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; formatPointerJSToOC IcHiIjXLjFucrQHR&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; formatRetainedCFTypeOCToJS lyCjsaHwzQaYUiBE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; formatPointerOCToJS DdwjOGMUveuHjYQq&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; formatJSToOC BBFoPIaVlHRWBNQx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; formatOCToJS PHwNpfqmydeeFhMY&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; TTSparkRescue euibpyTZoKOvrKyO&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; exvalueBase64Script fcXBLgUPqmsRqIWx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; _JSOverideMethods FBOBELKtnClIUhEa&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; _TMPMemoryPool ysvnOHCwoCVvFwfY&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; _propKeys cnyhVgwVNuEVAvEp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; _JSMethodSignatureCache inrkXDymTFAbwLRo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; _JSMethodSignatureLock LmXaTYYBizrQBKzn&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; _JSMethodForwardCallLock YdmfSXxrtNuKsJkp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; _protocolTypeEncodeDict NxHWlKlDFjjgpzYV&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; _pointersToRelease pybucmDygKyxFMvj&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; jp_methodSignatureForSelector cyzfrUQNsmWrwIgU&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; jp_fixMethodSignature vlSNUMpVTTXwTWJl&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; JPForwardInvocation gflqBWbUOmJHNfcL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; JPExecuteORIGForwardInvocation itGMsXKksYYFyCPL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; _initJPOverideMethods hpoUXLPSkKsFbHRk&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; overrideMethod KCgQjNlpCNXOixZS&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; invokeVariableParameterMethod YITOuEIcAICefCkG&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; convertJPSelectorString wwttXxSrZoFlmKML&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; getJSFunctionInObjectHierachy JjRtFUqUREPdZAgY&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; unboxOCObjectToJS MeVMxsEAmgCokbXc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; makePatchRequestAfterLaunch icreqUfezHNyjLdw&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; setJSCrashHanlder hwsfKTIzZPvTEMmc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; getLaunchPatchVersionCode jqRICpprUZpVeKVy&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt; getActivePatchVersionCode zZIvunQsewkyABXu&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;TTSparkRescue&quot;&gt;&lt;a href=&quot;#TTSparkRescue&quot; class=&quot;headerlink&quot; title=&quot;TTSparkRescue&quot;&gt;&lt;/a&gt;TTSparkRescue&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;备注：2017年4月开始出
+    
+    </summary>
+    
+    
+      <category term="程序开发" scheme="http://xuzichao.com/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -561,6 +812,88 @@
   </entry>
   
   <entry>
+    <title>参加Iweb峰会记录</title>
+    <link href="http://xuzichao.com/2016/05/12/2016iweb%20%E5%B3%B0%E4%BC%9A/"/>
+    <id>http://xuzichao.com/2016/05/12/2016iweb 峰会/</id>
+    <published>2016-05-12T11:09:59.000Z</published>
+    <updated>2017-06-04T05:11:32.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;16年的时候，赶上周末去参加了一趟北京的iweb峰会，会上来自各个公司的人分享和宣传自己的产品和技术，我作为一名普通开发者的角度去听大会，并了解和记录当前的一些技术发展。 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;一、主题峰会-9-00-–-12-00&quot;&gt;&lt;a href=&quot;#一、主题峰会-9-00-–-12-00&quot; class=&quot;headerlink&quot; title=&quot;一、主题峰会 9:00 – 12:00&quot;&gt;&lt;/a&gt;一、主题峰会 9:00 – 12:00&lt;/h2&gt;&lt;h4 id=&quot;1、主持人开场-–-田爱娜-HTML5梦工场-创始人&quot;&gt;&lt;a href=&quot;#1、主持人开场-–-田爱娜-HTML5梦工场-创始人&quot; class=&quot;headerlink&quot; title=&quot;1、主持人开场    – 田爱娜 HTML5梦工场  创始人&quot;&gt;&lt;/a&gt;1、主持人开场    – 田爱娜 HTML5梦工场  创始人&lt;/h4&gt;&lt;p&gt;HTML5梦工场是中国最有影响力的技术社区团队，由国内最早一批HTML5探索者和狂热拥护者发起，为广大开发者搭建一个开放、自由的互动交流平台，旨在推动HTML5在中国的应用与普及。“梦工场”也被誉为最接地气的草根公益组织。&lt;/p&gt;
+&lt;h4 id=&quot;2、HTML5发行的力量-–-凌海-蝴蝶互动-CEO&quot;&gt;&lt;a href=&quot;#2、HTML5发行的力量-–-凌海-蝴蝶互动-CEO&quot; class=&quot;headerlink&quot; title=&quot;2、HTML5发行的力量    – 凌海  蝴蝶互动  CEO&quot;&gt;&lt;/a&gt;2、HTML5发行的力量    – 凌海  蝴蝶互动  CEO&lt;/h4&gt;&lt;p&gt;公司的创始人凌海、王峰都来自于中国互联网上市公司核心高管，有业界极为丰富的互联网产品经验和创新精神。凌海曾任盛大集团高级副总裁，盛大游戏总 裁，韩国上市公司ACTOZ董事长。王峰曾任盛大游戏技术副总裁。&lt;br&gt;《传世H5》工作室组建于2015年初，由策划团队、美术团队、技术研发团队、运营团队、测试团队等组成。&lt;br&gt;除了《传世H5》蝴蝶互动又相继推出了《鬼吹灯》、《天天赚钱》、《蛮荒创世》等优秀的HTML5游戏，收到用户和业界的不断好评，之后蝴蝶互动即将推出《武 神》、《鹿鼎记》等。&lt;/p&gt;
+&lt;h4 id=&quot;3、天下武功，唯快不破-–-陈书艺-白鹭时代-CEO&quot;&gt;&lt;a href=&quot;#3、天下武功，唯快不破-–-陈书艺-白鹭时代-CEO&quot; class=&quot;headerlink&quot; title=&quot;3、天下武功，唯快不破 – 陈书艺 白鹭时代  CEO&quot;&gt;&lt;/a&gt;3、天下武功，唯快不破 – 陈书艺 白鹭时代  CEO&lt;/h4&gt;&lt;p&gt;白鹭移动游戏解决方案包含白鹭引擎、工具和白鹭开放平台，提供从游戏开发、上线到商业化运营的一站式免费服务。白鹭引擎（Egret Engine）、HTML5加速器(Egret Runtime)、骨骼动画工具(Dragon Bones)、可视化编辑器(Egret Wing)等共计14款核心产品，可以帮助开发者高效地开发出HTML5游戏。白鹭开放平台联动开发者、发行商、渠道商、第三方服务商，让HTML5游戏实现了从开发、上线到商业化运营生态连线，并且让所有技术服务和商业化服务，得以落地。案例：围住神经猫、访问量三天过亿&lt;/p&gt;
+&lt;h4 id=&quot;4、-社交生态下的HTML5游戏新契-–-王哲-触控科技副总裁&quot;&gt;&lt;a href=&quot;#4、-社交生态下的HTML5游戏新契-–-王哲-触控科技副总裁&quot; class=&quot;headerlink&quot; title=&quot;4、    社交生态下的HTML5游戏新契 – 王哲 触控科技副总裁&quot;&gt;&lt;/a&gt;4、    社交生态下的HTML5游戏新契 – 王哲 触控科技副总裁&lt;/h4&gt;&lt;p&gt;公司起步于2008年初创建的CocoaChina社区，专注于苹果产品和iOS系统开发。2010年11月12日触控科技正式组建团队，并在之后2年间获得北极光、迪士尼思伟创投、红杉创投以及纪源资本（GGV）的风险投资，融资总规模3200万美金。2011年凭借一款《捕鱼达人》游戏一战成名。&lt;/p&gt;
+&lt;h4 id=&quot;5、-HTML5和Docker容器如何重构和颠覆应用产业-–-李明-很快-创始人兼CEO&quot;&gt;&lt;a href=&quot;#5、-HTML5和Docker容器如何重构和颠覆应用产业-–-李明-很快-创始人兼CEO&quot; class=&quot;headerlink&quot; title=&quot;5、 HTML5和Docker容器如何重构和颠覆应用产业 – 李明 很快  创始人兼CEO&quot;&gt;&lt;/a&gt;5、 HTML5和Docker容器如何重构和颠覆应用产业 – 李明 很快  创始人兼CEO&lt;/h4&gt;&lt;h4 id=&quot;6、WeX5移动开发云-马科-CEO&quot;&gt;&lt;a href=&quot;#6、WeX5移动开发云-马科-CEO&quot; class=&quot;headerlink&quot; title=&quot;6、WeX5移动开发云 马科 CEO&quot;&gt;&lt;/a&gt;6、WeX5移动开发云 马科 CEO&lt;/h4&gt;&lt;p&gt;WeX5开发H5 app，遵循Apache开源协议，完全开源免费，上百个组件框架，全部开放，可视化的组件框架，开发者可自定义组件，集成第三方组件，采用MVC设计模式，数据和视图分离，页面描述和代码逻辑分离，支持浏览器调试、真机调试、原生调试，等多种调试模式，开发者可掌握每一行代码。WeX5一直坚持采用H5+CSS3+JS标准技术，一次开发，多端任意部署.&lt;/p&gt;
+&lt;h4 id=&quot;7、-Web-前端的实时化-–-江小丹-英特尔-Web技术研发总监&quot;&gt;&lt;a href=&quot;#7、-Web-前端的实时化-–-江小丹-英特尔-Web技术研发总监&quot; class=&quot;headerlink&quot; title=&quot;7、 Web 前端的实时化 – 江小丹 英特尔  Web技术研发总监&quot;&gt;&lt;/a&gt;7、 Web 前端的实时化 – 江小丹 英特尔  Web技术研发总监&lt;/h4&gt;&lt;h4 id=&quot;8、移动互联网下半场，不用好HTML5将无法生存-–-肖光宇-野狗实时后端云-联合创始人&quot;&gt;&lt;a href=&quot;#8、移动互联网下半场，不用好HTML5将无法生存-–-肖光宇-野狗实时后端云-联合创始人&quot; class=&quot;headerlink&quot; title=&quot;8、移动互联网下半场，不用好HTML5将无法生存 – 肖光宇 野狗实时后端云  联合创始人&quot;&gt;&lt;/a&gt;8、移动互联网下半场，不用好HTML5将无法生存 – 肖光宇 野狗实时后端云  联合创始人&lt;/h4&gt;&lt;p&gt;实时通信—包括消息订阅，推送，双向通信等功能。网络延迟小，服务响应速度快，API简单易用。&lt;br&gt;数据存储—提供了一个Key-Value的云端数据存储，直接通过API就可以对数据进行存取操作。操作简单，按需扩展。&lt;/p&gt;
+&lt;h4 id=&quot;9、-H5游戏进入精品新时代-—-王安-Dcloud-CEO&quot;&gt;&lt;a href=&quot;#9、-H5游戏进入精品新时代-—-王安-Dcloud-CEO&quot; class=&quot;headerlink&quot; title=&quot;9、 H5游戏进入精品新时代 — 王安 Dcloud CEO&quot;&gt;&lt;/a&gt;9、 H5游戏进入精品新时代 — 王安 Dcloud CEO&lt;/h4&gt;&lt;p&gt;DCloud面向HTML5行业分别推出了开发工具HBuilder、手机强化引擎5+ Runtime、跨平台前端框架mui、应用发行产品流应用，通过系列产品对HTML5的强化支持，使得HTML5能达到原生的功能和体验，同时在发行上更优于原生应用。&lt;/p&gt;
+&lt;p&gt;类似 : APICloud&lt;/p&gt;
+&lt;h4 id=&quot;10-、谢成鸿-LayaBox-CEO&quot;&gt;&lt;a href=&quot;#10-、谢成鸿-LayaBox-CEO&quot; class=&quot;headerlink&quot; title=&quot;10 、谢成鸿 LayaBox  CEO&quot;&gt;&lt;/a&gt;10 、谢成鸿 LayaBox  CEO&lt;/h4&gt;&lt;p&gt;Layabox是HTML5引擎之一，引擎以HTML5技术为核心，定位于全平台的高性能引擎，让游戏开发者一次开发，可同时发布APP、HTML5、VR、Flash版本。开发语言支持Flash AS3、JavaScript、TypeScript三种，让开发者人才选择范围更广泛。引擎核心库仅100K左右，除了大型游戏和小型游戏、还可以用于HTML5应用、APP、广告、营销、教育、3D、VR等众多领域。另外，LayaPlayer运行器移动设备安装量覆盖超5亿，帮助Layabox引擎的开发者进行产品发行。&lt;br&gt;  Layabox是Laya中国实验室历经4年倾力打造的全球顶级HTML5技术框架，核心产品包括：Flash开发H5的框架（LayaFlash）、多语言H5开发引擎（LayaAir）、H5运行器（LayaPlayer）、嵌入式H5应用商店（LayaStore）。&lt;/p&gt;
+&lt;h2 id=&quot;二、应用工具专场1-13：30-–-17：00&quot;&gt;&lt;a href=&quot;#二、应用工具专场1-13：30-–-17：00&quot; class=&quot;headerlink&quot; title=&quot;二、应用工具专场1 13：30 – 17：00&quot;&gt;&lt;/a&gt;二、应用工具专场1 13：30 – 17：00&lt;/h2&gt;&lt;h4 id=&quot;1、HTML5-App开发云实践-基于完全开源的WeX5开发框架&quot;&gt;&lt;a href=&quot;#1、HTML5-App开发云实践-基于完全开源的WeX5开发框架&quot; class=&quot;headerlink&quot; title=&quot;1、HTML5 App开发云实践-基于完全开源的WeX5开发框架&quot;&gt;&lt;/a&gt;1、HTML5 App开发云实践-基于完全开源的WeX5开发框架&lt;/h4&gt;&lt;p&gt;王洁 WeX5  首席技术运营&lt;/p&gt;
+&lt;h4 id=&quot;2、-Web技术推进多样化人机交互方式&quot;&gt;&lt;a href=&quot;#2、-Web技术推进多样化人机交互方式&quot; class=&quot;headerlink&quot; title=&quot;2、 Web技术推进多样化人机交互方式&quot;&gt;&lt;/a&gt;2、 Web技术推进多样化人机交互方式&lt;/h4&gt;&lt;p&gt;吴栋霞 英特尔  软件工程师&lt;/p&gt;
+&lt;h4 id=&quot;3、-Yo-去哪儿移动UI框架&quot;&gt;&lt;a href=&quot;#3、-Yo-去哪儿移动UI框架&quot; class=&quot;headerlink&quot; title=&quot;3、 Yo-去哪儿移动UI框架&quot;&gt;&lt;/a&gt;3、 Yo-去哪儿移动UI框架&lt;/h4&gt;&lt;p&gt;杜瑶 去哪儿网  前端开发总监&lt;/p&gt;
+&lt;h4 id=&quot;4、-手机QQ-React-Web极致优化&quot;&gt;&lt;a href=&quot;#4、-手机QQ-React-Web极致优化&quot; class=&quot;headerlink&quot; title=&quot;4、 手机QQ React Web极致优化&quot;&gt;&lt;/a&gt;4、 手机QQ React Web极致优化&lt;/h4&gt;&lt;p&gt;李成熙 腾讯AlloyTeam  前端工程师&lt;/p&gt;
+&lt;h4 id=&quot;5、-手机淘宝营销互动页面最佳实践&quot;&gt;&lt;a href=&quot;#5、-手机淘宝营销互动页面最佳实践&quot; class=&quot;headerlink&quot; title=&quot;5、 手机淘宝营销互动页面最佳实践&quot;&gt;&lt;/a&gt;5、 手机淘宝营销互动页面最佳实践&lt;/h4&gt;&lt;p&gt;黄华健  阿里巴巴  前端工程师&lt;/p&gt;
+&lt;h4 id=&quot;6、大型SPA的复杂工程如何化简&quot;&gt;&lt;a href=&quot;#6、大型SPA的复杂工程如何化简&quot; class=&quot;headerlink&quot; title=&quot;6、大型SPA的复杂工程如何化简&quot;&gt;&lt;/a&gt;6、大型SPA的复杂工程如何化简&lt;/h4&gt;&lt;p&gt;陈恺睿 小米  高级前端工程师&lt;/p&gt;
+&lt;h4 id=&quot;7、-UC前端业务套件体系&quot;&gt;&lt;a href=&quot;#7、-UC前端业务套件体系&quot; class=&quot;headerlink&quot; title=&quot;7、 UC前端业务套件体系&quot;&gt;&lt;/a&gt;7、 UC前端业务套件体系&lt;/h4&gt;&lt;p&gt;三桥 阿里巴巴UC移动事业群  高级前端工程师&lt;/p&gt;
+&lt;h2 id=&quot;三、应用工具专场2-13：30-–-17：00&quot;&gt;&lt;a href=&quot;#三、应用工具专场2-13：30-–-17：00&quot; class=&quot;headerlink&quot; title=&quot;三、应用工具专场2 13：30 – 17：00&quot;&gt;&lt;/a&gt;三、应用工具专场2 13：30 – 17：00&lt;/h2&gt;&lt;h4 id=&quot;1、Web-Components-—-Web-前端开发的未来趋势&quot;&gt;&lt;a href=&quot;#1、Web-Components-—-Web-前端开发的未来趋势&quot; class=&quot;headerlink&quot; title=&quot;1、Web Components — Web 前端开发的未来趋势&quot;&gt;&lt;/a&gt;1、Web Components — Web 前端开发的未来趋势&lt;/h4&gt;&lt;p&gt;1、陈本峰 云适配  创始人兼CEO&lt;/p&gt;
+&lt;p&gt;云适配由前微软美国总部专家、美通云动（北京）科技公司CEO陈本峰在美国西雅图研发，只需在原网站中插入一行代码，即能创建移动化网站，并实现网址不变、内容实时更新，它颠覆了传统手工移动网站建设模式，可快速打开移动营销六大入口。&lt;/p&gt;
+&lt;p&gt;2、 web  Components : &lt;/p&gt;
+&lt;p&gt;组件化给前端开发带来了极大的效率提升，组件化的UI框架也因此层出不穷，从EXTJs、YUI到 jQuery UI ，再到 Bootstrap、React、Ratchet、Ionic等等等等等等，几乎每年都有很多新的UI框架冒出来，它们或者借鉴或者颠覆其他已存在的框架。简单对比一下就会发现这些框架的很大一部分模块在功能上是重合的，但也仅仅在功能层面重合，代码层面确完全不兼容。&lt;/p&gt;
+&lt;p&gt;Web Components 的出现给组件标准化带来了很好的契机：&lt;/p&gt;
+&lt;p&gt;WEB组件目前仍然依靠各种类似”Hack”的方式来模拟，模拟方式也各有不同，很难统一和标准化，而 Web Components 则直接提供了标准化的组件定义方式，这是组件标准化的基石，使得未来的组件能够统一创建、方法调用、事件监听、属性访问等。&lt;br&gt;基于标准化的组件定义方式，我们便可以像W3C等标准组织一样来定义组件标准，无需再依赖、等待“内置”组件，这也使得我们获得了“渔”的能力&lt;/p&gt;
+&lt;h4 id=&quot;2、语音智能与H5的结合&quot;&gt;&lt;a href=&quot;#2、语音智能与H5的结合&quot; class=&quot;headerlink&quot; title=&quot;2、语音智能与H5的结合&quot;&gt;&lt;/a&gt;2、语音智能与H5的结合&lt;/h4&gt;&lt;p&gt;陈家军 科大讯飞  云平台事业部研发主管&lt;/p&gt;
+&lt;h4 id=&quot;3、-浅析HTML5中的无障碍标签及用处&quot;&gt;&lt;a href=&quot;#3、-浅析HTML5中的无障碍标签及用处&quot; class=&quot;headerlink&quot; title=&quot;3、 浅析HTML5中的无障碍标签及用处&quot;&gt;&lt;/a&gt;3、 浅析HTML5中的无障碍标签及用处&lt;/h4&gt;&lt;p&gt;张昆 中国信息无障碍产品联盟  首席专家&lt;/p&gt;
+&lt;h4 id=&quot;4、HTML5多屏互动平台实践&quot;&gt;&lt;a href=&quot;#4、HTML5多屏互动平台实践&quot; class=&quot;headerlink&quot; title=&quot;4、HTML5多屏互动平台实践&quot;&gt;&lt;/a&gt;4、HTML5多屏互动平台实践&lt;/h4&gt;&lt;p&gt;苏震巍 苏州盛派网络  CEO&lt;/p&gt;
+&lt;h4 id=&quot;5、iWeb-议题：Weex-开发者工具探究&quot;&gt;&lt;a href=&quot;#5、iWeb-议题：Weex-开发者工具探究&quot; class=&quot;headerlink&quot; title=&quot;5、iWeb 议题：Weex 开发者工具探究&quot;&gt;&lt;/a&gt;5、iWeb 议题：Weex 开发者工具探究&lt;/h4&gt;&lt;p&gt;勾三股四（阿里巴巴 前端工程师）、梧叶（阿里巴巴 高级技术专家）&lt;/p&gt;
+&lt;p&gt;手淘和天猫曾经尝试过React Native，然后放弃了。但是把它的思想吸收过来，结合Web Component和Vue.js，然后就成了Weex.&lt;/p&gt;
+&lt;h4 id=&quot;6、小米应用商店Hybrid性能优化实践&quot;&gt;&lt;a href=&quot;#6、小米应用商店Hybrid性能优化实践&quot; class=&quot;headerlink&quot; title=&quot;6、小米应用商店Hybrid性能优化实践&quot;&gt;&lt;/a&gt;6、小米应用商店Hybrid性能优化实践&lt;/h4&gt;&lt;p&gt;杨伟贤 小米  高级前端工程师&lt;/p&gt;
+&lt;h4 id=&quot;7、Vue-js从入门到上线&quot;&gt;&lt;a href=&quot;#7、Vue-js从入门到上线&quot; class=&quot;headerlink&quot; title=&quot;7、Vue.js从入门到上线&quot;&gt;&lt;/a&gt;7、Vue.js从入门到上线&lt;/h4&gt;&lt;p&gt;陈陆扬 精雕细课  前端负责人&lt;/p&gt;
+&lt;h2 id=&quot;四、游戏专场1-13：30-–-17：00&quot;&gt;&lt;a href=&quot;#四、游戏专场1-13：30-–-17：00&quot; class=&quot;headerlink&quot; title=&quot;四、游戏专场1 13：30 – 17：00&quot;&gt;&lt;/a&gt;四、游戏专场1 13：30 – 17：00&lt;/h2&gt;&lt;h4 id=&quot;1、文学连接游戏-阅文集团“泛娱乐2-0”迎接H5领域新时代&quot;&gt;&lt;a href=&quot;#1、文学连接游戏-阅文集团“泛娱乐2-0”迎接H5领域新时代&quot; class=&quot;headerlink&quot; title=&quot;1、文学连接游戏 阅文集团“泛娱乐2.0”迎接H5领域新时代&quot;&gt;&lt;/a&gt;1、文学连接游戏 阅文集团“泛娱乐2.0”迎接H5领域新时代&lt;/h4&gt;&lt;p&gt;朱靖 阅文集团  副总裁&lt;/p&gt;
+&lt;p&gt;腾讯COO任宇昕与副总裁程武宣布正式成立阅文集团，统一管理和运营原本属于盛大文学和腾讯文学旗下的起点中文网、创世中文网、小说阅读网、潇湘书院、红袖添香、云起书院、榕树下、QQ阅读、中智博文、华文天下等网文品牌。&lt;/p&gt;
+&lt;h4 id=&quot;2、Cocos-Creator：全面提升-H5-游戏的开发和运行速度&quot;&gt;&lt;a href=&quot;#2、Cocos-Creator：全面提升-H5-游戏的开发和运行速度&quot; class=&quot;headerlink&quot; title=&quot;2、Cocos Creator：全面提升 H5 游戏的开发和运行速度&quot;&gt;&lt;/a&gt;2、Cocos Creator：全面提升 H5 游戏的开发和运行速度&lt;/h4&gt;&lt;p&gt;王楠 触控科技  产品总监&lt;/p&gt;
+&lt;p&gt;Cocos Creator 是以内容创作为核心的游戏开发工具，在 Cocos2d-x 基础上实现了彻底脚本化、组件化和数据驱动等特点&lt;/p&gt;
+&lt;h4 id=&quot;3、快创互娱，人人都是HTML5游戏创想家&quot;&gt;&lt;a href=&quot;#3、快创互娱，人人都是HTML5游戏创想家&quot; class=&quot;headerlink&quot; title=&quot;3、快创互娱，人人都是HTML5游戏创想家&quot;&gt;&lt;/a&gt;3、快创互娱，人人都是HTML5游戏创想家&lt;/h4&gt;&lt;p&gt;段会锋 快创互娱  合伙人兼技术副总&lt;/p&gt;
+&lt;p&gt;快创互娱是由大连文森软件特科技有限公司设计开发的一款HTML5在线开发平台。快创互娱是一款可视化、零代码、拖拽式编程的在线开发平台，基于HTML5及MIT开源协议，具有跨平台的强大性能。使用者可通过鼠标拖拽的简单方法，创造属于自己的故事、动画、游戏、课件，同时一键分享，轻松将作品上传至网络。&lt;/p&gt;
+&lt;h4 id=&quot;4、Yahoo-Y5平台飛躍出海、強勢出航！&quot;&gt;&lt;a href=&quot;#4、Yahoo-Y5平台飛躍出海、強勢出航！&quot; class=&quot;headerlink&quot; title=&quot;4、Yahoo Y5平台飛躍出海、強勢出航！&quot;&gt;&lt;/a&gt;4、Yahoo Y5平台飛躍出海、強勢出航！&lt;/h4&gt;&lt;p&gt;赖俊光 Yahoo台湾与香港游戏频道   负责人&lt;/p&gt;
+&lt;h4 id=&quot;5、发行和渠道为什么推那个产品&quot;&gt;&lt;a href=&quot;#5、发行和渠道为什么推那个产品&quot; class=&quot;headerlink&quot; title=&quot;5、发行和渠道为什么推那个产品&quot;&gt;&lt;/a&gt;5、发行和渠道为什么推那个产品&lt;/h4&gt;&lt;p&gt;李力维 独角兽游戏  CEO&lt;/p&gt;
+&lt;h4 id=&quot;6、腾讯浏览服务，鼎力服务H5游戏生态&quot;&gt;&lt;a href=&quot;#6、腾讯浏览服务，鼎力服务H5游戏生态&quot; class=&quot;headerlink&quot; title=&quot;6、腾讯浏览服务，鼎力服务H5游戏生态&quot;&gt;&lt;/a&gt;6、腾讯浏览服务，鼎力服务H5游戏生态&lt;/h4&gt;&lt;p&gt;魏晓海 腾讯浏览器  内核开发总监技术专家&lt;/p&gt;
+&lt;h4 id=&quot;7、H5游戏2-0时代到来&quot;&gt;&lt;a href=&quot;#7、H5游戏2-0时代到来&quot; class=&quot;headerlink&quot; title=&quot;7、H5游戏2.0时代到来&quot;&gt;&lt;/a&gt;7、H5游戏2.0时代到来&lt;/h4&gt;&lt;p&gt;姬海江 交叉点  CEO   一个外包公司&lt;/p&gt;
+&lt;h2 id=&quot;五、游戏专场2-13：30-–-17：00&quot;&gt;&lt;a href=&quot;#五、游戏专场2-13：30-–-17：00&quot; class=&quot;headerlink&quot; title=&quot;五、游戏专场2 13：30 – 17：00&quot;&gt;&lt;/a&gt;五、游戏专场2 13：30 – 17：00&lt;/h2&gt;&lt;h4 id=&quot;1、约三端，战未来&quot;&gt;&lt;a href=&quot;#1、约三端，战未来&quot; class=&quot;headerlink&quot; title=&quot;1、约三端，战未来&quot;&gt;&lt;/a&gt;1、约三端，战未来&lt;/h4&gt;&lt;p&gt;汪阔 Layabox  技术副总裁&lt;/p&gt;
+&lt;h4 id=&quot;2、《小小战争》的设计经验分享&quot;&gt;&lt;a href=&quot;#2、《小小战争》的设计经验分享&quot; class=&quot;headerlink&quot; title=&quot;2、《小小战争》的设计经验分享&quot;&gt;&lt;/a&gt;2、《小小战争》的设计经验分享&lt;/h4&gt;&lt;p&gt;李瑞峰 圣堂科技  CEO     H5策略游戏&lt;/p&gt;
+&lt;h4 id=&quot;3、H5游戏的未来发展&quot;&gt;&lt;a href=&quot;#3、H5游戏的未来发展&quot; class=&quot;headerlink&quot; title=&quot;3、H5游戏的未来发展&quot;&gt;&lt;/a&gt;3、H5游戏的未来发展&lt;/h4&gt;&lt;p&gt;赵鹏 横石科技  副总裁 在线网页游戏《弑沙》&lt;/p&gt;
+&lt;h4 id=&quot;4、Lie-to-Me—聊聊HTML5多人实时在线游戏的优化&quot;&gt;&lt;a href=&quot;#4、Lie-to-Me—聊聊HTML5多人实时在线游戏的优化&quot; class=&quot;headerlink&quot; title=&quot;4、Lie to Me—聊聊HTML5多人实时在线游戏的优化&quot;&gt;&lt;/a&gt;4、Lie to Me—聊聊HTML5多人实时在线游戏的优化&lt;/h4&gt;&lt;p&gt;大城小胖  自由程序员 &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://weibo.com/finscn?is_hot=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://weibo.com/finscn?is_hot=1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/finscn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/finscn&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;5、强化渠道产品联动，升级用户游戏体验&quot;&gt;&lt;a href=&quot;#5、强化渠道产品联动，升级用户游戏体验&quot; class=&quot;headerlink&quot; title=&quot;5、强化渠道产品联动，升级用户游戏体验&quot;&gt;&lt;/a&gt;5、强化渠道产品联动，升级用户游戏体验&lt;/h4&gt;&lt;p&gt;林玮 北京游琥科技  副总经理&lt;/p&gt;
+&lt;h4 id=&quot;6、从市场角度分析H5游戏该如何立项&quot;&gt;&lt;a href=&quot;#6、从市场角度分析H5游戏该如何立项&quot; class=&quot;headerlink&quot; title=&quot;6、从市场角度分析H5游戏该如何立项&quot;&gt;&lt;/a&gt;6、从市场角度分析H5游戏该如何立项&lt;/h4&gt;&lt;p&gt;谭德文 上海越山科技  CEO&lt;/p&gt;
+&lt;h4 id=&quot;7、H5游戏的困境和破局&quot;&gt;&lt;a href=&quot;#7、H5游戏的困境和破局&quot; class=&quot;headerlink&quot; title=&quot;7、H5游戏的困境和破局&quot;&gt;&lt;/a&gt;7、H5游戏的困境和破局&lt;/h4&gt;&lt;p&gt;黄加阳 9G游戏  CEO&lt;/p&gt;
+&lt;h2 id=&quot;六、数字营销专场-13：30-–-17：00&quot;&gt;&lt;a href=&quot;#六、数字营销专场-13：30-–-17：00&quot; class=&quot;headerlink&quot; title=&quot;六、数字营销专场 13：30 – 17：00&quot;&gt;&lt;/a&gt;六、数字营销专场 13：30 – 17：00&lt;/h2&gt;&lt;h4 id=&quot;1、后营销时代：借H5实现“移动互联网&quot;&gt;&lt;a href=&quot;#1、后营销时代：借H5实现“移动互联网&quot; class=&quot;headerlink&quot; title=&quot;1、后营销时代：借H5实现“移动互联网+&quot;&gt;&lt;/a&gt;1、后营销时代：借H5实现“移动互联网+&lt;/h4&gt;&lt;p&gt;张翔 白鹭时代、青雀移动  联合创始人、总经理&lt;/p&gt;
+&lt;h4 id=&quot;2、-共享创赢移动网页大平台&quot;&gt;&lt;a href=&quot;#2、-共享创赢移动网页大平台&quot; class=&quot;headerlink&quot; title=&quot;2、    共享创赢移动网页大平台&quot;&gt;&lt;/a&gt;2、    共享创赢移动网页大平台&lt;/h4&gt;&lt;p&gt;马岳 Google  商业合作部行业总监&lt;/p&gt;
+&lt;h4 id=&quot;3、-裂变·营销闭环·H5生态&quot;&gt;&lt;a href=&quot;#3、-裂变·营销闭环·H5生态&quot; class=&quot;headerlink&quot; title=&quot;3、    裂变·营销闭环·H5生态&quot;&gt;&lt;/a&gt;3、    裂变·营销闭环·H5生态&lt;/h4&gt;&lt;p&gt;刘旭 易企秀  联合创始人兼副总裁&lt;/p&gt;
+&lt;p&gt;易企秀是一款针对移动互联网营销的手机幻灯片、H5场景应用制作工具，将原来只能在PC端制作和展示的各类复杂营销方案转移到更为便携和展示的手机上，用户随时随地根据自己的需要在PC端、手机端进行制作和展示，随时随地营销。&lt;/p&gt;
+&lt;h4 id=&quot;4、-喵葩：天猫电商互动技术新思路&quot;&gt;&lt;a href=&quot;#4、-喵葩：天猫电商互动技术新思路&quot; class=&quot;headerlink&quot; title=&quot;4、    喵葩：天猫电商互动技术新思路&quot;&gt;&lt;/a&gt;4、    喵葩：天猫电商互动技术新思路&lt;/h4&gt;&lt;p&gt;续彬 天猫  高级技术专家&lt;/p&gt;
+&lt;h4 id=&quot;5、-网络营销未来的五大发展趋势&quot;&gt;&lt;a href=&quot;#5、-网络营销未来的五大发展趋势&quot; class=&quot;headerlink&quot; title=&quot;5、    网络营销未来的五大发展趋势&quot;&gt;&lt;/a&gt;5、    网络营销未来的五大发展趋势&lt;/h4&gt;&lt;p&gt;葛甲 北京蓝时代  互联网分析师，自媒体人&lt;/p&gt;
+&lt;h4 id=&quot;6、-H5数字营销的技术痛点&quot;&gt;&lt;a href=&quot;#6、-H5数字营销的技术痛点&quot; class=&quot;headerlink&quot; title=&quot;6、    H5数字营销的技术痛点&quot;&gt;&lt;/a&gt;6、    H5数字营销的技术痛点&lt;/h4&gt;&lt;p&gt;余悠 跳跳糖创意  CEO&lt;/p&gt;
+&lt;h4 id=&quot;7、-纽约广告节最佳数字营销作品赏析&quot;&gt;&lt;a href=&quot;#7、-纽约广告节最佳数字营销作品赏析&quot; class=&quot;headerlink&quot; title=&quot;7、    纽约广告节最佳数字营销作品赏析&quot;&gt;&lt;/a&gt;7、    纽约广告节最佳数字营销作品赏析&lt;/h4&gt;&lt;p&gt;吴金君&lt;br&gt;纽约广告节  中国首席代表&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;16年的时候，赶上周末去参加了一趟北京的iweb峰会，会上来自各个公司的人分享和宣传自己的产品和技术，我作为一名普通开发者的角度去听大会，并了解和记录当前的一些技术发展。 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;一、主题峰会-9-00
+    
+    </summary>
+    
+    
+      <category term="程序开发" scheme="http://xuzichao.com/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>IOS 音频一览</title>
     <link href="http://xuzichao.com/2015/03/15/IOS%20%E9%9F%B3%E9%A2%91%E4%B8%80%E8%A7%88/"/>
     <id>http://xuzichao.com/2015/03/15/IOS 音频一览/</id>
@@ -937,89 +1270,11 @@ if (videoHeight % 2 == 1) {
   </entry>
   
   <entry>
-    <title>Hexo一下，博客诞生</title>
-    <link href="http://xuzichao.com/2014/11/07/Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
-    <id>http://xuzichao.com/2014/11/07/Hexo-个人博客使用介绍/</id>
-    <published>2014-11-07T11:09:59.000Z</published>
-    <updated>2016-06-08T13:32:48.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;a href=&quot;#个人博客搭建推荐Hexo&quot; class=&quot;headerlink&quot; title=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;/a&gt;个人博客搭建推荐Hexo&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是自己的，大概程序员的内心都流淌着这样的独白。&lt;/p&gt;
-&lt;p&gt;博客搭建框架组件很多，从WordPress到FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用,在网上各路大神的推荐之下，试过几款框架,基本都是在读完安装说明并开始有点小激动的时候，痛苦的安装过程让我放弃了这一方式。现在回想，一方面是由于个人那些年的电脑和网络都很烂，另一方面也是自己年轻冲动没经验和耐心，搭建过程很多东西都需要一点点的搜索去学习，电脑一卡一慢就各种不爽就搞不下去了。不过最后我还是搭建了自己的博客，并没有使用上述的哪种框架,前面的过程学习并知道了博客的搭建方式，索性自己就用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，这样博客的结界面就出来了，自己动手丰衣足食，然而它只是个静态的…到编译这一环节过不去了，毕竟JS属于前端的江湖，咋整…于是找了个python脚本(这里感谢@上山打老虎的友情赞助)，动态编译产生静态文件，只需要专心的写文字就好，随后可上传到github通过域名映射直接展示。这样，我就搭建好了自己的博客，高端大气上档次，简直满意的不得了！结果是非常符合我自己的审美设计要求，内心那个开心呐，随后开始了我的博客之路。&lt;/p&gt;
-&lt;p&gt;到后来接触了Hexo,它就是我上述过程的一个更为优化的方案，功能完善，扩展强大。通过Hexo的使用也发现上手很快，我几乎是在几分钟之内就搭建起了博客，这速度让我为之欢呼，所以我决定转到Hexo来写作，那么，这里就写个文章来推荐一下吧。&lt;/p&gt;
-&lt;h3 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;安装说明&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h5 id=&quot;一、准备工作&quot;&gt;&lt;a href=&quot;#一、准备工作&quot; class=&quot;headerlink&quot; title=&quot;一、准备工作&quot;&gt;&lt;/a&gt;一、准备工作&lt;/h5&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;你得有自己的域名，买域名的地方比较多，有的坑有的好，我是在godaddy上买的。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;注册github账号，你将会免费使用到它提供的各种便利而强大的功能，免费的存储空间，下载开源项目等等。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;安装Node.js, npm&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;安装git,生成SSH-KEY管理权限，配置域名到github关联，网上多查查&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id=&quot;二、安装Hexo&quot;&gt;&lt;a href=&quot;#二、安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;二、安装Hexo&quot;&gt;&lt;/a&gt;二、安装Hexo&lt;/h5&gt;&lt;p&gt;1、hexo程序环境&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;npm install -g hexo&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;2、hexo工程&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;$ hexo init 文件夹名称&lt;/p&gt;
-&lt;p&gt;$ cd 文件夹名称&lt;/p&gt;
-&lt;p&gt;$ npm install&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;3、会得到文件夹目录&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;├ ── _config.yml&lt;/p&gt;
-&lt;p&gt;├ ── package.json&lt;/p&gt;
-&lt;p&gt;├ ── scaffolds&lt;/p&gt;
-&lt;p&gt;├ ── source&lt;/p&gt;
-&lt;p&gt;├ ── _drafts&lt;/p&gt;
-&lt;p&gt;└ ── _posts&lt;/p&gt;
-&lt;p&gt;└ ── themes&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;4、按照命令行操作，此时到这里，别管这些文件是干啥的，来，我们接着往下走。&lt;/p&gt;
-&lt;h5 id=&quot;三、生成第一篇文章&quot;&gt;&lt;a href=&quot;#三、生成第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;三、生成第一篇文章&quot;&gt;&lt;/a&gt;三、生成第一篇文章&lt;/h5&gt;&lt;p&gt;1、创建文章&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;hexo new 你的文章名称&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;2、编辑你的文章&lt;/p&gt;
-&lt;p&gt;上面一步在你对应的文件夹下新建了一个Markdown文件，此时需要你使用对应的语法去编写文档，不知道的可以去学习下，用语言命令号来写Word文档，该有的有，不该有的没有，简直就是最爱&lt;/p&gt;
-&lt;p&gt;3、编译&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;hexo generate&lt;/p&gt;
-&lt;p&gt;hexo server&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;此时打开你的浏览器，默认地址是（ &lt;a href=&quot;http://0.0.0.0:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://0.0.0.0:4000/&lt;/a&gt; ），你就可以看到你的文章了，就是你刚才编写的文章。  &lt;/p&gt;
-&lt;h5 id=&quot;四、发布到github&quot;&gt;&lt;a href=&quot;#四、发布到github&quot; class=&quot;headerlink&quot; title=&quot;四、发布到github&quot;&gt;&lt;/a&gt;四、发布到github&lt;/h5&gt;&lt;p&gt;由于前面你做好了准备工作，所以这里只需要&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;git commit -a -m “&lt;em&gt;*&lt;/em&gt;文章”&lt;/p&gt;
-&lt;p&gt;git push&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;此时打开你的浏览器，比如你买的域名是( &lt;a href=&quot;http://baidu.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://baidu.com/&lt;/a&gt; )，你打开它，和你在（ &lt;a href=&quot;http://0.0.0.0:4000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://0.0.0.0:4000&lt;/a&gt; ）看到的一毛一样，可以发给你的朋友看了。 &lt;/p&gt;
-&lt;h3 id=&quot;小结&quot;&gt;&lt;a href=&quot;#小结&quot; class=&quot;headerlink&quot; title=&quot;小结&quot;&gt;&lt;/a&gt;小结&lt;/h3&gt;&lt;p&gt;对于Hexo的使用，前后只介绍了关键的几个命令，为了可以可以快速搭建，都是基础入门很方便，麻烦的到是前面的准备工作，得一步步挨着来，有不懂的可以搜索和咨询。Hexo可以更换主题，也可以参照他人的主题制作，比如本站的主题yilia就是从github上找的开源主题，作者是我科的学长，已经获得了近2000颗星，这就是开源的力量，感谢学长litten的贡献。Hexo的其他扩展功能，请直接浏览Hexo的官网学习，我这里就不做没有必要的翻译了。&lt;/p&gt;
-&lt;p&gt;写作此文时候的内心OS：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/aoteman.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;a href=&quot;#个人博客搭建推荐Hexo&quot; class=&quot;headerlink&quot; title=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;/a&gt;个人博客搭建推荐Hexo&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://xuzichao.com/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
     <title>对 Run Loop 的理解</title>
-    <link href="http://xuzichao.com/2014/11/05/%E5%AF%B9%20Run%20Loop%20%E7%9A%84%E7%90%86%E8%A7%A3/"/>
-    <id>http://xuzichao.com/2014/11/05/对 Run Loop 的理解/</id>
-    <published>2014-11-05T06:34:12.000Z</published>
-    <updated>2017-01-25T03:06:42.000Z</updated>
+    <link href="http://xuzichao.com/2015/01/05/%E5%AF%B9%20Run%20Loop%20%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <id>http://xuzichao.com/2015/01/05/对 Run Loop 的理解/</id>
+    <published>2015-01-05T06:34:12.000Z</published>
+    <updated>2017-06-04T03:53:36.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;对-Run-Loop-的理解&quot;&gt;&lt;a href=&quot;#对-Run-Loop-的理解&quot; class=&quot;headerlink&quot; title=&quot;对 Run Loop 的理解&quot;&gt;&lt;/a&gt;对 Run Loop 的理解&lt;/h1&gt;&lt;h2 id=&quot;一、Run-Loop为何存在&quot;&gt;&lt;a href=&quot;#一、Run-Loop为何存在&quot; class=&quot;headerlink&quot; title=&quot;一、Run Loop为何存在?&quot;&gt;&lt;/a&gt;一、Run Loop为何存在?&lt;/h2&gt;&lt;p&gt;我们从编写命令式的语句开始理解，一般我们写一个运行函数，只要顺序执行，一遍就过了，比如简单的NSLog一个“hello word”，这样我们就算完成了一个问候世界的程序。好简单的程序，但是一个复杂的系统，一个能称之为系统的程序，比如我们的手机App，它是不可能按照执行顺序一下执行完成就结束的，它包含了我们各类需求，会接受我们不同的操作，所以这个程序需要有一个设计的模式能够符合这样的应用场景，能够响应操作。所以，有了Event驱动的模式。&lt;/p&gt;
 &lt;p&gt;特点：&lt;/p&gt;
@@ -1122,36 +1377,93 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
   </entry>
   
   <entry>
-    <title>再见，My Hust</title>
-    <link href="http://xuzichao.com/2014/06/12/%E5%86%8D%E8%A7%81%EF%BC%8CMy%20Hust/"/>
-    <id>http://xuzichao.com/2014/06/12/再见，My Hust/</id>
-    <published>2014-06-12T11:09:59.000Z</published>
-    <updated>2017-01-25T03:31:00.000Z</updated>
+    <title>Hexo一下，博客诞生</title>
+    <link href="http://xuzichao.com/2014/11/07/Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://xuzichao.com/2014/11/07/Hexo-个人博客使用介绍/</id>
+    <published>2014-11-07T11:09:59.000Z</published>
+    <updated>2017-06-04T03:51:48.000Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;后续&quot;&gt;&lt;a href=&quot;#后续&quot; class=&quot;headerlink&quot; title=&quot;后续&quot;&gt;&lt;/a&gt;后续&lt;/h3&gt;&lt;p&gt;不需要华丽的辞藻去颂赞，你的美与伟大一直浸染着每个Huster的心。&lt;/p&gt;
-&lt;p&gt;大学四年，匆匆，不曾写过什么日记，好像是少了些记忆，从来都认为自己大学过的很对，走的路很直，如今毕业工作再回头看，迷迷茫茫，忙忙碌碌，勤勤恳恳，便是那过去的日子。&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;a href=&quot;#个人博客搭建推荐Hexo&quot; class=&quot;headerlink&quot; title=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;/a&gt;个人博客搭建推荐Hexo&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地去耕耘。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是自己的，大概程序员的内心都流淌着这样的独白。&lt;/p&gt;
+&lt;p&gt;博客搭建框架组件很多，从WordPress到FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用,在网上各路大神的推荐之下，试过几款框架,基本都是在读完安装说明并开始有点小激动的时候，痛苦的安装过程让我放弃了这一方式。现在回想，一方面是由于个人那些年的电脑和网络都很烂，另一方面也是自己年轻冲动没经验和耐心，搭建过程很多东西都需要一点点的搜索去学习，电脑一卡一慢就各种不爽就搞不下去了。不过最后我还是搭建了自己的博客，并没有使用上述的哪种框架,前面的过程学习并知道了博客的搭建方式，索性自己就用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，这样博客的结界面就出来了，自己动手丰衣足食，然而它只是个静态的…到编译这一环节过不去了，毕竟JS属于前端的江湖，咋整…于是找了个python脚本(这里感谢@上山打老虎的友情赞助)，动态编译产生静态文件，只需要专心的写文字就好，随后可上传到github通过域名映射直接展示。这样，我就搭建好了自己的博客，高端大气上档次，简直满意的不得了！结果是非常符合我自己的审美设计要求，内心那个开心呐，随后开始了我的博客之路。&lt;/p&gt;
+&lt;p&gt;到后来接触了Hexo,它就是我上述过程的一个更为优化的方案，功能完善，扩展强大。通过Hexo的使用也发现上手很快，我几乎是在几分钟之内就搭建起了博客，这速度让我为之欢呼，所以我决定转到Hexo来写作，那么，这里就写个文章来推荐一下吧。&lt;/p&gt;
+&lt;h3 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;安装说明&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&quot;一、准备工作&quot;&gt;&lt;a href=&quot;#一、准备工作&quot; class=&quot;headerlink&quot; title=&quot;一、准备工作&quot;&gt;&lt;/a&gt;一、准备工作&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;你得有自己的域名，买域名的地方比较多，有的坑有的好，我是在godaddy上买的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;注册github账号，你将会免费使用到它提供的各种便利而强大的功能，免费的存储空间，下载开源项目等等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装Node.js, npm&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装git,生成SSH-KEY管理权限，配置域名到github关联，网上多查查&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;二、安装Hexo&quot;&gt;&lt;a href=&quot;#二、安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;二、安装Hexo&quot;&gt;&lt;/a&gt;二、安装Hexo&lt;/h5&gt;&lt;p&gt;1、hexo程序环境&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm install -g hexo&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2、hexo工程&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$ hexo init 文件夹名称&lt;/p&gt;
+&lt;p&gt;$ cd 文件夹名称&lt;/p&gt;
+&lt;p&gt;$ npm install&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;3、会得到文件夹目录&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;├ ── _config.yml&lt;/p&gt;
+&lt;p&gt;├ ── package.json&lt;/p&gt;
+&lt;p&gt;├ ── scaffolds&lt;/p&gt;
+&lt;p&gt;├ ── source&lt;/p&gt;
+&lt;p&gt;├ ── _drafts&lt;/p&gt;
+&lt;p&gt;└ ── _posts&lt;/p&gt;
+&lt;p&gt;└ ── themes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;4、按照命令行操作，此时到这里，别管这些文件是干啥的，来，我们接着往下走。&lt;/p&gt;
+&lt;h5 id=&quot;三、生成第一篇文章&quot;&gt;&lt;a href=&quot;#三、生成第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;三、生成第一篇文章&quot;&gt;&lt;/a&gt;三、生成第一篇文章&lt;/h5&gt;&lt;p&gt;1、创建文章&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hexo new 你的文章名称&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2、编辑你的文章&lt;/p&gt;
+&lt;p&gt;上面一步在你对应的文件夹下新建了一个Markdown文件，此时需要你使用对应的语法去编写文档，不知道的可以去学习下，用语言命令号来写Word文档，该有的有，不该有的没有，简直就是最爱&lt;/p&gt;
+&lt;p&gt;3、编译&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hexo generate&lt;/p&gt;
+&lt;p&gt;hexo server&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;此时打开你的浏览器，默认地址是（ &lt;a href=&quot;http://0.0.0.0:4000/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://0.0.0.0:4000/&lt;/a&gt; ），你就可以看到你的文章了，就是你刚才编写的文章。  &lt;/p&gt;
+&lt;h5 id=&quot;四、发布到github&quot;&gt;&lt;a href=&quot;#四、发布到github&quot; class=&quot;headerlink&quot; title=&quot;四、发布到github&quot;&gt;&lt;/a&gt;四、发布到github&lt;/h5&gt;&lt;p&gt;由于前面你做好了准备工作，所以这里只需要&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git commit -a -m “&lt;em&gt;*&lt;/em&gt;文章”&lt;/p&gt;
+&lt;p&gt;git push&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;此时打开你的浏览器，比如你买的域名是( &lt;a href=&quot;http://baidu.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://baidu.com/&lt;/a&gt; )，你打开它，和你在（ &lt;a href=&quot;http://0.0.0.0:4000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://0.0.0.0:4000&lt;/a&gt; ）看到的一毛一样，可以发给你的朋友看了。 &lt;/p&gt;
+&lt;h3 id=&quot;小结&quot;&gt;&lt;a href=&quot;#小结&quot; class=&quot;headerlink&quot; title=&quot;小结&quot;&gt;&lt;/a&gt;小结&lt;/h3&gt;&lt;p&gt;对于Hexo的使用，前后只介绍了关键的几个命令，为了可以可以快速搭建，都是基础入门很方便，麻烦的到是前面的准备工作，得一步步挨着来，有不懂的可以搜索和咨询。Hexo可以更换主题，也可以参照他人的主题制作，比如本站的主题yilia就是从github上找的开源主题，作者是我科的学长，已经获得了近2000颗星，这就是开源的力量，感谢学长litten的贡献。Hexo的其他扩展功能，请直接浏览Hexo的官网学习，我这里就不做没有必要的翻译了。&lt;/p&gt;
+&lt;p&gt;写作此文时候的内心OS：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/aoteman.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;后续&quot;&gt;&lt;a href=&quot;#后续&quot; class=&quot;headerlink&quot; title=&quot;后续&quot;&gt;&lt;/a&gt;后续&lt;/h3&gt;&lt;p&gt;不需要华丽的辞藻去颂赞，你的美与伟大一直浸染着每个Huster的心。&lt;/p&gt;
-&lt;p&gt;大学四年，匆匆，不曾写过什么日记，好像是少了些记忆，从来
+      &lt;h2 id=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;a href=&quot;#个人博客搭建推荐Hexo&quot; class=&quot;headerlink&quot; title=&quot;个人博客搭建推荐Hexo&quot;&gt;&lt;/a&gt;个人博客搭建推荐Hexo&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;
     
     </summary>
     
     
-      <category term="时光相册" scheme="http://xuzichao.com/tags/%E6%97%B6%E5%85%89%E7%9B%B8%E5%86%8C/"/>
+      <category term="程序开发" scheme="http://xuzichao.com/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
   <entry>
-    <title>彩云之南</title>
-    <link href="http://xuzichao.com/2014/05/12/%E5%BD%A9%E4%BA%91%E4%B9%8B%E5%8D%97/"/>
-    <id>http://xuzichao.com/2014/05/12/彩云之南/</id>
-    <published>2014-05-12T11:09:59.000Z</published>
-    <updated>2016-06-08T14:12:31.000Z</updated>
+    <title>再见，My Hust</title>
+    <link href="http://xuzichao.com/2014/09/12/%E5%86%8D%E8%A7%81%EF%BC%8CMy%20Hust/"/>
+    <id>http://xuzichao.com/2014/09/12/再见，My Hust/</id>
+    <published>2014-09-12T11:09:59.000Z</published>
+    <updated>2017-06-04T03:50:18.000Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;跨入华科校门的时候，我说我要在大学结识一群好伙伴，到后来，我就遇见了你们，这次把我们的毕业旅行选在了彩云之南。&lt;/p&gt;
+    <content type="html">&lt;h3 id=&quot;后续&quot;&gt;&lt;a href=&quot;#后续&quot; class=&quot;headerlink&quot; title=&quot;后续&quot;&gt;&lt;/a&gt;后续&lt;/h3&gt;&lt;p&gt;不需要华丽的辞藻去颂赞，你的美与伟大一直浸染着每个Huster的心。&lt;/p&gt;
+&lt;p&gt;大学四年，匆匆，不曾写过什么日记，好像是少了些记忆，从来都认为自己大学过的很对，走的路很直，如今毕业工作再回头看，迷迷茫茫，忙忙碌碌，勤勤恳恳，便是那过去的日子。&lt;/p&gt;
+&lt;p&gt;跨入华科校门的时候，我说我要在大学结识一群好伙伴，到后来，我就遇见了你们，这次把我们的毕业旅行选在了彩云之南。&lt;/p&gt;
 &lt;h3 id=&quot;记忆不散的相册&quot;&gt;&lt;a href=&quot;#记忆不散的相册&quot; class=&quot;headerlink&quot; title=&quot;记忆不散的相册&quot;&gt;&lt;/a&gt;记忆不散的相册&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/assets/myPhoto/1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/myPhoto/2.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/myPhoto/3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -1165,8 +1477,8 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
     
     <summary type="html">
     
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;跨入华科校门的时候，我说我要在大学结识一群好伙伴，到后来，我就遇见了你们，这次把我们的毕业旅行选在了彩云之南。&lt;/p&gt;
-&lt;h3 id=&quot;记忆
+      &lt;h3 id=&quot;后续&quot;&gt;&lt;a href=&quot;#后续&quot; class=&quot;headerlink&quot; title=&quot;后续&quot;&gt;&lt;/a&gt;后续&lt;/h3&gt;&lt;p&gt;不需要华丽的辞藻去颂赞，你的美与伟大一直浸染着每个Huster的心。&lt;/p&gt;
+&lt;p&gt;大学四年，匆匆，不曾写过什么日记，好像是少了些记忆，从来
     
     </summary>
     
