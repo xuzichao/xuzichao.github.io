@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>徐子超的博客</title>
-  <subtitle>程先生，你好。客气，叫我序员就行。</subtitle>
+  <subtitle>毕业于华中科技大学，今日头条在职</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuzichao.com/"/>
@@ -9,7 +9,7 @@
   <id>http://xuzichao.com/</id>
   
   <author>
-    <name>卡图睡不醒</name>
+    <name>东境</name>
     <email>529841962@qq.com</email>
   </author>
   
