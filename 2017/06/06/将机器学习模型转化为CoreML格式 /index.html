@@ -3,37 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>再见，My Hust | 徐子超的博客</title>
+  <title>将机器学习模型转化为CoreML格式 | 徐子超的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="后续不需要华丽的辞藻去颂赞，你的美与伟大一直浸染着每个Huster的心。
-大学四年，匆匆，不曾写过什么日记，好像是少了些记忆，从来都认为自己大学过的很对，走的路很直，如今毕业工作再回头看，迷迷茫茫，忙忙碌碌，勤勤恳恳，便是那过去的日子。
-跨入华科校门的时候，我说我要在大学结识一群好伙伴，到后来，我就遇见了你们，这次把我们的毕业旅行选在了彩云之南。
-记忆不散的相册">
+  <meta name="description" content="将机器学习模型转化为CoreML格式
+接上篇：机器学习在IOS开发中的应用 CoreML
+
+四、创建自己的Core Ml Model4.1 Apple支持的模型苹果支持由第三方工具和框架训练出来的机器学习模型转化，我们可以只用苹果提供的转化工具,将个人已经训练好的数据模型转化为CoreML进行支持。工具为 Core ML Tools ，是基于Python开发的工具，需要自己安装配置，到这里，上面一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="再见，My Hust">
-<meta property="og:url" content="http://xuzichao.com/2014/09/12/再见，My Hust/index.html">
+<meta property="og:title" content="将机器学习模型转化为CoreML格式">
+<meta property="og:url" content="http://xuzichao.com/2017/06/06/将机器学习模型转化为CoreML格式 /index.html">
 <meta property="og:site_name" content="徐子超的博客">
-<meta property="og:description" content="后续不需要华丽的辞藻去颂赞，你的美与伟大一直浸染着每个Huster的心。
-大学四年，匆匆，不曾写过什么日记，好像是少了些记忆，从来都认为自己大学过的很对，走的路很直，如今毕业工作再回头看，迷迷茫茫，忙忙碌碌，勤勤恳恳，便是那过去的日子。
-跨入华科校门的时候，我说我要在大学结识一群好伙伴，到后来，我就遇见了你们，这次把我们的毕业旅行选在了彩云之南。
-记忆不散的相册">
-<meta property="og:image" content="http://xuzichao.com/assets/myPhoto/1.jpg">
-<meta property="og:image" content="http://xuzichao.com/assets/myPhoto/2.jpg">
-<meta property="og:image" content="http://xuzichao.com/assets/myPhoto/3.jpg">
-<meta property="og:image" content="http://xuzichao.com/assets/myPhoto/4.jpg">
-<meta property="og:image" content="http://xuzichao.com/assets/myPhoto/5.jpg">
-<meta property="og:image" content="http://xuzichao.com/assets/myPhoto/6.jpg">
-<meta property="og:image" content="http://xuzichao.com/assets/myPhoto/7.jpg">
-<meta property="og:image" content="http://xuzichao.com/assets/myPhoto/8.jpg">
-<meta property="og:image" content="http://xuzichao.com/assets/myPhoto/9.jpg">
-<meta property="og:updated_time" content="2017-06-04T03:50:18.000Z">
+<meta property="og:description" content="将机器学习模型转化为CoreML格式
+接上篇：机器学习在IOS开发中的应用 CoreML
+
+四、创建自己的Core Ml Model4.1 Apple支持的模型苹果支持由第三方工具和框架训练出来的机器学习模型转化，我们可以只用苹果提供的转化工具,将个人已经训练好的数据模型转化为CoreML进行支持。工具为 Core ML Tools ，是基于Python开发的工具，需要自己安装配置，到这里，上面一">
+<meta property="og:updated_time" content="2017-06-20T11:54:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="再见，My Hust">
-<meta name="twitter:description" content="后续不需要华丽的辞藻去颂赞，你的美与伟大一直浸染着每个Huster的心。
-大学四年，匆匆，不曾写过什么日记，好像是少了些记忆，从来都认为自己大学过的很对，走的路很直，如今毕业工作再回头看，迷迷茫茫，忙忙碌碌，勤勤恳恳，便是那过去的日子。
-跨入华科校门的时候，我说我要在大学结识一群好伙伴，到后来，我就遇见了你们，这次把我们的毕业旅行选在了彩云之南。
-记忆不散的相册">
-<meta name="twitter:image" content="http://xuzichao.com/assets/myPhoto/1.jpg">
+<meta name="twitter:title" content="将机器学习模型转化为CoreML格式">
+<meta name="twitter:description" content="将机器学习模型转化为CoreML格式
+接上篇：机器学习在IOS开发中的应用 CoreML
+
+四、创建自己的Core Ml Model4.1 Apple支持的模型苹果支持由第三方工具和框架训练出来的机器学习模型转化，我们可以只用苹果提供的转化工具,将个人已经训练好的数据模型转化为CoreML进行支持。工具为 Core ML Tools ，是基于Python开发的工具，需要自己安装配置，到这里，上面一">
   
     <link rel="alternative" href="/atom.xml" title="徐子超的博客" type="application/atom+xml">
   
@@ -177,11 +167,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-再见，My Hust" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-将机器学习模型转化为CoreML格式 " class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/09/12/再见，My Hust/" class="article-date">
-  	<time datetime="2014-09-12T11:09:59.000Z" itemprop="datePublished">Sep 12</time>
+      <a href="/2017/06/06/将机器学习模型转化为CoreML格式 /" class="article-date">
+  	<time datetime="2017-06-06T04:42:52.000Z" itemprop="datePublished">Jun 6</time>
 </a>
     </div>
   
@@ -194,7 +184,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      再见，My Hust
+      将机器学习模型转化为CoreML格式
     </h1>
   
 
@@ -203,7 +193,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/时光相册/">时光相册</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序开发/">程序开发</a></li></ul>
 	</div>
 
         
@@ -214,18 +204,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><p>不需要华丽的辞藻去颂赞，你的美与伟大一直浸染着每个Huster的心。</p>
-<p>大学四年，匆匆，不曾写过什么日记，好像是少了些记忆，从来都认为自己大学过的很对，走的路很直，如今毕业工作再回头看，迷迷茫茫，忙忙碌碌，勤勤恳恳，便是那过去的日子。</p>
-<p>跨入华科校门的时候，我说我要在大学结识一群好伙伴，到后来，我就遇见了你们，这次把我们的毕业旅行选在了彩云之南。</p>
-<h3 id="记忆不散的相册"><a href="#记忆不散的相册" class="headerlink" title="记忆不散的相册"></a>记忆不散的相册</h3><p><img src="/assets/myPhoto/1.jpg" alt=""></p>
-<p><img src="/assets/myPhoto/2.jpg" alt=""></p>
-<p><img src="/assets/myPhoto/3.jpg" alt=""></p>
-<p><img src="/assets/myPhoto/4.jpg" alt=""></p>
-<p><img src="/assets/myPhoto/5.jpg" alt=""></p>
-<p><img src="/assets/myPhoto/6.jpg" alt=""></p>
-<p><img src="/assets/myPhoto/7.jpg" alt=""></p>
-<p><img src="/assets/myPhoto/8.jpg" alt=""></p>
-<p><img src="/assets/myPhoto/9.jpg" alt=""></p>
+        <h3 id="将机器学习模型转化为CoreML格式"><a href="#将机器学习模型转化为CoreML格式" class="headerlink" title="将机器学习模型转化为CoreML格式"></a>将机器学习模型转化为CoreML格式</h3><blockquote>
+<p>接上篇：机器学习在IOS开发中的应用 CoreML</p>
+</blockquote>
+<h2 id="四、创建自己的Core-Ml-Model"><a href="#四、创建自己的Core-Ml-Model" class="headerlink" title="四、创建自己的Core Ml Model"></a>四、创建自己的Core Ml Model</h2><h3 id="4-1-Apple支持的模型"><a href="#4-1-Apple支持的模型" class="headerlink" title="4.1 Apple支持的模型"></a>4.1 Apple支持的模型</h3><p>苹果支持由第三方工具和框架训练出来的机器学习模型转化，我们可以只用苹果提供的转化工具,将个人已经训练好的数据模型转化为CoreML进行支持。工具为 Core ML Tools ，是基于Python开发的工具，需要自己安装配置，到这里，上面一二节的概念理解就有作用了，前面提到了机器学习所使用到的思想算法，这里工具有对应的类型支持转化。我从官网对照理解过来如下图：</p>
+<table>
+<thead>
+<tr>
+<th>学习模型</th>
+<th>子算法类型</th>
+<th>工具框架</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人工神经网络</td>
+<td>多层向前反馈网络（Multilayer Feedforward Network）、CNN卷积神经网络（Convolution Neural Network、RNN递归神经网络（Recurrent Neural Networks）</td>
+<td>Caffe、Keras 1.2.2</td>
+</tr>
+<tr>
+<td>集成算法</td>
+<td>随机森林（Random forests）、迭代树（boosted trees）、决策树（decision trees）</td>
+<td>scikit-learn 0.18、XGBoost 0.6</td>
+</tr>
+<tr>
+<td>支持向量机</td>
+<td>线性回归（Scalar regression）、多分类器（multiclass classification）</td>
+<td>scikit-learn 0.18、LIBSVM 3.22</td>
+</tr>
+<tr>
+<td>广义线性模型</td>
+<td>线性回归（Linear regression）、多分类器（multiclass classification）、标量回归（Scalar regression）</td>
+<td>scikit-learn 0.18</td>
+</tr>
+<tr>
+<td>特征工程</td>
+<td>稀疏向量化（Sparse vectorization）、密集向量化（ dense vectorization）、分类处理（categorical processing）</td>
+<td>scikit-learn 0.18</td>
+</tr>
+<tr>
+<td>机器学习流</td>
+<td>马尔可夫链（Sequentially chained models）</td>
+<td>scikit-learn 0.18</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-2-转换你的学习模型"><a href="#4-2-转换你的学习模型" class="headerlink" title="4.2 转换你的学习模型"></a>4.2 转换你的学习模型</h3><h2 id="五、时光相册的机器学习"><a href="#五、时光相册的机器学习" class="headerlink" title="五、时光相册的机器学习"></a>五、时光相册的机器学习</h2><h2 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h2><p>从本次实践看来..</p>
+<p>写本文的目的不仅仅是对WWDC新技术的探索和分享，更是自己对机器学习的兴趣，搜索查询完成IOS的demo测试，完成本篇的时候，我对机器学习有了基础的认识，仿佛有了一种貌似学完python就能转行的自信，😀，加油吧，少年。</p>
 
       
     </div>
@@ -235,15 +260,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/11/07/Hexo-个人博客使用介绍/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Hexo一下，博客诞生
-        
-      </div>
-    </a>
   
+    <a href="/2017/06/05/机器学习在IOS开发中的应用 CoreML/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习在IOS开发中的应用 CoreML</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -270,7 +291,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="再见，My Hust" data-title="再见，My Hust" data-url="http://xuzichao.com/2014/09/12/再见，My Hust/"></div>
+	<div class="ds-thread" data-thread-key="将机器学习模型转化为CoreML格式 " data-title="将机器学习模型转化为CoreML格式" data-url="http://xuzichao.com/2017/06/06/将机器学习模型转化为CoreML格式 /"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
