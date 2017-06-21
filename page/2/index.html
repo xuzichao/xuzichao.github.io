@@ -105,7 +105,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/时光相册/" style="font-size: 10px;">时光相册</a> <a href="/tags/程序开发/" style="font-size: 20px;">程序开发</a> <a href="/tags/随笔小结/" style="font-size: 10px;">随笔小结</a>
+						<a href="/tags/时光相册/" style="font-size: 10px;">时光相册</a> <a href="/tags/程序开发/" style="font-size: 20px;">程序开发</a> <a href="/tags/随笔小结/" style="font-size: 15px;">随笔小结</a>
 					</div>
 				</section>
 				
@@ -158,6 +158,225 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-IOS视频录制--AVFoudation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/28/IOS视频录制--AVFoudation/" class="article-date">
+  	<time datetime="2015-01-28T11:09:59.000Z" itemprop="datePublished">Jan 28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/28/IOS视频录制--AVFoudation/">IOS视频录制</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="IOS-视频录制-—-AVFoundation"><a href="#IOS-视频录制-—-AVFoundation" class="headerlink" title="IOS 视频录制 — AVFoundation"></a>IOS 视频录制 — AVFoundation</h1><p>AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。</p>
+<h2 id="一、概念引导："><a href="#一、概念引导：" class="headerlink" title="一、概念引导："></a>一、概念引导：</h2><h3 id="1、ASSets媒体文件"><a href="#1、ASSets媒体文件" class="headerlink" title="1、ASSets媒体文件:"></a>1、ASSets媒体文件:</h3><p>1）AVAsset</p>
+<p>一个抽象类来表示时间等视听媒体视频和声音。每个资产包含一组跟踪旨在呈现或加工在一起,一个统一的媒体类型,包括但不限于音频、视频、文本、关闭字幕,字幕。</p>
+<p>AVURLAsset *anAsset = [[AVURLAsset alloc] initWithURL:url options:nil];属性有<br>tracks、duration、preferredVolume、preferredTransform等等。</p>
+<p>2) 一个AVAssetTrack</p>
+<p>对象提供了所有资产提供track-level检查接口,方便对ASSets进行更具体的属性获取以及对应的操作。</p>
+<p>3）AVAssetImageGenerator</p>
+<p>对象提供缩略图或预览图像的资产独立于回放，可以生成单独的图片，也可以生成图片队列，这是获取视频缩略图的方式之一，还有另外两种ALAsset的thumbnail 和 - (UIImage *)imageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer。</p>
+<p>4）AVAssetExportSession</p>
+<p>针对AVAsset源对象的内容进行转码，创建一个被指定输出形式的资源。</p>
+<p><img src="/assets/images/AVAssetExportSession.jpg" alt=""></p>
+<h3 id="2、Playback播放控制"><a href="#2、Playback播放控制" class="headerlink" title="2、Playback播放控制:"></a>2、Playback播放控制:</h3><p>1) AVPlayer</p>
+<p>你使用一个AVPlayer对象来实现控制器和用户接口单一或多种条目回放。</p>
+<ul>
+<li><p>-  (instancetype)initWithPlayerItem:(AVPlayerItem *)item</p>
+</li>
+<li><p>play 、 parse 、 end</p>
+</li>
+<li><p>- (void)seekToTime:(CMTime)time</p>
+</li>
+</ul>
+<p>2) AVPlayerLayer</p>
+<p>用于显示视频内容，相当于大屏幕。里面有videoGravity，默认值 AVLayerVideoGravityResizeAspect.</p>
+<p>3) AVPlayerItem</p>
+<p>一个AVPlayerItem代表资产的表现状态,由一个AVPlayer对象和可以观察到的状态。对视频播放状态修改一起监听的过程多数发生在正对这个对象的操作操作上，比如：</p>
+<ul>
+<li>seekToTime，从哪里开始播放</li>
+<li>各种资源播放状态的通知AVPlayerItemFailedToPlayToEndTimeNotification<br>等</li>
+</ul>
+<p>4) AVPlayerItemTrack </p>
+<p>你用一个AVPlayerItemTrack对象修改资产的表现状态跟踪(AVAssetTrack)一个AVPlayer对象。通常视频的加载播放有各种状态，我们需要KVO监听或者添加通知去知道播放器的准备、进行、暂停、停止等状态。</p>
+<p>5) AVQueuePlayer</p>
+<p>按照队列播放视频</p>
+<ul>
+<li><p>queuePlayerWithItems，</p>
+</li>
+<li><p>insertItem:(AVPlayerItem *)item</p>
+<pre><code>afterItem:(AVPlayerItem *)afterItem
+</code></pre></li>
+</ul>
+<h3 id="3、Editing资源编辑"><a href="#3、Editing资源编辑" class="headerlink" title="3、Editing资源编辑:"></a>3、Editing资源编辑:</h3><p>AVFoundation框架提供了一个功能丰富的组类促进视听资产的编辑。AVFoundation的编辑API的核心成分，就是一组追踪从一个或多个不同的媒体资产。AVMutableComposition类提供了一个接口,用于插入和删除操作的痕迹,以及管理自己时间排序。</p>
+<p><img src="/assets/images/AVMutableComposition.jpg" alt=""></p>
+<p>1）AVMutableComposition</p>
+<p>是一个可变的AVComposition子类，当您想要从现有资产创建一个新的资源。你可以添加和删除跟踪,可以添加、删除和时间范围。<br>比如：</p>
+<ul>
+<li>– insertEmptyTimeRange：可以增加一段空白时间</li>
+</ul>
+<ul>
+<li>– insertTimeRange:ofAsset:atTime:error:<br>插入的所有跟踪给定的时间范围内指定的资产到接收机。</li>
+</ul>
+<!-- -->
+<pre><code>AVAsset *videoAsset = &lt;#AVAsset with at least one video track#&gt;;
+AVAsset *anotherVideoAsset = &lt;#another AVAsset with at least one video track#&gt;;
+// Get the first video track from each asset.
+AVAssetTrack *videoAssetTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+AVAssetTrack *anotherVideoAssetTrack = [[anotherVideoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+// Add them both to the composition.
+[mutableCompositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero,videoAssetTrack.timeRange.duration) ofTrack:videoAssetTrack atTime:kCMTimeZero error:nil];
+[mutableCompositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero,anotherVideoAssetTrack.timeRange.duration) ofTrack:anotherVideoAssetTrack atTime:videoAssetTrack.timeRange.duration error:nil];&apos;
+</code></pre><p>2) AVMutableAudioMix </p>
+<p>一个AVMutableAudioMix对象管理混合音轨的输入参数。它允许自定义音频处理在回放期间音轨或执行其他操作。</p>
+<!--0-->
+<pre><code>AVMutableAudioMix *mutableAudioMix = [AVMutableAudioMix audioMix];
+// Create the audio mix input parameters object.
+AVMutableAudioMixInputParameters *mixParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:mutableCompositionAudioTrack];
+// Set the volume ramp to slowly fade the audio out over the duration of the composition.
+[mixParameters setVolumeRampFromStartVolume:1.f toEndVolume:0.f timeRange:CMTimeRangeMake(kCMTimeZero, mutableComposition.duration)];
+// Attach the input parameters to the audio mix.
+mutableAudioMix.inputParameters = @[mixParameters];
+</code></pre><h3 id="4、Media-Capture媒体捕捉"><a href="#4、Media-Capture媒体捕捉" class="headerlink" title="4、Media Capture媒体捕捉:"></a>4、Media Capture媒体捕捉:</h3><p>1) AVCaptureDevice </p>
+<p>代表输入设备,如摄像头或麦克风</p>
+<p>2) AVCaptureInput </p>
+<p>输入设备的配置端口，我们可以理解为输入</p>
+<p>3）AVCaptureSession</p>
+<p>协调数据流从输入到输出,用startRunning开始从输入到输出的数据流,并调用stopRunning停止流动。采取关闭代理，保证取景器一直流动。</p>
+<p>4) AVCaptureOutput </p>
+<ul>
+<li><p>AVCaptureMovieFileOutput，输入到视频文件，代理AVCaptureFileOutputRecordingDelegate</p>
+</li>
+<li><p>AVCaptureVideoDataOutput，如果想要实时的处理每一帧数据，或想要有自己的图形动画，代理AVCaptureVideoDataOutputSampleBufferDelegate</p>
+</li>
+</ul>
+<ul>
+<li><p>AVCaptureAudioDataOutput ，音频数据，代理AVCaptureVideoDataOutputSampleBufferDelegate</p>
+</li>
+<li><p>AVCaptureStillImageOutput ，图片数据</p>
+</li>
+</ul>
+<p>5）AVCaptureVideoPreviewLayer </p>
+<p>实时展示被session传出出来的视频流数据，也就是我们的取景器</p>
+<p>6）AVCaptureConnection </p>
+<p>代表捕获之间的连接输入和输出对象关联到一个捕获会话。</p>
+<p><img src="/assets/images/AVCaptureConnection.jpg" alt=""></p>
+<h3 id="5、Export媒体输出"><a href="#5、Export媒体输出" class="headerlink" title="5、Export媒体输出:"></a>5、Export媒体输出:</h3><p>1) AVAssetExportSession</p>
+<p>针对AVAsset对象转码，创建一个输出的形式被指定出口预设内容。包括对输出媒体资源的属性设定，可以设置presetName进行视频品质压缩，AVAssetExportPresetLowQuality等。也可以设置属性包括：outputFileType<br>、fileLengthLimit、timeRange<br>等。</p>
+<p>2）AVAssetReader </p>
+<p>直接从媒体读取存储样本,获得样本解码成可渲染的形式。组合资产多个音轨和组合多个视频跟踪(通过使用AVAssetReaderAudioMixOutput和AVAssetReaderVideoCompositionOutput)。</p>
+<ul>
+<li>addOutPut</li>
+<li>startReading</li>
+<li>cancelReading</li>
+</ul>
+<p>读取一个音频：</p>
+<!--0-->
+<pre><code>AVAudioMix *audioMix = &lt;#An AVAudioMix that specifies how the audio tracks from the AVAsset are mixed#&gt;;
+// Assumes that assetReader was initialized with an AVComposition object.
+AVComposition *composition = (AVComposition *)assetReader.asset;
+// Get the audio tracks to read.
+NSArray *audioTracks = [composition tracksWithMediaType:AVMediaTypeAudio];
+// Get the decompression settings for Linear PCM.
+NSDictionary *decompressionAudioSettings = @{ AVFormatIDKey : [NSNumber numberWithUnsignedInt:kAudioFormatLinearPCM] };
+// Create the audio mix output with the audio tracks and decompression setttings.
+AVAssetReaderOutput *audioMixOutput = [AVAssetReaderAudioMixOutput assetReaderAudioMixOutputWithAudioTracks:audioTracks audioSettings:decompressionAudioSettings];
+// Associate the audio mix used to mix the audio tracks being read with the output.
+audioMixOutput.audioMix = audioMix;
+// Add the output to the reader if possible.
+if ([assetReader canAddOutput:audioMixOutput])
+[assetReader addOutput:audioMixOutput];
+</code></pre><p>3) AVAssetWriter</p>
+<p>使用一个AVAssetWriter对象媒体数据写入新文件指定视听的容器类型,如QuickTime电影文件或一个mp4文件,支持自动交叉媒体数据的多个并发的痕迹。</p>
+<ul>
+<li>initWithURL:fileType:error:</li>
+<li>startWriting</li>
+<li>startSessionAtSourceTime</li>
+<li>addInput</li>
+<li>endSessionAtSourceTime</li>
+<li>finishWritingWithCompletionHandler</li>
+</ul>
+<h2 id="二、代码实践："><a href="#二、代码实践：" class="headerlink" title="二、代码实践："></a>二、代码实践：</h2><blockquote>
+<h3 id="import-“TTCameraViewController-h”"><a href="#import-“TTCameraViewController-h”" class="headerlink" title="#import “TTCameraViewController.h”"></a>#import “TTCameraViewController.h”</h3></blockquote>
+<h2 id="三、问题回顾："><a href="#三、问题回顾：" class="headerlink" title="三、问题回顾："></a>三、问题回顾：</h2><h3 id="1、视频文件写入崩溃："><a href="#1、视频文件写入崩溃：" class="headerlink" title="1、视频文件写入崩溃："></a>1、视频文件写入崩溃：</h3><h4 id="现象："><a href="#现象：" class="headerlink" title="现象："></a>现象：</h4><p>相机开始拍摄就会出现崩溃，时而出现，有时难以复现。</p>
+<h4 id="原因与解决："><a href="#原因与解决：" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>1）startSessionAtSourceTime只能在 AVAssetWriterStatusWriting的之后调用，但是startWriting调用之后writer并没有立即变为writing状态，而已有一个极短的开始时间，参照苹果规范使用文档，只需要前面调用之后后面就可以跟着执行startSessionAtSourceTime，然而，我遇见了这问题，说明它并不是。随后我到stackoverflow上查了问题，发现有人早就提过，并没有答案，说是升级IOS8以后就没有了，可我这里是IOS9…随后我只能判断writer状态如果是writing就开始执行，如果不是就调用startWriting。</p>
+<p>2）[videoWriterInput appendSampleBuffer：xxx]这只能在startSessionAtSourceTime开始之后调用，和1是同样的情况，明明第一行调用了startSessionAtSourceTime，第二调用appendSampleBuffer就会崩溃，并且依旧是偶尔发生。但是这里的问题是没有一个状态可以判断是否已经开始startSessionAtSourceTime，这里就有点血崩了，不能像问题1一样判断解决，后来只好try catch了,稳住局面防止崩溃，丢失极少的毫秒级帧数。</p>
+<h3 id="2、相机拍摄闪烁抖动："><a href="#2、相机拍摄闪烁抖动：" class="headerlink" title="2、相机拍摄闪烁抖动："></a>2、相机拍摄闪烁抖动：</h3><h4 id="现象：-1"><a href="#现象：-1" class="headerlink" title="现象："></a>现象：</h4><p>开始拍摄时候，取景器闪烁抖动，引起一小部分可见范围内的视频内容发送抖动，并被存入文件中，体验差。</p>
+<h4 id="原因与解决：-1"><a href="#原因与解决：-1" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>在开始拍摄的时候，再去创建connection并传递设备和拍摄方向，有利于视频获取oritation，自然而然的横着拍摄也会竖着播放，但是问题在于connection的建立产生较大的链接，引起视频抖动，此抖动将被录制进入视频文件中。于是我采取在初始化input的时候就把connection就增加进去，当开始拍摄的时候不会发生抖动，但是牺牲的是视频的oritation需要自己根据用户拍摄的方向去手动修改视频方向。</p>
+<h3 id="3、视频方向混乱："><a href="#3、视频方向混乱：" class="headerlink" title="3、视频方向混乱："></a>3、视频方向混乱：</h3><h4 id="现象：-2"><a href="#现象：-2" class="headerlink" title="现象："></a>现象：</h4><p>背面摄像头拍摄，home键在下，拍摄出来的视频文件，在播放的时候，底部在手机右边，而不是底边，一次类推，home键在底部与视频的底部角度成90垂直关系。</p>
+<h4 id="原因与解决：-2"><a href="#原因与解决：-2" class="headerlink" title="原因与解决："></a>原因与解决：</h4><!--0-->
+<pre><code>self.videoOutPut = [[AVCaptureVideoDataOutput alloc] init];
+NSDictionary * outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA],(id)kCVPixelBufferPixelFormatTypeKey, nil];
+[self.videoOutPut setVideoSettings:outputSettings];
+
+//必须
+if ([self.session canAddOutput:self.videoOutPut]) {
+    [self.session addOutput:self.videoOutPut];
+}
+
+//先于
+self.videoConnection = [self.videoOutPut connectionWithMediaType:AVMediaTypeVideo];
+self.videoConnection.enabled = NO;
+[self.videoConnection setVideoOrientation:AVCaptureVideoOrientationPortrait];
+</code></pre><h3 id="4、横着拍摄的视频横着播放："><a href="#4、横着拍摄的视频横着播放：" class="headerlink" title="4、横着拍摄的视频横着播放："></a>4、横着拍摄的视频横着播放：</h3><h4 id="现象：-3"><a href="#现象：-3" class="headerlink" title="现象："></a>现象：</h4><p>横着拍摄的视频，放的时候是竖着的。</p>
+<h4 id="原因与解决：-3"><a href="#原因与解决：-3" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>因为上面解决视频抖动，导致不能直接设定拍摄时候的视频方向，从而需要根据手动的拍摄方向去修改视频的视图的方向。<br>考虑到用户可能锁住屏幕旋转，于是就CMMotionManager获取重力方向来判断，在VC出现或者开始拍摄的时候开启，在VC退出或者拍摄完成的的时候关闭。获得方向后，在视频的写入里直接修改方向即可。</p>
+<!--0-->
+<pre><code>[videoWriterInput setTransform:CGAffineTransformScale(CGAffineTransformMakeRotation(-M_PI_2), 1.0, 1.0)];
+</code></pre><h3 id="5、录制视频有右边和底边绿色线条："><a href="#5、录制视频有右边和底边绿色线条：" class="headerlink" title="5、录制视频有右边和底边绿色线条："></a>5、录制视频有右边和底边绿色线条：</h3><h4 id="现象：-4"><a href="#现象：-4" class="headerlink" title="现象："></a>现象：</h4><p>手机全屏录制的时候，设置视频输出宽度为手机的宽高，当宽高为基数的时候视频录制里面会出现绿色线条。</p>
+<h4 id="原因与解决：-4"><a href="#原因与解决：-4" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>不知道原因，神奇的bug，参照着段子的视频方法解决的，直接修改视频输出宽高为偶数。</p>
+<!--0-->
+<pre><code>NSInteger videoWidth = [[NSNumber numberWithFloat:self.view.frame.size.width] integerValue];
+NSInteger videoHeight = [[NSNumber numberWithFloat:self.view.frame.size.height] integerValue];
+if (videoWidth % 2 == 1) {
+    videoWidth = videoWidth - 1;
+}
+if (videoHeight % 2 == 1) {
+    videoHeight = videoHeight - 1;
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序开发/">程序开发</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-对 Run Loop 的理解" class="article article-type-post" itemscope itemprop="blogPost">
   
