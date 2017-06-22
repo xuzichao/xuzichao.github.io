@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>对 Run Loop 的理解 | 徐子超的博客</title>
+  <title>对 Run Loop 的理解 | Deadlock博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="对 Run Loop 的理解一、Run Loop为何存在?我们从编写命令式的语句开始理解，一般我们写一个运行函数，只要顺序执行，一遍就过了，比如简单的NSLog一个“hello word”，这样我们就算完成了一个问候世界的程序。好简单的程序，但是一个复杂的系统，一个能称之为系统的程序，比如我们的手机App，它是不可能按照执行顺序一下执行完成就结束的，它包含了我们各类需求，会接受我们不同的操作，所以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对 Run Loop 的理解">
 <meta property="og:url" content="http://xuzichao.com/2015/01/05/对 Run Loop 的理解/index.html">
-<meta property="og:site_name" content="徐子超的博客">
+<meta property="og:site_name" content="Deadlock博客">
 <meta property="og:description" content="对 Run Loop 的理解一、Run Loop为何存在?我们从编写命令式的语句开始理解，一般我们写一个运行函数，只要顺序执行，一遍就过了，比如简单的NSLog一个“hello word”，这样我们就算完成了一个问候世界的程序。好简单的程序，但是一个复杂的系统，一个能称之为系统的程序，比如我们的手机App，它是不可能按照执行顺序一下执行完成就结束的，它包含了我们各类需求，会接受我们不同的操作，所以">
 <meta property="og:image" content="http://xuzichao.com/assets/images/RL_CF.jpg">
 <meta property="og:image" content="http://xuzichao.com/assets/images/RL_normal.jpg">
@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="对 Run Loop 的理解一、Run Loop为何存在?我们从编写命令式的语句开始理解，一般我们写一个运行函数，只要顺序执行，一遍就过了，比如简单的NSLog一个“hello word”，这样我们就算完成了一个问候世界的程序。好简单的程序，但是一个复杂的系统，一个能称之为系统的程序，比如我们的手机App，它是不可能按照执行顺序一下执行完成就结束的，它包含了我们各类需求，会接受我们不同的操作，所以">
 <meta name="twitter:image" content="http://xuzichao.com/assets/images/RL_CF.jpg">
   
-    <link rel="alternative" href="/atom.xml" title="徐子超的博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Deadlock博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/assets/photo.png">
