@@ -3,31 +3,41 @@
 <head>
   <meta charset="utf-8">
   
-  <title>将机器学习模型转化为CoreML格式 | 徐子超的博客</title>
+  <title>徐子超的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="将机器学习模型转化为CoreML格式
-接上篇：机器学习在IOS开发中的应用 CoreML
+  <meta name="description" content="2017年的WWDC大会苹果赋予了开发者们新能力，能够将机器学习应用在移动端上，着实是一次让人感到兴奋的事情，一颗赛艇！！积极开展的Session学习活动，在第一节和第二节引用了一些概念和背景来帮助理解，熟练工请忽略，跳至第三节直接开始操作,第五节开始有图片学习的demo可查看。 
 
-四、创建自己的Core Ml Model4.1 Apple支持的模型苹果支持由第三方工具和框架训练出来的机器学习模型转化，我们可以只用苹果提供的转化工具,将个人已经训练好的数据模型转化为CoreML进行支持。工具为 Core ML Tools ，是基于Python开发的工具，需要自己安装配置，到这里，上面一">
+本篇相关文档和Session有：
+document: Core Ml FrameWork
+
+Session: W">
 <meta property="og:type" content="article">
-<meta property="og:title" content="将机器学习模型转化为CoreML格式">
-<meta property="og:url" content="http://xuzichao.com/2017/06/06/将机器学习模型转化为CoreML格式 /index.html">
+<meta property="og:title" content="徐子超的博客">
+<meta property="og:url" content="http://xuzichao.com/2017/06/22/机器学习在IOS中的应用 Core ML/index.html">
 <meta property="og:site_name" content="徐子超的博客">
-<meta property="og:description" content="将机器学习模型转化为CoreML格式
-接上篇：机器学习在IOS开发中的应用 CoreML
+<meta property="og:description" content="2017年的WWDC大会苹果赋予了开发者们新能力，能够将机器学习应用在移动端上，着实是一次让人感到兴奋的事情，一颗赛艇！！积极开展的Session学习活动，在第一节和第二节引用了一些概念和背景来帮助理解，熟练工请忽略，跳至第三节直接开始操作,第五节开始有图片学习的demo可查看。 
 
-四、创建自己的Core Ml Model4.1 Apple支持的模型苹果支持由第三方工具和框架训练出来的机器学习模型转化，我们可以只用苹果提供的转化工具,将个人已经训练好的数据模型转化为CoreML进行支持。工具为 Core ML Tools ，是基于Python开发的工具，需要自己安装配置，到这里，上面一">
-<meta property="og:image" content="http://xuzichao.com/assets/images/CoreMLFile.jpg">
-<meta property="og:image" content="http://xuzichao.com/assets/images/CoreMLXcode.jpg">
-<meta property="og:image" content="http://xuzichao.com/assets/images/coremlgif.gif">
-<meta property="og:updated_time" content="2017-06-22T07:55:31.000Z">
+本篇相关文档和Session有：
+document: Core Ml FrameWork
+
+Session: W">
+<meta property="og:image" content="https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682774/AIMLDL.jpg">
+<meta property="og:image" content="https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682785/CoreMl.png">
+<meta property="og:image" content="https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682796/CoreMLXcode.jpg">
+<meta property="og:image" content="https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682811/GoogleAPI.jpg">
+<meta property="og:image" content="http://xuzichao.com/![](https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682842/CoreMLFile.jpg)">
+<meta property="og:image" content="http://xuzichao.com/![](https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682796/CoreMLXcode.jpg)">
+<meta property="og:image" content="https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682877/coremlgif.gif">
+<meta property="og:updated_time" content="2017-06-22T11:59:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="将机器学习模型转化为CoreML格式">
-<meta name="twitter:description" content="将机器学习模型转化为CoreML格式
-接上篇：机器学习在IOS开发中的应用 CoreML
+<meta name="twitter:title" content="徐子超的博客">
+<meta name="twitter:description" content="2017年的WWDC大会苹果赋予了开发者们新能力，能够将机器学习应用在移动端上，着实是一次让人感到兴奋的事情，一颗赛艇！！积极开展的Session学习活动，在第一节和第二节引用了一些概念和背景来帮助理解，熟练工请忽略，跳至第三节直接开始操作,第五节开始有图片学习的demo可查看。 
 
-四、创建自己的Core Ml Model4.1 Apple支持的模型苹果支持由第三方工具和框架训练出来的机器学习模型转化，我们可以只用苹果提供的转化工具,将个人已经训练好的数据模型转化为CoreML进行支持。工具为 Core ML Tools ，是基于Python开发的工具，需要自己安装配置，到这里，上面一">
-<meta name="twitter:image" content="http://xuzichao.com/assets/images/CoreMLFile.jpg">
+本篇相关文档和Session有：
+document: Core Ml FrameWork
+
+Session: W">
+<meta name="twitter:image" content="https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682774/AIMLDL.jpg">
   
     <link rel="alternative" href="/atom.xml" title="徐子超的博客" type="application/atom+xml">
   
@@ -171,11 +181,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-将机器学习模型转化为CoreML格式 " class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-机器学习在IOS中的应用 Core ML" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/06/将机器学习模型转化为CoreML格式 /" class="article-date">
-  	<time datetime="2017-06-06T04:42:52.000Z" itemprop="datePublished">Jun 6</time>
+      <a href="/2017/06/22/机器学习在IOS中的应用 Core ML/" class="article-date">
+  	<time datetime="2017-06-22T09:15:42.000Z" itemprop="datePublished">Jun 22</time>
 </a>
     </div>
   
@@ -184,33 +194,93 @@
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      将机器学习模型转化为CoreML格式
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序开发/">程序开发</a></li></ul>
-	</div>
-
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="将机器学习模型转化为CoreML格式"><a href="#将机器学习模型转化为CoreML格式" class="headerlink" title="将机器学习模型转化为CoreML格式"></a>将机器学习模型转化为CoreML格式</h3><blockquote>
-<p>接上篇：机器学习在IOS开发中的应用 CoreML</p>
+        <blockquote>
+<p>2017年的WWDC大会苹果赋予了开发者们新能力，能够将机器学习应用在移动端上，着实是一次让人感到兴奋的事情，一颗赛艇！！积极开展的Session学习活动，在第一节和第二节引用了一些概念和背景来帮助理解，熟练工请忽略，跳至第三节直接开始操作,第五节开始有图片学习的demo可查看。 </p>
 </blockquote>
+<h3 id="本篇相关文档和Session有："><a href="#本篇相关文档和Session有：" class="headerlink" title="本篇相关文档和Session有："></a>本篇相关文档和Session有：</h3><ul>
+<li><p>document: <a href="https://developer.apple.com/documentation/coreml" target="_blank" rel="external">Core Ml FrameWork</a></p>
+</li>
+<li><p>Session: <a href="https://developer.apple.com/videos/play/wwdc2017/703/" target="_blank" rel="external">WWDC 2017 Session 703 Introducing Core ML</a></p>
+</li>
+<li><p>Session: <a href="https://developer.apple.com/videos/play/wwdc2017/710/" target="_blank" rel="external">WWDC 2017 Session 710 Core ML in depth</a></p>
+</li>
+</ul>
+<h2 id="一、AI-ML-DL"><a href="#一、AI-ML-DL" class="headerlink" title="一、AI.ML.DL"></a>一、AI.ML.DL</h2><h3 id="1、-人工智能"><a href="#1、-人工智能" class="headerlink" title="1、 人工智能"></a>1、 人工智能</h3><h4 id="1-1-定义："><a href="#1-1-定义：" class="headerlink" title="1.1 定义："></a>1.1 定义：</h4><p>让人工制造出来的系统或者机器，其运作行为看起来就像是人所表现出的智能行为一样，即机器“像人一样思考”、“像人一样行动”、“理性地思考”和“理性地行动”。人工智能的研究是高度技术性和专业的，比如机器学习就是属于学习方向的课题，让机器具有人一样的学习行为。</p>
+<h4 id="1-2-研究课题："><a href="#1-2-研究课题：" class="headerlink" title="1.2 研究课题："></a>1.2 研究课题：</h4><p>演绎推理和解决问题、知识表示法、规划、学习、自然语言处理、运动和控制、知觉、社交、创造力、多元智能、伦理管理、经济冲击</p>
+<h3 id="2、机器学习"><a href="#2、机器学习" class="headerlink" title="2、机器学习"></a>2、机器学习</h3><h4 id="2-1-定义："><a href="#2-1-定义：" class="headerlink" title="2.1 定义："></a>2.1 定义：</h4><p>通过在大量数据中寻找模式,从数据中自动分析获得规律，并利用规律对未知数据进行预测的算法.因为学习算法中涉及了大量的统计学理论，机器学习与推断统计学联系尤为密切，也被称为统计学习理论，涵盖一切有关数据训练的学习算法。</p>
+<h4 id="2-2-方式分类："><a href="#2-2-方式分类：" class="headerlink" title="2.2 方式分类："></a>2.2 方式分类：</h4><ul>
+<li>监督学习：</li>
+</ul>
+<p>从给定的训练数据集中学习出一个函数，当新的数据到来时，可以根据这个函数预测结果。监督学习的训练集要求是包括输入和输出，也可以说是特征和目标。训练集中的目标是由人标注的。类似概念还有半监督学习和无监督学习。</p>
+<ul>
+<li>增强学习：</li>
+</ul>
+<p>通过观察来学习做成如何的动作。每个动作都会对环境有所影响，学习对象根据观察到的周围环境的反馈来做出判断。</p>
+<h4 id="2-3-使用算法："><a href="#2-3-使用算法：" class="headerlink" title="2.3 使用算法："></a>2.3 使用算法：</h4><ul>
+<li>构造间隔理论分布，聚类分析和模式识别：</li>
+</ul>
+<p>人工神经网络、决策树、感知器、支持向量机、集成学习AdaBoost、降维与度量学习、聚类贝叶斯分类器</p>
+<ul>
+<li><p>构造条件概率，回归分析和统计分类：    </p>
+<p>高斯过程回归、线性判别分析、最近邻居法、径向基函数核</p>
+</li>
+<li><p>通过再生模型构造概率密度函数，最大期望算法概率图模型：</p>
+<p>  贝叶斯网、Markov随机场、Generative Topographic Mapping</p>
+</li>
+<li><p>近似推断技术：<br>  马尔可夫链、蒙特卡罗方法、变分法</p>
+</li>
+</ul>
+<h3 id="3、深度学习"><a href="#3、深度学习" class="headerlink" title="3、深度学习"></a>3、深度学习</h3><h4 id="3-1-定义："><a href="#3-1-定义：" class="headerlink" title="3.1 定义："></a>3.1 定义：</h4><p>深度学习是机器学习中一种基于对数据进行表征学习的方法，起源于人工神经网络，在前期机器学习并没有深度学习这样的学习模型。所以我们现在也认为它是属于深度学习属于机器学习范畴内。它试图使用包含复杂结构或由多重非线性变换构成的多个处理层对数据进行高层抽象的算法。</p>
+<h4 id="3-2-关系图："><a href="#3-2-关系图：" class="headerlink" title="3.2 关系图："></a>3.2 关系图：</h4><p> <img src="https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682774/AIMLDL.jpg"></p>
+<h2 id="二、机器学习的应用发展："><a href="#二、机器学习的应用发展：" class="headerlink" title="二、机器学习的应用发展："></a>二、机器学习的应用发展：</h2><h3 id="2-1-发展："><a href="#2-1-发展：" class="headerlink" title="2.1 发展："></a>2.1 发展：</h3><p>1956年，达特茅斯会议提出了“人工智能”的概念。其后，人工智能就一直萦绕于人们的脑海之中，并在科研实验室中慢慢孵化。之后的几十年，人工智能一直在两极反转，或被称作人类文明耀眼未来的预言；或者被当成技术疯子的狂想扔到垃圾堆里，直到2012年之前，这两种声音还在同时存在。主要问题来自于运算需求难以得到满足，即使是最基本的神经网络，也需要大量的运算。过去几年，尤其是2015年以来，人工智能开始大爆发，很大一部分是由于GPU的广泛应用，使得并行计算变得更快、更便宜、更有效。当然，无限拓展的存储能力和骤然爆发的数据洪流（大数据）的组合拳，也使得图像数据、文本数据、交易数据、映射数据全面海量爆发。</p>
+<h3 id="2-2-应用："><a href="#2-2-应用：" class="headerlink" title="2.2 应用："></a>2.2 应用：</h3><ul>
+<li>领域列举<br>机器学习已广泛应用于数据挖掘、计算机视觉、自然语言处理、生物特征识别、搜索引擎、医学诊断、检测信用卡欺诈、证券市场分析、DNA序列测序、语音和手写识别、战略游戏和机器人等等</li>
+<li>场景举例<br>句子翻译、动态手势识别、个人化推荐、美化的图像处理、云歌曲推荐、无人机航拍的视频实时分类路况信息等等</li>
+</ul>
+<h3 id="2-3-大公司"><a href="#2-3-大公司" class="headerlink" title="2.3 大公司"></a>2.3 大公司</h3><ul>
+<li>FaceBook<br>Facebook AI研究项目（FAIR）专注于基础科学以及长期研究,另外一个叫应用机器学习部门（AML）,将技术用于现有Facebook产品。</li>
+<li>Microsoft<br>微软1991年就已经开始涉足机器学习，有数百名科学家和工程师。</li>
+<li>Google<br>Google Assistant是谷歌深度学习研究的集大成者。</li>
+<li>Amazon<br>其CEO贝索斯称，已经悄悄研究了AI四年，目前在其语音识别生态系统上投入的人力有1000人。</li>
+<li>Baidu<br>2014年，百度重金挖来谷歌深度学习项目负责人Andrew Ng，发力AI研究。</li>
+<li>Apple<br>WWDC2017，苹果宣布面向开发者的机器学习框架Core ML ，加速在 iPhone、iPad、Apple Watch 上的人工智能任务。</li>
+</ul>
+<h2 id="三、在IOS中使用机器学习"><a href="#三、在IOS中使用机器学习" class="headerlink" title="三、在IOS中使用机器学习"></a>三、在IOS中使用机器学习</h2><blockquote>
+<p>使用Core ML，你可以将训练好的机器学习模型整合到你的应用中。</p>
+</blockquote>
+<h3 id="3-1-Core-ML简介"><a href="#3-1-Core-ML简介" class="headerlink" title="3.1 Core ML简介"></a>3.1 Core ML简介</h3><p>Core ML是一个训练好的模型Model，一个机器学习算法应用到一个训练数据集之后所得到的结果。利用该模型可以基于新的输入数据而进行预测，也就是利用了机器学习的结果。比如，如果一个模型在一个地区的历史房价数据上进行了训练，那么它就可能能够根据房子的卧室和浴室数量来预测房价。<br>Core ML 为设备性能进行了优化，从而减少了内存占用和功耗。严格在设备上运行能够确保用户数据的隐私，并且能保证你的应用在没有网络连接时也能够工作和响应。<br>Core ML 框架本身构建于低层面的原语（primitives）之上，比如 Accelerate、BNNS 和 Metal Performance Shaders；<br>构建完成的Core Ml又作为其他更高级框架的基础，比如支持用于图像分析的 Vision 框架，用于自然语言处理的 Foundation类，以及用于评估已经学习到的决策树的 GameplayKit。结构图如下:</p>
+<p> <img src="https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682785/CoreMl.png"></p>
+<h3 id="3-2-支持的系统"><a href="#3-2-支持的系统" class="headerlink" title="3.2 支持的系统"></a>3.2 支持的系统</h3><ul>
+<li>iOS 11.0+Beta</li>
+<li>macOS 10.13+Beta</li>
+<li>tvOS 11.0+Beta</li>
+<li>watchOS 4.0+Beta</li>
+</ul>
+<h3 id="3-3-如何获得CoreMl-Model"><a href="#3-3-如何获得CoreMl-Model" class="headerlink" title="3.3 如何获得CoreMl Model"></a>3.3 如何获得CoreMl Model</h3><p>从如上定义看出，CoreMl框架只是将机器学习后的成果拿来应用，本身并不涉及机器学习的运行环境和过程。获得这些结果的方式有两种。</p>
+<ul>
+<li><p>苹果爸爸为你提供的现在model<br>根据自己的需要下载：<a href="https://developer.apple.com/machine-learning" target="_blank" rel="external">https://developer.apple.com/machine-learning</a></p>
+</li>
+<li><p>自己创建model<br>苹果爸爸为开发者提供了生成方法，不满意官方或者使用不足的时候，可以自己去机器学习完成，在创建应用，即第四节的内容。</p>
+</li>
+</ul>
+<h3 id="3-4-将CoreML模型用在你的应用中"><a href="#3-4-将CoreML模型用在你的应用中" class="headerlink" title="3.4 将CoreML模型用在你的应用中"></a>3.4 将CoreML模型用在你的应用中</h3><ul>
+<li>新建demo工程，在工程target中在Build Phase的Link Binary With Libraries里，加上CoreML.framework系统框架。</li>
+<li><p>将获得的 CoreMl Model 添加至工程中，我们以GoogLeNetPlaces.mlmodel为例:</p>
+<p><img src="https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682796/CoreMLXcode.jpg"></p>
+</li>
+</ul>
+<ul>
+<li><p>注意中间有个Model Class ，点击查看api调用，有两点注意，输入参数为 CVPixelBufferRef 格式,图片需要是224X224像素的大小，所以需要自己写方法去转化为合适的参数。</p>
+<p><img src="https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682811/GoogleAPI.jpg"></p>
+</li>
+<li><p>调用示例</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GoogLeNetPlaces *model = [[GoogLeNetPlaces alloc] init]<span class="comment">;</span></span><br><span class="line">UIImage *<span class="keyword">scaledImage </span>= [self imageScaleToSize224:CGSizeMake(<span class="number">224</span>, <span class="number">224</span>)]<span class="comment">;</span></span><br><span class="line">CVPixelBufferRef <span class="keyword">buffer </span>= [self pixelBufferFromImage:<span class="keyword">scaledImage];</span><br><span class="line"></span>GoogLeNetPlacesInput *input = [[GoogLeNetPlacesInput alloc] initWithSceneImage:<span class="keyword">buffer];</span><br><span class="line"></span>GoogLeNetPlacesOutput *output = [model predictionFromFeatures:input error:nil]<span class="comment">;</span></span><br><span class="line">NSLog(@<span class="string">"Scene label is: %@"</span>, output.<span class="keyword">sceneLabel);</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结论<br>百度搜索图片，下载常规的桌子、卧室图片，利用google此个model进行判断输出，正确。输入健身房的图片，判断输出为博物馆。由此可以看出，训练样本过少，当输入数据变复杂的时候就不能判断正确，侧面激励开发者们自己开展训练模型。</p>
+</li>
+</ul>
 <h2 id="四、创建自己的Core-Ml-Model"><a href="#四、创建自己的Core-Ml-Model" class="headerlink" title="四、创建自己的Core Ml Model"></a>四、创建自己的Core Ml Model</h2><h3 id="4-1-Apple支持的模型"><a href="#4-1-Apple支持的模型" class="headerlink" title="4.1 Apple支持的模型"></a>4.1 Apple支持的模型</h3><p>苹果支持由第三方工具和框架训练出来的机器学习模型转化，我们可以只用苹果提供的转化工具,将个人已经训练好的数据模型转化为CoreML进行支持。工具为 Core ML Tools ，是基于Python开发的工具，需要自己安装配置，到这里，上面一二节的概念理解就有作用了，前面提到了机器学习所使用到的思想算法，这里工具有对应的类型支持转化。我从官网对照理解过来如下图：</p>
 <table>
 <thead>
@@ -255,8 +325,7 @@
 </table>
 <h3 id="4-2-转换你的学习模型"><a href="#4-2-转换你的学习模型" class="headerlink" title="4.2 转换你的学习模型"></a>4.2 转换你的学习模型</h3><p>微信朋友圈常常被一些风格奇异的图片刷屏，app里上传自己的照片就能变成特定风格的画像，有油画、漫画等等，这些都是机器学习的结果，Neural Transfer Style。一般有两种实现：第一种是快速渲染，输入一张原图+一个某种固定画风的模型 = 输出结果，这个你只需要模型就OK；第二种方法是，输入一张原图+一张风格图 + 在线渲染 = 输出结果，需要一个原始模型就行。搜索查询都是基于python的训练实现，有基于tensorflow,也有基于torch的，没到已生成的model，因而这里还是拿一个已有的图像识别的例子来讲。</p>
 <ul>
-<li><p>已下载材料</p>
-<p><a href="http://dl.caffe.berkeleyvision.org/bvlc_alexnet.caffemodel" target="_blank" rel="external">bvlc_alexnet.caffemodel</a>、<br><a href="https://raw.githubusercontent.com/BVLC/caffe/master/models/bvlc_alexnet/deploy.prototxt" target="_blank" rel="external">deploy.prototxt</a>、<br><a href="https://raw.githubusercontent.com/torch/tutorials/master/7_imagenet_classification/synset_words.txt" target="_blank" rel="external">class_labels.txt</a></p>
+<li><p>已下载材料<br>   <a href="http://dl.caffe.berkeleyvision.org/bvlc_alexnet.caffemodel" target="_blank" rel="external">bvlc_alexnet.caffemodel</a>、<br>   <a href="https://raw.githubusercontent.com/BVLC/caffe/master/models/bvlc_alexnet/deploy.prototxt" target="_blank" rel="external">deploy.prototxt</a>、<br>   <a href="https://raw.githubusercontent.com/torch/tutorials/master/7_imagenet_classification/synset_words.txt" target="_blank" rel="external">class_labels.txt</a></p>
 </li>
 <li><p>其他参考Caffe Model：</p>
 <p>  <a href="https://github.com/BVLC/caffe/wiki/Model-Zoo#models-for-age-and-gender-classification" target="_blank" rel="external">Caffe model</a></p>
@@ -264,8 +333,10 @@
 </ul>
 <h4 id="4-2-1-pip安装Coremltools"><a href="#4-2-1-pip安装Coremltools" class="headerlink" title="4.2.1 pip安装Coremltools"></a>4.2.1 pip安装Coremltools</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span> sudo easy_install pip</span><br><span class="line"><span class="meta">&gt;&gt;</span> pip install -U coremltools</span><br></pre></td></tr></table></figure>
 <h4 id="4-2-2-打开mac终端"><a href="#4-2-2-打开mac终端" class="headerlink" title="4.2.2 打开mac终端"></a>4.2.2 打开mac终端</h4><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span> python</span><br><span class="line"><span class="meta">&gt;&gt;</span> import coremltools</span><br><span class="line"><span class="meta">&gt;&gt;</span> coreml_model = coremltools.converters.caffe.convert((<span class="string">'bvlc_alexnet.caffemodel'</span>, <span class="string">'deploy.prototxt'</span>),predicted_feature_name=<span class="string">'class_labels.txt'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;</span> coreml_model.author = <span class="string">'徐子超'</span></span><br><span class="line"><span class="meta">&gt;&gt;</span> coreml_model.license = <span class="string">'字节跳动'</span></span><br><span class="line"><span class="meta">&gt;&gt;</span> coreml_model.short_description = <span class="string">'Predicts the price of a house in the Seattle area.'</span> </span><br><span class="line"><span class="meta">&gt;&gt;</span> coreml_model.save(<span class="string">'BVLCObjectClassifier.mlmodel'</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="4-2-3-得到model结果"><a href="#4-2-3-得到model结果" class="headerlink" title="4.2.3 得到model结果"></a>4.2.3 得到model结果</h4><p>我下载的bvlc_alexnet.caffemodel大小有244M左右，在终端中转化为CoreMl却基本没有转化耗时，可见苹果在开发工具的创造上下了功夫。我们得到了CoreML的模型如下图：<br><img src="/assets/images/CoreMLFile.jpg" alt=""></p>
-<p>直接在工程文件中，加入model,添加到对应的target<br><img src="/assets/images/CoreMLXcode.jpg" alt=""></p>
+<h4 id="4-2-3-得到model结果"><a href="#4-2-3-得到model结果" class="headerlink" title="4.2.3 得到model结果"></a>4.2.3 得到model结果</h4><p>我下载的bvlc_alexnet.caffemodel大小有244M左右，在终端中转化为CoreMl却基本没有转化耗时，可见苹果在开发工具的创造上下了功夫。我们得到了CoreML的模型如下图：</p>
+<p> <img src="![](https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682842/CoreMLFile.jpg)"></p>
+<p>直接在工程文件中，加入model,添加到对应的target</p>
+<p> <img src="![](https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&preview=/88682290/88682796/CoreMLXcode.jpg)" width="300" height="200"> </p>
 <p>点击中间Model Class即可查看对应的定义，Model依旧244M大小，我在打开定义的过程中感受到了Xcode的明显延迟卡顿。</p>
 <p>到这里，我们的model转化就完成了，在WWDC上也介绍了别的python工具，我这里没有使用，直接在终端里面完成即可。接下来，做个实测demo跑一下效果，本次转化的model过大，此处我们还是继续拿第三节的model来做。</p>
 <h2 id="五、相机即时画面的图像解析Demo"><a href="#五、相机即时画面的图像解析Demo" class="headerlink" title="五、相机即时画面的图像解析Demo"></a>五、相机即时画面的图像解析Demo</h2><h4 id="4-1-新建一个相机demo"><a href="#4-1-新建一个相机demo" class="headerlink" title="4.1 新建一个相机demo"></a>4.1 新建一个相机demo</h4><p>即时的图像识别，需要在摄像头打开后，实时的获取手机屏幕上展示的每一帧图像，所以通常的UIimageViewPicker是无法做到的，我们需要自己搭建UI并手写捕捉相机视图的代码来构建一个自己的相机，通过AVFoundationKit,我们可以拿到相机里面图像流动的每一帧，从而可以将图像传递给GoogleNet进行识别。来，继续改造第三节的demo工程，将viewController变成一个简化版本的相机。</p>
@@ -282,14 +353,14 @@
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)startVideoCapture</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span>.session startRunning];</span><br><span class="line">    <span class="keyword">self</span>.videoConnection.enabled = <span class="literal">YES</span>;</span><br><span class="line">    <span class="keyword">self</span>.videoQueue = dispatch_queue_create(<span class="string">"videoQueue"</span>, <span class="literal">NULL</span>);</span><br><span class="line">    [<span class="keyword">self</span>.videoOutPut setSampleBufferDelegate:<span class="keyword">self</span> queue:<span class="keyword">self</span>.videoQueue];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark --AVCaptureVideoDataOutputSampleBufferDelegate</span></span><br><span class="line">- (<span class="keyword">void</span>)captureOutput:(<span class="built_in">AVCaptureOutput</span> *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(<span class="built_in">AVCaptureConnection</span> *)connection</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queue = dispatch_queue_create(<span class="string">"CMSampleBufferRef"</span>, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">dispatch_sync</span>(queue, ^&#123;</span><br><span class="line">        <span class="built_in">CGImageRef</span> cgImage = [<span class="built_in">UIImage</span> imageFromSampleBuffer:sampleBuffer];</span><br><span class="line">        <span class="built_in">NSString</span> *text = [<span class="keyword">self</span> predictImageScene:[<span class="built_in">UIImage</span> imageWithCGImage:cgImage]];</span><br><span class="line">        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            <span class="keyword">self</span>.googleLabel.text = text;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意此处，相机给我们回传的是CMSampleBufferRef格式的数据，而我们在第三节需要传入的是CVPixelBufferRef，所以会有一步在UIImage+Utils里的转化,最后附上代码地址。</p>
 <h4 id="4-2-实时显示效果"><a href="#4-2-实时显示效果" class="headerlink" title="4.2 实时显示效果"></a>4.2 实时显示效果</h4><p>到官网下载安装配置，把手机升级到IOS11的beta版本后，将相机demo连上手机真机调试得到实时显示,当我移动手机对准不同画面时，相机底部会对应解析出识别结果:</p>
-<p><img src="/assets/images/coremlgif.gif" alt=""></p>
-<h2 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h2><p>随着Core ML技术的引入，移动端上实现机器学习开始变得可能，这也让IOS开发者为之兴奋，但是从本次实践上，还是可以看出一些问题，发现在IOS上实践机器学习并接入现有的APP还是有较长的路要走，apple本身的布局正在推动这一发展。</p>
-<p>1、Core ML 框架只在IOS11以上才开始支持，现状是很多APP最低的版本还存在支持IOS7的，比如目前微信支持IOS8以上，所以在微信上还不能实践，其他应用也是如此。</p>
+<p><img src="https://wiki.bytedance.net/pages/viewpage.action?pageId=88682290&amp;preview=/88682290/88682877/coremlgif.gif" alt=""></p>
+<h2 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h2><p>从本次实践上，还是可以看出一些问题：</p>
+<p>1、Core ML 框架只在IOS11以上才开始支持，现状是很多APP还在支持低版本。比如目前微信支持IOS8以上。</p>
 <p>2、每一个机器学习模型引入的model都是很大，我们的demo使用偏小的model，但是数据却又不准确，model的引入会给IOS安装包带来包体积很大的增加。</p>
-<p>3、机器学习的结果分析大量的运算，虽然目前iphone在不断的升级硬件GPUCPU，但是我测试过程中还是发现计算的延迟，所以搞个异步线程计算返回。</p>
-<p>本文不仅仅是对WWDC新技术的探索和分享，更是自己对机器学习的兴趣，搜索查询完成IOS的demo测试，完成本篇的时候，我对机器学习有了基础的认识，仿佛有了一种貌似学完python就能转行的盲目自信，😀，加油吧，少年。</p>
-<p>github代码:<a href="https://github.com/xuzichao/IOS-Core-ML" target="_blank" rel="external">IOS-Core ML</a>，有兴趣的同学可以下载在IOS11的设备上跑起来。</p>
-
+<p>3、机器学习的结果分析大量的运算，虽然目前iphone在不断的升级硬件GPUCPU，但是我测试过程中还是发现计算的延迟，就异步计算返回的。</p>
+<p>4、对于非专业的机器学习人士来讲，IOS开发能拿到现在的model来使用，很多酷炫的效果都没有现成的model,这里也是一个门槛。</p>
+<p>随着Core ML技术的引入，移动端上实现机器学习开始变得可能，这也让IOS开发者为之兴奋，然而在IOS上实践机器学习还是有较长的路要走，当然apple本身的布局正在推动这一发展，保持期待。本文不仅仅是对WWDC新技术的探索和分享，也是对机器学习的兴趣认识。</p>
+<h4 id="github代码-IOS-Core-ML，有兴趣的同学可以下载在IOS11的设备上跑起来。"><a href="#github代码-IOS-Core-ML，有兴趣的同学可以下载在IOS11的设备上跑起来。" class="headerlink" title="github代码:IOS-Core ML，有兴趣的同学可以下载在IOS11的设备上跑起来。"></a>github代码:<a href="https://github.com/xuzichao/IOS-Core-ML" target="_blank" rel="external">IOS-Core ML</a>，有兴趣的同学可以下载在IOS11的设备上跑起来。</h4>
       
     </div>
     
@@ -299,8 +370,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2017/06/05/机器学习在IOS开发中的应用 CoreML/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">机器学习在IOS开发中的应用 CoreML</div>
+    <a href="/2016/11/22/使用CocoaPods创建私有仓库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用CocoaPods创建私有仓库</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -329,7 +400,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="将机器学习模型转化为CoreML格式 " data-title="将机器学习模型转化为CoreML格式" data-url="http://xuzichao.com/2017/06/06/将机器学习模型转化为CoreML格式 /"></div>
+	<div class="ds-thread" data-thread-key="机器学习在IOS中的应用 Core ML" data-title="" data-url="http://xuzichao.com/2017/06/22/机器学习在IOS中的应用 Core ML/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
