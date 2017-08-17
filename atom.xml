@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Deadlock博客</title>
   <subtitle>华中科技大学毕业，今日头条在职</subtitle>
-  <link href="/archives/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuzichao.com/"/>
   <updated>2017-08-17T10:21:28.000Z</updated>
