@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>头条热修复解决方案 | Deadlock博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="TTSparkRescue
+备注：2017年4月开始出现使用热修复审核不通过的情况，经过混淆的方式后，绕过了苹果的检测，但是到5月初的时候，苹果全方面严打IOS热修复策略，各方APP包括头条在内的方案被迫下架。
+
+1. 简介TTSparkRescue是头条公司层面的通用的热修复库，同时提供给其他产品线使用。设计包括如下：
+
+启动崩溃计数修改为3秒后清除
+启动初始化的预清理
+启动崩溃本地有缓存预先执">
+<meta property="og:type" content="article">
+<meta property="og:title" content="头条热修复解决方案">
+<meta property="og:url" content="http://xuzichao.com/2016/09/11/头条热修复解决方案/index.html">
+<meta property="og:site_name" content="Deadlock博客">
+<meta property="og:description" content="TTSparkRescue
+备注：2017年4月开始出现使用热修复审核不通过的情况，经过混淆的方式后，绕过了苹果的检测，但是到5月初的时候，苹果全方面严打IOS热修复策略，各方APP包括头条在内的方案被迫下架。
+
+1. 简介TTSparkRescue是头条公司层面的通用的热修复库，同时提供给其他产品线使用。设计包括如下：
+
+启动崩溃计数修改为3秒后清除
+启动初始化的预清理
+启动崩溃本地有缓存预先执">
+<meta property="og:updated_time" content="2017-08-16T09:20:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="头条热修复解决方案">
+<meta name="twitter:description" content="TTSparkRescue
+备注：2017年4月开始出现使用热修复审核不通过的情况，经过混淆的方式后，绕过了苹果的检测，但是到5月初的时候，苹果全方面严打IOS热修复策略，各方APP包括头条在内的方案被迫下架。
+
+1. 简介TTSparkRescue是头条公司层面的通用的热修复库，同时提供给其他产品线使用。设计包括如下：
+
+启动崩溃计数修改为3秒后清除
+启动初始化的预清理
+启动崩溃本地有缓存预先执">
+  
+    <link rel="alternative" href="/atom.xml" title="Deadlock博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/photo.png">
+  
+  <link rel="stylesheet" href="/archives/css/style.css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0b8e8ee87e4708173f00d9048c309301";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/photo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Deadlock</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">华中科技大学毕业，今日头条在职</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/archives/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xuzichao" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/2356167600/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/zichao.xu.5" title="facebook">facebook</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/archives/tags/时光相册/" style="font-size: 10px;">时光相册</a> <a href="/archives/tags/程序开发/" style="font-size: 20px;">程序开发</a> <a href="/archives/tags/随笔小结/" style="font-size: 15px;">随笔小结</a> <a href="/archives/tags/随笔小记/" style="font-size: 10px;">随笔小记</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Deadlock</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/assets/photo.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Deadlock</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">华中科技大学毕业，今日头条在职</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/archives/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xuzichao" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/2356167600/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/zichao.xu.5" title="facebook">facebook</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-头条热修复解决方案" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/archives/2016/09/11/头条热修复解决方案/" class="article-date">
+  	<time datetime="2016-09-11T14:59:12.000Z" itemprop="datePublished">Sep 11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      头条热修复解决方案
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/archives/tags/程序开发/">程序开发</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="TTSparkRescue"><a href="#TTSparkRescue" class="headerlink" title="TTSparkRescue"></a>TTSparkRescue</h1><blockquote>
+<p>备注：2017年4月开始出现使用热修复审核不通过的情况，经过混淆的方式后，绕过了苹果的检测，但是到5月初的时候，苹果全方面严打IOS热修复策略，各方APP包括头条在内的方案被迫下架。</p>
+</blockquote>
+<h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h1><p>TTSparkRescue是头条公司层面的通用的热修复库，同时提供给其他产品线使用。设计包括如下：</p>
+<ul>
+<li>启动崩溃计数修改为3秒后清除</li>
+<li>启动初始化的预清理</li>
+<li>启动崩溃本地有缓存预先执行</li>
+<li>启动崩溃第二次，启动上报逻辑和预处理</li>
+<li>启动崩溃第三次，开始启动修复逻辑</li>
+<li>启动后修复</li>
+<li>补丁下发更新机制</li>
+<li>客户端本地处理下发的patch错误</li>
+<li>下发JS空白</li>
+<li>下发前，本地预先运行，验证JS脚本</li>
+<li>本地模拟crash</li>
+<li>管理的系统版本号粒度更精细</li>
+<li>增加端监控，传出参数，由TTMonitor在外部配合调到 </li>
+</ul>
+<h1 id="2-快速集成"><a href="#2-快速集成" class="headerlink" title="2. 快速集成"></a>2. 快速集成</h1><h2 id="2-1-Podfile引用"><a href="#2-1-Podfile引用" class="headerlink" title="2.1 Podfile引用"></a>2.1 Podfile引用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">'头条内部的git地址'</span></span><br><span class="line"></span><br><span class="line">pod <span class="string">'TTSparkRescue'</span>, <span class="string">'2.3'</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-2-代码块替换"><a href="#2-2-代码块替换" class="headerlink" title="2.2 代码块替换"></a>2.2 代码块替换</h2><blockquote>
+<p>方法A: </p>
+</blockquote>
+<p>APP原本的didFinishLaunchingWithOptions的全部逻辑didFinishLaunchingWithOptions</p>
+<blockquote>
+<p>方法B :</p>
+</blockquote>
+<p>新建并复制，参数和函数体与方法A保持一致</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(BOOL)</span>application:<span class="params">(UIApplication *)</span>application</span><br><span class="line"> normalLaunchProcessWithOptions:<span class="params">(NSDictionary *)</span>launchOptions</span><br></pre></td></tr></table></figure>
+<p>使用TTJSPatch结构替换方法A，下面部分可以直接复制即可用：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) wself = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line"><span class="meta">#if DEBUG</span></span><br><span class="line">    <span class="comment">//默认注释关闭</span></span><br><span class="line">    <span class="comment">//    [[TTSparkRescue shareInstance] setTestPatch:YES simulationCrash:YES];</span></span><br><span class="line"><span class="meta">#endif</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//内部监控上报</span></span><br><span class="line">    [[TTSparkRescue shareInstance] setReportBlock:^(<span class="built_in">NSString</span> *key, <span class="built_in">NSDictionary</span> *info) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//crash的预处理逻辑</span></span><br><span class="line">        <span class="keyword">if</span> ([key isEqualToString:TTJSPatchLaunchCrash]) &#123;</span><br><span class="line">            <span class="comment">//优先清理coredata缓存</span></span><br><span class="line">            <span class="comment">//解决可能造成的crash</span></span><br><span class="line">            <span class="comment">//连续崩溃第四次才启用安全模式</span></span><br><span class="line">        &#125;</span><br><span class="line">        [[TTMonitor shareManager] trackService:key status:<span class="number">1</span> extra:info];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//运行错误处理，内部已加监控, type == 1 for JS, type == 2 for OC</span></span><br><span class="line">    [[TTSparkRescue shareInstance] setJSCrashHanlder:^(<span class="built_in">NSInteger</span> type, <span class="built_in">NSString</span> *msg) &#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//CompletionBlock:头条正常启动逻辑</span></span><br><span class="line">    [[TTSparkRescue shareInstance] setBoolCompletionBlock:^<span class="built_in">BOOL</span>&#123;</span><br><span class="line">        </span><br><span class="line"><span class="meta">#if DEBUG</span></span><br><span class="line">        <span class="comment">//本地测试的时候模拟crash，不必注释，由前面的开关控制即可</span></span><br><span class="line">        [[TTSparkRescue shareInstance] simulationLauchCrash];</span><br><span class="line">        [[TTSparkRescue shareInstance] simulationLauchDelayCrash];</span><br><span class="line">        [[TTSparkRescue shareInstance] simulationActiveCrash];</span><br><span class="line">        </span><br><span class="line"><span class="meta">#endif</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [wself application:application normalLaunchProcessWithOptions:launchOptions];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//启动执行逻辑，完成后调用CompletionBlock</span></span><br><span class="line">    <span class="keyword">return</span> [[TTSparkRescue shareInstance] launchContinuousCrashProcess];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-功能设计"><a href="#3-功能设计" class="headerlink" title="3. 功能设计"></a>3. 功能设计</h1><h2 id="3-1、说明："><a href="#3-1、说明：" class="headerlink" title="3.1、说明："></a>3.1、说明：</h2><h4 id="1、启动崩溃计数修改为12秒后清除"><a href="#1、启动崩溃计数修改为12秒后清除" class="headerlink" title="1、启动崩溃计数修改为12秒后清除"></a>1、启动崩溃计数修改为12秒后清除</h4><blockquote>
+<p>如果启动过程中，出现延迟操作，操作时间在原先的5秒之外，那么这次操作如果出现崩溃将无法被记录下。也就无法再启动中修复。<br>     将清除时间调大，设置为一个网络请求的返回时间，覆盖了延迟造作造成的crash。</p>
+</blockquote>
+<h4 id="2、启动初始化的预清理"><a href="#2、启动初始化的预清理" class="headerlink" title="2、启动初始化的预清理"></a>2、启动初始化的预清理</h4><blockquote>
+<p>当我们判断当前版本号发生变化时，直接清除本地的patch文件，避免升级覆盖安装后，还持有原先逻辑或者错误。</p>
+</blockquote>
+<h4 id="3、启动崩溃本地有缓存预先执行"><a href="#3、启动崩溃本地有缓存预先执行" class="headerlink" title="3、启动崩溃本地有缓存预先执行"></a>3、启动崩溃本地有缓存预先执行</h4><blockquote>
+<p>因为是修复崩溃的逻辑，之前需要达到崩溃条件后才开始请求下发，原本就体验差了，如果再遇上网络缓慢的时候，启动会很慢，<br>  体验更差。并且每次都会崩溃后重新启动。此次修改后，出现一次之后同步请求返回patch,正常启动，下次进入，判断有缓存就直接执行，<br>  执行异步的请求更新。</p>
+</blockquote>
+<h4 id="4、启动崩溃第二次，启动上报逻辑和预处理"><a href="#4、启动崩溃第二次，启动上报逻辑和预处理" class="headerlink" title="4、启动崩溃第二次，启动上报逻辑和预处理"></a>4、启动崩溃第二次，启动上报逻辑和预处理</h4><blockquote>
+<p>APPDelegate 上报和预处理逻辑 ReportBlock，当出现第二次崩溃的时候，可以删除本地的一些可能会导致crash的东西，<br>比如本地的数据库可以先清理掉，等等。然后统计上报。</p>
+</blockquote>
+<h4 id="5、启动崩溃第三次，开始启动修复逻辑"><a href="#5、启动崩溃第三次，开始启动修复逻辑" class="headerlink" title="5、启动崩溃第三次，开始启动修复逻辑"></a>5、启动崩溃第三次，开始启动修复逻辑</h4><blockquote>
+<p>如果本地有缓存，则网络异步更新，因为后面的逻辑保证本地已有的缓存patchJS执行没错，所以可以先执行。<br>如果本地无缓存，则网络同步请求，返回补丁，运行成功后再启动APP正常流程。<br>不会再出现再次崩溃3此的情况。<br>只要出现3次崩溃，忽略本地缓存，直接请求更新。</p>
+</blockquote>
+<h4 id="6、启动后修复"><a href="#6、启动后修复" class="headerlink" title="6、启动后修复"></a>6、启动后修复</h4><blockquote>
+<p>启动中的时候，判断本地有缓存文件，预先执行，之后，每次active就会请求更新文件</p>
+</blockquote>
+<h4 id="7、补丁下发更新机制"><a href="#7、补丁下发更新机制" class="headerlink" title="7、补丁下发更新机制"></a>7、补丁下发更新机制</h4><blockquote>
+<p>本地无缓存，直接存储，有缓存，判断版本号。<br> 我们在后台下发补丁的时候，目前依旧保持，升级版本号，全量覆盖。也就是说，app每个版本，在客户端里依旧保持唯一一个补丁，启动前和启动后各自有对应的唯一一个。<br>此处，服务端也有策略，我们上传的参数包含当前，版本，如果服务端有更高版本，就会升级。</p>
+</blockquote>
+<h4 id="8、客户端本地处理下发的patch错误"><a href="#8、客户端本地处理下发的patch错误" class="headerlink" title="8、客户端本地处理下发的patch错误"></a>8、客户端本地处理下发的patch错误</h4><blockquote>
+<ul>
+<li>(void)handleException:(void (^)(NSInteger crashType,NSString *msg))exceptionBlock;<br>crashType == 1 的时候是 JS环境 运行的Crash<br>crashType == 2 的时候是  OC环境 运行的Crash<br>当我们下发的脚本有问题的时候，客户端本地直接删除全部补丁文件，包括启动前和启动后。<br>APPDelegate 中 JSCrashHanlder 被调用，可以填写上报逻辑和反馈运行的错误原因。<br>在此条件下，当用户退到后台之后，自动崩溃，重新打开客户端没有patch，这个留出来及时下发修正后Patch的时机。</li>
+</ul>
+</blockquote>
+<h4 id="9、下发JS空白"><a href="#9、下发JS空白" class="headerlink" title="9、下发JS空白"></a>9、下发JS空白</h4><blockquote>
+<p>直接删除本地补丁文件</p>
+</blockquote>
+<h4 id="10、下发前，本地预先运行，验证JS脚本"><a href="#10、下发前，本地预先运行，验证JS脚本" class="headerlink" title="10、下发前，本地预先运行，验证JS脚本"></a>10、下发前，本地预先运行，验证JS脚本</h4><blockquote>
+<p>直接将要在后台要下发的JS代码，非BASE64编码，贴到工程里的test.js 文件里，此处文件名固定。<br>并在APPDelegate 打开测试运行的开关，然后直接运行即可，测试完毕，防止错误，必须关闭。</p>
+</blockquote>
+<h4 id="11、本地模拟crash"><a href="#11、本地模拟crash" class="headerlink" title="11、本地模拟crash"></a>11、本地模拟crash</h4><blockquote>
+<p>增加错误的OC代码导致crash，用于模拟各种情况，包括启动中，启动中延时，启动后。<br>并设置了开关，默认都是关闭的，随测试方法的开关一起，正式提交时，必须关闭。</p>
+</blockquote>
+<h4 id="2、管理的系统版本号粒度更精细"><a href="#2、管理的系统版本号粒度更精细" class="headerlink" title="2、管理的系统版本号粒度更精细"></a>2、管理的系统版本号粒度更精细</h4><blockquote>
+<p>整数示例：8，9，10   —-   后台命中：8.x,9.x,10.x   IOS系统版本<br>精确示例：9.1.2 — 后台命中：9.1.2 IOS系统版本</p>
+</blockquote>
+<h4 id="13、下发补丁一并写注释"><a href="#13、下发补丁一并写注释" class="headerlink" title="13、下发补丁一并写注释"></a>13、下发补丁一并写注释</h4><blockquote>
+<p>每次下发补丁，需要填写说明，包括：【事故原因】【下发人】【下发日期】</p>
+</blockquote>
+<h4 id="14、启动后的下发调用改为通知"><a href="#14、启动后的下发调用改为通知" class="headerlink" title="14、启动后的下发调用改为通知"></a>14、启动后的下发调用改为通知</h4><blockquote>
+<p>不需要在applicationDidBecomeActive中再显示调用原来的makePatchRequestAfterLaunch，manager内部监听通知即可。</p>
+</blockquote>
+<h4 id="15、增加端监控，传出参数，由TTMonitor在外部配合调到"><a href="#15、增加端监控，传出参数，由TTMonitor在外部配合调到" class="headerlink" title="15、增加端监控，传出参数，由TTMonitor在外部配合调到"></a>15、增加端监控，传出参数，由TTMonitor在外部配合调到</h4><blockquote>
+<p>监控请求成功和失败、下发更新、版本升级删除的等等用于统计patch的使用情况，后期有利于生成分布和图形。<br>TTSparkRescueLaunchCrash<br>APPDelegate 上报和预处理逻辑 ReportBlock，当出现第二次崩溃的时候，可以删除本地的一些可能会导致crash的东西，<br>比如本地的数据库可以先清理掉，等等。然后统计上报。<br>TTSparkRescueServerCloseCrash<br>服务器端下发关闭运行JSPatch的统计<br>TTSparkRescueDeleteFile<br>删除清空本地文件的统计，下发空白、错误、运行错误、升级都会删除之前的缓存文件，用action字段区分。<br>TTSparkRescueError<br>内部运行的错误报告，文件请求失败和运行失败等。<br>TTSparkRescueUpdateFile<br>统计更新成功的事件</p>
+</blockquote>
+<h2 id="3-2、测试Case"><a href="#3-2、测试Case" class="headerlink" title="3.2、测试Case"></a>3.2、测试Case</h2><p>1、启动中，有崩溃，包括延时崩溃，无缓存文件。正常同步请求返回，APP启动完成。</p>
+<p>2、启动中，有崩溃，包括延时崩溃，有缓存文件。<br>直接读取本地文件，APP启动完成。</p>
+<p>3、启动中，有崩溃，包括延时崩溃，下发JS语法的patch文件。<br>无法正常启动，连续crash3次后走同步请求。</p>
+<p>4、启动后，有崩溃，无缓存文件。正常异步请求返回，APP正常运行。</p>
+<p>5、启动后，有崩溃，有缓存文件。直接读取本地文件，正常同步请求返回更新文件，APP正常运行。</p>
+<p>6、启动后，下发错误JS语法的patch文件。客户端判断文件出错，删除全部补丁缓存文件，清零，开始重新请求更新。</p>
+<p>7、以上case通过线上下发运行一次，再本地测试开关运行一次。testPatch.js 在主工程被正确添加后，都可以正确执行。</p>
+<p>8、升级版本号，覆盖安装。删除本地原有的补丁文件，清零。</p>
+<p>9、监控点事件上报。正常对外输出事件和外带信息到APPDelegate中</p>
+<h1 id="4-使用说明"><a href="#4-使用说明" class="headerlink" title="4. 使用说明"></a>4. 使用说明</h1><h2 id="4-1-补丁后台管理"><a href="#4-1-补丁后台管理" class="headerlink" title="4.1 补丁后台管理"></a>4.1 补丁后台管理</h2><p>客户端的修复需要后端的支持，提供接口和后端管理平台，用于托管修复文件，控制版本和保证传输安全。客户端根据反馈的崩溃信息(版本、名称、设备、用户)，针对某一批用户或者某一个版本号，在后台进行选择对应的版本JS文件，进行下发即可。</p>
+<h3 id="4-1-1-热修复接口定义"><a href="#4-1-1-热修复接口定义" class="headerlink" title="4.1.1 热修复接口定义"></a>4.1.1 热修复接口定义</h3><p>应用名称和应用ID作用一致，为了兼容老的已经发出去的版本，我们保留app_name，之后的都是用app_id，两者等效力，<br>参数命中其中一个，至少有一个就行，就可以返回值。  </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数ID</th>
+<th>举例说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>应用版本号</td>
+<td>app_version</td>
+<td>5.6.0</td>
+</tr>
+<tr>
+<td>应用名称</td>
+<td>app_name</td>
+<td>今日头条</td>
+</tr>
+<tr>
+<td>应用ID</td>
+<td>app_id</td>
+<td>com.iphone.text</td>
+</tr>
+<tr>
+<td>启动前后</td>
+<td>app_launch</td>
+<td>0前1后</td>
+</tr>
+<tr>
+<td>设备ID</td>
+<td>device_id</td>
+<td>用户的手机设备ID</td>
+</tr>
+<tr>
+<td>编号</td>
+<td>无，客户端不作请求参数</td>
+<td>服务端后台的文件号，随意定，不重复即可</td>
+</tr>
+<tr>
+<td>百分比</td>
+<td>无，客户端不作请求参数</td>
+<td>服务端后台按量下发补丁</td>
+</tr>
+<tr>
+<td>ON/OFF</td>
+<td>无，客户端不作请求参数</td>
+<td>服务端后台控制补丁开关</td>
+</tr>
+<tr>
+<td>逗号分隔</td>
+<td>无，客户端不作请求参数</td>
+<td>服务端后台下发补丁，支持不同的版本，逗号分隔</td>
+</tr>
+<tr>
+<td>应用版本号扩展</td>
+<td>无，客户端不作请求参数</td>
+<td>服务端后台下发的补丁，补丁本身的版本号，格式约定：应用版本号整数数字.补丁版本号整数数字，比如：570.1，591.21</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-1-2-数据格式"><a href="#4-1-2-数据格式" class="headerlink" title="4.1.2 数据格式"></a>4.1.2 数据格式</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="symbol">status:</span><span class="number">0</span>, </span><br><span class="line"><span class="symbol">message:</span><span class="string">""</span>,</span><br><span class="line"><span class="symbol">data:</span>&#123;</span><br><span class="line"><span class="symbol">     js_crash:</span><span class="number">0</span>,  <span class="comment">//修复代码本身出错的时候打开</span></span><br><span class="line"><span class="symbol">     js_version:</span><span class="number">560.4</span>,         <span class="comment">//5.6.0版本的第四个JS版本</span></span><br><span class="line"><span class="symbol">     js_value:</span> <span class="string">" sfkdsfnldjgdfnkgndkfngdsfgmdfngfjshdbfkhrwnf"</span>   <span class="comment">//js的BASE64编码值，客户端直接解码运行</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-客户端运行："><a href="#4-2-客户端运行：" class="headerlink" title="4.2 客户端运行："></a>4.2 客户端运行：</h2><p>补丁分为启动前和启动后，和前面快速集成代码块一样，只需要这里，就已经是全部，启动前后的划分在内部执行，通知监听，不需要手动再调用。</p>
+<h2 id="4-3、具体案例："><a href="#4-3、具体案例：" class="headerlink" title="4.3、具体案例："></a>4.3、具体案例：</h2><p>案例：5.7.0版本上bug修复</p>
+<p>当我们需要完全替换方法的时候，我们需要注意替换原则，就是尽量使用原生的Native方法，这样JSpatch在转化的过程中可以遵循原生方法规则，生成对应代码，在解析的时候可以还原。<br>比如：</p>
+<h3 id="4-3-1-使用注意"><a href="#4-3-1-使用注意" class="headerlink" title="4.3.1 使用注意"></a>4.3.1 使用注意</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">void</span> setAutoresizingMaskFlexibleWidthAndHeight(<span class="built_in">UIView</span> *view)&#123;</span><br><span class="line">    view.autoresizingMask = <span class="built_in">UIViewAutoresizingFlexibleWidth</span>|<span class="built_in">UIViewAutoresizingFlexibleHeight</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>setAutoresizingMaskFlexibleWidthAndHeight(self.footerView);<br>我们在写的时候得写成：<br>self.footerView.autoresizingMask = 2|16;<br>系统自定义的常量，比如：UIViewAutoresizingFlexibleWidth,在JSPtatch中将被转化为同名的变量，然而这个变量，却在JS环境中没有定义，从而会报错。<br>所以我们直接使用对应的常量数字 2.</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[[self.footerView footerScrollView]</span> <span class="selector-tag">tt_addDelegate</span><span class="selector-pseudo">:self</span> <span class="selector-tag">asMainDelegate</span><span class="selector-pseudo">:NO</span>];</span><br></pre></td></tr></table></figure>
+<p>用于JSPatch自定义的语法为使用下划线区分方法名称，所以当转化为的JS再次被转回来OC方法的时候，会出现[[self.footerView footerScrollView] tt:addDelegate:self asMainDelegate:NO];<br>这样就崩溃了。</p>
+<h3 id="4-3-2-示例"><a href="#4-3-2-示例" class="headerlink" title="4.3.2  示例"></a>4.3.2  示例</h3><p>Native源代码：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TTDetailWebviewContainer</span></span></span><br><span class="line">- (<span class="keyword">void</span>)addFooterView:(<span class="built_in">UIView</span>&lt;TTDetailFooterViewProtocol&gt; *)footerView</span><br><span class="line">  detailFooterAddType:(TTDetailNatantStyle)natantStyle</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span>.natantStyle = natantStyle;</span><br><span class="line">    <span class="keyword">self</span>.footerView = footerView;</span><br><span class="line">    [<span class="keyword">self</span>.footerView addObserver:<span class="keyword">self</span> forKeyPath:<span class="string">@"footerScrollView"</span> options:<span class="built_in">NSKeyValueObservingOptionOld</span> | <span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</span><br><span class="line">    [[<span class="keyword">self</span>.footerView footerScrollView] tt_addDelegate:<span class="keyword">self</span> asMainDelegate:<span class="literal">NO</span>];</span><br><span class="line">    <span class="keyword">self</span>.footScrollView = <span class="keyword">self</span>.footerView.footerScrollView;</span><br><span class="line">    <span class="keyword">self</span>.footerView.frame = <span class="keyword">self</span>.bounds;</span><br><span class="line">    <span class="comment">//footerScrollView被赋值后，刷新scrollEnable和scrollToTop的状态；</span></span><br><span class="line">    <span class="keyword">self</span>.footerStatus = <span class="keyword">self</span>.footerStatus;</span><br><span class="line">    setAutoresizingMaskFlexibleWidthAndHeight(<span class="keyword">self</span>.footerView);</span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> shouldOpenInsertionOptimization]) &#123;</span><br><span class="line">        [<span class="keyword">self</span> addFooterView];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      [<span class="keyword">self</span> addFooterView];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>目标JS代码：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">defineClass</span>(<span class="string">'TTDetailWebviewContainer'</span>, &#123;</span><br><span class="line"><span class="attribute">addFooterView_detailFooterAddType</span>: function(footerView, natantStyle) &#123;</span><br><span class="line">self.setNatantStyle(natantStyle);</span><br><span class="line">self<span class="selector-class">.setFooterView</span>(footerView);</span><br><span class="line">self<span class="selector-class">.footerView</span>()<span class="selector-class">.addObserver_forKeyPath_options_context</span>(self, <span class="string">"footerScrollView"</span>, <span class="number">1</span>|<span class="number">2</span>, null);</span><br><span class="line">self<span class="selector-class">.footerView</span>()<span class="selector-class">.footerScrollView</span>()<span class="selector-class">.tt__addDelegate_asMainDelegate</span>(self, false);</span><br><span class="line">self<span class="selector-class">.setFootScrollView</span>(self.footerView().footerScrollView());</span><br><span class="line">self<span class="selector-class">.footerView</span>()<span class="selector-class">.setFrame</span>(self.bounds());</span><br><span class="line">self<span class="selector-class">.setFooterStatus</span>(self.footerStatus());</span><br><span class="line">self<span class="selector-class">.footerView</span>()<span class="selector-class">.setAutoresizingMask</span>(<span class="number">2</span> | <span class="number">16</span>);</span><br><span class="line"><span class="selector-tag">if</span> (self.shouldOpenInsertionOptimization()) &#123;</span><br><span class="line">self<span class="selector-class">.addFooterView</span>();</span><br><span class="line">&#125; else &#123;</span><br><span class="line">self<span class="selector-class">.addFooterView</span>();</span><br><span class="line">&#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="5-原理介绍"><a href="#5-原理介绍" class="headerlink" title="5. 原理介绍"></a>5. 原理介绍</h1><h2 id="5-1-三方库"><a href="#5-1-三方库" class="headerlink" title="5.1 三方库"></a>5.1 三方库</h2><p>JSPatch(Github链接)诞生于2015年5月，最初是腾讯广研高级iOS开发@bang的个人项目。在Github.com上开源后获得了几千个star和几百个fork，广受关注，目前已被应用在大量腾讯/阿里/百度的App中。只需要在项目里引入极小的引擎文件，就可以使用 JavaScript 调用任何 Objective-C 的原生接口，替换任意 Objective-C 原生方法。所以我们通过下发 JS 脚本替换原生 Objective-C 代码，就可以实时修复线上 bug。针对头条客户端用于解决客户端发布后的崩溃修复问题，尤其是解决客户端的启动崩溃问题。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/message.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="5-2-TTSparkRescue"><a href="#5-2-TTSparkRescue" class="headerlink" title="5.2 TTSparkRescue"></a>5.2 TTSparkRescue</h2><h3 id="5-2-1-修复类型"><a href="#5-2-1-修复类型" class="headerlink" title="5.2.1 修复类型"></a>5.2.1 修复类型</h3><h4 id="5-2-1-1-启动进行中"><a href="#5-2-1-1-启动进行中" class="headerlink" title="5.2.1.1 启动进行中"></a>5.2.1.1 启动进行中</h4><p>当发生启动崩溃的时候，通过同步的网络请求，下发JS脚本执行修复。下发的条件由本地的崩溃计数决定，应用每次启动都会在本地增加一次崩溃计数，并在3秒之后将计数清理，如果3秒内崩溃，则判定为一次真实的崩溃。当崩溃次数达到设置的条件的时候，比如连续崩溃3次，客户端就开始执行修复的逻辑过程，向后端发起对此接口的同步请求，由接口信息告知是否需要使用JS修复，是否需要更新JS文件，文件版本号以及JS文件内容的加密值。请求返回后，由客户端本地判断更新文件，下载，并执行。如果本地之前没有修复的JS 文件，默认需要请求更新。更新文件成功后，对应更新本地的文件版本号和MD5值。</p>
+<p>同步请求：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dispatch_semaphore_t </span>semaphore = <span class="keyword">dispatch_semaphore_create(0);</span><br><span class="line"></span><span class="keyword">dispatch_queue_t </span>queue = <span class="keyword">dispatch_queue_create("queue", </span>NULL)<span class="comment">;</span></span><br><span class="line"><span class="keyword">dispatch_async(queue, </span>^(void) &#123;</span><br><span class="line">    </span><br><span class="line">    HandlerBlock semaphoreBlock = ^(TTSparkRescueCrashType type,NSString *msg)&#123;</span><br><span class="line">        <span class="keyword">dispatch_semaphore_signal(semaphore);</span><br><span class="line"></span>    &#125;<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">    [self getLaunchRequestBlock:semaphoreBlock]<span class="comment">;</span></span><br><span class="line">&#125;)<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">dispatch_semaphore_wait(semaphore, </span><span class="keyword">DISPATCH_TIME_FOREVER);</span></span><br></pre></td></tr></table></figure>
+<p>请求返回保存本地</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(void)</span>updateLaunchLocalJS:<span class="params">(NSString *)</span>launchJS</span><br><span class="line">                versionCode:<span class="params">(NSNumber *)</span>versionCode</span><br></pre></td></tr></table></figure>
+<p>执行本地JS代码</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(void)</span>exvalueBase64Script:<span class="params">(NSString *)</span>base64Script;</span><br><span class="line">- <span class="params">(void)</span>exvalueRescueScript:<span class="params">(NSString *)</span>jsScript;</span><br></pre></td></tr></table></figure>
+<p>监听是否有执行错误</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(void)</span>setJSCrashHanlder:<span class="params">(HandlerBlock)</span>handlerBlock;</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-1-2-启动完成后，使用中"><a href="#5-2-1-2-启动完成后，使用中" class="headerlink" title="5.2.1.2 启动完成后，使用中"></a>5.2.1.2 启动完成后，使用中</h4><p>当到达启动崩溃条件的时候，我们直接执行启动热修复逻辑。启动的时间稍微加长，遇见网络慢的情况用户需要等待的时间就会更久，当然为了避免崩溃这都是必要的。还有，另外的情况是，当用户使用我们的应用的时候，在一个层级比较深的地方操作并出现崩溃，当用户用到这里之前才会崩溃都不会有，这种情况我们依然需要进行热修复。流程类似，为异步。</p>
+<h3 id="5-2-2-补丁模拟自测"><a href="#5-2-2-补丁模拟自测" class="headerlink" title="5.2.2 补丁模拟自测"></a>5.2.2 补丁模拟自测</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"> *  测试环节，用一个方法控制开关</span><br><span class="line"> *  执行测试的testPatch.js,固定命名，测试完毕提交的时候必须关闭</span><br><span class="line"> *  模拟启动中崩溃,立刻</span><br><span class="line"> *  模拟启动中延迟崩溃，延迟启动中网络请求返回的默认时间10s</span><br><span class="line"> *  模拟激活后崩溃,60s</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">-<span class="ruby"> (void)<span class="symbol">setTestPatch:</span>(BOOL)testJsOn <span class="symbol">simulationCrash:</span>(BOOL)crashOn;</span><br><span class="line"></span>-<span class="ruby"> (void)simulationLauchCrash;</span><br><span class="line"></span>-<span class="ruby"> (void)simulationLauchDelayCrash;</span><br><span class="line"></span>-<span class="ruby"> (void)simulationActiveCrash;</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-2-2-混淆方式，绕过审核"><a href="#5-2-2-混淆方式，绕过审核" class="headerlink" title="5.2.2 混淆方式，绕过审核"></a>5.2.2 混淆方式，绕过审核</h3><h4 id="5-2-2-1-原理："><a href="#5-2-2-1-原理：" class="headerlink" title="5.2.2.1 原理："></a>5.2.2.1 原理：</h4><p>我们大致判断，苹果审核部检测应用是否使用JSPatch是通过运行时方法名检测。所以通过宏定义替换的方式，我们将与”JSPatch“有关的字段都用混淆的字符串进行宏定义替换，运行时检测到的都是混淆的不可读名称。</p>
+<h4 id="5-2-2-2-脚本替换"><a href="#5-2-2-2-脚本替换" class="headerlink" title="5.2.2.2 脚本替换"></a>5.2.2.2 脚本替换</h4><p>shell脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#!/usr/bin/env bash  </span><br><span class="line"> </span></span><br><span class="line">STRING_SYMBOL_FILE=<span class="string">"func.list"</span>  </span><br><span class="line">HEAD_FILE=<span class="string">"./confuseMacro.h"</span>  </span><br><span class="line"><span class="built_in">export</span> LC_CTYPE=C  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">ramdomString</span></span>()  </span><br><span class="line">&#123;  </span><br><span class="line">    openssl rand -base64 64 | tr -cd <span class="string">'a-zA-Z'</span> |head -c 16  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">rm <span class="_">-f</span> <span class="variable">$HEAD_FILE</span>  </span><br><span class="line"></span><br><span class="line">touch <span class="variable">$HEAD_FILE</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'#ifndef Demo_codeObfuscation_h  </span><br><span class="line">#define Demo_codeObfuscation_h'</span> &gt;&gt; <span class="variable">$HEAD_FILE</span>  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"//confuse string at `date`"</span> &gt;&gt; <span class="variable">$HEAD_FILE</span>  </span><br><span class="line">cat <span class="string">"<span class="variable">$STRING_SYMBOL_FILE</span>"</span> | <span class="keyword">while</span> <span class="built_in">read</span> -ra line; <span class="keyword">do</span>  </span><br><span class="line">    <span class="keyword">if</span> [[ ! -z <span class="string">"<span class="variable">$line</span>"</span> ]]; <span class="keyword">then</span>  </span><br><span class="line">        ramdom=`ramdomString`  </span><br><span class="line">        <span class="built_in">echo</span> <span class="variable">$line</span> <span class="variable">$ramdom</span>  </span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"#define <span class="variable">$line</span> <span class="variable">$ramdom</span>"</span> &gt;&gt; <span class="variable">$HEAD_FILE</span>  </span><br><span class="line">    <span class="keyword">fi</span>  </span><br><span class="line"><span class="keyword">done</span>  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"#endif"</span> &gt;&gt; <span class="variable">$HEAD_FILE</span></span><br></pre></td></tr></table></figure>
+<p>宏定义替换结果：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> Demo_codeObfuscation_h  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Demo_codeObfuscation_h</span></span><br><span class="line"><span class="comment">//confuse string at 2017年 5月 9日 星期二 15时09分20秒 CST</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> JPEngine zLuEDxRvmBuomcFI</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> JPExtension IoAZxAmFBjgEOaIg</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> JPBoxing wzZsoLGKuQUTRFsi</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> startEngine PRqvWWtwFlXUqdBe</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> evaluateScriptWithPath cNHrlJKiZyWXkfKo</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _evaluateScriptWithPath oDyiimPOHiIWBOEI</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> addExtensions MbpkqoMunCfIBgxY</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> defineStruct jIfCtJkMsIshJCvx</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> formatPointerJSToOC IcHiIjXLjFucrQHR</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> formatRetainedCFTypeOCToJS lyCjsaHwzQaYUiBE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> formatPointerOCToJS DdwjOGMUveuHjYQq</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> formatJSToOC BBFoPIaVlHRWBNQx</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> formatOCToJS PHwNpfqmydeeFhMY</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TTSparkRescue euibpyTZoKOvrKyO</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> exvalueBase64Script fcXBLgUPqmsRqIWx</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _JSOverideMethods FBOBELKtnClIUhEa</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _TMPMemoryPool ysvnOHCwoCVvFwfY</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _propKeys cnyhVgwVNuEVAvEp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _JSMethodSignatureCache inrkXDymTFAbwLRo</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _JSMethodSignatureLock LmXaTYYBizrQBKzn</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _JSMethodForwardCallLock YdmfSXxrtNuKsJkp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _protocolTypeEncodeDict NxHWlKlDFjjgpzYV</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _pointersToRelease pybucmDygKyxFMvj</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> jp_methodSignatureForSelector cyzfrUQNsmWrwIgU</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> jp_fixMethodSignature vlSNUMpVTTXwTWJl</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> JPForwardInvocation gflqBWbUOmJHNfcL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> JPExecuteORIGForwardInvocation itGMsXKksYYFyCPL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _initJPOverideMethods hpoUXLPSkKsFbHRk</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> overrideMethod KCgQjNlpCNXOixZS</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> invokeVariableParameterMethod YITOuEIcAICefCkG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> convertJPSelectorString wwttXxSrZoFlmKML</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getJSFunctionInObjectHierachy JjRtFUqUREPdZAgY</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> unboxOCObjectToJS MeVMxsEAmgCokbXc</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> makePatchRequestAfterLaunch icreqUfezHNyjLdw</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> setJSCrashHanlder hwsfKTIzZPvTEMmc</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getLaunchPatchVersionCode jqRICpprUZpVeKVy</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getActivePatchVersionCode zZIvunQsewkyABXu</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/archives/2016/11/22/使用CocoaPods创建私有仓库/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          使用CocoaPods创建私有仓库
+        
+      </div>
+    </a>
+  
+  
+    <a href="/archives/2016/08/03/移动端持久化存储方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">移动端持久化存储方案</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="头条热修复解决方案" data-title="头条热修复解决方案" data-url="http://xuzichao.com/archives/2016/09/11/头条热修复解决方案/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"catoo-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Deadlock
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/archives/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: undefined,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/archives/js/main.js"></script>
+
+
+
+
+
+
+  </div>
+</body>
+</html>
