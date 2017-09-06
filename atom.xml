@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xuzichao.com/"/>
-  <updated>2017-08-17T10:21:28.000Z</updated>
+  <updated>2017-09-05T07:09:08.000Z</updated>
   <id>http://xuzichao.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>《谷歌和亚马逊是如何做产品的》学习</title>
+    <title>如何成功的交付产品</title>
     <link href="http://xuzichao.com/2017/08/03/%E5%A6%82%E4%BD%95%E6%88%90%E5%8A%9F%E7%9A%84%E4%BA%A4%E4%BB%98%E4%BA%A7%E5%93%81/"/>
     <id>http://xuzichao.com/2017/08/03/如何成功的交付产品/</id>
     <published>2017-08-03T03:21:45.000Z</published>
-    <updated>2017-08-17T10:21:28.000Z</updated>
+    <updated>2017-09-05T07:09:08.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;产品学习笔记&quot;&gt;&lt;a href=&quot;#产品学习笔记&quot; class=&quot;headerlink&quot; title=&quot;产品学习笔记&quot;&gt;&lt;/a&gt;产品学习笔记&lt;/h3&gt;&lt;h2 id=&quot;前言摘要&quot;&gt;&lt;a href=&quot;#前言摘要&quot; class=&quot;headerlink&quot; title=&quot;前言摘要&quot;&gt;&lt;/a&gt;前言摘要&lt;/h2&gt;&lt;p&gt; 所有的流程和规范最终都是为了解决实际问题 的，不要贸然引入流程，除非已经碰到问题，否则尽量简化流程，提高效率。要交付 一个产品，其中最重要的只有 3 点:1)确定用户需求和预期指标;2)以最小成本实 现最主要的需求;3)发布并获得数据反馈，确定下一个迭代目标。&lt;/p&gt;
 &lt;p&gt; 用用户能理解的语言 去描述你要交付的产品带给他们的价值和好处十分重要，如果写不出来，或者写出来 用户看了一点兴趣都没有，请尽快停止这个产品，因为即使整个产品开发和交付过程 极其完美，这也注定会是一个失败的产品。&lt;/p&gt;
@@ -573,11 +573,11 @@
   </entry>
   
   <entry>
-    <title>头条热修复解决方案</title>
-    <link href="http://xuzichao.com/2016/09/11/%E5%A4%B4%E6%9D%A1%E7%83%AD%E4%BF%AE%E5%A4%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>http://xuzichao.com/2016/09/11/头条热修复解决方案/</id>
+    <title>头条热补丁方案</title>
+    <link href="http://xuzichao.com/2016/09/11/%E5%A4%B4%E6%9D%A1%E7%83%AD%E8%A1%A5%E4%B8%81%E6%96%B9%E6%A1%88/"/>
+    <id>http://xuzichao.com/2016/09/11/头条热补丁方案/</id>
     <published>2016-09-11T14:59:12.000Z</published>
-    <updated>2017-08-16T09:20:19.000Z</updated>
+    <updated>2017-09-05T07:09:51.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;TTSparkRescue&quot;&gt;&lt;a href=&quot;#TTSparkRescue&quot; class=&quot;headerlink&quot; title=&quot;TTSparkRescue&quot;&gt;&lt;/a&gt;TTSparkRescue&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;备注：2017年4月开始出现使用热修复审核不通过的情况，经过混淆的方式后，绕过了苹果的检测，但是到5月初的时候，苹果全方面严打IOS热修复策略，各方APP包括头条在内的方案被迫下架。&lt;/p&gt;
@@ -904,14 +904,12 @@
     <link href="http://xuzichao.com/2016/06/12/2016%E9%87%8D%E5%BA%86%E9%AB%98%E8%80%83%E6%AF%95%E4%B8%9A%E7%94%9F%E6%9C%AC%E7%A7%91%E4%B8%93%E4%B8%9A%E9%80%89%E6%8B%A9%E6%8E%A8%E8%8D%90/"/>
     <id>http://xuzichao.com/2016/06/12/2016重庆高考毕业生本科专业选择推荐/</id>
     <published>2016-06-12T11:09:59.000Z</published>
-    <updated>2017-06-04T07:13:21.000Z</updated>
+    <updated>2017-09-05T07:08:44.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;普通高校本科专业选择推荐&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;此文针对2016届高考毕业生就读普通大学本科专业推荐，推荐凭借自己的社会认识和对众多所在对应专业的同学学习从业动向判定而得，等高考成绩出来了，结合本省排名、个人意向、专业招生人数、专业往年招生分数，即可快速定位。本文是我表弟16年重庆高考结束，成绩还没出来前特意针对他个人给预备着的，所以带有些许的个人色彩。&lt;/p&gt;
-&lt;p&gt;徐子超 (&lt;a href=&quot;http://xuzichao.com&quot;&gt;http://xuzichao.com&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;2016.6.12&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;此文针对我表弟16年重庆高考就读普通大学本科专业推荐，推荐凭借自己的社会认识和对众多所在对应专业的同学学习从业动向判定而得，等高考成绩出来了，结合本省排名、个人意向、专业招生人数、专业往年招生分数，即可快速定位，带有个人色彩。&lt;/p&gt;
 &lt;h2 id=&quot;可选专业&quot;&gt;&lt;a href=&quot;#可选专业&quot; class=&quot;headerlink&quot; title=&quot;可选专业&quot;&gt;&lt;/a&gt;可选专业&lt;/h2&gt;&lt;h3 id=&quot;01学科门类：哲学-（所有门类不考虑）&quot;&gt;&lt;a href=&quot;#01学科门类：哲学-（所有门类不考虑）&quot; class=&quot;headerlink&quot; title=&quot;01学科门类：哲学 （所有门类不考虑）&quot;&gt;&lt;/a&gt;01学科门类：哲学 &lt;font color=&quot;blue&quot;&gt;（所有门类不考虑）&lt;/font&gt;&lt;/h3&gt;&lt;h3 id=&quot;02学科门类：经济学-（所有门类可选）&quot;&gt;&lt;a href=&quot;#02学科门类：经济学-（所有门类可选）&quot; class=&quot;headerlink&quot; title=&quot;02学科门类：经济学  （所有门类可选）&quot;&gt;&lt;/a&gt;02学科门类：经济学  &lt;font color=&quot;red&quot;&gt;（所有门类可选）&lt;/font&gt;&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt; 0201 经济学类 &lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1365,7 +1363,7 @@
       &lt;blockquote&gt;
 &lt;p&gt;普通高校本科专业选择推荐&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;此文针对2016届高考毕业生就读普通大学本科专
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;此文针对我表弟16年重庆高考就读普通大学本科专
     
     </summary>
     
@@ -1375,11 +1373,11 @@
   </entry>
   
   <entry>
-    <title>参加Iweb峰会记录</title>
-    <link href="http://xuzichao.com/2016/05/12/2016iweb%20%E5%B3%B0%E4%BC%9A/"/>
-    <id>http://xuzichao.com/2016/05/12/2016iweb 峰会/</id>
+    <title>iweb 峰会</title>
+    <link href="http://xuzichao.com/2016/05/12/iweb%20%E5%B3%B0%E4%BC%9A/"/>
+    <id>http://xuzichao.com/2016/05/12/iweb 峰会/</id>
     <published>2016-05-12T11:09:59.000Z</published>
-    <updated>2017-06-04T05:11:32.000Z</updated>
+    <updated>2017-09-05T07:09:34.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;16年的时候，赶上周末去参加了一趟北京的iweb峰会，会上来自各个公司的人分享和宣传自己的产品和技术，我作为一名普通开发者的角度去听大会，并了解和记录当前的一些技术发展。 &lt;/p&gt;
@@ -1486,6 +1484,82 @@
     
     
       <category term="随笔小结" scheme="http://xuzichao.com/tags/%E9%9A%8F%E7%AC%94%E5%B0%8F%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Native与Web的通信桥</title>
+    <link href="http://xuzichao.com/2015/09/10/Native%E4%B8%8EWeb%E7%9A%84%E9%80%9A%E4%BF%A1%E6%A1%A5/"/>
+    <id>http://xuzichao.com/2015/09/10/Native与Web的通信桥/</id>
+    <published>2015-09-10T10:22:41.000Z</published>
+    <updated>2017-09-06T02:36:05.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;一、Webview方式：&quot;&gt;&lt;a href=&quot;#一、Webview方式：&quot; class=&quot;headerlink&quot; title=&quot;一、Webview方式：&quot;&gt;&lt;/a&gt;一、Webview方式：&lt;/h2&gt;&lt;h3 id=&quot;1、JS调用Native&quot;&gt;&lt;a href=&quot;#1、JS调用Native&quot; class=&quot;headerlink&quot; title=&quot;1、JS调用Native&quot;&gt;&lt;/a&gt;1、JS调用Native&lt;/h3&gt;&lt;h3 id=&quot;1-1-webview加载流程&quot;&gt;&lt;a href=&quot;#1-1-webview加载流程&quot; class=&quot;headerlink&quot; title=&quot;1.1 webview加载流程&quot;&gt;&lt;/a&gt;1.1 webview加载流程&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;发起一个网页请求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight erlang&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(void)&lt;/span&gt;loadRequest:&lt;span class=&quot;params&quot;&gt;(NSURLRequest *)&lt;/span&gt;request&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;代理回调判断是否加载当前请求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight erlang&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(BOOL)&lt;/span&gt;webView:&lt;span class=&quot;params&quot;&gt;(UIWebView *)&lt;/span&gt;webView &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;shouldStartLoadWithRequest:&lt;span class=&quot;params&quot;&gt;(NSURLRequest *)&lt;/span&gt;request &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;navigationType:&lt;span class=&quot;params&quot;&gt;(UIWebViewNavigationType)&lt;/span&gt;navigationType;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;开始请求的时机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight erlang&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(void)&lt;/span&gt;webViewDidStartLoad:&lt;span class=&quot;params&quot;&gt;(UIWebView *)&lt;/span&gt;webView;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;成功完成加载请求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight erlang&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(void)&lt;/span&gt;webViewDidFinishLoad:&lt;span class=&quot;params&quot;&gt;(UIWebView *)&lt;/span&gt;webView;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;请求失败&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight erlang&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(void)&lt;/span&gt;webView:&lt;span class=&quot;params&quot;&gt;(UIWebView *)&lt;/span&gt;webView didFailLoadWithError:&lt;span class=&quot;params&quot;&gt;(NSError *)&lt;/span&gt;error;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;1-2-URL拦截&quot;&gt;&lt;a href=&quot;#1-2-URL拦截&quot; class=&quot;headerlink&quot; title=&quot;1.2 URL拦截&quot;&gt;&lt;/a&gt;1.2 URL拦截&lt;/h3&gt;&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;-&lt;/span&gt; (BOOL)&lt;span class=&quot;selector-tag&quot;&gt;webView&lt;/span&gt;&lt;span class=&quot;selector-pseudo&quot;&gt;:(UIWebView&lt;/span&gt; *)&lt;span class=&quot;selector-tag&quot;&gt;webView&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;shouldStartLoadWithRequest&lt;/span&gt;&lt;span class=&quot;selector-pseudo&quot;&gt;:(NSURLRequest&lt;/span&gt; *)&lt;span class=&quot;selector-tag&quot;&gt;request&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;navigationType&lt;/span&gt;&lt;span class=&quot;selector-pseudo&quot;&gt;:(UIWebViewNavigationType)navigationType&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;comment&quot;&gt;//JS发起的nativePage调用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;selector-tag&quot;&gt;if&lt;/span&gt; ([request.URL.scheme &lt;span class=&quot;attribute&quot;&gt;isEqualToString&lt;/span&gt;:@&lt;span class=&quot;string&quot;&gt;&quot;SchemeName&quot;&lt;/span&gt;]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;//这里是应用内部的schema跳转分发逻辑&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;selector-attr&quot;&gt;[Router openNewPage:url]&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;//返回NO，不打开新网页&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       return NO; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;comment&quot;&gt;//JS发起的事件Bridge调用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;selector-tag&quot;&gt;if&lt;/span&gt;([request.URL.scheme &lt;span class=&quot;attribute&quot;&gt;isEqualToString&lt;/span&gt;:@&lt;span class=&quot;string&quot;&gt;&quot;JSBridgeName&quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//这里是应用内部的JS事件处理逻辑分发&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;selector-attr&quot;&gt;[JSBridgeManager dealWithAction:url webView:webView]&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;//返回NO，不打开新网页&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       return NO; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   return YES;&lt;span class=&quot;comment&quot;&gt;//默认打开请求&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;1-3-请求分发&quot;&gt;&lt;a href=&quot;#1-3-请求分发&quot; class=&quot;headerlink&quot; title=&quot;1.3 请求分发&quot;&gt;&lt;/a&gt;1.3 请求分发&lt;/h3&gt;&lt;p&gt;注意上面的Router，其实也可以用JSBridgeManager事件进行分发，跟进传入的参数来判定即可，这里单独提炼出去，可以更好使得业务功能拆分复用。&lt;/p&gt;
+&lt;p&gt;拦截下JS的请求后，我们开始构建自己的JSBridgeManager。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;定义我们执行JS事件的webview为JSWebView，包含对应执行JS的方法&lt;/li&gt;
+&lt;li&gt;和前端约定一个固定接口，当前webview执行JS事件的时候，暴露一个方法给Native，Native调用来获取执行事件的时候所需要的额外信息，此处定义为”JSBridgeManager._fetchInfo()”&lt;/li&gt;
+&lt;li&gt;获取完返回的信息后执行解析为一个数组，数组里面每一个对象都是一个可执行的命令体，通过转化我们定义命令体对象JSCommand&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//消息类型&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;nonatomic&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;copy&lt;/span&gt;) &lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *messageType;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//事件ID&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;nonatomic&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;copy&lt;/span&gt;) &lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *eventID;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//回调ID&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;nonatomic&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;copy&lt;/span&gt;) &lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *callbackID;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//消息参数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;nonatomic&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;copy&lt;/span&gt;) &lt;span class=&quot;built_in&quot;&gt;NSDictionary&lt;/span&gt; *params;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//前端传过来的方法名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;nonatomic&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;copy&lt;/span&gt;) &lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *fullName;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//方法名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;nonatomic&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;copy&lt;/span&gt;) &lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *methodName;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;定义一个JSForwardManager对象,专门用于转发命令，根据native的本地协定好的方法名和格式，动态消息转发。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;+ (BOOL)&lt;span class=&quot;string&quot;&gt;dealWithAction:&lt;/span&gt;(NSURLRequest *)request &lt;span class=&quot;string&quot;&gt;withWebView:&lt;/span&gt;(JSWebView *)webView &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    NSURL *url = request.URL;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (![webView &lt;span class=&quot;string&quot;&gt;respondsToSelector:&lt;/span&gt;&lt;span class=&quot;meta&quot;&gt;@selector&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;ttr_evaluateJavaScript:&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;completionHandler:&lt;/span&gt;)]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; NO;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [webView &lt;span class=&quot;string&quot;&gt;evaluateJavaScript:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;;window.JSBridgeManager &amp;amp;&amp;amp; JSBridgeManager._fetchInfo();&quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;completionHandler:&lt;/span&gt;^(id result, NSError *error) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        NSArray *messagesData = [result JSONValue];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(NSDictionary *messageData &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; messagesData) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            JSCommand *command = [[JSCommand alloc] &lt;span class=&quot;string&quot;&gt;initWithDictonary:&lt;/span&gt;messageData];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            [[JSForwardManager sharedInstance] &lt;span class=&quot;string&quot;&gt;forwardJSBWithCommand:&lt;/span&gt;command &lt;span class=&quot;string&quot;&gt;engine:&lt;/span&gt;webView &lt;span class=&quot;string&quot;&gt;completion:&lt;/span&gt;^(TTRJSBMsg msg, NSDictionary *response) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                [self &lt;span class=&quot;string&quot;&gt;invokeJSBCallbackWithCommand:&lt;/span&gt;command &lt;span class=&quot;string&quot;&gt;msg:&lt;/span&gt;msg &lt;span class=&quot;string&quot;&gt;data:&lt;/span&gt;response &lt;span class=&quot;string&quot;&gt;webView:&lt;/span&gt;webView];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;];;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; YES;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;处理传入进来的命令，根据JSCommand查找本地规则对应的JSPlugin，JSPlugin则是各个JS事件对应调用的实际Native对象，该对象由业务方自己实习，继承自JSPlugin，最后通过NSInvocation直接调用对应的方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (BOOL)&lt;span class=&quot;string&quot;&gt;forwardDynamicPluginWithCommand:&lt;/span&gt;(JSCommand *)command &lt;span class=&quot;string&quot;&gt;engine:&lt;/span&gt;(id&amp;lt;JSEngine&amp;gt;)engine &lt;span class=&quot;string&quot;&gt;completion:&lt;/span&gt;(JSResponse)completion &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    NSString *selectorStr = [command.methodName &lt;span class=&quot;string&quot;&gt;stringByAppendingString:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;WithParam:callback:webView:controller:&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    SEL selector = NSSelectorFromString(selectorStr);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    JSPlugin *plugin = [self &lt;span class=&quot;string&quot;&gt;_generatePluginWithCommand:&lt;/span&gt;command &lt;span class=&quot;string&quot;&gt;engine:&lt;/span&gt;engine];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (![plugin &lt;span class=&quot;string&quot;&gt;respondsToSelector:&lt;/span&gt;selector]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; NO;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    NSMethodSignature *signature = [plugin &lt;span class=&quot;string&quot;&gt;methodSignatureForSelector:&lt;/span&gt;selector];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    NSInvocation *invocation = [NSInvocation &lt;span class=&quot;string&quot;&gt;invocationWithMethodSignature:&lt;/span&gt;signature];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    invocation.target = plugin;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    invocation.selector = selector;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    NSDictionary *params = command.params;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [invocation &lt;span class=&quot;string&quot;&gt;setArgument:&lt;/span&gt;&amp;amp;params &lt;span class=&quot;string&quot;&gt;atIndex:&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [invocation &lt;span class=&quot;string&quot;&gt;setArgument:&lt;/span&gt;&amp;amp;completion &lt;span class=&quot;string&quot;&gt;atIndex:&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [invocation &lt;span class=&quot;string&quot;&gt;setArgument:&lt;/span&gt;&amp;amp;engine &lt;span class=&quot;string&quot;&gt;atIndex:&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    UIViewController *source = engine.ttr_sourceController;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [invocation &lt;span class=&quot;string&quot;&gt;setArgument:&lt;/span&gt;&amp;amp;source &lt;span class=&quot;string&quot;&gt;atIndex:&lt;/span&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [invocation invoke];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; YES;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;注意此处的completion回调，会返回去执行原来传进来的block，这里的JSResponse类都由本地实现和定义，最后在原webview里面执行脚本JS方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[self &lt;span class=&quot;string&quot;&gt;invokeJSBCallbackWithCommand:&lt;/span&gt;command &lt;span class=&quot;string&quot;&gt;msg:&lt;/span&gt;msg &lt;span class=&quot;string&quot;&gt;data:&lt;/span&gt;response &lt;span class=&quot;string&quot;&gt;webView:&lt;/span&gt;webView];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[self &lt;span class=&quot;string&quot;&gt;evaluateJavaScriptFromString:&lt;/span&gt;javaScriptString &lt;span class=&quot;string&quot;&gt;completionBlock:&lt;/span&gt;completionHandler];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;2、Native调用JS&quot;&gt;&lt;a href=&quot;#2、Native调用JS&quot; class=&quot;headerlink&quot; title=&quot;2、Native调用JS&quot;&gt;&lt;/a&gt;2、Native调用JS&lt;/h3&gt;&lt;p&gt;与上述最后一步回调一样，实际就是webview的一个执行JS的方法。&lt;/p&gt;
+&lt;figure class=&quot;highlight lisp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;name&quot;&gt;nullable&lt;/span&gt; NSString *)stringByEvaluatingJavaScriptFromString:(NSString *)script&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;二-基于JavaScriptCore&quot;&gt;&lt;a href=&quot;#二-基于JavaScriptCore&quot; class=&quot;headerlink&quot; title=&quot;二. 基于JavaScriptCore&quot;&gt;&lt;/a&gt;二. 基于JavaScriptCore&lt;/h2&gt;&lt;h3 id=&quot;1、JS调用Native-1&quot;&gt;&lt;a href=&quot;#1、JS调用Native-1&quot; class=&quot;headerlink&quot; title=&quot;1、JS调用Native&quot;&gt;&lt;/a&gt;1、JS调用Native&lt;/h3&gt;&lt;h3 id=&quot;1-1-获取当前JS环境&quot;&gt;&lt;a href=&quot;#1-1-获取当前JS环境&quot; class=&quot;headerlink&quot; title=&quot;1.1 获取当前JS环境&quot;&gt;&lt;/a&gt;1.1 获取当前JS环境&lt;/h3&gt;&lt;figure class=&quot;highlight mipsasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;self.&lt;span class=&quot;keyword&quot;&gt;JSContext &lt;/span&gt;= [self.&lt;span class=&quot;keyword&quot;&gt;baseWebView &lt;/span&gt;valueForKeyPath:@&lt;span class=&quot;string&quot;&gt;&quot;documentView.webView.mainFrame.javaScriptContext&quot;&lt;/span&gt;]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;1-2-在Native定义JS环境对象&quot;&gt;&lt;a href=&quot;#1-2-在Native定义JS环境对象&quot; class=&quot;headerlink&quot; title=&quot;1.2 在Native定义JS环境对象&quot;&gt;&lt;/a&gt;1.2 在Native定义JS环境对象&lt;/h3&gt;&lt;p&gt;利用JSExport接口定义一套自己的业务接口协议，实现此协议的对象，可以放入JSContext环境中直接作为同名的JS方法调用。&lt;/p&gt;
+&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#import &lt;span class=&quot;meta-string&quot;&gt;&amp;lt;JavaScriptCore/JavaScriptCore.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@protocol&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;BaseWebObjProctol&lt;/span&gt; &amp;lt;&lt;span class=&quot;title&quot;&gt;JSExport&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//网页打开本地&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)openNativePage:(&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt;)param;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//登录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)login;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//调用分享接口&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)shareToOthers;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;BaseWebObj&lt;/span&gt; : &lt;span class=&quot;title&quot;&gt;NSObject&lt;/span&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;BaseWebObjProctol&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;nonatomic&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;strong&lt;/span&gt;) BaseWebVC *webVC;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;1-3-注入JS对象&quot;&gt;&lt;a href=&quot;#1-3-注入JS对象&quot; class=&quot;headerlink&quot; title=&quot;1.3 注入JS对象&quot;&gt;&lt;/a&gt;1.3 注入JS对象&lt;/h3&gt;&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)webViewDidFinishLoad:(&lt;span class=&quot;built_in&quot;&gt;UIWebView&lt;/span&gt; *)webView&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    BaseWebObj *webObj = [[BaseWebObj alloc] init];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    webObj.webVC = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.JSContext[&lt;span class=&quot;string&quot;&gt;@&quot;nativeApp&quot;&lt;/span&gt;] = webObj;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;1-4-JS调用示例&quot;&gt;&lt;a href=&quot;#1-4-JS调用示例&quot; class=&quot;headerlink&quot; title=&quot;1.4 JS调用示例&quot;&gt;&lt;/a&gt;1.4 JS调用示例&lt;/h3&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;window&lt;span class=&quot;selector-class&quot;&gt;.nativeApp&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.openUrlPage&lt;/span&gt;(dictionary)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;2、Native调用JS-1&quot;&gt;&lt;a href=&quot;#2、Native调用JS-1&quot; class=&quot;headerlink&quot; title=&quot;2、Native调用JS&quot;&gt;&lt;/a&gt;2、Native调用JS&lt;/h3&gt;&lt;p&gt;与上述最后一步回调一样，实际就是webview的一个执行JS的方法。&lt;/p&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;JSContext &lt;/span&gt;: NSObject&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (JSValue *)&lt;span class=&quot;attribute&quot;&gt;evaluateScript&lt;/span&gt;:(NSString *)script;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;三、调试&quot;&gt;&lt;a href=&quot;#三、调试&quot; class=&quot;headerlink&quot; title=&quot;三、调试&quot;&gt;&lt;/a&gt;三、调试&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;手机: 设置-&amp;gt;Safari-&amp;gt;高级-&amp;gt;打开web检查器&lt;/li&gt;
+&lt;li&gt;Safari: Safari-&amp;gt;首选项-&amp;gt;高级-&amp;gt;打开 ‘在菜单中显示开发’ 选项&lt;/li&gt;
+&lt;li&gt;调试流程:Safari-&amp;gt;开发-&amp;gt;找到需要调试的设备-&amp;gt;找到需要调试的页面&lt;/li&gt;
+&lt;li&gt;BTW: 可用于检测WebView实例的内存泄露&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、Webview方式：&quot;&gt;&lt;a href=&quot;#一、Webview方式：&quot; class=&quot;headerlink&quot; title=&quot;一、Webview方式：&quot;&gt;&lt;/a&gt;一、Webview方式：&lt;/h2&gt;&lt;h3 id=&quot;1、JS调用Native&quot;&gt;&lt;a href=&quot;#1
+    
+    </summary>
+    
+    
+      <category term="程序开发" scheme="http://xuzichao.com/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -1681,11 +1755,11 @@ if (self.videoPrePlayer.status == AVPlayerStatusReadyToPlay)
   </entry>
   
   <entry>
-    <title>IOS视频录制</title>
-    <link href="http://xuzichao.com/2015/01/28/IOS%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6--AVFoudation/"/>
-    <id>http://xuzichao.com/2015/01/28/IOS视频录制--AVFoudation/</id>
+    <title>AVFoundation视频开发总结</title>
+    <link href="http://xuzichao.com/2015/01/28/%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/"/>
+    <id>http://xuzichao.com/2015/01/28/视频开发总结/</id>
     <published>2015-01-28T11:09:59.000Z</published>
-    <updated>2017-01-24T10:34:57.000Z</updated>
+    <updated>2017-09-05T07:10:54.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;IOS-视频录制-—-AVFoundation&quot;&gt;&lt;a href=&quot;#IOS-视频录制-—-AVFoundation&quot; class=&quot;headerlink&quot; title=&quot;IOS 视频录制 — AVFoundation&quot;&gt;&lt;/a&gt;IOS 视频录制 — AVFoundation&lt;/h1&gt;&lt;p&gt;AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。&lt;/p&gt;
 &lt;h2 id=&quot;一、概念引导：&quot;&gt;&lt;a href=&quot;#一、概念引导：&quot; class=&quot;headerlink&quot; title=&quot;一、概念引导：&quot;&gt;&lt;/a&gt;一、概念引导：&lt;/h2&gt;&lt;h3 id=&quot;1、ASSets媒体文件&quot;&gt;&lt;a href=&quot;#1、ASSets媒体文件&quot; class=&quot;headerlink&quot; title=&quot;1、ASSets媒体文件:&quot;&gt;&lt;/a&gt;1、ASSets媒体文件:&lt;/h3&gt;&lt;p&gt;1）AVAsset&lt;/p&gt;
@@ -1866,11 +1940,11 @@ if (videoHeight % 2 == 1) {
   </entry>
   
   <entry>
-    <title>对 Run Loop 的理解</title>
-    <link href="http://xuzichao.com/2015/01/05/%E5%AF%B9%20Run%20Loop%20%E7%9A%84%E7%90%86%E8%A7%A3/"/>
-    <id>http://xuzichao.com/2015/01/05/对 Run Loop 的理解/</id>
+    <title>RunLoop是如何跑起来的</title>
+    <link href="http://xuzichao.com/2015/01/05/RunLoop%E6%98%AF%E5%A6%82%E4%BD%95%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84/"/>
+    <id>http://xuzichao.com/2015/01/05/RunLoop是如何跑起来的/</id>
     <published>2015-01-05T06:34:12.000Z</published>
-    <updated>2017-06-04T03:53:36.000Z</updated>
+    <updated>2017-09-05T07:11:38.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;对-Run-Loop-的理解&quot;&gt;&lt;a href=&quot;#对-Run-Loop-的理解&quot; class=&quot;headerlink&quot; title=&quot;对 Run Loop 的理解&quot;&gt;&lt;/a&gt;对 Run Loop 的理解&lt;/h1&gt;&lt;h2 id=&quot;一、Run-Loop为何存在&quot;&gt;&lt;a href=&quot;#一、Run-Loop为何存在&quot; class=&quot;headerlink&quot; title=&quot;一、Run Loop为何存在?&quot;&gt;&lt;/a&gt;一、Run Loop为何存在?&lt;/h2&gt;&lt;p&gt;我们从编写命令式的语句开始理解，一般我们写一个运行函数，只要顺序执行，一遍就过了，比如简单的NSLog一个“hello word”，这样我们就算完成了一个问候世界的程序。好简单的程序，但是一个复杂的系统，一个能称之为系统的程序，比如我们的手机App，它是不可能按照执行顺序一下执行完成就结束的，它包含了我们各类需求，会接受我们不同的操作，所以这个程序需要有一个设计的模式能够符合这样的应用场景，能够响应操作。所以，有了Event驱动的模式。&lt;/p&gt;
 &lt;p&gt;特点：&lt;/p&gt;
@@ -2052,11 +2126,11 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
   </entry>
   
   <entry>
-    <title>MRC、ARC与修饰符</title>
-    <link href="http://xuzichao.com/2014/11/02/MRC%E3%80%81ARC%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6/"/>
-    <id>http://xuzichao.com/2014/11/02/MRC、ARC与修饰符/</id>
+    <title>引用计数MRC、ARC与属性修饰符</title>
+    <link href="http://xuzichao.com/2014/11/02/%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0MRC%E3%80%81ARC%E4%B8%8E%E5%B1%9E%E6%80%A7%E4%BF%AE%E9%A5%B0%E7%AC%A6/"/>
+    <id>http://xuzichao.com/2014/11/02/引用计数MRC、ARC与属性修饰符/</id>
     <published>2014-11-02T08:23:47.000Z</published>
-    <updated>2017-06-27T10:27:14.000Z</updated>
+    <updated>2017-09-05T07:07:43.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;一、MRC&quot;&gt;&lt;a href=&quot;#一、MRC&quot; class=&quot;headerlink&quot; title=&quot;一、MRC&quot;&gt;&lt;/a&gt;一、MRC&lt;/h2&gt;&lt;h3 id=&quot;1、内存管理问题&quot;&gt;&lt;a href=&quot;#1、内存管理问题&quot; class=&quot;headerlink&quot; title=&quot;1、内存管理问题&quot;&gt;&lt;/a&gt;1、内存管理问题&lt;/h3&gt;&lt;p&gt;传统的内存管理方式都需要业务代码自己处理，比如C和C++,程序员自己控制对象的使用周期，进行生成和释放。随着代码越来越复杂和人员的流动，就会出现无法确定的代码，如果内存对象一直留在那里，没人敢释放，整个程序占用的空间越来越大；胆大的人释放了可能导致crash。尽管遵循一些“谁创建谁释放”、“谁持有谁释放” 的原则，但依旧导致存储空间的浪费：为了保留仅仅一个内存对象，却要将与它关联的一大堆对象保留住，然而其中大部分已经不再使用了。&lt;/p&gt;
 &lt;h3 id=&quot;2、解决方式&quot;&gt;&lt;a href=&quot;#2、解决方式&quot; class=&quot;headerlink&quot; title=&quot;2、解决方式&quot;&gt;&lt;/a&gt;2、解决方式&lt;/h3&gt;&lt;p&gt;就是引用计数。所有使用到同一内存对象的地方，使用者只要保证自己 retain 一次，release 一次，不用管别人是否使用。这样就实现了内存管理的分离，这就是MRC。当你使用new、alloc、copy方法创建一个对象时，该对象的保留计数器值为1.当不再使用该对象时，你要负责向该对象发送一条release或autorelease消息。当这个对象本身的引用计数为0时，就会被系统销毁。如果还有别处对它的引用，它就还在继续存在。&lt;br&gt;所有的内存管理是需要程序员手写代码控制的，一般就是持有操作和释放操作。&lt;br&gt;原则：谁持有，谁释放，不持有，不能释放，不再需要时，主动释放。&lt;/p&gt;
@@ -2116,6 +2190,108 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
     <summary type="html">
     
       &lt;h2 id=&quot;一、MRC&quot;&gt;&lt;a href=&quot;#一、MRC&quot; class=&quot;headerlink&quot; title=&quot;一、MRC&quot;&gt;&lt;/a&gt;一、MRC&lt;/h2&gt;&lt;h3 id=&quot;1、内存管理问题&quot;&gt;&lt;a href=&quot;#1、内存管理问题&quot; class=&quot;headerlink&quot; titl
+    
+    </summary>
+    
+    
+      <category term="程序开发" scheme="http://xuzichao.com/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FE进阶之路</title>
+    <link href="http://xuzichao.com/2014/10/15/%E5%89%8D%E7%AB%AFFE%E9%80%9F%E6%88%90/"/>
+    <id>http://xuzichao.com/2014/10/15/前端FE速成/</id>
+    <published>2014-10-15T15:22:12.000Z</published>
+    <updated>2017-09-06T02:48:59.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;转移动端开发之前，曾是名呆萌的FE，在学校的时候还算勤劳，上线了大大小小的产品，冰岩作坊见证了我的成长，认识了很多朋友。如今回顾一下，整理一条前端之路。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;面试点&quot;&gt;&lt;a href=&quot;#面试点&quot; class=&quot;headerlink&quot; title=&quot;面试点&quot;&gt;&lt;/a&gt;面试点&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/assets/images/feTotal.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;知识点&quot;&gt;&lt;a href=&quot;#知识点&quot; class=&quot;headerlink&quot; title=&quot;知识点&quot;&gt;&lt;/a&gt;知识点&lt;/h2&gt;&lt;h3 id=&quot;一、语言&quot;&gt;&lt;a href=&quot;#一、语言&quot; class=&quot;headerlink&quot; title=&quot;一、语言&quot;&gt;&lt;/a&gt;一、语言&lt;/h3&gt;&lt;h3 id=&quot;1、HTML&quot;&gt;&lt;a href=&quot;#1、HTML&quot; class=&quot;headerlink&quot; title=&quot;1、HTML&quot;&gt;&lt;/a&gt;1、HTML&lt;/h3&gt;&lt;h4 id=&quot;1-1-理解&quot;&gt;&lt;a href=&quot;#1-1-理解&quot; class=&quot;headerlink&quot; title=&quot;1.1 理解&quot;&gt;&lt;/a&gt;1.1 理解&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;HyperText Markup Language&lt;/code&gt;超文本标记语言。语言自不必说，超文本意味着『将网页彼此连接链接，超越了传统意义上的书本文字』，标记则说明了语言的特点是描述性的。比如可以通过标签来描述内容：&lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;是一个标题(headline)；&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;是一个段落(paragraph)；&lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt;是一段代码等等。还可以通过声明属性进一步描述如&lt;code&gt;&amp;lt;input class=&amp;quot;form-inline&amp;quot; id=&amp;quot;gender-input-female&amp;quot; type=&amp;quot;radio&amp;quot; name=&amp;quot;gender&amp;quot; value=&amp;quot;female&amp;quot;&amp;gt;&lt;/code&gt;。HTML是一门应当注重语义化的语言，尤其在HTML5的规范中更是强调此，如增加了&lt;code&gt;&amp;lt;article&amp;gt;``&amp;lt;section&amp;gt;&lt;/code&gt;等标签。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;标签有自闭和和成对闭合两种，具体规则要参考规范，注意自闭合标签结尾的反斜杠不是必须的。常见的自闭合标签是&lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;，&lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;HTML在被浏览器渲染时，会有两种元素，非替换元素指的是其内容无需被浏览器替换，直接显示即可。而替换原素则需要浏览器进行转换才能正常工作，如&lt;code&gt;&amp;lt;img&amp;gt;&amp;lt;textarea&amp;gt;&amp;lt;canvas&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;HTML中也可以嵌入如SVG等其他语言内容。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2、CSS&quot;&gt;&lt;a href=&quot;#2、CSS&quot; class=&quot;headerlink&quot; title=&quot;2、CSS&quot;&gt;&lt;/a&gt;2、CSS&lt;/h3&gt;&lt;h4 id=&quot;2-1-理解&quot;&gt;&lt;a href=&quot;#2-1-理解&quot; class=&quot;headerlink&quot; title=&quot;2.1 理解&quot;&gt;&lt;/a&gt;2.1 理解&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Cascading Style Sheets&lt;/code&gt;层叠样式表。表自不必说，样式也是顾名思义，关键点在于层叠。CSS的层叠体现在选择器的关系上：通过选择器的优先级来决定样式的使用与否，能够灵活的控制HTML元素的样式。&lt;/li&gt;
+&lt;li&gt;一个普通的『规则』由如下部分组成：选择器+声明块（声明由属性：值组成），此外还有@语句，可用于媒体查询、引入文件等，在此略过。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-class&quot;&gt;.class&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;color&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;rgba&lt;/span&gt;(0,0,0,.6);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;transition&lt;/span&gt;: height .&lt;span class=&quot;number&quot;&gt;3s&lt;/span&gt; ease-in-out .&lt;span class=&quot;number&quot;&gt;5s&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;-webkit-tap-highlight-color&lt;/span&gt;: transparent;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-class&quot;&gt;.night&lt;/span&gt; &lt;span class=&quot;selector-class&quot;&gt;.class&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;color&lt;/span&gt;: black;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;由于浏览器纷争以及标准的制定落后于市场，CSS存在着很严重的兼容性问题。具体问题暂且不表，但为了解决这些问题，业界目前普遍使用『预处理器』和『后处理器』来增强CSS。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;a、 预处理器主要是通过对CSS进行改编或扩展行成一种新的语言，然后通过『预处理器』编译为可被浏览器使用的CSS。常见的就是LESS和SCSS。&lt;br&gt;b、 后处理器是指在生成一个标准的CSS后，进行一些列的优化的工具。如用于自动补充各浏览器前缀的autoprefixer；用于去除冗余css的CSSClean等。大都依赖于PostCSS这个工具。&lt;/p&gt;
+&lt;h3 id=&quot;3、JavaScript&quot;&gt;&lt;a href=&quot;#3、JavaScript&quot; class=&quot;headerlink&quot; title=&quot;3、JavaScript&quot;&gt;&lt;/a&gt;3、JavaScript&lt;/h3&gt;&lt;h4 id=&quot;3-1-理解&quot;&gt;&lt;a href=&quot;#3-1-理解&quot; class=&quot;headerlink&quot; title=&quot;3.1 理解&quot;&gt;&lt;/a&gt;3.1 理解&lt;/h4&gt;&lt;p&gt;这个没有一个明确的翻译，名字里有Java纯粹是为了蹭热度。广义上的JS由其语言核心+DOM+BOM组成。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JavaScript有一个比较简单的出生，但有个比较折腾的成长。目前其标准属于EcmaScript（Flash使用的ActionScript也是这个标准下的产物），现在的版本是第7版，正式名是ES2017，前几天刚定稿，老浏览器都不支持，需要通过bable工具转换为第5版才能让绝大多数浏览器正常执行。&lt;/li&gt;
+&lt;li&gt;JS是弱类型语言，其基本数据类型有number/boolean/string/undefined/symbol/(null)、引用类型object，包括function和array。基本类型按值访问，引用类型按地址访问。基本数据类型用typeof区分，引用类型需要使用instanceof或其特殊的判断方法区分。&lt;/li&gt;
+&lt;li&gt;在ES5时代变量作用域仅限于函数内，ES6后通过let能指定块级作用于。var存在变量提升，是个bug隐患点。&lt;/li&gt;
+&lt;li&gt;ES5时代没有定义class，可以通过function+prototype的方式模拟一个类。JS的继承主要是通过原型链实现的：&lt;code&gt;instance.__proto__.....__proto__ === Class.prototype&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;DOM（文档对象模型）描述了处理网页内容的方法和接口。如document.getElementById。&lt;/li&gt;
+&lt;li&gt;BOM（浏览器对象模型）描述了与浏览器进行交互的方法和接口。如location.href。&lt;/li&gt;
+&lt;li&gt;通过XMLHttpRequest发送HTTP请求，可以通过指定异步的方式实现AJAX。异步请求存在同源限制。&lt;/li&gt;
+&lt;li&gt;ES6规范中明确了异步操作的推荐做法即Promise。&lt;br&gt;主要理解两点：异步与事件驱动。两者相互结合构成了现在的JS的运行逻辑。&lt;/li&gt;
+&lt;li&gt;TypeScript&lt;br&gt;微软推出谷歌力捧的JS超集，实现了强类型、类等诸多C++、Java功能，目前也需要通过编译才能执行，未有浏览器原生支持。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;二、代码执行环境&quot;&gt;&lt;a href=&quot;#二、代码执行环境&quot; class=&quot;headerlink&quot; title=&quot;二、代码执行环境&quot;&gt;&lt;/a&gt;二、代码执行环境&lt;/h3&gt;&lt;h3 id=&quot;1、浏览器&quot;&gt;&lt;a href=&quot;#1、浏览器&quot; class=&quot;headerlink&quot; title=&quot;1、浏览器&quot;&gt;&lt;/a&gt;1、浏览器&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;浏览器的历史不过多介绍，当前PC主流有Chrome和IE/Edge两个，其余的Firefox、safari都很小众。这三类都是独自研制开发。移动端上的主流几乎只有Safari和Chrome两种。&lt;/li&gt;
+&lt;li&gt;单独谈渲染引擎主流的有Webkit(Blink)、Trident、Gecko。单独谈JS引擎主要有V8、charkra等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2、Node-js&quot;&gt;&lt;a href=&quot;#2、Node-js&quot; class=&quot;headerlink&quot; title=&quot;2、Node.js&quot;&gt;&lt;/a&gt;2、Node.js&lt;/h3&gt;&lt;p&gt;Node.js®是一个基于Chrome V8 引擎的 JavaScript 运行时。 Node.js 使用高效、轻量级的事件驱动、非阻塞 I/O 模型。Node.js 之生态系统是目前最大的开源包管理系统。&lt;/p&gt;
+&lt;h3 id=&quot;三、代码执行流程&quot;&gt;&lt;a href=&quot;#三、代码执行流程&quot; class=&quot;headerlink&quot; title=&quot;三、代码执行流程&quot;&gt;&lt;/a&gt;三、代码执行流程&lt;/h3&gt;&lt;h3 id=&quot;1、编译&quot;&gt;&lt;a href=&quot;#1、编译&quot; class=&quot;headerlink&quot; title=&quot;1、编译&quot;&gt;&lt;/a&gt;1、编译&lt;/h3&gt;&lt;p&gt;以现阶段的通常情况来看，我们采用超前的ES6、ES7来写JS，用Less写CSS，用React等来实现View，这些代码通过import/export引用和发布。然后通过webpack、fis等工具『编译』成能被浏览器执行的HTML/JS/CSS。&lt;/p&gt;
+&lt;h3 id=&quot;2、部署：&quot;&gt;&lt;a href=&quot;#2、部署：&quot; class=&quot;headerlink&quot; title=&quot;2、部署：&quot;&gt;&lt;/a&gt;2、部署：&lt;/h3&gt;&lt;p&gt;其中HTML如果涉及到与后端数据的直接耦合，则被认为是『模板』，部署到相应的接入层逻辑指定的线上地址，而其他内容如.js/.css/.png/.svg等，则与服务端分离，部署在CDN上以提供更快的访问速度。这个过程主要的问题在于如何控制浏览器缓存（HTTP缓存）。&lt;/p&gt;
+&lt;h3 id=&quot;3、访问：&quot;&gt;&lt;a href=&quot;#3、访问：&quot; class=&quot;headerlink&quot; title=&quot;3、访问：&quot;&gt;&lt;/a&gt;3、访问：&lt;/h3&gt;&lt;p&gt;从URL被请求到HTML被返回的逻辑就暂且略去，主要谈HTML返回后的过程。&lt;br&gt;这一部分以真实请求的Performance为例讲解吧。不赘述？？？？后续找几篇文章填补空白。&lt;/p&gt;
+&lt;h3 id=&quot;4、JSBridge-链接跳转&quot;&gt;&lt;a href=&quot;#4、JSBridge-链接跳转&quot; class=&quot;headerlink&quot; title=&quot;4、JSBridge(链接跳转)&quot;&gt;&lt;/a&gt;4、JSBridge(链接跳转)&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;JS → Native：发特定规则的url，被native拦下来就好了。&lt;/li&gt;
+&lt;li&gt;Native → JS：Native可以在JSContext中注入代码，或者通过javascript:xxxx这种方式调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;四、常见的问题与debug&quot;&gt;&lt;a href=&quot;#四、常见的问题与debug&quot; class=&quot;headerlink&quot; title=&quot;四、常见的问题与debug&quot;&gt;&lt;/a&gt;四、常见的问题与debug&lt;/h3&gt;&lt;h3 id=&quot;1、如何获取与定位问题&quot;&gt;&lt;a href=&quot;#1、如何获取与定位问题&quot; class=&quot;headerlink&quot; title=&quot;1、如何获取与定位问题&quot;&gt;&lt;/a&gt;1、如何获取与定位问题&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;最好用的工具就是chrome的开发者工具了。&lt;h3 id=&quot;2、为什么会白页&quot;&gt;&lt;a href=&quot;#2、为什么会白页&quot; class=&quot;headerlink&quot; title=&quot;2、为什么会白页&quot;&gt;&lt;/a&gt;2、为什么会白页&lt;/h3&gt;&lt;/li&gt;
+&lt;li&gt;一种是JS的BUG导致的，一般来说在相同文件内的JS会由于错误阻塞运行。也就是上文有错，下文直接挂。当渲染在下文时就容易出现这种问题。&lt;/li&gt;
+&lt;li&gt;另一种情况比较少见就是在load事件后调用document.write导致。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;3、XSS与CSRF&quot;&gt;&lt;a href=&quot;#3、XSS与CSRF&quot; class=&quot;headerlink&quot; title=&quot;3、XSS与CSRF&quot;&gt;&lt;/a&gt;3、XSS与CSRF&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;XSS是老生常谈的话题了，主要是由于HTML语言的『保留字』（&amp;lt; &amp;gt; ‘ “ ）被直接使用导致，大部分能够通过HTML转义避免。&lt;br&gt;CSRF现在大都不常见了，基本通过加密token校验来避免。&lt;h3 id=&quot;4、性能&quot;&gt;&lt;a href=&quot;#4、性能&quot; class=&quot;headerlink&quot; title=&quot;4、性能&quot;&gt;&lt;/a&gt;4、性能&lt;/h3&gt;&lt;/li&gt;
+&lt;li&gt;为何觉得卡，是因为人眼的构造决定的，实际上没有连续的动画，动画都是一帧一帧组成的。如果普通大众能接受60帧，那就意味着对HTML的相应操作要在1000/60m=16ms内执行完毕，才不会掉帧。&lt;/li&gt;
+&lt;li&gt;还是可以通过chrome的preformance工具来进行定位。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;五、「框架」新时代&quot;&gt;&lt;a href=&quot;#五、「框架」新时代&quot; class=&quot;headerlink&quot; title=&quot;五、「框架」新时代&quot;&gt;&lt;/a&gt;五、「框架」新时代&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;jQurey、Bootstrap：这个时代的特点就是乱，文件瞎引用，样式瞎写，但干起活来就是快，维护体验很差。&lt;/li&gt;
+&lt;li&gt;backbone：开始有了一些思想，主要是类比了MVC，在前端也搞了全套的M-V-C，强调数据-模板（样式）-逻辑分离。&lt;/li&gt;
+&lt;li&gt;MVVM：再后来开始分化，一些人觉得C不足以表意，因为其实干来干去都是在操作M和V，不如就叫VM，所以是MVVM。另一些人觉得前端这么简单的事儿不要搞复杂留着V就足够了，也就出现了MVVM的代表Angular，和纯View层的代表React。&lt;/li&gt;
+&lt;li&gt;Vue.js:渐进式框架,Vue 从根本上采用最小成本、渐进增量的设计。Vue 的核心库只专注于视图层，并且很容易与其他第三方库或现有项目集成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;六、新技术&quot;&gt;&lt;a href=&quot;#六、新技术&quot; class=&quot;headerlink&quot; title=&quot;六、新技术&quot;&gt;&lt;/a&gt;六、新技术&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;PWA：（ Progressive Web Apps，渐进式网页应用）是由谷歌提出的新一代 Web 应用概念，旨在提供可靠、快速、类似 Native 应用的服务方案。&lt;/li&gt;
+&lt;li&gt;AMP：谷歌提倡的一些列『最佳实践』，通过实现这些最佳实践，大概率能让你的网站速度飙升。&lt;/li&gt;
+&lt;li&gt;reactNative、Weex：以虚拟DOM技术为核心，尝试将其用非Web技术渲染执行。&lt;/li&gt;
+&lt;li&gt;webSocket：在HTTP2出现以前，提供的一个基于TCP的socket应用接口，全双工、可二进制传输是其特点。&lt;/li&gt;
+&lt;li&gt;WebGL：基于canvas和OpenGL，使得web也能进行大型游戏和渲染场景的制作。&lt;/li&gt;
+&lt;li&gt;WASM：厉害了，所有能被JS实现的最终都会被JS实现。类似安卓的so。&lt;/li&gt;
+&lt;li&gt;微信小程序：个人理解是：对现有限制浏览器体验的内容删减，纯数据驱动以限制web能力，缓存模板甚至缓存运行时以提升性能，提供了一个本质还是浏览器的东西。&lt;/li&gt;
+&lt;li&gt;Electron： 打包一个浏览器，钉钉。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;七、讨论&quot;&gt;&lt;a href=&quot;#七、讨论&quot; class=&quot;headerlink&quot; title=&quot;七、讨论&quot;&gt;&lt;/a&gt;七、讨论&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;对残障人士更友好的网页：这个话题里中国比较远，下一题。&lt;/li&gt;
+&lt;li&gt;HybridApp：这个题好，其实非核心功能和弱交互功能，完全可以交给web实现。而web主要性能受限的网络则可以通过Hybrid的方式预先集成到App内部，需要时就能立刻提供服务。类似PWA。&lt;/li&gt;
+&lt;li&gt;参考书籍与站点 ：&lt;br&gt;《JavaScript高级程序设计》、《深入理解ES6》、Google Developer Docs、Mozilla Web Docs&lt;/li&gt;
+&lt;li&gt;常用工具 ：caniuse 查兼容性的神器、tinypng 压缩图片好工具&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;转移动端开发之前，曾是名呆萌的FE，在学校的时候还算勤劳，上线了大大小小的产品，冰岩作坊见证了我的成长，认识了很多朋友。如今回顾一下，整理一条前端之路。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;面试点&quot;&gt;&lt;a href=&quot;#面试点&quot; c
     
     </summary>
     
