@@ -1,367 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Hexo一下，博客诞生 | Deadlock博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人博客搭建推荐Hexo前言事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我是真的不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo一下，博客诞生">
-<meta property="og:url" content="http://xuzichao.com/2014/11/07/Hexo-个人博客使用介绍/index.html">
-<meta property="og:site_name" content="Deadlock博客">
-<meta property="og:description" content="个人博客搭建推荐Hexo前言事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我是真的不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是">
-<meta property="og:updated_time" content="2017-09-06T02:53:48.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo一下，博客诞生">
-<meta name="twitter:description" content="个人博客搭建推荐Hexo前言事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我是真的不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是">
-  
-    <link rel="alternative" href="/atom.xml" title="Deadlock博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/assets/photo.png">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <script>
-  var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "//hm.baidu.com/hm.js?0b8e8ee87e4708173f00d9048c309301";
-    var s = document.getElementsByTagName("script")[0]; 
-    s.parentNode.insertBefore(hm, s);
-  })();
-  </script>
-</head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img src="/assets/photo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
-			
-		</a>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">Deadlock</a></h1>
-		</hgroup>
-
-		
-		<p class="header-subtitle">华中科技大学毕业，今日头条在职</p>
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/archives">所有文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/xuzichao" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/2356167600/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
-					        
-								<a class="facebook" target="_blank" href="https://www.facebook.com/zichao.xu.5" title="facebook">facebook</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/时光相册/" style="font-size: 10px;">时光相册</a> <a href="/tags/程序开发/" style="font-size: 20px;">程序开发</a> <a href="/tags/随笔小结/" style="font-size: 15px;">随笔小结</a>
-					</div>
-				</section>
-				
-				
-				
-
-				
-			</div>
-		</div>
-	</header>				
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Deadlock</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img lazy-src="/assets/photo.png" class="js-avatar">
-			</div>
-			<hgroup>
-			  <h1 class="header-author">Deadlock</h1>
-			</hgroup>
-			
-			<p class="header-subtitle">华中科技大学毕业，今日头条在职</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/archives">所有文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/xuzichao" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/2356167600/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
-			        
-						<a class="facebook" target="_blank" href="https://www.facebook.com/zichao.xu.5" title="facebook">facebook</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
-      <div class="body-wrap"><article id="post-Hexo-个人博客使用介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/11/07/Hexo-个人博客使用介绍/" class="article-date">
-  	<time datetime="2014-11-07T11:09:59.000Z" itemprop="datePublished">Nov 7</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hexo一下，博客诞生
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序开发/">程序开发</a></li></ul>
-	</div>
-
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="个人博客搭建推荐Hexo"><a href="#个人博客搭建推荐Hexo" class="headerlink" title="个人博客搭建推荐Hexo"></a>个人博客搭建推荐Hexo</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我是真的不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是自己的，大概程序员的内心都流淌着这样的独白。</p>
-<p>博客搭建框架组件很多，从WordPress到FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用,在网上各路大神的推荐之下，试过几款框架,基本都是在读完安装说明并开始有点小激动的时候，痛苦的安装过程让我放弃了这一方式。现在回想，一方面是由于自己前两年的电脑和网络都很烂，另一方面也是自己年轻没经验，搭建过程很多东西都需要一点点的搜索去学习，电脑一卡一慢就各种不爽，是真卡，我那个笔记本啊，最后就GG了。不过最后我还是搭建了自己的博客，并没有使用上述的哪种框架,前面的过程学习并知道了博客的搭建方式，索性自己就用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，这样博客的结界面就出来了，自己动手丰衣足食，然而它只是个静态的…到编译这一环节过不去了，毕竟JS属于前端的江湖，咋整…于是找了个python脚本，动态编译产生静态文件，只需要专心的写文字就好，随后可上传到github通过域名映射直接展示。这样，我就搭建好了自己的博客，界面都是我自己设计后用代码自己一行一行写的啊，简直高端大气上档次，简直满意的不得了！结果是非常符合我自己的审美设计要求，内心那个开心呐，随后开始了我的博客之路。</p>
-<p>到后来接触了Hexo,它就是我上述过程的一个更为优化的方案，功能完善，扩展强大。通过Hexo的使用也发现上手很快，我几乎是在半小时就搭建完成了博客，这速度让我为之欢呼，所以我决定转到Hexo来写作，那么，这里就写个文章来推荐一下吧。</p>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><blockquote>
-<p>安装说明</p>
-</blockquote>
-<h5 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h5><ul>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Deadlock"><title>Hexo一下，博客诞生 · ChaoChao</title><meta name="description" content="前言事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我是真的不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博"><meta name="keywords" content="开发者,程序猿,编程,用户体验,产品,IOS,UI,UE,视觉设计,FE,Golang"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">ChaoChao</a></h3><div class="description"><p>About life and code</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/about">关于</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/favicon.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Hexo一下，博客诞生</a></h3></div><div class="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我是真的不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是自己的，大概程序员的内心都流淌着这样的独白。</p>
+<p>博客搭建框架组件很多，从WordPress到FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用,在网上各路大神的推荐之下，试过几款框架,基本都是在读完安装说明并开始有点小激动的时候，痛苦的安装过程让我放弃了这一方式，一方面是自己大学的时候使用的电脑真的很挫，一个奔腾处理器转圈都要转半天，另一方面就是网络翻墙也不稳定，安装搭建环境的过程总是各种安装失败，算了，然后就GG了。不过，最后我还是搭建了自己的博客，并没有使用上述的哪种框架,前面的过程学习也知道了博客的搭建方式，索性自己就用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，这样博客的结界面就出来了，自己动手丰衣足食，然而它只是个静态的，到编译这一环节过不去了，毕竟JS属于前端的江湖，咋整…于是找了个python脚本，动态读取静态文件，只需要专心的写文字就好，随后可上传到github通过域名映射直接展示。这样，我就搭建好了自己的博客，界面都是我自己设计后用代码自己一行一行写的啊，简直高端大气上档次，简直满意的不得了！结果是非常符合我自己的审美设计要求，内心那个开心呐，随后开始了我的博客之路。</p>
+<p>过了些时日，接触到Hexo,它就是我上述过程的一个更为优化的方案，发现人家的模板啊，发布啊，功能完善，扩展强大。通过Hexo的使用也发现上手很快，我几乎是在半小时就搭建完成了博客，这速度让我为之欢呼，所以我决定转到Hexo来写作，那么，这里就写个文章来推荐一下吧。</p>
+<h2 id="正文使用"><a href="#正文使用" class="headerlink" title="正文使用"></a>正文使用</h2><h3 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h3><ul>
 <li><p>你得有自己的域名，买域名的地方比较多，有的坑有的好，我是在godaddy上买的。</p>
 </li>
-<li><p>注册github账号，你将会免费使用到它提供的各种便利而强大的功能，免费的存储空间，下载开源项目等等。</p>
+<li><p>买了之后到dnspod上建立自己的域名映射</p>
 </li>
-<li><p>把你的域名映射到github默认的博客地址上。</p>
+<li><p>注册github账号，你将会免费使用到它提供的各种便利而强大的功能，免费的存储空间，下载开源项目等等，重写CNAME，把你的域名映射到github默认的博客地址上</p>
 </li>
 <li><p>安装Node.js, npm</p>
 </li>
 <li><p>安装git,生成SSH-KEY管理权限，配置域名到github关联</p>
 </li>
 </ul>
-<h5 id="二、安装Hexo"><a href="#二、安装Hexo" class="headerlink" title="二、安装Hexo"></a>二、安装Hexo</h5><p>1、hexo程序环境</p>
-<blockquote>
-<p>npm install -g hexo</p>
-</blockquote>
+<h3 id="二、安装Hexo"><a href="#二、安装Hexo" class="headerlink" title="二、安装Hexo"></a>二、安装Hexo</h3><p>1、hexo程序环境</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -g hexo</span><br></pre></td></tr></table></figure>
 <p>2、hexo工程</p>
-<blockquote>
-<p>$ hexo init 文件夹名称</p>
-<p>$ cd 文件夹名称</p>
-<p>$ npm install</p>
-</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init 文件夹名称</span><br><span class="line"><span class="built_in">cd</span> 文件夹名称</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <p>3、会得到文件夹目录</p>
-<blockquote>
-<p>├ ── _config.yml</p>
-<p>├ ── package.json</p>
-<p>├ ── scaffolds</p>
-<p>├ ── source</p>
-<p>├ ── _drafts</p>
-<p>└ ── _posts</p>
-<p>└ ── themes</p>
-</blockquote>
-<p>4、按照命令行操作，此时到这里，别管这些文件是干啥的，来，我们接着往下走。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├ ── _config<span class="selector-class">.yml</span></span><br><span class="line">├ ── package<span class="selector-class">.json</span></span><br><span class="line">├ ── scaffolds</span><br><span class="line">├ ── source</span><br><span class="line">├ ── _drafts</span><br><span class="line">├ ── _posts</span><br><span class="line">└ ── themes</span><br></pre></td></tr></table></figure>
+<ul>
+<li>_config.yml 文件是网站的配置文件，可以在其中配置网站的大部分参数。</li>
+<li>package.json 文件是应用程序的信息。</li>
+<li>source 是资源文件夹，是用来存放用户资源的地方。</li>
+<li>themes 是主题文件夹，Hexo会根据主题来生成不同的静态页面。</li>
+<li>scaffolds是模板件夹，当新建文章的时候，Hexo会根据模板来建立文件。</li>
+</ul>
 <h5 id="三、生成第一篇文章"><a href="#三、生成第一篇文章" class="headerlink" title="三、生成第一篇文章"></a>三、生成第一篇文章</h5><p>1、创建文章</p>
-<blockquote>
-<p>hexo new 你的文章名称</p>
-</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> 你的文章名称</span><br></pre></td></tr></table></figure>
 <p>2、编辑你的文章</p>
 <p>上面一步在你对应的文件夹下新建了一个Markdown文件，此时需要你使用对应的语法去编写文档，不知道的可以去学习下，用语言命令号来写Word文档，该有的有，不该有的没有，简直就是最爱</p>
 <p>3、编译</p>
-<blockquote>
-<p>hexo generate</p>
-<p>hexo server</p>
-</blockquote>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">generate</span></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>此时打开你的浏览器，默认地址是（ <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a> ），你就可以看到你的文章了，就是你刚才编写的文章。  </p>
-<h5 id="四、发布到github"><a href="#四、发布到github" class="headerlink" title="四、发布到github"></a>四、发布到github</h5><p>由于前面你做好了准备工作，所以这里只需要</p>
-<blockquote>
-<p>git commit -a -m “<em>*</em>文章”</p>
-<p>git push</p>
-</blockquote>
-<p>此时打开你的浏览器，比如你买的域名是( <a href="http://baidu.com/" target="_blank" rel="external">http://baidu.com/</a> )，你打开它，和你在（ <a href="http://0.0.0.0:4000" target="_blank" rel="external">http://0.0.0.0:4000</a> ）看到的一毛一样，可以发给你的朋友看了。 </p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>对于Hexo的使用，前后只介绍了关键的几个命令，为了可以可以快速搭建，都是基础入门很方便，麻烦的到是前面的准备工作，得一步步挨着来，有不懂的可以搜索和咨询。Hexo可以更换主题，也可以参照他人的主题制作，比如本站的主题yilia就是从github上找的开源主题，作者是我科的学长，已经获得了近2000颗星，这就是开源的力量，感谢学长litten的贡献。Hexo的其他扩展功能，请直接浏览Hexo的官网学习，我这里就不做的翻译了。</p>
+<h5 id="四、发布到github"><a href="#四、发布到github" class="headerlink" title="四、发布到github"></a>四、发布到github</h5><p>由于前面你做好了准备工作里面包含了使用github当做静态博客地址，<br>你有一个repository事对应自己的name.github.io，前面已经完成了域名的映射，所以这里只需要提交，和你在（ <a href="http://0.0.0.0:4000" target="_blank" rel="external">http://0.0.0.0:4000</a> ）看到的一毛一样了。 </p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -<span class="selector-tag">a</span> -m <span class="string">"***文章"</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<h5 id="五、关于主题"><a href="#五、关于主题" class="headerlink" title="五、关于主题"></a>五、关于主题</h5><p>已经用Hexo构建好了站点，但是使用的主题是hexo默认的landscape，这个风格确实不是我喜欢的，画风不是我的style。所以我们来看下如何变更主题。</p>
+<p>1、查找喜欢的主题</p>
+<ul>
+<li>官网上 <a href="https://hexo.io/themes/" target="_blank" rel="external">查询</a> </li>
+<li>github上 <a href="https://github.com/search?utf8=%E2%9C%93&amp;q=hexo&amp;type=" target="_blank" rel="external">搜索</a> </li>
+</ul>
+<p>2、下载主题包</p>
+<ul>
+<li>解压到前面theme文件夹下</li>
+<li>在前面_config.yml文件里面，修改theme：your theme name</li>
+</ul>
+<p>3、安装依赖</p>
+<p>默认主题已经包含了一些依赖包，但是hexo里每个不同的主题所依赖的包都不尽相同。比如有的主题示使用到Jade构建还需要执行下面的依赖安装</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install </span>--save hexo-renderer-<span class="keyword">jade </span>hexo-generator-feed hexo-generator-sitemap hexo-<span class="keyword">browsersync </span>hexo-generator-archive</span><br><span class="line"></span><br><span class="line">npm <span class="keyword">install </span>--save hexo-deployer-git hexo-generator-<span class="keyword">json-content </span>hexo-generator-search</span><br></pre></td></tr></table></figure>
+<p>安装完后，依旧走上面的两个编译命令即可。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>对于Hexo的使用，前后只介绍了关键的几个命令，可以快速搭建，都是基础入门很方便，麻烦的到是前面的准备工作，得一步步挨着来。Hexo的扩展功能强大且自由，直接浏览Hexo的官网可学习。</p>
 <!--![](/assets/images/aoteman.png)-->
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2014-11-07</span><i class="fa fa-tag"></i><a href="/tags/程序开发/" title="程序开发" class="tag">程序开发 </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://zichao.me/2014/11/07/Hexo-个人博客使用介绍/,ChaoChao,Hexo一下，博客诞生,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/2015/01/05/RunLoop是如何跑起来的/" title="RunLoop是如何跑起来的" class="btn">上一篇</a></li><li class="next pagbuttons"><a role="navigation" href="/2014/11/02/引用计数MRC、ARC与属性修饰符/" title="引用计数MRC、ARC与属性修饰符" class="btn">下一篇</a></li></ul></div><a id="comments"></a><div id="youyan_thread" class="post"></div><script>(function() {
 
-      
-    </div>
-    
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/01/05/RunLoop是如何跑起来的/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          RunLoop是如何跑起来的
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/11/02/引用计数MRC、ARC与属性修饰符/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">引用计数MRC、ARC与属性修饰符</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
+    var YYDiv = document.createElement('div');
+    YYDiv.id = 'uyan_frame';
+    document.getElementById('youyan_thread').appendChild(YYDiv);
 
-  
-</article>
+    var YYScript = document.createElement('script');
+    YYScript.type = 'text/javascript';
+    YYScript.async = true;
+    YYScript.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//v2.uyan.cc/code/uyan.js?uid=' + '2143349';
+    YYScript.charset = 'UTF-8';
+    document.getElementById('youyan_thread').appendChild(YYScript);
 
-
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Hexo-个人博客使用介绍" data-title="Hexo一下，博客诞生" data-url="http://xuzichao.com/2014/11/07/Hexo-个人博客使用介绍/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"catoo-hexo"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
-
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2017 Deadlock
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
-  </div>
-</footer>
-    </div>
-    
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: undefined,
-		animate: undefined,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: undefined
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
-
-
-
-
-
-
-  </div>
-</body>
-</html>
+})();</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

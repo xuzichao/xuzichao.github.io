@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ChaoChao</title>
+<search> 
   
-  <link href="/atom.xml" rel="self"/>
-  
-  <link href="http://zichao.me/"/>
-  <updated>2017-09-06T05:33:47.000Z</updated>
-  <id>http://zichao.me/</id>
-  
-  <author>
-    <name>Deadlock</name>
-    <email>529841962@qq.com</email>
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>New一个golang爬虫</title>
-    <link href="http://zichao.me/2017/09/01/New%E4%B8%80%E4%B8%AAgolang%E7%88%AC%E8%99%AB/"/>
-    <id>http://zichao.me/2017/09/01/New一个golang爬虫/</id>
-    <published>2017-09-01T10:22:41.000Z</published>
-    <updated>2017-09-06T05:33:47.000Z</updated>
     
-    <content type="html"><![CDATA[<blockquote>
+    <entry>
+      <title><![CDATA[New一个golang爬虫]]></title>
+      <url>/2017/09/01/New%E4%B8%80%E4%B8%AAgolang%E7%88%AC%E8%99%AB/</url>
+      <content type="html"><![CDATA[<blockquote>
 <p>刚好七八双月结束，工作整理完毕，下个双月OKR还没开始。做久了IOS开发也来扩展下领域，抽空几天学了下Golang，实现一个爬虫。</p>
 </blockquote>
 <h2 id="一、知识要点"><a href="#一、知识要点" class="headerlink" title="一、知识要点"></a>一、知识要点</h2><h3 id="1、爬虫"><a href="#1、爬虫" class="headerlink" title="1、爬虫"></a>1、爬虫</h3><h4 id="1-1-工作方式"><a href="#1-1-工作方式" class="headerlink" title="1.1 工作方式"></a>1.1 工作方式</h4><p>传统爬虫从一个或若干初始网页的URL开始，获得初始网页上的URL，在抓取网页的过程中，不断从当前页面上抽取新的URL放入队列,直到满足系统的一定停止条件。聚焦爬虫的工作流程较为复杂，需要根据一定的网页分析算法过滤与主题无关的链接，保留有用的链接并将其放入等待抓取的URL队列。然后，它将根据一定的搜索策略从队列中选择下一步要抓取的网页URL，并重复上述过程，直到达到系统的某一条件时停止。另外，所有被爬虫抓取的网页将会被系统存贮，进行一定的分析、过滤，并建立索引，以便之后的查询和检索；对于聚焦爬虫来说，这一过程所得到的分析结果还可能对以后的抓取过程给出反馈和指导。</p>
@@ -105,29 +88,20 @@
 <p>代码如下：</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">func SaveSchoolRank(schoolArray [] SchoolStruct.SchoolObj,excelName string,sheetName string)  &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> <span class="keyword">file</span> *xlsx.<span class="keyword">File</span></span><br><span class="line">	<span class="keyword">var</span> sheet *xlsx.Sheet</span><br><span class="line">	<span class="keyword">var</span> row *xlsx.Row</span><br><span class="line">	<span class="keyword">var</span> cell *xlsx.Cell</span><br><span class="line">	<span class="keyword">var</span> <span class="keyword">err</span> <span class="keyword">error</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">file</span>,<span class="keyword">err</span> = xlsx.OpenFile(excelName + <span class="string">".xlsx"</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">err</span> != nil &#123;</span><br><span class="line">		<span class="keyword">file</span> = xlsx.NewFile()</span><br><span class="line">		sheet,<span class="keyword">err</span> = <span class="keyword">file</span>.AddSheet(sheetName)</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	   sheet = <span class="keyword">file</span>.Sheet[sheetName]</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">err</span> == nil &#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> i := 0; i &lt; len(schoolArray); i++ &#123;</span><br><span class="line">			obj := schoolArray[i]</span><br><span class="line"></span><br><span class="line">			row = sheet.AddRow()</span><br><span class="line">			cell = row.AddCell()</span><br><span class="line">			cell.Value = obj.RankIndex</span><br><span class="line"></span><br><span class="line">			cell = row.AddCell()</span><br><span class="line">			cell.Value = obj.SchoolName</span><br><span class="line"></span><br><span class="line">			cell = row.AddCell()</span><br><span class="line">			cell.Value = obj.StarLevel</span><br><span class="line"></span><br><span class="line">			cell = row.AddCell()</span><br><span class="line">			cell.Value = obj.LocationName</span><br><span class="line"></span><br><span class="line">			cell = row.AddCell()</span><br><span class="line">			cell.Value = obj.EnrollOrder</span><br><span class="line"></span><br><span class="line">			cell = row.AddCell()</span><br><span class="line">			cell.Value = obj.SchoolType</span><br><span class="line"></span><br><span class="line">			cell = row.AddCell()</span><br><span class="line">			cell.Value = obj.UrlAddress</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			<span class="keyword">var</span> tagStr <span class="built_in">string</span></span><br><span class="line">			<span class="keyword">for</span> _,value := <span class="keyword">range</span> obj.SchoolTags &#123;</span><br><span class="line">				tagStr += <span class="string">"+"</span> + value</span><br><span class="line">			&#125;</span><br><span class="line">			cell = row.AddCell()</span><br><span class="line">			cell.Value = tagStr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> <span class="keyword">err</span> != nil &#123;</span><br><span class="line">				fmt.Printf(<span class="keyword">err</span>.<span class="keyword">Error</span>())</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">err</span> = <span class="keyword">file</span>.<span class="keyword">Save</span>(excelName + <span class="string">".xlsx"</span>)</span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">err</span> != nil &#123;</span><br><span class="line">		fmt.Printf(<span class="keyword">err</span>.<span class="keyword">Error</span>())</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;刚好七八双月结束，工作整理完毕，下个双月OKR还没开始。做久了IOS开发也来扩展下领域，抽空几天学了下Golang，实现一个爬虫。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;一、知识要点&quot;&gt;&lt;a href=&quot;#一、知识要点&quot; class=
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何成功的交付产品</title>
-    <link href="http://zichao.me/2017/08/03/%E5%A6%82%E4%BD%95%E6%88%90%E5%8A%9F%E7%9A%84%E4%BA%A4%E4%BB%98%E4%BA%A7%E5%93%81/"/>
-    <id>http://zichao.me/2017/08/03/如何成功的交付产品/</id>
-    <published>2017-08-03T03:21:45.000Z</published>
-    <updated>2017-09-06T02:54:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="产品学习笔记"><a href="#产品学习笔记" class="headerlink" title="产品学习笔记"></a>产品学习笔记</h3><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p> 所有的流程和规范最终都是为了解决实际问题 的，不要贸然引入流程，除非已经碰到问题，否则尽量简化流程，提高效率。要交付 一个产品，其中最重要的只有 3 点:1)确定用户需求和预期指标;2)以最小成本实 现最主要的需求;3)发布并获得数据反馈，确定下一个迭代目标。</p>
+    <entry>
+      <title><![CDATA[如何成功的交付产品]]></title>
+      <url>/2017/08/03/%E5%A6%82%E4%BD%95%E6%88%90%E5%8A%9F%E7%9A%84%E4%BA%A4%E4%BB%98%E4%BA%A7%E5%93%81/</url>
+      <content type="html"><![CDATA[<h3 id="产品学习笔记"><a href="#产品学习笔记" class="headerlink" title="产品学习笔记"></a>产品学习笔记</h3><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p> 所有的流程和规范最终都是为了解决实际问题 的，不要贸然引入流程，除非已经碰到问题，否则尽量简化流程，提高效率。要交付 一个产品，其中最重要的只有 3 点:1)确定用户需求和预期指标;2)以最小成本实 现最主要的需求;3)发布并获得数据反馈，确定下一个迭代目标。</p>
 <p> 用用户能理解的语言 去描述你要交付的产品带给他们的价值和好处十分重要，如果写不出来，或者写出来 用户看了一点兴趣都没有，请尽快停止这个产品，因为即使整个产品开发和交付过程 极其完美，这也注定会是一个失败的产品。</p>
 <p> 在软件行业中，我们把设计、打造、发布一款符合市场需求的软件称为交付 (shipping)。</p>
 <p>尽管时日尚短，交付却已展现出非凡的价值。它简直是一剂灵丹妙药。它能解决 钱的问题，因为投资人给你追加投资的前提是你取得了好结果;它能解决客户的问题， 因为交付能力的强弱决定了你是否能推出客户需要的功能和补丁;它能解决团队的问 题，因为没有什么比取得进展更能让团队士气大振!所以，如果你想追逐名望、财 富、幸福感，那么，交付出卓越的软件，你将赢得一切。</p>
@@ -436,26 +410,20 @@
 <p>■错误原因报告或事后调查报告。</p>
 <p> ■会议纪要和团队周会、用户界面评审、产品评审、工程评审、Bug 处理、法务<br>评审、业务拓展周会以及客户支持碰头会的时间计划表。</p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 随笔小结 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h3 id=&quot;产品学习笔记&quot;&gt;&lt;a href=&quot;#产品学习笔记&quot; class=&quot;headerlink&quot; title=&quot;产品学习笔记&quot;&gt;&lt;/a&gt;产品学习笔记&lt;/h3&gt;&lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="随笔小结" scheme="http://zichao.me/tags/%E9%9A%8F%E7%AC%94%E5%B0%8F%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习在IOS中的应用 Core ML</title>
-    <link href="http://zichao.me/2017/06/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9C%A8IOS%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%20Core%20ML/"/>
-    <id>http://zichao.me/2017/06/22/机器学习在IOS中的应用 Core ML/</id>
-    <published>2017-06-22T11:42:52.000Z</published>
-    <updated>2017-06-22T12:46:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="机器学习在IOS中的应用-Core-ML"><a href="#机器学习在IOS中的应用-Core-ML" class="headerlink" title="机器学习在IOS中的应用 Core ML"></a>机器学习在IOS中的应用 Core ML</h3><blockquote>
+    <entry>
+      <title><![CDATA[机器学习在IOS中的应用 Core ML]]></title>
+      <url>/2017/06/22/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9C%A8IOS%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%20Core%20ML/</url>
+      <content type="html"><![CDATA[<h3 id="机器学习在IOS中的应用-Core-ML"><a href="#机器学习在IOS中的应用-Core-ML" class="headerlink" title="机器学习在IOS中的应用 Core ML"></a>机器学习在IOS中的应用 Core ML</h3><blockquote>
 <p>2017年的WWDC大会苹果赋予了开发者们新能力，能够将机器学习应用在移动端上，着实是一次让人感到兴奋的事情，一颗赛艇！！积极开展的Session学习活动，在第一节和第二节引用了一些概念和背景来帮助理解，熟练工请忽略，跳至第三节直接开始操作,第五节开始有图片学习的demo可查看。 </p>
 </blockquote>
 <h3 id="本篇相关文档和Session有："><a href="#本篇相关文档和Session有：" class="headerlink" title="本篇相关文档和Session有："></a>本篇相关文档和Session有：</h3><ul>
@@ -620,26 +588,20 @@
 <p>4、对于非专业的机器学习人士来讲，IOS开发能拿到现在的model来使用，很多酷炫的效果都没有现成的model,这里也是一个门槛。</p>
 <p>随着Core ML技术的引入，移动端上实现机器学习开始变得可能，这也让IOS开发者为之兴奋，然而在IOS上实践机器学习还是有较长的路要走，当然apple本身的布局正在推动这一发展，保持期待。本文不仅仅是对WWDC新技术的探索和分享，也是对机器学习的兴趣认识。</p>
 <h4 id="github代码-IOS-Core-ML，有兴趣的同学可以下载在IOS11的设备上跑起来。"><a href="#github代码-IOS-Core-ML，有兴趣的同学可以下载在IOS11的设备上跑起来。" class="headerlink" title="github代码:IOS-Core ML，有兴趣的同学可以下载在IOS11的设备上跑起来。"></a>github代码:<a href="https://github.com/xuzichao/IOS-Core-ML" target="_blank" rel="external">IOS-Core ML</a>，有兴趣的同学可以下载在IOS11的设备上跑起来。</h4>]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h3 id=&quot;机器学习在IOS中的应用-Core-ML&quot;&gt;&lt;a href=&quot;#机器学习在IOS中的应用-Core-ML&quot; class=&quot;headerlink&quot; title=&quot;机器学习在IOS中的应用 Core ML&quot;&gt;&lt;/a&gt;机器学习在IOS中的应用 Core ML&lt;/h3&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用CocoaPods创建私有仓库</title>
-    <link href="http://zichao.me/2016/11/22/%E4%BD%BF%E7%94%A8CocoaPods%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/"/>
-    <id>http://zichao.me/2016/11/22/使用CocoaPods创建私有仓库/</id>
-    <published>2016-11-22T11:09:59.000Z</published>
-    <updated>2017-06-04T07:12:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="CocoaPods创建私有仓库"><a href="#CocoaPods创建私有仓库" class="headerlink" title="CocoaPods创建私有仓库"></a>CocoaPods创建私有仓库</h1><h2 id="一、两个概念："><a href="#一、两个概念：" class="headerlink" title="一、两个概念："></a>一、两个概念：</h2><h3 id="1、XXX-podspec-配置文件"><a href="#1、XXX-podspec-配置文件" class="headerlink" title="1、XXX.podspec   配置文件"></a>1、XXX.podspec   配置文件</h3><p>spec 配置文件是cocoapods的每一个代码仓库所对应的信息管理文件，主要是对仓库的行为进行配置，每一个版本的代码仓库都对应有一个配置文件。</p>
+    <entry>
+      <title><![CDATA[使用CocoaPods创建私有仓库]]></title>
+      <url>/2016/11/22/%E4%BD%BF%E7%94%A8CocoaPods%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/</url>
+      <content type="html"><![CDATA[<h1 id="CocoaPods创建私有仓库"><a href="#CocoaPods创建私有仓库" class="headerlink" title="CocoaPods创建私有仓库"></a>CocoaPods创建私有仓库</h1><h2 id="一、两个概念："><a href="#一、两个概念：" class="headerlink" title="一、两个概念："></a>一、两个概念：</h2><h3 id="1、XXX-podspec-配置文件"><a href="#1、XXX-podspec-配置文件" class="headerlink" title="1、XXX.podspec   配置文件"></a>1、XXX.podspec   配置文件</h3><p>spec 配置文件是cocoapods的每一个代码仓库所对应的信息管理文件，主要是对仓库的行为进行配置，每一个版本的代码仓库都对应有一个配置文件。</p>
 <p>包括仓库的名称、版本号、描述、主页地址、证书说明、作者、版本指定方式、工程的目标版本号、文件和资源的路径、依赖的库关系等。举例如下：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Be sure to run `pod lib lint ios-category.podspec' to ensure this is a</span></span><br><span class="line"><span class="comment"># valid spec before submitting.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Any lines starting with a # are optional, but their use is encouraged</span></span><br><span class="line"><span class="comment"># To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">Pod::Spec.<span class="keyword">new</span> <span class="keyword">do</span> |s|</span><br><span class="line">  s.name             = <span class="string">'ios-category'</span></span><br><span class="line">  s.version          = <span class="string">'0.0.2'</span></span><br><span class="line">  s.summary          = <span class="string">'ios-category is used for ios-network'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This description is used to generate tags and improve search results.</span></span><br><span class="line"><span class="comment">#   * Think: What does it do? Why did you write it? What is the focus?</span></span><br><span class="line"><span class="comment">#   * Try to keep it short, snappy and to the point.</span></span><br><span class="line"><span class="comment">#   * Write the description between the DESC delimiters below.</span></span><br><span class="line"><span class="comment">#   * Finally, don't worry about the indent, CocoaPods strips it!</span></span><br><span class="line"></span><br><span class="line">  s.description      = &lt;&lt;-DESC</span><br><span class="line"></span><br><span class="line">  s.homepage         = <span class="string">'http://www.example.com'</span></span><br><span class="line">  <span class="comment"># s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'</span></span><br><span class="line">  s.license          = &#123; :type =&gt; <span class="string">'MIT'</span>, :file =&gt; <span class="string">'LICENSE'</span> &#125;</span><br><span class="line">  s.author           = &#123; <span class="string">'xuzichao'</span> =&gt; <span class="string">'xuzichao03@gmail.com'</span> &#125;</span><br><span class="line">  s.source           = &#123; :git =&gt; <span class="string">'git@code.xuzichao.org:tt_pods_ios-category.git'</span>, :tag =&gt; s.version.to_s  &#125;</span><br><span class="line">  <span class="comment"># s.social_media_url = 'https://twitter.com/&lt;TWITTER_USERNAME&gt;'</span></span><br><span class="line"></span><br><span class="line">  s.ios.deployment_target = <span class="string">'6.0'</span></span><br><span class="line"></span><br><span class="line">  s.source_files = <span class="string">'ios-category/Classes/**/*'</span></span><br><span class="line">  </span><br><span class="line">  s.resource_bundles = &#123;</span><br><span class="line">    <span class="string">'ios-category'</span> =&gt; [<span class="string">'ios-category/Resources/*'</span>]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># s.public_header_files = 'Pod/Classes/**/*.h'</span></span><br><span class="line">  <span class="comment"># s.frameworks = 'UIKit', 'MapKit'</span></span><br><span class="line">  <span class="comment"># s.dependency 'ios-categorying', '~&gt; 2.3'</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <h3 id="2、Spec-repo"><a href="#2、Spec-repo" class="headerlink" title="2、Spec repo"></a>2、Spec repo</h3><p>组合词，表示仓库的概念，主要是用于存储pod代码库对应的podspec文件，管理各个仓库的各个版本的代码，它其实就是一个容器。Cocoapods会默认在本地建立一个容器，包含了你各个工程对应的代码仓库，当你使用了Cocoapods后，它们就会被clone到本地的~/.cocoapods/repos目录下。这里指代的是Cocoapods默认创建的仓库，其实我们不需要关心。</p>
@@ -665,26 +627,20 @@
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod spec create PodTestLibrary git<span class="meta">@coding</span>.<span class="string">net:</span>test.gitt</span><br></pre></td></tr></table></figure>
 <p>以及由于pod的各个版本变化，spec文件有可能本来是正确的，但是pod lib lint这一步始终不能通过，这样pod repo push这一步就无法完成。可以直接将spec文件通过git 提交的方式放进远端的Spec Repo中，依然可以正常运行。</p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h1 id=&quot;CocoaPods创建私有仓库&quot;&gt;&lt;a href=&quot;#CocoaPods创建私有仓库&quot; class=&quot;headerlink&quot; title=&quot;CocoaPods创建私有仓库&quot;&gt;&lt;/a&gt;CocoaPods创建私有仓库&lt;/h1&gt;&lt;h2 id=&quot;一、两个概念：&quot;&gt;&lt;a h
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>头条热补丁方案</title>
-    <link href="http://zichao.me/2016/09/11/%E5%A4%B4%E6%9D%A1%E7%83%AD%E8%A1%A5%E4%B8%81%E6%96%B9%E6%A1%88/"/>
-    <id>http://zichao.me/2016/09/11/头条热补丁方案/</id>
-    <published>2016-09-11T14:59:12.000Z</published>
-    <updated>2017-09-05T07:09:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="TTSparkRescue"><a href="#TTSparkRescue" class="headerlink" title="TTSparkRescue"></a>TTSparkRescue</h1><blockquote>
+    <entry>
+      <title><![CDATA[头条热补丁方案]]></title>
+      <url>/2016/09/11/%E5%A4%B4%E6%9D%A1%E7%83%AD%E8%A1%A5%E4%B8%81%E6%96%B9%E6%A1%88/</url>
+      <content type="html"><![CDATA[<h1 id="TTSparkRescue"><a href="#TTSparkRescue" class="headerlink" title="TTSparkRescue"></a>TTSparkRescue</h1><blockquote>
 <p>备注：2017年4月开始出现使用热修复审核不通过的情况，经过混淆的方式后，绕过了苹果的检测，但是到5月初的时候，苹果全方面严打IOS热修复策略，各方APP包括头条在内的方案被迫下架。</p>
 </blockquote>
 <h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h1><p>TTSparkRescue是头条公司层面的通用的热修复库，同时提供给其他产品线使用。设计包括如下：</p>
@@ -865,27 +821,20 @@
 <p>宏定义替换结果：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> Demo_codeObfuscation_h  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Demo_codeObfuscation_h</span></span><br><span class="line"><span class="comment">//confuse string at 2017年 5月 9日 星期二 15时09分20秒 CST</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> JPEngine zLuEDxRvmBuomcFI</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> JPExtension IoAZxAmFBjgEOaIg</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> JPBoxing wzZsoLGKuQUTRFsi</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> startEngine PRqvWWtwFlXUqdBe</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> evaluateScriptWithPath cNHrlJKiZyWXkfKo</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _evaluateScriptWithPath oDyiimPOHiIWBOEI</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> addExtensions MbpkqoMunCfIBgxY</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> defineStruct jIfCtJkMsIshJCvx</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> formatPointerJSToOC IcHiIjXLjFucrQHR</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> formatRetainedCFTypeOCToJS lyCjsaHwzQaYUiBE</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> formatPointerOCToJS DdwjOGMUveuHjYQq</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> formatJSToOC BBFoPIaVlHRWBNQx</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> formatOCToJS PHwNpfqmydeeFhMY</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TTSparkRescue euibpyTZoKOvrKyO</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> exvalueBase64Script fcXBLgUPqmsRqIWx</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _JSOverideMethods FBOBELKtnClIUhEa</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _TMPMemoryPool ysvnOHCwoCVvFwfY</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _propKeys cnyhVgwVNuEVAvEp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _JSMethodSignatureCache inrkXDymTFAbwLRo</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _JSMethodSignatureLock LmXaTYYBizrQBKzn</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _JSMethodForwardCallLock YdmfSXxrtNuKsJkp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _protocolTypeEncodeDict NxHWlKlDFjjgpzYV</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _pointersToRelease pybucmDygKyxFMvj</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> jp_methodSignatureForSelector cyzfrUQNsmWrwIgU</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> jp_fixMethodSignature vlSNUMpVTTXwTWJl</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> JPForwardInvocation gflqBWbUOmJHNfcL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> JPExecuteORIGForwardInvocation itGMsXKksYYFyCPL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _initJPOverideMethods hpoUXLPSkKsFbHRk</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> overrideMethod KCgQjNlpCNXOixZS</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> invokeVariableParameterMethod YITOuEIcAICefCkG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> convertJPSelectorString wwttXxSrZoFlmKML</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getJSFunctionInObjectHierachy JjRtFUqUREPdZAgY</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> unboxOCObjectToJS MeVMxsEAmgCokbXc</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> makePatchRequestAfterLaunch icreqUfezHNyjLdw</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> setJSCrashHanlder hwsfKTIzZPvTEMmc</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getLaunchPatchVersionCode jqRICpprUZpVeKVy</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getActivePatchVersionCode zZIvunQsewkyABXu</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h1 id=&quot;TTSparkRescue&quot;&gt;&lt;a href=&quot;#TTSparkRescue&quot; class=&quot;headerlink&quot; title=&quot;TTSparkRescue&quot;&gt;&lt;/a&gt;TTSparkRescue&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;备注：2017年4月开始出
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>移动端持久化存储方案</title>
-    <link href="http://zichao.me/2016/08/03/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88/"/>
-    <id>http://zichao.me/2016/08/03/移动端持久化存储方案/</id>
-    <published>2016-08-03T04:01:51.000Z</published>
-    <updated>2017-08-17T10:23:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="移动端持久化存储方案"><a href="#移动端持久化存储方案" class="headerlink" title="移动端持久化存储方案"></a>移动端持久化存储方案</h1><h2 id="一、持久化方案："><a href="#一、持久化方案：" class="headerlink" title="一、持久化方案："></a>一、持久化方案：</h2><h3 id="1-1-NSUserDefault"><a href="#1-1-NSUserDefault" class="headerlink" title="1.1 NSUserDefault"></a>1.1 NSUserDefault</h3><p>通常用来存储用户偏好设置和应用配置信息，偶尔也会存放一些服务端版本标识数据，比如AB方案的判断开关。它适合小规模的数据，并且这些数据是不具备私密性的。常见的应用启动的时候是否需要展示引导页，就可以在这里设置一个是否已显示过的标志。它的背后实际上是一个特殊的 .plist 文件。</p>
+    <entry>
+      <title><![CDATA[移动端持久化存储方案]]></title>
+      <url>/2016/08/03/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88/</url>
+      <content type="html"><![CDATA[<h1 id="移动端持久化存储方案"><a href="#移动端持久化存储方案" class="headerlink" title="移动端持久化存储方案"></a>移动端持久化存储方案</h1><h2 id="一、持久化方案："><a href="#一、持久化方案：" class="headerlink" title="一、持久化方案："></a>一、持久化方案：</h2><h3 id="1-1-NSUserDefault"><a href="#1-1-NSUserDefault" class="headerlink" title="1.1 NSUserDefault"></a>1.1 NSUserDefault</h3><p>通常用来存储用户偏好设置和应用配置信息，偶尔也会存放一些服务端版本标识数据，比如AB方案的判断开关。它适合小规模的数据，并且这些数据是不具备私密性的。常见的应用启动的时候是否需要展示引导页，就可以在这里设置一个是否已显示过的标志。它的背后实际上是一个特殊的 .plist 文件。</p>
 <h3 id="1-2-Keychain"><a href="#1-2-Keychain" class="headerlink" title="1.2 Keychain"></a>1.2 Keychain</h3><p>Keychain 用来存储一些敏感的数据，比如密码，token 等。由于相关的 API 比较底层，我们可以使用对其做了封装的更友好的第三方库，比如 FXKeychain。</p>
 <h3 id="1-3-文件"><a href="#1-3-文件" class="headerlink" title="1.3 文件"></a>1.3 文件</h3><p>文件存储一般用于存取媒体文件，包括视频音频图片等。比如iOS端上由于本地资源库没法直接读取视频数据本身，通常会转化到文件里面再进行上传处理。</p>
 <h3 id="1-4-Plist"><a href="#1-4-Plist" class="headerlink" title="1.4 Plist"></a>1.4 Plist</h3><p>.plist 文件用来存储小规模的结构化的数据，用到的时候可以很方便的读取。常见的比如“省-城市”数据。但存储对象类型只能是这些：NSData，NSString，NSNumber，NSDate，NSArray，NSDictionary。<br>NSKeyedArchiver：由于 Plist 对存储对象类型的限制，如果想存更大量的，结构更复杂的对象，就可以用归档。只需要自定义的数据类型遵守 NSCoding 协议。</p>
@@ -992,26 +941,20 @@
 </ul>
 <p>虽然如此，我们从迁移到目前一直使用着，可见开发中还是没有出现严重问题，对比realm,给我们带来的收益应该会好一点，看到有新的数据库我们还是会尝试。</p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h1 id=&quot;移动端持久化存储方案&quot;&gt;&lt;a href=&quot;#移动端持久化存储方案&quot; class=&quot;headerlink&quot; title=&quot;移动端持久化存储方案&quot;&gt;&lt;/a&gt;移动端持久化存储方案&lt;/h1&gt;&lt;h2 id=&quot;一、持久化方案：&quot;&gt;&lt;a href=&quot;#一、持久化方案：&quot; cla
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2016年重庆高考选择专业</title>
-    <link href="http://zichao.me/2016/06/12/2016%E9%87%8D%E5%BA%86%E9%AB%98%E8%80%83%E6%AF%95%E4%B8%9A%E7%94%9F%E6%9C%AC%E7%A7%91%E4%B8%93%E4%B8%9A%E9%80%89%E6%8B%A9%E6%8E%A8%E8%8D%90/"/>
-    <id>http://zichao.me/2016/06/12/2016重庆高考毕业生本科专业选择推荐/</id>
-    <published>2016-06-12T11:09:59.000Z</published>
-    <updated>2017-09-05T07:08:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
+    <entry>
+      <title><![CDATA[2016年重庆高考选择专业]]></title>
+      <url>/2016/06/12/2016%E9%87%8D%E5%BA%86%E9%AB%98%E8%80%83%E6%AF%95%E4%B8%9A%E7%94%9F%E6%9C%AC%E7%A7%91%E4%B8%93%E4%B8%9A%E9%80%89%E6%8B%A9%E6%8E%A8%E8%8D%90/</url>
+      <content type="html"><![CDATA[<blockquote>
 <p>普通高校本科专业选择推荐</p>
 </blockquote>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>此文针对我表弟16年重庆高考就读普通大学本科专业推荐，推荐凭借自己的社会认识和对众多所在对应专业的同学学习从业动向判定而得，等高考成绩出来了，结合本省排名、个人意向、专业招生人数、专业往年招生分数，即可快速定位，带有个人色彩。</p>
@@ -1462,29 +1405,20 @@
 
 130508 数字媒体艺术
 </code></pre>]]></content>
+      
+        
+        <tags>
+            
+            <tag> 随笔小结 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;普通高校本科专业选择推荐&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;此文针对我表弟16年重庆高考就读普通大学本科专
-    
-    </summary>
-    
-    
-      <category term="随笔小结" scheme="http://zichao.me/tags/%E9%9A%8F%E7%AC%94%E5%B0%8F%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iweb 峰会</title>
-    <link href="http://zichao.me/2016/05/12/iweb%20%E5%B3%B0%E4%BC%9A/"/>
-    <id>http://zichao.me/2016/05/12/iweb 峰会/</id>
-    <published>2016-05-12T11:09:59.000Z</published>
-    <updated>2017-09-05T07:09:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
+    <entry>
+      <title><![CDATA[iweb 峰会]]></title>
+      <url>/2016/05/12/iweb%20%E5%B3%B0%E4%BC%9A/</url>
+      <content type="html"><![CDATA[<blockquote>
 <p>16年的时候，赶上周末去参加了一趟北京的iweb峰会，会上来自各个公司的人分享和宣传自己的产品和技术，我作为一名普通开发者的角度去听大会，并了解和记录当前的一些技术发展。 </p>
 </blockquote>
 <h2 id="一、主题峰会-9-00-–-12-00"><a href="#一、主题峰会-9-00-–-12-00" class="headerlink" title="一、主题峰会 9:00 – 12:00"></a>一、主题峰会 9:00 – 12:00</h2><h4 id="1、主持人开场-–-田爱娜-HTML5梦工场-创始人"><a href="#1、主持人开场-–-田爱娜-HTML5梦工场-创始人" class="headerlink" title="1、主持人开场    – 田爱娜 HTML5梦工场  创始人"></a>1、主持人开场    – 田爱娜 HTML5梦工场  创始人</h4><p>HTML5梦工场是中国最有影响力的技术社区团队，由国内最早一批HTML5探索者和狂热拥护者发起，为广大开发者搭建一个开放、自由的互动交流平台，旨在推动HTML5在中国的应用与普及。“梦工场”也被誉为最接地气的草根公益组织。</p>
@@ -1544,29 +1478,20 @@
 <h4 id="6、-H5数字营销的技术痛点"><a href="#6、-H5数字营销的技术痛点" class="headerlink" title="6、    H5数字营销的技术痛点"></a>6、    H5数字营销的技术痛点</h4><p>余悠 跳跳糖创意  CEO</p>
 <h4 id="7、-纽约广告节最佳数字营销作品赏析"><a href="#7、-纽约广告节最佳数字营销作品赏析" class="headerlink" title="7、    纽约广告节最佳数字营销作品赏析"></a>7、    纽约广告节最佳数字营销作品赏析</h4><p>吴金君<br>纽约广告节  中国首席代表</p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;16年的时候，赶上周末去参加了一趟北京的iweb峰会，会上来自各个公司的人分享和宣传自己的产品和技术，我作为一名普通开发者的角度去听大会，并了解和记录当前的一些技术发展。 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;一、主题峰会-9-00
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我短暂的创业经历</title>
-    <link href="http://zichao.me/2015/12/21/%E6%88%91%E7%9F%AD%E6%9A%82%E7%9A%84%E5%88%9B%E4%B8%9A%E7%BB%8F%E5%8E%86/"/>
-    <id>http://zichao.me/2015/12/21/我短暂的创业经历/</id>
-    <published>2015-12-21T07:01:22.000Z</published>
-    <updated>2017-06-21T03:47:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>互联网圈内，去哪儿旅行对外展示着的形象是加班多，偶尔还传出员工猝死的消息，然而任何一家公司也并不是每个部门都加班，并不是每个部门都有那么多亟不可待的业务需要去追赶，反而，在这里，我每天的工作自在舒适，按需完成，加班是很少的，如果你不想去外面的世界翻滚，这里就是你长久生养之地。那个时候我就是一枚螺丝开发，由于业务需求没有那么多，所以每日我只需要自己安排完成一定的工作量即可，有时候需求周期因为各端同事的配合时间也会被拉长，所以其实我大部分时间就是在自己浏览学习，没有实际的业务上手实践。而与此同时，互联网界正在迅猛发展，每天看着的都是各自CEO的诞生，各自融资拿钱拿到手软，这不禁也影响着我。<br>所以，尽管如此，尽管这里是整个互联网最安逸的体现，到了今年的7月份时候，我还是决心离开这温暖的被窝，离开我每日安享的梦境，全心投身创业。我却开始有些难过，因为那是我第一份工作，和去哪儿也是很有缘分的说，跟大家告别的时候特别伤心。一阵心塞之后，我的雄心开始燃烧，总是想着要闯出一片天地，对未来充满希望和无限遐想，想到我会享受着创业成就感与创业艰辛的交织幸福感，内心便激动起来。</p>
+    <entry>
+      <title><![CDATA[我短暂的创业经历]]></title>
+      <url>/2015/12/21/%E6%88%91%E7%9F%AD%E6%9A%82%E7%9A%84%E5%88%9B%E4%B8%9A%E7%BB%8F%E5%8E%86/</url>
+      <content type="html"><![CDATA[<p>互联网圈内，去哪儿旅行对外展示着的形象是加班多，偶尔还传出员工猝死的消息，然而任何一家公司也并不是每个部门都加班，并不是每个部门都有那么多亟不可待的业务需要去追赶，反而，在这里，我每天的工作自在舒适，按需完成，加班是很少的，如果你不想去外面的世界翻滚，这里就是你长久生养之地。那个时候我就是一枚螺丝开发，由于业务需求没有那么多，所以每日我只需要自己安排完成一定的工作量即可，有时候需求周期因为各端同事的配合时间也会被拉长，所以其实我大部分时间就是在自己浏览学习，没有实际的业务上手实践。而与此同时，互联网界正在迅猛发展，每天看着的都是各自CEO的诞生，各自融资拿钱拿到手软，这不禁也影响着我。<br>所以，尽管如此，尽管这里是整个互联网最安逸的体现，到了今年的7月份时候，我还是决心离开这温暖的被窝，离开我每日安享的梦境，全心投身创业。我却开始有些难过，因为那是我第一份工作，和去哪儿也是很有缘分的说，跟大家告别的时候特别伤心。一阵心塞之后，我的雄心开始燃烧，总是想着要闯出一片天地，对未来充满希望和无限遐想，想到我会享受着创业成就感与创业艰辛的交织幸福感，内心便激动起来。</p>
 <p>加入的创业公司属于互联网汽车行业，与一般不同的是，做的是汽车B2B模式平台。加入前，我和公司的领头人聊得很好，不仅是因为旧相识，谈得更多的是对整个业务未来的展望，他侃侃而谈，把整个行业给我分析了一遍，我似乎找不到哪里一点他说的不对，只有当我问到如果事情没有按照你所推演的发展，这中间出现环节出错误的时候，他才有些避重就轻。当时我的理解，在此投资环境如此之好得情况下，任何一家创业公司的带头人应该都是这幅样子，要利用互联网优势把这个市场搅拌，要让传统行业为我们所用的架势,遇见的问题自然也会有办法。汽车市场如此之大，随便能咬到一口就是丰厚的回报，而早期的成员就自然不言而喻。同时已经拿到投资，数额可观，在此基础上开始讲解了如何去且足以推动整个业务的初期发展，到这里我确实接触到了不少我之前没能接触到的各种环境，且对他的信任，就基本已经奠定我后来加入的格局了。</p>
 <p>加入团队后，秉承着我创业的心态一直很有干劲，除了自己分管的一些业务，其他大小事务也有一些参与感，看着产品的不断迭代和上线，我看到了自己努力的结果，心里满足，同时也收获了很多朋友，直到上周五离开，整整5个月了。</p>
 <p>那么问题来了，我为何还是选择离开？</p>
@@ -1580,26 +1505,20 @@
 <h3 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h3></blockquote>
 <p>离我当时离开过了一年半了，我走的时候有一位坚持留下的开发同事走了，去了小米，随后也走了一名产品同事，去了高德地图，那位合伙的产品负责人也走了，去了一家互联网家具公司担任负责人。剩下的其他同事都还在，他们也招了新同事，也改了发展路线，目前在慈溪开了三家汽车品牌服务维修店，大概是做汽车销售品牌的路线。比之前有很多进展，但是要走的路还很长，真的很长，祝愿他们能更快的取得更好的成果。</p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 随笔小结 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;p&gt;互联网圈内，去哪儿旅行对外展示着的形象是加班多，偶尔还传出员工猝死的消息，然而任何一家公司也并不是每个部门都加班，并不是每个部门都有那么多亟不可待的业务需要去追赶，反而，在这里，我每天的工作自在舒适，按需完成，加班是很少的，如果你不想去外面的世界翻滚，这里就是你长久生养之地
-    
-    </summary>
-    
-    
-      <category term="随笔小结" scheme="http://zichao.me/tags/%E9%9A%8F%E7%AC%94%E5%B0%8F%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Native与Web的通信桥</title>
-    <link href="http://zichao.me/2015/09/10/Native%E4%B8%8EWeb%E7%9A%84%E9%80%9A%E4%BF%A1%E6%A1%A5/"/>
-    <id>http://zichao.me/2015/09/10/Native与Web的通信桥/</id>
-    <published>2015-09-10T10:22:41.000Z</published>
-    <updated>2017-09-06T02:36:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、Webview方式："><a href="#一、Webview方式：" class="headerlink" title="一、Webview方式："></a>一、Webview方式：</h2><h3 id="1、JS调用Native"><a href="#1、JS调用Native" class="headerlink" title="1、JS调用Native"></a>1、JS调用Native</h3><h3 id="1-1-webview加载流程"><a href="#1-1-webview加载流程" class="headerlink" title="1.1 webview加载流程"></a>1.1 webview加载流程</h3><ul>
+    <entry>
+      <title><![CDATA[Native与Web的通信桥]]></title>
+      <url>/2015/09/10/Native%E4%B8%8EWeb%E7%9A%84%E9%80%9A%E4%BF%A1%E6%A1%A5/</url>
+      <content type="html"><![CDATA[<h2 id="一、Webview方式："><a href="#一、Webview方式：" class="headerlink" title="一、Webview方式："></a>一、Webview方式：</h2><h3 id="1、JS调用Native"><a href="#1、JS调用Native" class="headerlink" title="1、JS调用Native"></a>1、JS调用Native</h3><h3 id="1-1-webview加载流程"><a href="#1-1-webview加载流程" class="headerlink" title="1.1 webview加载流程"></a>1.1 webview加载流程</h3><ul>
 <li>发起一个网页请求</li>
 </ul>
 <figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="params">(void)</span>loadRequest:<span class="params">(NSURLRequest *)</span>request</span><br></pre></td></tr></table></figure>
@@ -1656,26 +1575,20 @@
 <li>BTW: 可用于检测WebView实例的内存泄露</li>
 </ul>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、Webview方式：&quot;&gt;&lt;a href=&quot;#一、Webview方式：&quot; class=&quot;headerlink&quot; title=&quot;一、Webview方式：&quot;&gt;&lt;/a&gt;一、Webview方式：&lt;/h2&gt;&lt;h3 id=&quot;1、JS调用Native&quot;&gt;&lt;a href=&quot;#1
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IOS 音频一览</title>
-    <link href="http://zichao.me/2015/03/15/IOS%20%E9%9F%B3%E9%A2%91%E4%B8%80%E8%A7%88/"/>
-    <id>http://zichao.me/2015/03/15/IOS 音频一览/</id>
-    <published>2015-03-15T04:34:11.000Z</published>
-    <updated>2016-10-24T10:51:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="IOS-音频一览"><a href="#IOS-音频一览" class="headerlink" title="IOS 音频一览"></a>IOS 音频一览</h4><blockquote>
+    <entry>
+      <title><![CDATA[IOS 音频一览]]></title>
+      <url>/2015/03/15/IOS%20%E9%9F%B3%E9%A2%91%E4%B8%80%E8%A7%88/</url>
+      <content type="html"><![CDATA[<h4 id="IOS-音频一览"><a href="#IOS-音频一览" class="headerlink" title="IOS 音频一览"></a>IOS 音频一览</h4><blockquote>
 <p>前言：<br>做嘉宾聊天室这个需求的时候接触了音频和视频上的开发，嘉宾可以发布视频和语音以及文字信息出来，观众则可以文字回复，这样主持人嘉宾和观众就形成一个良性的互动过程。在这里把相关整理一下，望给大家带来一些认识。</p>
 </blockquote>
 <h1 id="一、了解音频"><a href="#一、了解音频" class="headerlink" title="一、了解音频"></a>一、了解音频</h1><p>声音作为信息的一种媒介载体必不可少，在移动端体现为各类语音交流以及音乐等，开发中使用的音频文件通过声音采样、量化、编码几步从而成为人耳可听的声音，频率为20HZ到20KHZ，奈奎斯特的理论表明采样率高于最高频2倍时候，是可以将数字信号还原为原来的模拟信号的，所以通常我们在网上看到的音频文件的采样率为44.1KHZ。</p>
@@ -1846,27 +1759,20 @@ if (self.videoPrePlayer.status == AVPlayerStatusReadyToPlay)
 }
 </code></pre><h1 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h1><p>文章主要对音频的使用范畴做了概括，并列举了两三实践点，其他的并没有做详细的论述，因为本篇比较偏向音频知识的介绍，知道用什么工具框架后再具体解决就好。比如如何播放流畅的网络音频，如何实现音频的快放与慢放等具体问题，此次需求内容并不复杂没有涉及，他们都可以通过 AudioToolBox框架实现。</p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h4 id=&quot;IOS-音频一览&quot;&gt;&lt;a href=&quot;#IOS-音频一览&quot; class=&quot;headerlink&quot; title=&quot;IOS 音频一览&quot;&gt;&lt;/a&gt;IOS 音频一览&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;前言：&lt;br&gt;做嘉宾聊天室这个需求的时候接触了音频和视频上的开发，
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AVFoundation视频开发总结</title>
-    <link href="http://zichao.me/2015/01/28/%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/"/>
-    <id>http://zichao.me/2015/01/28/视频开发总结/</id>
-    <published>2015-01-28T11:09:59.000Z</published>
-    <updated>2017-09-05T07:10:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="IOS-视频录制-—-AVFoundation"><a href="#IOS-视频录制-—-AVFoundation" class="headerlink" title="IOS 视频录制 — AVFoundation"></a>IOS 视频录制 — AVFoundation</h1><p>AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。</p>
+    <entry>
+      <title><![CDATA[AVFoundation视频开发总结]]></title>
+      <url>/2015/01/28/%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<h1 id="IOS-视频录制-—-AVFoundation"><a href="#IOS-视频录制-—-AVFoundation" class="headerlink" title="IOS 视频录制 — AVFoundation"></a>IOS 视频录制 — AVFoundation</h1><p>AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。</p>
 <h2 id="一、概念引导："><a href="#一、概念引导：" class="headerlink" title="一、概念引导："></a>一、概念引导：</h2><h3 id="1、ASSets媒体文件"><a href="#1、ASSets媒体文件" class="headerlink" title="1、ASSets媒体文件:"></a>1、ASSets媒体文件:</h3><p>1）AVAsset</p>
 <p>一个抽象类来表示时间等视听媒体视频和声音。每个资产包含一组跟踪旨在呈现或加工在一起,一个统一的媒体类型,包括但不限于音频、视频、文本、关闭字幕,字幕。</p>
 <p>AVURLAsset *anAsset = [[AVURLAsset alloc] initWithURL:url options:nil];属性有<br>tracks、duration、preferredVolume、preferredTransform等等。</p>
@@ -2032,26 +1938,20 @@ if (videoHeight % 2 == 1) {
     videoHeight = videoHeight - 1;
 }
 </code></pre>]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h1 id=&quot;IOS-视频录制-—-AVFoundation&quot;&gt;&lt;a href=&quot;#IOS-视频录制-—-AVFoundation&quot; class=&quot;headerlink&quot; title=&quot;IOS 视频录制 — AVFoundation&quot;&gt;&lt;/a&gt;IOS 视频录制 — AVFoun
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RunLoop是如何跑起来的</title>
-    <link href="http://zichao.me/2015/01/05/RunLoop%E6%98%AF%E5%A6%82%E4%BD%95%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84/"/>
-    <id>http://zichao.me/2015/01/05/RunLoop是如何跑起来的/</id>
-    <published>2015-01-05T06:34:12.000Z</published>
-    <updated>2017-09-05T07:11:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="对-Run-Loop-的理解"><a href="#对-Run-Loop-的理解" class="headerlink" title="对 Run Loop 的理解"></a>对 Run Loop 的理解</h1><h2 id="一、Run-Loop为何存在"><a href="#一、Run-Loop为何存在" class="headerlink" title="一、Run Loop为何存在?"></a>一、Run Loop为何存在?</h2><p>我们从编写命令式的语句开始理解，一般我们写一个运行函数，只要顺序执行，一遍就过了，比如简单的NSLog一个“hello word”，这样我们就算完成了一个问候世界的程序。好简单的程序，但是一个复杂的系统，一个能称之为系统的程序，比如我们的手机App，它是不可能按照执行顺序一下执行完成就结束的，它包含了我们各类需求，会接受我们不同的操作，所以这个程序需要有一个设计的模式能够符合这样的应用场景，能够响应操作。所以，有了Event驱动的模式。</p>
+    <entry>
+      <title><![CDATA[RunLoop是如何跑起来的]]></title>
+      <url>/2015/01/05/RunLoop%E6%98%AF%E5%A6%82%E4%BD%95%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84/</url>
+      <content type="html"><![CDATA[<h1 id="对-Run-Loop-的理解"><a href="#对-Run-Loop-的理解" class="headerlink" title="对 Run Loop 的理解"></a>对 Run Loop 的理解</h1><h2 id="一、Run-Loop为何存在"><a href="#一、Run-Loop为何存在" class="headerlink" title="一、Run Loop为何存在?"></a>一、Run Loop为何存在?</h2><p>我们从编写命令式的语句开始理解，一般我们写一个运行函数，只要顺序执行，一遍就过了，比如简单的NSLog一个“hello word”，这样我们就算完成了一个问候世界的程序。好简单的程序，但是一个复杂的系统，一个能称之为系统的程序，比如我们的手机App，它是不可能按照执行顺序一下执行完成就结束的，它包含了我们各类需求，会接受我们不同的操作，所以这个程序需要有一个设计的模式能够符合这样的应用场景，能够响应操作。所以，有了Event驱动的模式。</p>
 <p>特点：</p>
 <ul>
 <li>程序可以一直运行并且接受用户的输入</li>
@@ -2139,26 +2039,20 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
 }
 }
 </code></pre>]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h1 id=&quot;对-Run-Loop-的理解&quot;&gt;&lt;a href=&quot;#对-Run-Loop-的理解&quot; class=&quot;headerlink&quot; title=&quot;对 Run Loop 的理解&quot;&gt;&lt;/a&gt;对 Run Loop 的理解&lt;/h1&gt;&lt;h2 id=&quot;一、Run-Loop为何存在&quot;&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo一下，博客诞生</title>
-    <link href="http://zichao.me/2014/11/07/Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
-    <id>http://zichao.me/2014/11/07/Hexo-个人博客使用介绍/</id>
-    <published>2014-11-07T11:09:59.000Z</published>
-    <updated>2017-09-06T09:06:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我是真的不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是自己的，大概程序员的内心都流淌着这样的独白。</p>
+    <entry>
+      <title><![CDATA[Hexo一下，博客诞生]]></title>
+      <url>/2014/11/07/Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</url>
+      <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地。通常我们会在一些博客网站注册，比如博客园，然后开始作文，但这样的博客网站的界面UI设计挺糟糕的，作为还有一些审美的我是真的不太乐意去使用，虽然同为苦逼码农。后来出了一些品质比较高的静态博客等，也尝试去使用过，最后还是选择了使用博客组件去搭建，因为总觉得独立的才是自己的，大概程序员的内心都流淌着这样的独白。</p>
 <p>博客搭建框架组件很多，从WordPress到FarBox、Jekyll、Octopress、ghost、marboo、Hexo等等，他们基本都配合github使用,在网上各路大神的推荐之下，试过几款框架,基本都是在读完安装说明并开始有点小激动的时候，痛苦的安装过程让我放弃了这一方式，一方面是自己大学的时候使用的电脑真的很挫，一个奔腾处理器转圈都要转半天，另一方面就是网络翻墙也不稳定，安装搭建环境的过程总是各种安装失败，算了，然后就GG了。不过，最后我还是搭建了自己的博客，并没有使用上述的哪种框架,前面的过程学习也知道了博客的搭建方式，索性自己就用FW设计了个人博客的UI界面，正好也会前端FE，就手写了博客页面Css和JS，这样博客的结界面就出来了，自己动手丰衣足食，然而它只是个静态的，到编译这一环节过不去了，毕竟JS属于前端的江湖，咋整…于是找了个python脚本，动态读取静态文件，只需要专心的写文字就好，随后可上传到github通过域名映射直接展示。这样，我就搭建好了自己的博客，界面都是我自己设计后用代码自己一行一行写的啊，简直高端大气上档次，简直满意的不得了！结果是非常符合我自己的审美设计要求，内心那个开心呐，随后开始了我的博客之路。</p>
 <p>过了些时日，接触到Hexo,它就是我上述过程的一个更为优化的方案，发现人家的模板啊，发布啊，功能完善，扩展强大。通过Hexo的使用也发现上手很快，我几乎是在半小时就搭建完成了博客，这速度让我为之欢呼，所以我决定转到Hexo来写作，那么，这里就写个文章来推荐一下吧。</p>
 <h2 id="正文使用"><a href="#正文使用" class="headerlink" title="正文使用"></a>正文使用</h2><h3 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h3><ul>
@@ -2213,26 +2107,20 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>对于Hexo的使用，前后只介绍了关键的几个命令，可以快速搭建，都是基础入门很方便，麻烦的到是前面的准备工作，得一步步挨着来。Hexo的扩展功能强大且自由，直接浏览Hexo的官网可学习。</p>
 <!--![](/assets/images/aoteman.png)-->
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;事实上，好早之前就尝试过自己搭建的个人博客，想积累写写技术知识点和生活上的见闻，希望它作为自己个人的一块土地。通常我们会在一些博客网站注册，
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>引用计数MRC、ARC与属性修饰符</title>
-    <link href="http://zichao.me/2014/11/02/%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0MRC%E3%80%81ARC%E4%B8%8E%E5%B1%9E%E6%80%A7%E4%BF%AE%E9%A5%B0%E7%AC%A6/"/>
-    <id>http://zichao.me/2014/11/02/引用计数MRC、ARC与属性修饰符/</id>
-    <published>2014-11-02T08:23:47.000Z</published>
-    <updated>2017-09-05T07:07:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="一、MRC"><a href="#一、MRC" class="headerlink" title="一、MRC"></a>一、MRC</h2><h3 id="1、内存管理问题"><a href="#1、内存管理问题" class="headerlink" title="1、内存管理问题"></a>1、内存管理问题</h3><p>传统的内存管理方式都需要业务代码自己处理，比如C和C++,程序员自己控制对象的使用周期，进行生成和释放。随着代码越来越复杂和人员的流动，就会出现无法确定的代码，如果内存对象一直留在那里，没人敢释放，整个程序占用的空间越来越大；胆大的人释放了可能导致crash。尽管遵循一些“谁创建谁释放”、“谁持有谁释放” 的原则，但依旧导致存储空间的浪费：为了保留仅仅一个内存对象，却要将与它关联的一大堆对象保留住，然而其中大部分已经不再使用了。</p>
+    <entry>
+      <title><![CDATA[引用计数MRC、ARC与属性修饰符]]></title>
+      <url>/2014/11/02/%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0MRC%E3%80%81ARC%E4%B8%8E%E5%B1%9E%E6%80%A7%E4%BF%AE%E9%A5%B0%E7%AC%A6/</url>
+      <content type="html"><![CDATA[<h2 id="一、MRC"><a href="#一、MRC" class="headerlink" title="一、MRC"></a>一、MRC</h2><h3 id="1、内存管理问题"><a href="#1、内存管理问题" class="headerlink" title="1、内存管理问题"></a>1、内存管理问题</h3><p>传统的内存管理方式都需要业务代码自己处理，比如C和C++,程序员自己控制对象的使用周期，进行生成和释放。随着代码越来越复杂和人员的流动，就会出现无法确定的代码，如果内存对象一直留在那里，没人敢释放，整个程序占用的空间越来越大；胆大的人释放了可能导致crash。尽管遵循一些“谁创建谁释放”、“谁持有谁释放” 的原则，但依旧导致存储空间的浪费：为了保留仅仅一个内存对象，却要将与它关联的一大堆对象保留住，然而其中大部分已经不再使用了。</p>
 <h3 id="2、解决方式"><a href="#2、解决方式" class="headerlink" title="2、解决方式"></a>2、解决方式</h3><p>就是引用计数。所有使用到同一内存对象的地方，使用者只要保证自己 retain 一次，release 一次，不用管别人是否使用。这样就实现了内存管理的分离，这就是MRC。当你使用new、alloc、copy方法创建一个对象时，该对象的保留计数器值为1.当不再使用该对象时，你要负责向该对象发送一条release或autorelease消息。当这个对象本身的引用计数为0时，就会被系统销毁。如果还有别处对它的引用，它就还在继续存在。<br>所有的内存管理是需要程序员手写代码控制的，一般就是持有操作和释放操作。<br>原则：谁持有，谁释放，不持有，不能释放，不再需要时，主动释放。</p>
 <h2 id="二、-ARC"><a href="#二、-ARC" class="headerlink" title="二、 ARC"></a>二、 ARC</h2><h3 id="1、本质"><a href="#1、本质" class="headerlink" title="1、本质"></a>1、本质</h3><p>ARC只是相对于MRC的一次改进，但它和之前的技术本质上没有区别。它会默认在程序代码合适的位置呗对象增加计数和释放计数对象，其实就是MRC那些繁琐的操作给默认自动化了。当然ARC本身的特性是有区别的。</p>
 <p>ARC是编译器时特性，而不是运行时特性。系统在运行时统一管理所有内存对象的释放，会导致增加额外的内存和 CPU 开销，程序员们依然在努力降低内存和CPU消耗。</p>
@@ -2286,26 +2174,20 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
 </ul>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">strong</span>：__<span class="keyword">strong</span>修饰符</span><br><span class="line">retain：__<span class="keyword">strong</span>修饰符</span><br><span class="line"><span class="keyword">assign</span>：__unsafe_unretained修饰符</span><br><span class="line">unsafe_unretained：__unsafe_unretained修饰符</span><br><span class="line"><span class="keyword">weak</span>：__<span class="keyword">weak</span>修饰符</span><br><span class="line"><span class="keyword">copy</span>：__<span class="keyword">strong</span>修饰符(但是赋值的是被复制的对象)</span><br></pre></td></tr></table></figure>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、MRC&quot;&gt;&lt;a href=&quot;#一、MRC&quot; class=&quot;headerlink&quot; title=&quot;一、MRC&quot;&gt;&lt;/a&gt;一、MRC&lt;/h2&gt;&lt;h3 id=&quot;1、内存管理问题&quot;&gt;&lt;a href=&quot;#1、内存管理问题&quot; class=&quot;headerlink&quot; titl
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>FE进阶之路</title>
-    <link href="http://zichao.me/2014/10/15/%E5%89%8D%E7%AB%AFFE%E9%80%9F%E6%88%90/"/>
-    <id>http://zichao.me/2014/10/15/前端FE速成/</id>
-    <published>2014-10-15T15:22:12.000Z</published>
-    <updated>2017-09-06T02:48:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
+    <entry>
+      <title><![CDATA[FE进阶之路]]></title>
+      <url>/2014/10/15/%E5%89%8D%E7%AB%AFFE%E9%80%9F%E6%88%90/</url>
+      <content type="html"><![CDATA[<blockquote>
 <p>转移动端开发之前，曾是名呆萌的FE，在学校的时候还算勤劳，上线了大大小小的产品，冰岩作坊见证了我的成长，认识了很多朋友。如今回顾一下，整理一条前端之路。</p>
 </blockquote>
 <h2 id="面试点"><a href="#面试点" class="headerlink" title="面试点"></a>面试点</h2><p><img src="/assets/images/feTotal.png" alt=""></p>
@@ -2385,29 +2267,20 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
 <li>常用工具 ：caniuse 查兼容性的神器、tinypng 压缩图片好工具</li>
 </ul>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 程序开发 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;转移动端开发之前，曾是名呆萌的FE，在学校的时候还算勤劳，上线了大大小小的产品，冰岩作坊见证了我的成长，认识了很多朋友。如今回顾一下，整理一条前端之路。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;面试点&quot;&gt;&lt;a href=&quot;#面试点&quot; c
-    
-    </summary>
-    
-    
-      <category term="程序开发" scheme="http://zichao.me/tags/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>再见，My Hust</title>
-    <link href="http://zichao.me/2014/09/12/%E5%86%8D%E8%A7%81%EF%BC%8CMy%20Hust/"/>
-    <id>http://zichao.me/2014/09/12/再见，My Hust/</id>
-    <published>2014-09-12T11:09:59.000Z</published>
-    <updated>2017-06-20T12:07:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><p>不需要华丽的辞藻去颂赞，你的美与伟大一直浸染着每个Huster的心。</p>
+    <entry>
+      <title><![CDATA[再见，My Hust]]></title>
+      <url>/2014/09/12/%E5%86%8D%E8%A7%81%EF%BC%8CMy%20Hust/</url>
+      <content type="html"><![CDATA[<h3 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h3><p>不需要华丽的辞藻去颂赞，你的美与伟大一直浸染着每个Huster的心。</p>
 <p>大学四年，匆匆，不曾写过什么日记，好像是少了些记忆，从来都认为自己大学过的很对，走的路很直，如今毕业工作再回头看，迷迷茫茫，忙忙碌碌，勤勤恳恳，便是那过去的日子。最值得骄傲的就是，大学四年的里都是自己满意的经历过程，没有后悔。</p>
 <p>跨入华科校门，我期盼在大学结识一群好伙伴，然后，我就遇见了你们，并把我们的毕业旅行选在了彩云之南。</p>
 <h3 id="记忆不散的相册"><a href="#记忆不散的相册" class="headerlink" title="记忆不散的相册"></a>记忆不散的相册</h3><p><img src="/assets/myPhoto/1.jpg" alt=""></p>
@@ -2420,17 +2293,16 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
 <p><img src="/assets/myPhoto/8.jpg" alt=""></p>
 <p><img src="/assets/myPhoto/9.jpg" alt=""></p>
 ]]></content>
+      
+        
+        <tags>
+            
+            <tag> 时光相册 </tag>
+            
+        </tags>
+        
+    </entry>
     
-    <summary type="html">
-    
-      &lt;h3 id=&quot;后续&quot;&gt;&lt;a href=&quot;#后续&quot; class=&quot;headerlink&quot; title=&quot;后续&quot;&gt;&lt;/a&gt;后续&lt;/h3&gt;&lt;p&gt;不需要华丽的辞藻去颂赞，你的美与伟大一直浸染着每个Huster的心。&lt;/p&gt;
-&lt;p&gt;大学四年，匆匆，不曾写过什么日记，好像是少了些记忆，从来
-    
-    </summary>
-    
-    
-      <category term="时光相册" scheme="http://zichao.me/tags/%E6%97%B6%E5%85%89%E7%9B%B8%E5%86%8C/"/>
-    
-  </entry>
   
-</feed>
+  
+</search>
