@@ -188,7 +188,6 @@ a:hover, a:active {
 }
 .sidebar .logo-title .description {
   font-size: 14px;
-  color: #47aacc;
 }
 .sidebar .logo-title img {
   width: 100px;
@@ -298,9 +297,12 @@ a:hover, a:active {
 .post .post-footer .meta .info .date {
   margin-right: 10px;
 }
+.post .post-footer .meta .fa-tag {
+    color: #4cb6d2;
+}
 .post .post-footer .meta a {
   text-decoration: none;
-  color: #bbbbbb;
+  color: #4cb6d2;
   padding-right: 10px;
 }
 .post .post-footer .meta a:hover {
@@ -682,7 +684,7 @@ a.btn {
   }
 
   .content {
-    margin-top: 420px;
+    margin-top: 290px;
     width: 100%;
     z-index: 2;
     position: absolute;
