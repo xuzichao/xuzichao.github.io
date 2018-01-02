@@ -3,6 +3,197 @@
   
     
     <entry>
+      <title><![CDATA[小小产品经理]]></title>
+      <url>/2018/01/02/%E5%B0%8F%E5%B0%8F%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/</url>
+      <content type="html"><![CDATA[<h2 id="一、产品和产品经理"><a href="#一、产品和产品经理" class="headerlink" title="一、产品和产品经理"></a>一、产品和产品经理</h2><h4 id="1-1-产品"><a href="#1-1-产品" class="headerlink" title="1.1 产品"></a>1.1 产品</h4><ul>
+<li>帮助人们解决问题与麻烦的、可被使用和消费的、有形或者无形的服务、组织和观念</li>
+</ul>
+<h4 id="1-2-产品经理"><a href="#1-2-产品经理" class="headerlink" title="1.2 产品经理"></a>1.2 产品经理</h4><ul>
+<li>负责设计出或者改进某产品的人</li>
+<li>目前主要指代计算机设备的应用程序的产品经理。</li>
+</ul>
+<h2 id="二、如何设计应用程序"><a href="#二、如何设计应用程序" class="headerlink" title="二、如何设计应用程序"></a>二、如何设计应用程序</h2><h4 id="2-1-问题："><a href="#2-1-问题：" class="headerlink" title="2.1 问题："></a>2.1 问题：</h4><ul>
+<li>帮助我们解决一个或多个问题。</li>
+</ul>
+<h4 id="2-2-流程与页面："><a href="#2-2-流程与页面：" class="headerlink" title="2.2 流程与页面："></a>2.2 流程与页面：</h4><ul>
+<li>各种各样的页面存在一定的流程关系。</li>
+</ul>
+<h4 id="2-3-内容与功能："><a href="#2-3-内容与功能：" class="headerlink" title="2.3 内容与功能："></a>2.3 内容与功能：</h4><ul>
+<li>不同页面内容和功能不同。</li>
+</ul>
+<h4 id="2-4-布局："><a href="#2-4-布局：" class="headerlink" title="2.4 布局："></a>2.4 布局：</h4><ul>
+<li>内容和功能有不同的位置。</li>
+</ul>
+<h4 id="2-5-样式："><a href="#2-5-样式：" class="headerlink" title="2.5 样式："></a>2.5 样式：</h4><ul>
+<li>优雅美观的设计风格。</li>
+</ul>
+<h2 id="三、应用程序的工作分工"><a href="#三、应用程序的工作分工" class="headerlink" title="三、应用程序的工作分工"></a>三、应用程序的工作分工</h2><h4 id="3-1-分工"><a href="#3-1-分工" class="headerlink" title="3.1 分工"></a>3.1 分工</h4><ul>
+<li>产品经理：2.1 \ 2.2 </li>
+<li>交互设计：2.3 \ 2.4</li>
+<li>UI设计师：2.5 </li>
+<li>开发：研发工程师</li>
+<li>测试：测试工程师</li>
+<li>上线</li>
+<li>推广：市场推广，让更多人接触和使用</li>
+<li>运营：产品运行，让用户更长的使用和产生收益</li>
+<li>运维：运维工程师，数据和服务器的高速稳定。</li>
+</ul>
+<h4 id="3-2-调整"><a href="#3-2-调整" class="headerlink" title="3.2 调整"></a>3.2 调整</h4><p>小型公司部分岗位进行融合，比如无交互设计和运维。</p>
+<h2 id="四、产品经理的具体工作"><a href="#四、产品经理的具体工作" class="headerlink" title="四、产品经理的具体工作"></a>四、产品经理的具体工作</h2><h4 id="4-1-解决什么问题与麻烦"><a href="#4-1-解决什么问题与麻烦" class="headerlink" title="4.1 解决什么问题与麻烦"></a>4.1 解决什么问题与麻烦</h4><ul>
+<li>洞察机会：可以帮助人们解决什么问题，也就是点子</li>
+<li>市场分析：解决这个问题，有没有市场前景，能不能得到好处</li>
+<li>用户研究：什么样的人会碰到这样的问题？什么情况下？</li>
+<li>需求分析：用户达到什么目的？用户有什么要求?</li>
+<li>竞品分析:有没有产品已经解决这个问题，怎么做的，优缺点。</li>
+<li>产品策划：为什么要做？应该怎么做？需要什么方法和资源？<h4 id="4-2-功能与内容"><a href="#4-2-功能与内容" class="headerlink" title="4.2 功能与内容"></a>4.2 功能与内容</h4></li>
+<li>需求管理：问题优先、稍后、暂不解决</li>
+<li>功能设计: 什么功能来解决问题</li>
+<li>内容设计：什么内容来解决问题</li>
+<li>功能模块设计:模块与系统，如何组合</li>
+<li>信息结构设计：信息流的逻辑梳理</li>
+<li>需求文档撰写：需求文档把上述内容都说清楚</li>
+</ul>
+<h4 id="4-3-流程页面"><a href="#4-3-流程页面" class="headerlink" title="4.3 流程页面"></a>4.3 流程页面</h4><ul>
+<li>流程设计：按照什么流程来查看和使用</li>
+<li>页面设置：哪些内容放在一个页面上，都有哪些页面</li>
+<li>信息架构设计：如何让用户明白产品有哪些功能，并能快速定位到自己的需求</li>
+<li>原型设计：具体的页面视图</li>
+<li>交互文档撰写：把原型的展示细节说清楚</li>
+</ul>
+<h4 id="4-4-其他工作"><a href="#4-4-其他工作" class="headerlink" title="4.4 其他工作"></a>4.4 其他工作</h4><ul>
+<li>配合UI设计师：一同选择设计风格并验收</li>
+<li>配合开发工程师：不理解和不好实现的问题</li>
+<li>管理项目进度：项目排期和按时发布</li>
+<li>配合产品测试：发现可能存在的问题和不足</li>
+<li>配合市场推广：帮助获取更多用户来使用产品</li>
+<li>配合运营：协助设计运营方案。</li>
+</ul>
+<h2 id="五、产品经理能力"><a href="#五、产品经理能力" class="headerlink" title="五、产品经理能力"></a>五、产品经理能力</h2><h4 id="5-1-素质能力"><a href="#5-1-素质能力" class="headerlink" title="5.1 素质能力"></a>5.1 素质能力</h4><ul>
+<li>逻辑分析能力：对产品和用户思考</li>
+<li>设计规划能力： 功能和内容的迭代</li>
+<li>文字表达能力： 问题和方案描述清楚</li>
+<li>良好沟通能力：与各方沟通</li>
+<li>管理能力： 需求和项目进度管理</li>
+</ul>
+<h4 id="5-2-工具能力"><a href="#5-2-工具能力" class="headerlink" title="5.2 工具能力"></a>5.2 工具能力</h4><ul>
+<li>思维导图：Xmind</li>
+<li>流程图：processon</li>
+<li>原型工具：墨刀、Axure</li>
+<li>文档撰写：word</li>
+<li>数据整理分析：excel</li>
+<li>展示和回报：PPT</li>
+</ul>
+<h2 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h2><ul>
+<li>产品经理确实是更符合我的性格，如果最开始入行就选择，到如今肯定已经做到较高的水平。从前对行业认识不足以及自我认知也不够深切，选择了从程序员方向切入，不过最近对程序开发的认识更进一步，我始终保持发散思维，相信待到合适的现实时机下，有机会直接做事，反而是程序员的优势。</li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 总结 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[New一个golang爬虫]]></title>
+      <url>/2017/09/01/%E8%AF%B4%E8%AF%B4%E9%87%8D%E5%BA%86%E7%9A%84IT%E8%A1%8C%E4%B8%9A/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>刚好七八双月结束，工作整理完毕，下个双月OKR还没开始。做久了IOS开发也来扩展下领域，抽空几天学了下Golang，实现一个爬虫。</p>
+</blockquote>
+<h2 id="一、知识要点"><a href="#一、知识要点" class="headerlink" title="一、知识要点"></a>一、知识要点</h2><h3 id="1、爬虫"><a href="#1、爬虫" class="headerlink" title="1、爬虫"></a>1、爬虫</h3><h4 id="1-1-工作方式"><a href="#1-1-工作方式" class="headerlink" title="1.1 工作方式"></a>1.1 工作方式</h4><p>传统爬虫从一个或若干初始网页的URL开始，获得初始网页上的URL，在抓取网页的过程中，不断从当前页面上抽取新的URL放入队列,直到满足系统的一定停止条件。聚焦爬虫的工作流程较为复杂，需要根据一定的网页分析算法过滤与主题无关的链接，保留有用的链接并将其放入等待抓取的URL队列。然后，它将根据一定的搜索策略从队列中选择下一步要抓取的网页URL，并重复上述过程，直到达到系统的某一条件时停止。另外，所有被爬虫抓取的网页将会被系统存贮，进行一定的分析、过滤，并建立索引，以便之后的查询和检索；对于聚焦爬虫来说，这一过程所得到的分析结果还可能对以后的抓取过程给出反馈和指导。</p>
+<h4 id="1-2-分类"><a href="#1-2-分类" class="headerlink" title="1.2 分类"></a>1.2 分类</h4><ul>
+<li>全网爬虫，爬行对象从一些种子 URL 扩充到整个 Web，主要为门户站点搜索引擎和大型 Web 服务提供商采集数据。</li>
+<li>聚焦网络爬虫，是指选择性地爬行那些与预先定义好的主题相关页面的网络爬虫。</li>
+<li>增量式网络爬虫，是指对已下载网页采取增量式更新和只爬行新产生的或者已经发生变化网页的爬虫，它能够在一定程度上保证所爬行的页面是尽可能新的页面。</li>
+<li>Deep Web 爬虫，表层网页是指传统搜索引擎可以索引的页面，以超链接可以到达的静态网页为主构成的Web页面。Deep Web 是那些大部分内容不能通过静态链接获取的、隐藏在搜索表单后的，只有用户提交一些关键词才能获得的 Web 页面。</li>
+</ul>
+<h4 id="1-3爬虫算法"><a href="#1-3爬虫算法" class="headerlink" title="1.3爬虫算法"></a>1.3爬虫算法</h4><ul>
+<li><p>深度优先策略</p>
+<p>  其基本方法是按照深度由低到高的顺序，依次访问下一级网页链接，直到不能再深入为止。 爬虫在完成一个爬行分支后返回到上一链接节点进一步搜索其它链接。 当所有链接遍历完后，爬行任务结束。 这种策略比较适合垂直搜索或站内搜索， 但爬行页面内容层次较深的站点时会造成资源的巨大浪费。</p>
+</li>
+<li><p>广度优先策略</p>
+<p>  此策略按照网页内容目录层次深浅来爬行页面，处于较浅目录层次的页面首先被爬行。 当同一层次中的页面爬行完毕后，爬虫再深入下一层继续爬行。 这种策略能够有效控制页面的爬行深度，避免遇到一个无穷深层分支时无法结束爬行的问题，实现方便，无需存储大量中间节点，不足之处在于需较长时间才能爬行到目录层次较深的页面</p>
+</li>
+</ul>
+<h3 id="2、golang"><a href="#2、golang" class="headerlink" title="2、golang"></a>2、golang</h3><h4 id="2-1-语法学习"><a href="#2-1-语法学习" class="headerlink" title="2.1 语法学习"></a>2.1 语法学习</h4><ul>
+<li><p>为了让学习更加快速，想要优先上手，而不是沉浸在大量语法里面，找了一遍基础的语法文档，直接全读整体语法，先有个基础但是全面的认识。<br><a href="http://www.runoob.com/go/go-tutorial.html" target="_blank" rel="external">语法教程链接</a></p>
+</li>
+<li><p>然后直接手一本web教程书籍，此本书籍是开源的，在github上有1.78万star，5年前就开始书写，一直被追捧和使用。<a href="https://github.com/astaxie/build-web-application-with-golang" target="_blank" rel="external">书籍链接</a></p>
+</li>
+</ul>
+<h3 id="2-2-环境安装"><a href="#2-2-环境安装" class="headerlink" title="2.2 环境安装"></a>2.2 环境安装</h3><h4 id="1-1-在MacOSX上安装"><a href="#1-1-在MacOSX上安装" class="headerlink" title="1.1 在MacOSX上安装"></a>1.1 在MacOSX上安装</h4><ul>
+<li><a href="https://golang.org/dl/" target="_blank" rel="external">下载地址</a></li>
+<li>源码包：go1.4.linux-amd64.tar.gz。</li>
+<li>将下载的源码包解压至 /usr/local目录。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -C /usr/local -xzf go1.4.linux-amd64.tar.gz</div></pre></td></tr></table></figure>
+<ul>
+<li>将 /usr/local/go/bin 目录添加至PATH环境变量：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=$PATH:/usr/local/go/bin</div></pre></td></tr></table></figure>
+<ul>
+<li>注意：MAC 系统下你可以使用 .pkg 结尾的安装包直接双击来完成安装，安装目录在 /usr/local/go/ 下。</li>
+</ul>
+<h4 id="1-2-其他方式"><a href="#1-2-其他方式" class="headerlink" title="1.2 其他方式"></a>1.2 其他方式</h4><p><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.1.md" target="_blank" rel="external">参考链接</a></p>
+<h2 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h2><p>先确立一个小目标，就是我们要爬取的网页的数据源是什么。一直觉得国内的大学排名争议比较有趣，TOP2的两所，但是TOP5的有8所，TOP10的有20所，哈哈，所以来爬个大学排行榜玩玩吧。</p>
+<h3 id="1、网页抓取"><a href="#1、网页抓取" class="headerlink" title="1、网页抓取"></a>1、网页抓取</h3><h3 id="1-1-定义一个学校"><a href="#1-1-定义一个学校" class="headerlink" title="1.1 定义一个学校"></a>1.1 定义一个学校</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">type SchoolObj struct &#123;</div><div class="line">	rankTypeName string</div><div class="line">	RankIndex int</div><div class="line">	SchoolName string</div><div class="line">	EnrollOrder string</div><div class="line">	StarLevel string</div><div class="line">	LocationName string</div><div class="line">	SchoolType  string</div><div class="line">	UrlAddress string</div><div class="line">	SchoolTags []string</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="1-2-单页面html解析"><a href="#1-2-单页面html解析" class="headerlink" title="1.2 单页面html解析"></a>1.2 单页面html解析</h3><ul>
+<li><p>引入go语言的http函数包和上面定义的学校结构题</p>
+</li>
+<li><p>发起一个网页请求返回，go语言会返回网页的<html>以下全部的html格式字符串</html></p>
+</li>
+<li><p>如何从这些字符串中遍历查找和解析出我们需要的学校排名字段？</p>
+</li>
+</ul>
+<p>因为有过前端开发的经验，我自然而然想到，使用CSS选择器会比直接使用遍历算法来得高效，有CSS的选择规则，我可以批量规律的获取和处理HTML的DOM结构数据。端开发中的jQuery提供了方便的操作 DOM 的 API。使用 Go 语言做服务器端开发，有时候需要解析 HTML 文件，比如抓取网站内容、写一个爬虫等。这时候如果有一个类似 jQuery 的库可以使用，操作 DOM 会很方便，而且，上手也会很快。果然，还真有这样的工具，此处推荐一个GitHub的开源框架 — Goquery 。</p>
+<p>A、使用介绍：</p>
+<p>goquery定义了一个Document结构，直接对应网页Javascript的Document节点，通过一个NewDocument方法，传入参数地址为网页的url地址，直接生产一个虚拟的go语言上的dom。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">type Document struct &#123;</div><div class="line">	*Selection</div><div class="line">	Url      *url.URL</div><div class="line">	rootNode *html.Node</div><div class="line">&#125;</div><div class="line"></div><div class="line">func NewDocument(url string) (*Document, error) &#123;</div><div class="line">	// Load the URL</div><div class="line">	res, e := http.Get(url)</div><div class="line">	if e != nil &#123;</div><div class="line">		return nil, e</div><div class="line">	&#125;</div><div class="line">	return NewDocumentFromResponse(res)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Document有定义find方法，方法的使用和JQuery里面一直，传入目标字符串的css选择器即可。通过对Document执行find查找方法，获得全部学校目标的字符串数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">doc.Find(&quot;.bangTable table tr&quot;)</div></pre></td></tr></table></figure>
+<p>这里的选择器怎么来的呢，我们在chrome里面打开url地址，找到我们想要收集的数据排名，右键打开审查元素，可以看到HTML的选择器名称。这里需要有一点CSS基础，因为有的选择器不是直接唯一的，需要自己去判断，怎样的选择器组合才能准确的拿到想要的目标字符串。</p>
+<p><img src="/assets/images/schoolDom.jpg" alt=""></p>
+<p>Document有定义each方法，用于遍历数组，也就是各个大学所对应的dom节点。在each方法中继续使用查找方法，并最后获得想要的字符串。</p>
+<p>每一个dom对应一个SchoolStruct，新建并赋值，放入数组中返回。</p>
+<p>B、代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">import (</div><div class="line">	&quot;github.com/PuerkitoBio/goquery&quot;</div><div class="line">	&quot;SchoolReptile/struct&quot;</div><div class="line">	&quot;net/http&quot;</div><div class="line">)</div><div class="line"></div><div class="line">func GaokaoquanRank(urlAddress string) []SchoolStruct.SchoolObj &#123;</div><div class="line"></div><div class="line">	var array [] SchoolStruct.SchoolObj</div><div class="line"></div><div class="line">	doc, err := goquery.NewDocument(urlAddress)</div><div class="line">	if err != nil &#123;</div><div class="line">		log.Fatal(err)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Find the review items</div><div class="line">	doc.Find(&quot;.bangTable table tr&quot;).Each(func(i int, s *goquery.Selection) &#123;</div><div class="line">		// For each item found, get the band and title</div><div class="line">		var obj SchoolStruct.SchoolObj</div><div class="line">		obj.RankIndex = s.Find(&quot;.t1 span&quot;).Text()</div><div class="line">		obj.SchoolName = s.Find(&quot;.t2 a&quot;).Text()</div><div class="line">		obj.UrlAddress ,_ = s.Find(&quot;.t2 a&quot;).Attr(&quot;href&quot;)</div><div class="line">		obj.LocationName = s.Find(&quot;.t3&quot;).Text()</div><div class="line">		obj.SchoolType = s.Find(&quot;.t4&quot;).Text()</div><div class="line">		obj.StarLevel = s.Find(&quot;.t5&quot;).Text()</div><div class="line">		obj.EnrollOrder = &quot;本科第一批&quot;</div><div class="line">		array = append(array, obj)</div><div class="line"></div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	return array</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2、接口请求"><a href="#2、接口请求" class="headerlink" title="2、接口请求"></a>2、接口请求</h3><p>我们再爬去数据的时候，一般都能直接抓取网页数据，但是有的数据在第一页炳辉展示出来，需要有点击操作，比如加载更多。此处的大学排行有200位，第一页请求只有20位，这时候就会发现，接口请求的方便。<br>有的网页在接口上做了cookie校验，摸清别人的请求规则，才能正确模拟出请求获得返回数据。</p>
+<p>我们此处拿乐学高考作文例子，获取各个类型的大学排行榜。通过charles代理，我们获得请求的各类参数。</p>
+<ul>
+<li>拼接请求url</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url := LexueHost+&quot;/college/ranking?page=&quot;+pageStr+&quot;&amp;rank_type=&quot;+rankObj.RankType+&quot;&amp;page_size=15&quot;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>发送HTTP请求，获取返回</p>
+<p>网络请求返回的是一个字符串结构的数据，我们需要把它映射成map结构好获取key对应的value值。</p>
+<p>这里推荐一个go语言在json解析上的一个开源库Simplejson，将返回的数据进行JSON结构化，然后通过get方法可以直接获得对应的参数值。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">defer resp.Body.Close()</div><div class="line"></div><div class="line">data, err := ioutil.ReadAll(resp.Body)</div><div class="line"></div><div class="line">jsonBody,err := simplejson.NewJson(data)</div><div class="line"></div><div class="line">schoolJsonArray,err := jsonBody.Get(&quot;schools&quot;).Array()</div></pre></td></tr></table></figure>
+<ul>
+<li>多页请求使用递归的方式，不断改变get请求的pageStr参数，pageindex ++ ，当判断请求返回的json为空的时候，则说明接口请求已经到到了最后一页，跳出递归</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var nextArray [] SchoolStruct.SchoolObj</div><div class="line">nextArray = LexueRankEachList(rankObj,pageIndex)</div></pre></td></tr></table></figure>
+<p>B、代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">import (</div><div class="line">	&quot;SchoolReptile/struct&quot;</div><div class="line">	&quot;net/http&quot;</div><div class="line">	&quot;io/ioutil&quot;</div><div class="line">	&quot;fmt&quot;</div><div class="line">	&quot;bytes&quot;</div><div class="line">	&quot;encoding/json&quot;</div><div class="line">	&quot;strings&quot;</div><div class="line">	&quot;github.com/bitly/go-simplejson&quot;</div><div class="line">	&quot;strconv&quot;</div><div class="line">)</div><div class="line"></div><div class="line">func LexueRankEachList(rankObj SchoolStruct.RankTypeObj,pageIndex int ) []SchoolStruct.SchoolObj &#123;</div><div class="line"></div><div class="line">	pageStr := strconv.Itoa(pageIndex)</div><div class="line"></div><div class="line">	url := LexueHost+&quot;/college/ranking?page=&quot;+pageStr+&quot;&amp;rank_type=&quot;+rankObj.RankType+&quot;&amp;page_size=15&quot;</div><div class="line"></div><div class="line">	resp, err := http.Get(url)</div><div class="line">	if err != nil &#123;</div><div class="line">		// handle error</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	defer resp.Body.Close()</div><div class="line"></div><div class="line">	data, err := ioutil.ReadAll(resp.Body)</div><div class="line"></div><div class="line">	jsonBody,err := simplejson.NewJson(data)</div><div class="line"></div><div class="line">	schoolJsonArray,err := jsonBody.Get(&quot;schools&quot;).Array()</div><div class="line"></div><div class="line">	var array [] SchoolStruct.SchoolObj</div><div class="line"></div><div class="line">	if len(schoolJsonArray) &lt;= 0 &#123;</div><div class="line">		println(&quot;请求到头了&quot;)</div><div class="line">		return array</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	for i,_ := range schoolJsonArray &#123;</div><div class="line">		schoolJson := jsonBody.Get(&quot;schools&quot;).GetIndex(i)</div><div class="line">		var obj SchoolStruct.SchoolObj</div><div class="line">		obj.RankIndex = strconv.Itoa(schoolJson.Get(&quot;school_rank&quot;).MustInt())</div><div class="line">		obj.SchoolName = schoolJson.Get(&quot;school_name&quot;).MustString()</div><div class="line">		obj.SchoolTags = schoolJson.Get(&quot;school_tags&quot;).MustStringArray()</div><div class="line">		array = append(array, obj)</div><div class="line">		println(obj.RankIndex,obj.SchoolName,obj.SchoolTags)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	pageIndex++</div><div class="line">	var nextArray [] SchoolStruct.SchoolObj</div><div class="line">	nextArray = LexueRankEachList(rankObj,pageIndex)</div><div class="line">	if len(nextArray) &gt; 0 &#123;</div><div class="line">		for _,obj := range nextArray &#123;</div><div class="line">			array = append(array,obj)</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return array</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3、保存到Excel"><a href="#3、保存到Excel" class="headerlink" title="3、保存到Excel"></a>3、保存到Excel</h3><p>前两部获得了网络数据，并解析生成了对应的SchoolStruct数组，这个时候我们只需要创建excel边。遍历数组，把数组里面的数据字段都存入表格即可,git开源库xlsx能够让我们轻松的创建、查找、赋值Excel表。</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">func SaveSchoolRank(schoolArray [] SchoolStruct.SchoolObj,excelName string,sheetName string)  &#123;</div><div class="line"></div><div class="line">	var file *xlsx.File</div><div class="line">	var sheet *xlsx.Sheet</div><div class="line">	var row *xlsx.Row</div><div class="line">	var cell *xlsx.Cell</div><div class="line">	var err error</div><div class="line"></div><div class="line">	file,err = xlsx.OpenFile(excelName + &quot;.xlsx&quot;)</div><div class="line"></div><div class="line">	if err != nil &#123;</div><div class="line">		file = xlsx.NewFile()</div><div class="line">		sheet,err = file.AddSheet(sheetName)</div><div class="line">	&#125; else &#123;</div><div class="line">	   sheet = file.Sheet[sheetName]</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	if err == nil &#123;</div><div class="line"></div><div class="line">		for i := 0; i &lt; len(schoolArray); i++ &#123;</div><div class="line">			obj := schoolArray[i]</div><div class="line"></div><div class="line">			row = sheet.AddRow()</div><div class="line">			cell = row.AddCell()</div><div class="line">			cell.Value = obj.RankIndex</div><div class="line"></div><div class="line">			cell = row.AddCell()</div><div class="line">			cell.Value = obj.SchoolName</div><div class="line"></div><div class="line">			cell = row.AddCell()</div><div class="line">			cell.Value = obj.StarLevel</div><div class="line"></div><div class="line">			cell = row.AddCell()</div><div class="line">			cell.Value = obj.LocationName</div><div class="line"></div><div class="line">			cell = row.AddCell()</div><div class="line">			cell.Value = obj.EnrollOrder</div><div class="line"></div><div class="line">			cell = row.AddCell()</div><div class="line">			cell.Value = obj.SchoolType</div><div class="line"></div><div class="line">			cell = row.AddCell()</div><div class="line">			cell.Value = obj.UrlAddress</div><div class="line"></div><div class="line"></div><div class="line">			var tagStr string</div><div class="line">			for _,value := range obj.SchoolTags &#123;</div><div class="line">				tagStr += &quot;+&quot; + value</div><div class="line">			&#125;</div><div class="line">			cell = row.AddCell()</div><div class="line">			cell.Value = tagStr</div><div class="line"></div><div class="line"></div><div class="line">			if err != nil &#123;</div><div class="line">				fmt.Printf(err.Error())</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	err = file.Save(excelName + &quot;.xlsx&quot;)</div><div class="line">	if err != nil &#123;</div><div class="line">		fmt.Printf(err.Error())</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[New一个golang爬虫]]></title>
       <url>/2017/09/01/New%E4%B8%80%E4%B8%AAgolang%E7%88%AC%E8%99%AB/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -2290,7 +2481,7 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
 <p><img src="/assets/myPhoto/2.jpg" alt=""></p>
 <p><img src="/assets/myPhoto/3.jpg" alt=""></p>
 <p><img src="/assets/myPhoto/4.jpg" alt=""></p>
-<p><img src="/assets/myPhoto/5.jpg" alt=""></p>
+<!--![](/assets/myPhoto/5.jpg)-->
 <p><img src="/assets/myPhoto/6.jpg" alt=""></p>
 <p><img src="/assets/myPhoto/7.jpg" alt=""></p>
 <p><img src="/assets/myPhoto/8.jpg" alt=""></p>
