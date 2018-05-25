@@ -31,8 +31,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[小小产品经理]]></title>
-      <url>/2018/01/02/%E5%B0%8F%E5%B0%8F%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/</url>
+      <title><![CDATA[产品经理基础]]></title>
+      <url>/2018/01/02/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E5%9F%BA%E7%A1%80/</url>
       <content type="html"><![CDATA[<h2 id="一、产品和产品经理"><a href="#一、产品和产品经理" class="headerlink" title="一、产品和产品经理"></a>一、产品和产品经理</h2><h4 id="1-1-产品"><a href="#1-1-产品" class="headerlink" title="1.1 产品"></a>1.1 产品</h4><ul>
 <li>帮助人们解决问题与麻烦的、可被使用和消费的、有形或者无形的服务、组织和观念</li>
 </ul>
@@ -222,7 +222,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[如何成功的交付产品]]></title>
+      <title><![CDATA[《如何成功的交付产品》笔记]]></title>
       <url>/2017/08/03/%E5%A6%82%E4%BD%95%E6%88%90%E5%8A%9F%E7%9A%84%E4%BA%A4%E4%BB%98%E4%BA%A7%E5%93%81/</url>
       <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p> 所有的流程和规范最终都是为了解决实际问题 的，不要贸然引入流程，除非已经碰到问题，否则尽量简化流程，提高效率。要交付 一个产品，其中最重要的只有 3 点:1)确定用户需求和预期指标;2)以最小成本实 现最主要的需求;3)发布并获得数据反馈，确定下一个迭代目标。</p>
 <p> 用用户能理解的语言 去描述你要交付的产品带给他们的价值和好处十分重要，如果写不出来，或者写出来 用户看了一点兴趣都没有，请尽快停止这个产品，因为即使整个产品开发和交付过程 极其完美，这也注定会是一个失败的产品。</p>
@@ -1609,6 +1609,241 @@
     </entry>
     
     <entry>
+      <title><![CDATA[AVFoundation视频开发总结]]></title>
+      <url>/2016/03/28/%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<p>AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。</p>
+<h2 id="一、概念引导："><a href="#一、概念引导：" class="headerlink" title="一、概念引导："></a>一、概念引导：</h2><h3 id="1、ASSets媒体文件"><a href="#1、ASSets媒体文件" class="headerlink" title="1、ASSets媒体文件:"></a>1、ASSets媒体文件:</h3><p>1）AVAsset</p>
+<p>一个抽象类来表示时间等视听媒体视频和声音。每个资产包含一组跟踪旨在呈现或加工在一起,一个统一的媒体类型,包括但不限于音频、视频、文本、关闭字幕,字幕。</p>
+<p>AVURLAsset *anAsset = [[AVURLAsset alloc] initWithURL:url options:nil];属性有<br>tracks、duration、preferredVolume、preferredTransform等等。</p>
+<p>2) 一个AVAssetTrack</p>
+<p>对象提供了所有资产提供track-level检查接口,方便对ASSets进行更具体的属性获取以及对应的操作。</p>
+<p>3）AVAssetImageGenerator</p>
+<p>对象提供缩略图或预览图像的资产独立于回放，可以生成单独的图片，也可以生成图片队列，这是获取视频缩略图的方式之一，还有另外两种ALAsset的thumbnail 和 - (UIImage *)imageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer。</p>
+<p>4）AVAssetExportSession</p>
+<p>针对AVAsset源对象的内容进行转码，创建一个被指定输出形式的资源。</p>
+<p><img src="/assets/images/AVAssetExportSession.jpg" alt=""></p>
+<h3 id="2、Playback播放控制"><a href="#2、Playback播放控制" class="headerlink" title="2、Playback播放控制:"></a>2、Playback播放控制:</h3><p>1) AVPlayer</p>
+<p>你使用一个AVPlayer对象来实现控制器和用户接口单一或多种条目回放。</p>
+<ul>
+<li><p>-  (instancetype)initWithPlayerItem:(AVPlayerItem *)item</p>
+</li>
+<li><p>play 、 parse 、 end</p>
+</li>
+<li><p>- (void)seekToTime:(CMTime)time</p>
+</li>
+</ul>
+<p>2) AVPlayerLayer</p>
+<p>用于显示视频内容，相当于大屏幕。里面有videoGravity，默认值 AVLayerVideoGravityResizeAspect.</p>
+<p>3) AVPlayerItem</p>
+<p>一个AVPlayerItem代表资产的表现状态,由一个AVPlayer对象和可以观察到的状态。对视频播放状态修改一起监听的过程多数发生在正对这个对象的操作操作上，比如：</p>
+<ul>
+<li>seekToTime，从哪里开始播放</li>
+<li>各种资源播放状态的通知AVPlayerItemFailedToPlayToEndTimeNotification<br>等</li>
+</ul>
+<p>4) AVPlayerItemTrack </p>
+<p>你用一个AVPlayerItemTrack对象修改资产的表现状态跟踪(AVAssetTrack)一个AVPlayer对象。通常视频的加载播放有各种状态，我们需要KVO监听或者添加通知去知道播放器的准备、进行、暂停、停止等状态。</p>
+<p>5) AVQueuePlayer</p>
+<p>按照队列播放视频</p>
+<ul>
+<li><p>queuePlayerWithItems，</p>
+</li>
+<li><p>insertItem:(AVPlayerItem *)item</p>
+<pre><code>afterItem:(AVPlayerItem *)afterItem
+</code></pre></li>
+</ul>
+<h3 id="3、Editing资源编辑"><a href="#3、Editing资源编辑" class="headerlink" title="3、Editing资源编辑:"></a>3、Editing资源编辑:</h3><p>AVFoundation框架提供了一个功能丰富的组类促进视听资产的编辑。AVFoundation的编辑API的核心成分，就是一组追踪从一个或多个不同的媒体资产。AVMutableComposition类提供了一个接口,用于插入和删除操作的痕迹,以及管理自己时间排序。</p>
+<p><img src="/assets/images/AVMutableComposition.jpg" alt=""></p>
+<p>1）AVMutableComposition</p>
+<p>是一个可变的AVComposition子类，当您想要从现有资产创建一个新的资源。你可以添加和删除跟踪,可以添加、删除和时间范围。<br>比如：</p>
+<ul>
+<li>– insertEmptyTimeRange：可以增加一段空白时间</li>
+</ul>
+<ul>
+<li>– insertTimeRange:ofAsset:atTime:error:<br>插入的所有跟踪给定的时间范围内指定的资产到接收机。</li>
+</ul>
+<!-- -->
+<pre><code>AVAsset *videoAsset = &lt;#AVAsset with at least one video track#&gt;;
+AVAsset *anotherVideoAsset = &lt;#another AVAsset with at least one video track#&gt;;
+// Get the first video track from each asset.
+AVAssetTrack *videoAssetTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+AVAssetTrack *anotherVideoAssetTrack = [[anotherVideoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+// Add them both to the composition.
+[mutableCompositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero,videoAssetTrack.timeRange.duration) ofTrack:videoAssetTrack atTime:kCMTimeZero error:nil];
+[mutableCompositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero,anotherVideoAssetTrack.timeRange.duration) ofTrack:anotherVideoAssetTrack atTime:videoAssetTrack.timeRange.duration error:nil];&apos;
+</code></pre><p>2) AVMutableAudioMix </p>
+<p>一个AVMutableAudioMix对象管理混合音轨的输入参数。它允许自定义音频处理在回放期间音轨或执行其他操作。</p>
+<!--0-->
+<pre><code>AVMutableAudioMix *mutableAudioMix = [AVMutableAudioMix audioMix];
+// Create the audio mix input parameters object.
+AVMutableAudioMixInputParameters *mixParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:mutableCompositionAudioTrack];
+// Set the volume ramp to slowly fade the audio out over the duration of the composition.
+[mixParameters setVolumeRampFromStartVolume:1.f toEndVolume:0.f timeRange:CMTimeRangeMake(kCMTimeZero, mutableComposition.duration)];
+// Attach the input parameters to the audio mix.
+mutableAudioMix.inputParameters = @[mixParameters];
+</code></pre><h3 id="4、Media-Capture媒体捕捉"><a href="#4、Media-Capture媒体捕捉" class="headerlink" title="4、Media Capture媒体捕捉:"></a>4、Media Capture媒体捕捉:</h3><p>1) AVCaptureDevice </p>
+<p>代表输入设备,如摄像头或麦克风</p>
+<p>2) AVCaptureInput </p>
+<p>输入设备的配置端口，我们可以理解为输入</p>
+<p>3）AVCaptureSession</p>
+<p>协调数据流从输入到输出,用startRunning开始从输入到输出的数据流,并调用stopRunning停止流动。采取关闭代理，保证取景器一直流动。</p>
+<p>4) AVCaptureOutput </p>
+<ul>
+<li><p>AVCaptureMovieFileOutput，输入到视频文件，代理AVCaptureFileOutputRecordingDelegate</p>
+</li>
+<li><p>AVCaptureVideoDataOutput，如果想要实时的处理每一帧数据，或想要有自己的图形动画，代理AVCaptureVideoDataOutputSampleBufferDelegate</p>
+</li>
+</ul>
+<ul>
+<li><p>AVCaptureAudioDataOutput ，音频数据，代理AVCaptureVideoDataOutputSampleBufferDelegate</p>
+</li>
+<li><p>AVCaptureStillImageOutput ，图片数据</p>
+</li>
+</ul>
+<p>5）AVCaptureVideoPreviewLayer </p>
+<p>实时展示被session传出出来的视频流数据，也就是我们的取景器</p>
+<p>6）AVCaptureConnection </p>
+<p>代表捕获之间的连接输入和输出对象关联到一个捕获会话。</p>
+<p><img src="/assets/images/AVCaptureConnection.jpg" alt=""></p>
+<h3 id="5、Export媒体输出"><a href="#5、Export媒体输出" class="headerlink" title="5、Export媒体输出:"></a>5、Export媒体输出:</h3><p>1) AVAssetExportSession</p>
+<p>针对AVAsset对象转码，创建一个输出的形式被指定出口预设内容。包括对输出媒体资源的属性设定，可以设置presetName进行视频品质压缩，AVAssetExportPresetLowQuality等。也可以设置属性包括：outputFileType<br>、fileLengthLimit、timeRange<br>等。</p>
+<p>2）AVAssetReader </p>
+<p>直接从媒体读取存储样本,获得样本解码成可渲染的形式。组合资产多个音轨和组合多个视频跟踪(通过使用AVAssetReaderAudioMixOutput和AVAssetReaderVideoCompositionOutput)。</p>
+<ul>
+<li>addOutPut</li>
+<li>startReading</li>
+<li>cancelReading</li>
+</ul>
+<p>读取一个音频：</p>
+<!--0-->
+<pre><code>AVAudioMix *audioMix = &lt;#An AVAudioMix that specifies how the audio tracks from the AVAsset are mixed#&gt;;
+// Assumes that assetReader was initialized with an AVComposition object.
+AVComposition *composition = (AVComposition *)assetReader.asset;
+// Get the audio tracks to read.
+NSArray *audioTracks = [composition tracksWithMediaType:AVMediaTypeAudio];
+// Get the decompression settings for Linear PCM.
+NSDictionary *decompressionAudioSettings = @{ AVFormatIDKey : [NSNumber numberWithUnsignedInt:kAudioFormatLinearPCM] };
+// Create the audio mix output with the audio tracks and decompression setttings.
+AVAssetReaderOutput *audioMixOutput = [AVAssetReaderAudioMixOutput assetReaderAudioMixOutputWithAudioTracks:audioTracks audioSettings:decompressionAudioSettings];
+// Associate the audio mix used to mix the audio tracks being read with the output.
+audioMixOutput.audioMix = audioMix;
+// Add the output to the reader if possible.
+if ([assetReader canAddOutput:audioMixOutput])
+[assetReader addOutput:audioMixOutput];
+</code></pre><p>3) AVAssetWriter</p>
+<p>使用一个AVAssetWriter对象媒体数据写入新文件指定视听的容器类型,如QuickTime电影文件或一个mp4文件,支持自动交叉媒体数据的多个并发的痕迹。</p>
+<ul>
+<li>initWithURL:fileType:error:</li>
+<li>startWriting</li>
+<li>startSessionAtSourceTime</li>
+<li>addInput</li>
+<li>endSessionAtSourceTime</li>
+<li>finishWritingWithCompletionHandler</li>
+</ul>
+<h2 id="二、代码实践："><a href="#二、代码实践：" class="headerlink" title="二、代码实践："></a>二、代码实践：</h2><blockquote>
+<h3 id="import-“TTCameraViewController-h”"><a href="#import-“TTCameraViewController-h”" class="headerlink" title="#import “TTCameraViewController.h”"></a>#import “TTCameraViewController.h”</h3></blockquote>
+<h2 id="三、问题回顾："><a href="#三、问题回顾：" class="headerlink" title="三、问题回顾："></a>三、问题回顾：</h2><h3 id="1、视频文件写入崩溃："><a href="#1、视频文件写入崩溃：" class="headerlink" title="1、视频文件写入崩溃："></a>1、视频文件写入崩溃：</h3><h4 id="现象："><a href="#现象：" class="headerlink" title="现象："></a>现象：</h4><p>相机开始拍摄就会出现崩溃，时而出现，有时难以复现。</p>
+<h4 id="原因与解决："><a href="#原因与解决：" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>1）startSessionAtSourceTime只能在 AVAssetWriterStatusWriting的之后调用，但是startWriting调用之后writer并没有立即变为writing状态，而已有一个极短的开始时间，参照苹果规范使用文档，只需要前面调用之后后面就可以跟着执行startSessionAtSourceTime，然而，我遇见了这问题，说明它并不是。随后我到stackoverflow上查了问题，发现有人早就提过，并没有答案，说是升级IOS8以后就没有了，可我这里是IOS9…随后我只能判断writer状态如果是writing就开始执行，如果不是就调用startWriting。</p>
+<p>2）[videoWriterInput appendSampleBuffer：xxx]这只能在startSessionAtSourceTime开始之后调用，和1是同样的情况，明明第一行调用了startSessionAtSourceTime，第二调用appendSampleBuffer就会崩溃，并且依旧是偶尔发生。但是这里的问题是没有一个状态可以判断是否已经开始startSessionAtSourceTime，这里就有点血崩了，不能像问题1一样判断解决，后来只好try catch了,稳住局面防止崩溃，丢失极少的毫秒级帧数。</p>
+<h3 id="2、相机拍摄闪烁抖动："><a href="#2、相机拍摄闪烁抖动：" class="headerlink" title="2、相机拍摄闪烁抖动："></a>2、相机拍摄闪烁抖动：</h3><h4 id="现象：-1"><a href="#现象：-1" class="headerlink" title="现象："></a>现象：</h4><p>开始拍摄时候，取景器闪烁抖动，引起一小部分可见范围内的视频内容发送抖动，并被存入文件中，体验差。</p>
+<h4 id="原因与解决：-1"><a href="#原因与解决：-1" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>在开始拍摄的时候，再去创建connection并传递设备和拍摄方向，有利于视频获取oritation，自然而然的横着拍摄也会竖着播放，但是问题在于connection的建立产生较大的链接，引起视频抖动，此抖动将被录制进入视频文件中。于是我采取在初始化input的时候就把connection就增加进去，当开始拍摄的时候不会发生抖动，但是牺牲的是视频的oritation需要自己根据用户拍摄的方向去手动修改视频方向。</p>
+<h3 id="3、视频方向混乱："><a href="#3、视频方向混乱：" class="headerlink" title="3、视频方向混乱："></a>3、视频方向混乱：</h3><h4 id="现象：-2"><a href="#现象：-2" class="headerlink" title="现象："></a>现象：</h4><p>背面摄像头拍摄，home键在下，拍摄出来的视频文件，在播放的时候，底部在手机右边，而不是底边，一次类推，home键在底部与视频的底部角度成90垂直关系。</p>
+<h4 id="原因与解决：-2"><a href="#原因与解决：-2" class="headerlink" title="原因与解决："></a>原因与解决：</h4><!--0-->
+<pre><code>self.videoOutPut = [[AVCaptureVideoDataOutput alloc] init];
+NSDictionary * outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA],(id)kCVPixelBufferPixelFormatTypeKey, nil];
+[self.videoOutPut setVideoSettings:outputSettings];
+
+//必须
+if ([self.session canAddOutput:self.videoOutPut]) {
+    [self.session addOutput:self.videoOutPut];
+}
+
+//先于
+self.videoConnection = [self.videoOutPut connectionWithMediaType:AVMediaTypeVideo];
+self.videoConnection.enabled = NO;
+[self.videoConnection setVideoOrientation:AVCaptureVideoOrientationPortrait];
+</code></pre><h3 id="4、横着拍摄的视频横着播放："><a href="#4、横着拍摄的视频横着播放：" class="headerlink" title="4、横着拍摄的视频横着播放："></a>4、横着拍摄的视频横着播放：</h3><h4 id="现象：-3"><a href="#现象：-3" class="headerlink" title="现象："></a>现象：</h4><p>横着拍摄的视频，放的时候是竖着的。</p>
+<h4 id="原因与解决：-3"><a href="#原因与解决：-3" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>因为上面解决视频抖动，导致不能直接设定拍摄时候的视频方向，从而需要根据手动的拍摄方向去修改视频的视图的方向。<br>考虑到用户可能锁住屏幕旋转，于是就CMMotionManager获取重力方向来判断，在VC出现或者开始拍摄的时候开启，在VC退出或者拍摄完成的的时候关闭。获得方向后，在视频的写入里直接修改方向即可。</p>
+<!--0-->
+<pre><code>[videoWriterInput setTransform:CGAffineTransformScale(CGAffineTransformMakeRotation(-M_PI_2), 1.0, 1.0)];
+</code></pre><h3 id="5、录制视频有右边和底边绿色线条："><a href="#5、录制视频有右边和底边绿色线条：" class="headerlink" title="5、录制视频有右边和底边绿色线条："></a>5、录制视频有右边和底边绿色线条：</h3><h4 id="现象：-4"><a href="#现象：-4" class="headerlink" title="现象："></a>现象：</h4><p>手机全屏录制的时候，设置视频输出宽度为手机的宽高，当宽高为基数的时候视频录制里面会出现绿色线条。</p>
+<h4 id="原因与解决：-4"><a href="#原因与解决：-4" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>不知道原因，神奇的bug，参照着段子的视频方法解决的，直接修改视频输出宽高为偶数。</p>
+<!--0-->
+<pre><code>NSInteger videoWidth = [[NSNumber numberWithFloat:self.view.frame.size.width] integerValue];
+NSInteger videoHeight = [[NSNumber numberWithFloat:self.view.frame.size.height] integerValue];
+if (videoWidth % 2 == 1) {
+    videoWidth = videoWidth - 1;
+}
+if (videoHeight % 2 == 1) {
+    videoHeight = videoHeight - 1;
+}
+</code></pre>]]></content>
+      
+        
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[换肤功能的实现]]></title>
+      <url>/2016/01/21/%E6%8D%A2%E8%82%A4%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/</url>
+      <content type="html"><![CDATA[<h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>市面上的应用常见换肤功能，归纳下来可谓两类形式，一种是普通的切换皮肤颜色，比如今日头条的夜间阅读模式，另外一种是节假日喜庆皮肤，比如淘宝京东每逢双十一的炫酷界面，来头条后刚好接触到这方面的学习，写篇文章总结下。</p>
+<h3 id="二、头条夜间阅读模式"><a href="#二、头条夜间阅读模式" class="headerlink" title="二、头条夜间阅读模式"></a>二、头条夜间阅读模式</h3><p>1、定制</p>
+<p>一般的视图大多继承自UIView，但是也存在没有继承比如UIBarButtonItem，更换主题的时候，不同视图需要更换的属性比如textColor、backgroundColor和UIImageView的图片也不同，所以也难避免需要一种一种的找出来进行视图的定制。</p>
+<p>新建一个SSThemed.h文件，里面定义的所有视图都需要绑定一个主题的key值，每一种key值对应了不同主题下的各个颜色。<br>设置一个视图为浅白色的，key值是backgrounColor4，在白天的时候对应的是#ffffff,在夜间的时候对应的是#252525。</p>
+<p>比如SSThemedView这个类，其实就是继承自UIView，绑定了关于背景和边框线的主题键即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@interface SSThemedView : SSViewBase</div><div class="line"></div><div class="line">@property(nonatomic, copy) IBInspectable NSString *backgroundColorThemeKey;</div><div class="line">@property(nonatomic, copy) IBInspectable NSString *borderColorThemeKey;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>而像文本输入框这样的视图继承自UITextView，就要相对多2个属性，因为包含文字颜色</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@interface SSThemedTextView : UITextView</div><div class="line">@property(nonatomic, copy) IBInspectable NSString *borderColorThemeKey;</div><div class="line">@property(nonatomic, copy) IBInspectable NSString *textColorThemeKey;</div><div class="line">@property(nonatomic, copy) IBInspectable NSString *placeholderColorThemeKey;</div><div class="line">@property(nonatomic, copy) IBInspectable NSString *backgroundColorThemeKey;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>其他类似，比如UIImageView，但是图片会多一个图片name属性，这个是由开发者自己添加的，主题切换的时候需要自己处理，我们接下往下看。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@interface SSThemedImageView : UIImageView</div><div class="line"></div><div class="line">@property(nonatomic, copy) IBInspectable NSString *imageName;</div><div class="line">@property(nonatomic, copy) IBInspectable NSString *highlightedImageName;</div><div class="line">@property(nonatomic, copy) IBInspectable NSString *tintColorThemeKey;</div><div class="line">@property(nonatomic, copy) IBInspectable NSString *hightlightedTintColorThemeKey;</div><div class="line">@property(nonatomic, assign) IBInspectable BOOL enableNightCover;</div><div class="line">@property(nonatomic) CGSize preferredContentSize;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>2、管理主题的manager</p>
+<p>创建一个全局单例的TTThemeManager，用于读取配置管理主题和记录用户选择主题操作。头条的做法是将尽可能使用到的主题放在一个默认的plist文件中，有与头条只有夜间模式和白天模式，所以通过plist存储颜色值基本可以满足配置要求，应用启动的时候管理器读取应用包里的配置。白天对应的plist是default_theme.plist，夜间对应的是night_theme.plist，里面存放的key值是相同的，如上所述，不同文件里相同key对应的颜色值不一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (NSDictionary *)dictionaryForBundle:(NSString *)bundleName theme:(NSString*)themeName &#123;</div><div class="line">    if (!bundleName) bundleName = @&quot;TTThemed&quot;;</div><div class="line">    </div><div class="line">    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:bundleName ofType:@&quot;bundle&quot;];</div><div class="line">    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];</div><div class="line">    </div><div class="line">    NSString *fileName = [NSString stringWithFormat:@&quot;%@_theme&quot;, themeName];</div><div class="line">    NSString *path = [bundle pathForResource:fileName ofType:@&quot;plist&quot;];</div><div class="line">    if (![[NSFileManager defaultManager] fileExistsAtPath:path]) &#123;</div><div class="line">        path = [[NSBundle mainBundle] pathForResource:@&quot;default_theme&quot; ofType:@&quot;plist&quot;];</div><div class="line">    &#125;</div><div class="line">    return [NSDictionary dictionaryWithContentsOfFile:path];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3、主题切换</p>
+<p>头条内部夜间模式和白天模式切换，通过发出一个全局的通知NSNotification到各个组件，组件收到通知事件通过mananger读取当前的主题，也就是当前是白天还是夜间，然后获取当前绑定的颜色key值在该主题下所对应的颜色。</p>
+<p>针对背景颜色和边框颜色的情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (void)_customThemeChanged:(NSNotification *)notification &#123;</div><div class="line">    if (!isEmptyString(_backgroundColorThemeKey)) &#123;</div><div class="line">        self.backgroundColor = [UIColor tt_themedColorForKey:_backgroundColorThemeKey];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UIColor *)themedColorForKey:(NSString *)key &#123;</div><div class="line">    if (self.currentTheme &amp;&amp; [self.currentTheme[@&quot;colors&quot;] valueForKey:key]) &#123;</div><div class="line">        NSString *colorString = [self.currentTheme[@&quot;colors&quot;] valueForKey:key];</div><div class="line">        </div><div class="line">        UIColor *color = [self.colorCache objectForKey:colorString];</div><div class="line">        </div><div class="line">        if (!color) &#123;</div><div class="line">            color = [UIColor colorWithHexString:colorString];</div><div class="line">            </div><div class="line">            if (color) &#123;</div><div class="line">                [self.colorCache setObject:color forKey:colorString];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        return color;</div><div class="line">    &#125;</div><div class="line">    return nil;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>针对图片替换情况，开发者在建议有主题变化的ImageView的时候需要提供两套图片，一个是白天的，一个是夜晚，并且需要遵循一定的规则，比如白天的名字叫XXX.png,那么夜晚的名字就是白天的名字加上后缀_night,也就是XX_night.png。当主题发生变化的时候，UIImageView自动寻找对应的后缀名的图片文件替换。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"> if ([[TTThemeManager sharedInstance_tt] currentThemeMode] == TTThemeModeNight) &#123;</div><div class="line">        if (noNightModeFileNameSet == nil) &#123;</div><div class="line">            noNightModeFileNameSet = [[NSMutableSet alloc] initWithCapacity:100];</div><div class="line">        &#125;</div><div class="line">        if ([noNightModeFileNameSet containsObject:fixedName]) &#123;</div><div class="line">            return [UIImage imageNamed:fixedName];</div><div class="line">        &#125;</div><div class="line">        if ([TTDeviceHelper is667Screen] || [TTDeviceHelper is736Screen]) &#123;</div><div class="line">            NSString * name = hdImageNamed(fixedName, YES);</div><div class="line">            UIImage * image = [UIImage imageNamed:name];</div><div class="line">            if (image) &#123;</div><div class="line">                [noNightModeFileNameSet addObject:name];</div><div class="line">                return image;</div><div class="line">            &#125;</div><div class="line">            name = hdImageNamed(fixedName, NO);</div><div class="line">            image = [UIImage imageNamed:name];</div><div class="line">            if (image) &#123;</div><div class="line">                [noNightModeFileNameSet addObject:name];</div><div class="line">                return image;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        NSString * fileNameWithNightModelSuffix = [self fileNameAddNightModelSuffix:fixedName];</div><div class="line">        </div><div class="line">        UIImage * img = [UIImage imageNamed:fileNameWithNightModelSuffix];</div><div class="line">        if (img != nil) &#123;</div><div class="line">            return img;</div><div class="line">        &#125;</div><div class="line">        [noNightModeFileNameSet addObject:fixedName];</div><div class="line">        return [UIImage imageNamed:fixedName];</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line"></div><div class="line">+ (NSString * )fileNameAddNightModelSuffix:(NSString *)originName</div><div class="line">&#123;</div><div class="line">    NSMutableString *resultName = [NSMutableString stringWithString:originName];</div><div class="line">    </div><div class="line">    NSRange lastPoint = [resultName rangeOfString:@&quot;.&quot; options:NSBackwardsSearch];</div><div class="line">    if(lastPoint.location != NSNotFound) &#123;</div><div class="line">        [resultName insertString:nightModelSuffixStr atIndex:lastPoint.location];</div><div class="line">    &#125; else &#123;</div><div class="line">        [resultName appendString:nightModelSuffixStr];</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return resultName;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="三、节假日的喜庆皮肤"><a href="#三、节假日的喜庆皮肤" class="headerlink" title="三、节假日的喜庆皮肤"></a>三、节假日的喜庆皮肤</h3><p>与阅读模式有些微区别，虽然本质上可以使用一套，但是节日假通常是根据节假日时间出现和消失，并且不是属于用户行为，而是应用开发方进行的控制，有了上述的方法的基础，不使用默认提供的theme组件，我们再节假日单独变更的页面可以采用入下实现方式。</p>
+<p>1、首先需要定制符合需求的UI组件</p>
+<p>2、下发数据使用接口</p>
+<p>我们可以合server约定类型，在参数为1-10的时候表示为10中主题，当下发参数为0的时候客户端显示默认设计样式，不走本地主题的逻辑，下发的数据格式举例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;home_navi&quot;: &#123;</div><div class="line">        &quot;colors&quot;: &#123;</div><div class="line">            &quot;color_background&quot;: &quot;#ffffff&quot;</div><div class="line">        &#125;,</div><div class="line">        &quot;images&quot;: &#123;</div><div class="line">            &quot;image_logo&quot;: &quot;home_topLogo&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    &quot;home_tabbar&quot;: &#123;</div><div class="line">        &quot;colors&quot;: &#123;</div><div class="line">            &quot;color_background&quot;: &quot;#F9F9F9&quot;,</div><div class="line">            &quot;color_button_normal&quot;: &quot;#999999&quot;,</div><div class="line">            &quot;color_button_selected&quot;: &quot;#444444&quot;</div><div class="line">        &#125;,</div><div class="line">        &quot;images&quot;: &#123;</div><div class="line">            &quot;image_one_button_normal&quot;: &quot;tab按钮1图片&quot;,</div><div class="line">            &quot;image_one_button_selected&quot;: &quot;tab按钮1选中图片&quot;,</div><div class="line">            &quot;image_two_button_normal&quot;: &quot;tab按钮2图片&quot;,</div><div class="line">            &quot;image_two_button_selected&quot;: &quot;tab按钮2选中图片&quot;,</div><div class="line">            &quot;image_three_button_normal&quot;: &quot;tab按钮2图片&quot;,</div><div class="line">            &quot;image_three_button_selected&quot;: &quot;tab按钮2选中图片&quot;</div><div class="line">        &#125;,</div><div class="line">        &quot;values&quot;: &#123;</div><div class="line">            &quot;value_one_button&quot;: &quot;tab按钮1&quot;,</div><div class="line">            &quot;value_two_button&quot;: &quot;tab按钮2&quot;,</div><div class="line">            &quot;value_three_button&quot;: &quot;tab按钮3&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    &quot;loading&quot;: &#123;</div><div class="line">        &quot;resources&quot;: &#123;</div><div class="line">            &quot;resource_refreshImage&quot; : &quot;refresh.gif&quot;</div><div class="line">        &#125; </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3、下发使用压缩包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@interface SSZipArchive : NSObject</div><div class="line"></div><div class="line">// Password check</div><div class="line">+ (BOOL)isFilePasswordProtectedAtPath:(NSString *)path;</div><div class="line"></div><div class="line">// Unzip</div><div class="line">+ (BOOL)unzipFileAtPath:(NSString *)path toDestination:(NSString *)destination;</div><div class="line">+ (BOOL)unzipFileAtPath:(NSString *)path toDestination:(NSString *)destination delegate:(nullable id&lt;SSZipArchiveDelegate&gt;)delegate;</div><div class="line"></div><div class="line">//...</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h3 id="4、优化"><a href="#4、优化" class="headerlink" title="4、优化"></a>4、优化</h3><p>头条在使用皮肤切换的存储上其实可以通过下发的处理，更加灵活和方便产品变动。主调颜色一致是红色，也没有节假日的活动皮肤，其实个人认为可以多增加点产品上的小体验，大红色好单调哦，主题可以多定制几个，而不是只有夜间模式。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[入职今日头条]]></title>
+      <url>/2016/01/04/%E5%85%A5%E8%81%8C%E4%BB%8A%E6%97%A5%E5%A4%B4%E6%9D%A1/</url>
+      <content type="html"><![CDATA[<p>2015年过去的很快，这一年算是自己工作的上升成长期，由毕业后最初的踏入到如今完全接受自己的工作领域和环境，并能正常的快速加入新的公司和团队，这是我这一年来最大的变化。人总是在不断的认知中成长，在去哪儿那会生活很安逸舒适，其他部门加班成狗的时候，我们无线部门依旧正常上下班，相信这也是移动发版周期化带来的好处，急了也急不了多少，慢也慢不起来，所以一切都再正常的时间里做着正常的事情里度过。到15年7月，自己的水平已经进步了，恰逢学长开始创业，叫我一起干，原本就看着互联网大潮的我愉快的加入了。之后在里面独立承担开发APP 的任务，收货颇多。可毕竟不是个以产品支撑的企业，随着资本市场的低谷，我们的汽车业务数据起不来的结果就是最后度日艰难。到我离开的时候，互联网领域依旧低调，前面后试了许多知名企业，也拿到了一些Offer，还是对自己更加肯定，可是环境毕竟不是我想要得，想起自己从前的日子，年轻人暂时还不想过得太安逸。后来，我来到了今日头条，一个快速发展的公司，处于上升期，公司对员工很不错，并且也符合了我的预期，我相信在这里我会有更多的成长。到今天也入职半月，对公司的节奏基本把握和适应，对工作的需求已经开展中了。正好，2016年，新年开始，我希望自己在新的一年里，整个安心稳定的工作，加大工作的力度，却不要追逐速度，要沉稳，要踏实，在自己的开发领域里有新的突破，对开发的认知更进一步，对技术的使用更深一层。针对头条的客户端能够熟悉并搭建工程结构，在某一方面或者某一块能够完全胜任管理，能够快速开发，能够应用和分享新的技术，并实践在客户端中。这一切都离不开同事们的交流，希望同事能够把一些坑和经验写入wiki文档，成为大家一起分享的资料，有说明才有更好的合作开发，也希望组长能够多多指点，让我能有力去做出一些付出，希望公司越来越好。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 总结 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[我短暂的创业经历]]></title>
       <url>/2015/12/21/%E6%88%91%E7%9F%AD%E6%9A%82%E7%9A%84%E5%88%9B%E4%B8%9A%E7%BB%8F%E5%8E%86/</url>
       <content type="html"><![CDATA[<p>互联网圈内，去哪儿旅行对外展示着的形象是加班多，偶尔还传出员工猝死的消息，然而任何一家公司也并不是每个部门都加班，并不是每个部门都有那么多亟不可待的业务需要去追赶，反而，在这里，我每天的工作自在舒适，按需完成，加班是很少的，如果你不想去外面的世界翻滚，这里就是你长久生养之地。那个时候我就是一枚螺丝开发，由于业务需求没有那么多，所以每日我只需要自己安排完成一定的工作量即可，有时候需求周期因为各端同事的配合时间也会被拉长，所以其实我大部分时间就是在自己浏览学习，没有实际的业务上手实践。而与此同时，互联网界正在迅猛发展，每天看着的都是各自CEO的诞生，各自融资拿钱拿到手软，这不禁也影响着我。<br>所以，尽管如此，尽管这里是整个互联网最安逸的体现，到了今年的7月份时候，我还是决心离开这温暖的被窝，离开我每日安享的梦境，全心投身创业。我却开始有些难过，因为那是我第一份工作，和去哪儿也是很有缘分的说，跟大家告别的时候特别伤心。一阵心塞之后，我的雄心开始燃烧，总是想着要闯出一片天地，对未来充满希望和无限遐想，想到我会享受着创业成就感与创业艰辛的交织幸福感，内心便激动起来。</p>
@@ -1630,6 +1865,99 @@
         <tags>
             
             <tag> 总结 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[FE进阶之路]]></title>
+      <url>/2015/10/15/%E5%89%8D%E7%AB%AFFE%E9%80%9F%E6%88%90/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>转移动端开发之前，曾是名呆萌的FE，在学校的时候还算勤劳，上线了大大小小的产品，冰岩作坊见证了我的成长，认识了很多朋友。如今回顾一下，整理一条前端之路。</p>
+</blockquote>
+<h2 id="知识谱图"><a href="#知识谱图" class="headerlink" title="知识谱图"></a>知识谱图</h2><p><img src="/assets/images/feTotal.png" alt=""></p>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><h3 id="一、语言"><a href="#一、语言" class="headerlink" title="一、语言"></a>一、语言</h3><h3 id="1、HTML"><a href="#1、HTML" class="headerlink" title="1、HTML"></a>1、HTML</h3><h4 id="1-1-理解"><a href="#1-1-理解" class="headerlink" title="1.1 理解"></a>1.1 理解</h4><ul>
+<li><p><code>HyperText Markup Language</code>超文本标记语言。语言自不必说，超文本意味着『将网页彼此连接链接，超越了传统意义上的书本文字』，标记则说明了语言的特点是描述性的。比如可以通过标签来描述内容：<code>&lt;h1&gt;</code>是一个标题(headline)；<code>&lt;p&gt;</code>是一个段落(paragraph)；<code>&lt;code&gt;</code>是一段代码等等。还可以通过声明属性进一步描述如<code>&lt;input class=&quot;form-inline&quot; id=&quot;gender-input-female&quot; type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt;</code>。HTML是一门应当注重语义化的语言，尤其在HTML5的规范中更是强调此，如增加了<code>&lt;article&gt;``&lt;section&gt;</code>等标签。</p>
+</li>
+<li><p>标签有自闭和和成对闭合两种，具体规则要参考规范，注意自闭合标签结尾的反斜杠不是必须的。常见的自闭合标签是<code>&lt;img&gt;</code>，<code>&lt;input&gt;</code>。</p>
+</li>
+<li><p>HTML在被浏览器渲染时，会有两种元素，非替换元素指的是其内容无需被浏览器替换，直接显示即可。而替换原素则需要浏览器进行转换才能正常工作，如<code>&lt;img&gt;&lt;textarea&gt;&lt;canvas&gt;</code></p>
+</li>
+<li><p>HTML中也可以嵌入如SVG等其他语言内容。</p>
+</li>
+</ul>
+<h3 id="2、CSS"><a href="#2、CSS" class="headerlink" title="2、CSS"></a>2、CSS</h3><h4 id="2-1-理解"><a href="#2-1-理解" class="headerlink" title="2.1 理解"></a>2.1 理解</h4><ul>
+<li><code>Cascading Style Sheets</code>层叠样式表。表自不必说，样式也是顾名思义，关键点在于层叠。CSS的层叠体现在选择器的关系上：通过选择器的优先级来决定样式的使用与否，能够灵活的控制HTML元素的样式。</li>
+<li>一个普通的『规则』由如下部分组成：选择器+声明块（声明由属性：值组成），此外还有@语句，可用于媒体查询、引入文件等，在此略过。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.class &#123;</div><div class="line">    color: rgba(0,0,0,.6);</div><div class="line">    transition: height .3s ease-in-out .5s;</div><div class="line">    -webkit-tap-highlight-color: transparent;</div><div class="line">&#125; </div><div class="line"></div><div class="line">.night .class &#123;</div><div class="line">    color: black;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>由于浏览器纷争以及标准的制定落后于市场，CSS存在着很严重的兼容性问题。具体问题暂且不表，但为了解决这些问题，业界目前普遍使用『预处理器』和『后处理器』来增强CSS。</li>
+</ul>
+<p>a、 预处理器主要是通过对CSS进行改编或扩展行成一种新的语言，然后通过『预处理器』编译为可被浏览器使用的CSS。常见的就是LESS和SCSS。<br>b、 后处理器是指在生成一个标准的CSS后，进行一些列的优化的工具。如用于自动补充各浏览器前缀的autoprefixer；用于去除冗余css的CSSClean等。大都依赖于PostCSS这个工具。</p>
+<h3 id="3、JavaScript"><a href="#3、JavaScript" class="headerlink" title="3、JavaScript"></a>3、JavaScript</h3><h4 id="3-1-理解"><a href="#3-1-理解" class="headerlink" title="3.1 理解"></a>3.1 理解</h4><p>这个没有一个明确的翻译，名字里有Java纯粹是为了蹭热度。广义上的JS由其语言核心+DOM+BOM组成。</p>
+<ul>
+<li>JavaScript有一个比较简单的出生，但有个比较折腾的成长。目前其标准属于EcmaScript（Flash使用的ActionScript也是这个标准下的产物），现在的版本是第7版，正式名是ES2017，前几天刚定稿，老浏览器都不支持，需要通过bable工具转换为第5版才能让绝大多数浏览器正常执行。</li>
+<li>JS是弱类型语言，其基本数据类型有number/boolean/string/undefined/symbol/(null)、引用类型object，包括function和array。基本类型按值访问，引用类型按地址访问。基本数据类型用typeof区分，引用类型需要使用instanceof或其特殊的判断方法区分。</li>
+<li>在ES5时代变量作用域仅限于函数内，ES6后通过let能指定块级作用于。var存在变量提升，是个bug隐患点。</li>
+<li>ES5时代没有定义class，可以通过function+prototype的方式模拟一个类。JS的继承主要是通过原型链实现的：<code>instance.__proto__.....__proto__ === Class.prototype</code>。</li>
+<li>DOM（文档对象模型）描述了处理网页内容的方法和接口。如document.getElementById。</li>
+<li>BOM（浏览器对象模型）描述了与浏览器进行交互的方法和接口。如location.href。</li>
+<li>通过XMLHttpRequest发送HTTP请求，可以通过指定异步的方式实现AJAX。异步请求存在同源限制。</li>
+<li>ES6规范中明确了异步操作的推荐做法即Promise。<br>主要理解两点：异步与事件驱动。两者相互结合构成了现在的JS的运行逻辑。</li>
+<li>TypeScript<br>微软推出谷歌力捧的JS超集，实现了强类型、类等诸多C++、Java功能，目前也需要通过编译才能执行，未有浏览器原生支持。</li>
+</ul>
+<h3 id="二、代码执行环境"><a href="#二、代码执行环境" class="headerlink" title="二、代码执行环境"></a>二、代码执行环境</h3><h3 id="1、浏览器"><a href="#1、浏览器" class="headerlink" title="1、浏览器"></a>1、浏览器</h3><ul>
+<li>浏览器的历史不过多介绍，当前PC主流有Chrome和IE/Edge两个，其余的Firefox、safari都很小众。这三类都是独自研制开发。移动端上的主流几乎只有Safari和Chrome两种。</li>
+<li>单独谈渲染引擎主流的有Webkit(Blink)、Trident、Gecko。单独谈JS引擎主要有V8、charkra等。</li>
+</ul>
+<h3 id="2、Node-js"><a href="#2、Node-js" class="headerlink" title="2、Node.js"></a>2、Node.js</h3><p>Node.js®是一个基于Chrome V8 引擎的 JavaScript 运行时。 Node.js 使用高效、轻量级的事件驱动、非阻塞 I/O 模型。Node.js 之生态系统是目前最大的开源包管理系统。</p>
+<h3 id="三、代码执行流程"><a href="#三、代码执行流程" class="headerlink" title="三、代码执行流程"></a>三、代码执行流程</h3><h3 id="1、编译"><a href="#1、编译" class="headerlink" title="1、编译"></a>1、编译</h3><p>以现阶段的通常情况来看，我们采用超前的ES6、ES7来写JS，用Less写CSS，用React等来实现View，这些代码通过import/export引用和发布。然后通过webpack、fis等工具『编译』成能被浏览器执行的HTML/JS/CSS。</p>
+<h3 id="2、部署："><a href="#2、部署：" class="headerlink" title="2、部署："></a>2、部署：</h3><p>其中HTML如果涉及到与后端数据的直接耦合，则被认为是『模板』，部署到相应的接入层逻辑指定的线上地址，而其他内容如.js/.css/.png/.svg等，则与服务端分离，部署在CDN上以提供更快的访问速度。这个过程主要的问题在于如何控制浏览器缓存（HTTP缓存）。</p>
+<h3 id="3、访问："><a href="#3、访问：" class="headerlink" title="3、访问："></a>3、访问：</h3><p>从URL被请求到HTML被返回的逻辑就暂且略去，主要谈HTML返回后的过程。<br>这一部分以真实请求的Performance为例讲解吧。不赘述？？？？后续找几篇文章填补空白。</p>
+<h3 id="4、JSBridge-链接跳转"><a href="#4、JSBridge-链接跳转" class="headerlink" title="4、JSBridge(链接跳转)"></a>4、JSBridge(链接跳转)</h3><ul>
+<li>JS → Native：发特定规则的url，被native拦下来就好了。</li>
+<li>Native → JS：Native可以在JSContext中注入代码，或者通过javascript:xxxx这种方式调用。</li>
+</ul>
+<h3 id="四、常见的问题与debug"><a href="#四、常见的问题与debug" class="headerlink" title="四、常见的问题与debug"></a>四、常见的问题与debug</h3><h3 id="1、如何获取与定位问题"><a href="#1、如何获取与定位问题" class="headerlink" title="1、如何获取与定位问题"></a>1、如何获取与定位问题</h3><ul>
+<li>最好用的工具就是chrome的开发者工具了。<h3 id="2、为什么会白页"><a href="#2、为什么会白页" class="headerlink" title="2、为什么会白页"></a>2、为什么会白页</h3></li>
+<li>一种是JS的BUG导致的，一般来说在相同文件内的JS会由于错误阻塞运行。也就是上文有错，下文直接挂。当渲染在下文时就容易出现这种问题。</li>
+<li>另一种情况比较少见就是在load事件后调用document.write导致。</li>
+</ul>
+<h3 id="3、XSS与CSRF"><a href="#3、XSS与CSRF" class="headerlink" title="3、XSS与CSRF"></a>3、XSS与CSRF</h3><ul>
+<li>XSS是老生常谈的话题了，主要是由于HTML语言的『保留字』（&lt; &gt; ‘ “ ）被直接使用导致，大部分能够通过HTML转义避免。<br>CSRF现在大都不常见了，基本通过加密token校验来避免。<h3 id="4、性能"><a href="#4、性能" class="headerlink" title="4、性能"></a>4、性能</h3></li>
+<li>为何觉得卡，是因为人眼的构造决定的，实际上没有连续的动画，动画都是一帧一帧组成的。如果普通大众能接受60帧，那就意味着对HTML的相应操作要在1000/60m=16ms内执行完毕，才不会掉帧。</li>
+<li>还是可以通过chrome的preformance工具来进行定位。</li>
+</ul>
+<h3 id="五、「框架」新时代"><a href="#五、「框架」新时代" class="headerlink" title="五、「框架」新时代"></a>五、「框架」新时代</h3><ul>
+<li>jQurey、Bootstrap：这个时代的特点就是乱，文件瞎引用，样式瞎写，但干起活来就是快，维护体验很差。</li>
+<li>backbone：开始有了一些思想，主要是类比了MVC，在前端也搞了全套的M-V-C，强调数据-模板（样式）-逻辑分离。</li>
+<li>MVVM：再后来开始分化，一些人觉得C不足以表意，因为其实干来干去都是在操作M和V，不如就叫VM，所以是MVVM。另一些人觉得前端这么简单的事儿不要搞复杂留着V就足够了，也就出现了MVVM的代表Angular，和纯View层的代表React。</li>
+<li>Vue.js:渐进式框架,Vue 从根本上采用最小成本、渐进增量的设计。Vue 的核心库只专注于视图层，并且很容易与其他第三方库或现有项目集成。</li>
+</ul>
+<h3 id="六、新技术"><a href="#六、新技术" class="headerlink" title="六、新技术"></a>六、新技术</h3><ul>
+<li>PWA：（ Progressive Web Apps，渐进式网页应用）是由谷歌提出的新一代 Web 应用概念，旨在提供可靠、快速、类似 Native 应用的服务方案。</li>
+<li>AMP：谷歌提倡的一些列『最佳实践』，通过实现这些最佳实践，大概率能让你的网站速度飙升。</li>
+<li>reactNative、Weex：以虚拟DOM技术为核心，尝试将其用非Web技术渲染执行。</li>
+<li>webSocket：在HTTP2出现以前，提供的一个基于TCP的socket应用接口，全双工、可二进制传输是其特点。</li>
+<li>WebGL：基于canvas和OpenGL，使得web也能进行大型游戏和渲染场景的制作。</li>
+<li>WASM：厉害了，所有能被JS实现的最终都会被JS实现。类似安卓的so。</li>
+<li>微信小程序：个人理解是：对现有限制浏览器体验的内容删减，纯数据驱动以限制web能力，缓存模板甚至缓存运行时以提升性能，提供了一个本质还是浏览器的东西。</li>
+<li>Electron： 打包一个浏览器，钉钉。</li>
+</ul>
+<h3 id="七、讨论"><a href="#七、讨论" class="headerlink" title="七、讨论"></a>七、讨论</h3><ul>
+<li>对残障人士更友好的网页：这个话题里中国比较远，下一题。</li>
+<li>HybridApp：这个题好，其实非核心功能和弱交互功能，完全可以交给web实现。而web主要性能受限的网络则可以通过Hybrid的方式预先集成到App内部，需要时就能立刻提供服务。类似PWA。</li>
+<li>参考书籍与站点 ：<br>《JavaScript高级程序设计》、《深入理解ES6》、Google Developer Docs、Mozilla Web Docs</li>
+<li>常用工具 ：caniuse 查兼容性的神器、tinypng 压缩图片好工具</li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 开发 </tag>
             
         </tags>
         
@@ -1693,6 +2021,40 @@
 <li>Safari: Safari-&gt;首选项-&gt;高级-&gt;打开 ‘在菜单中显示开发’ 选项</li>
 <li>调试流程:Safari-&gt;开发-&gt;找到需要调试的设备-&gt;找到需要调试的页面</li>
 <li>BTW: 可用于检测WebView实例的内存泄露</li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[自动布局 Masonry]]></title>
+      <url>/2015/07/22/%E8%87%AA%E5%8A%A8%E5%B8%83%E5%B1%80%20Masonry/</url>
+      <content type="html"><![CDATA[<h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>苹果出了新机型后需要进行适配，同时也给开发者提供了一套自动布局方案NSLayoutConstraint,不仅可以代码中实现约束，还可以在Xib上实现直接的约束。不过说实在的，因为它那冗长而又丑爆的语法，写一个约束要写那么多行，几个视图下来的代码结构比较难看，因此我是拒绝使用的，好在Masonry对它进行了友好封装，所以我才没有放弃对它更上一层的使用。</p>
+<h3 id="二、Masonry"><a href="#二、Masonry" class="headerlink" title="二、Masonry"></a>二、Masonry</h3><h3 id="1、常规用法"><a href="#1、常规用法" class="headerlink" title="1、常规用法"></a>1、常规用法</h3><p>比如我们要写一个视图，他距离父视图的上边77pt,距离左边4pt,超出右边10pt,距离下边20pt,使用如下写法比系统自带的语法简洁很多，由于masonry的链式语法使你能够连续调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">UIView *view = [[UIView alloc]init];</div><div class="line">    </div><div class="line">[self.view addSubview:view];</div><div class="line">    </div><div class="line">[view1 mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">        make.top.equalTo(self.view.mas_top).with.offset(77);</div><div class="line">        make.left.equalTo(self.view.mas_left).with.offset(4);</div><div class="line">        make.bottom.equalTo(self.view.mas_bottom).with.offset(-10);</div><div class="line">        make.right.equalTo(self.view.mas_right).with.offset(20);</div><div class="line"> &#125;];</div></pre></td></tr></table></figure>
+<h3 id="2、链式语法"><a href="#2、链式语法" class="headerlink" title="2、链式语法"></a>2、链式语法</h3><p>接下来我们分析下，是如何在OC的语法中实现链式调用的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *))block &#123;</div><div class="line">    self.translatesAutoresizingMaskIntoConstraints = NO;</div><div class="line">    MASConstraintMaker *constraintMaker = [[MASConstraintMaker alloc] initWithView:self];</div><div class="line">    block(constraintMaker);</div><div class="line">    return [constraintMaker install];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>首先第一个方法可以看到，我们将block实现，但是在方法内部就直接执行了block,其实就相当于调用了一次，进来先关闭了视图的系统默认约束，然后创建了一个MASConstraintMaker并将它传回，这样我们才能在block内部进行约束赋值。用于方法属于view的一个category分类，所以此处就将MASConstraintMaker与View进行了绑定。我看接着看.top方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint *)top &#123;</div><div class="line">    return [self addConstraintWithLayoutAttribute:NSLayoutAttributeTop];</div><div class="line">&#125;</div><div class="line">- (MASConstraint *)addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    return [self constraint:nil addConstraintWithLayoutAttribute:layoutAttribute];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (MASConstraint *)constraint:(MASConstraint *)constraint addConstraintWithLayoutAttribute:(NSLayoutAttribute)layoutAttribute &#123;</div><div class="line">    MASViewAttribute *viewAttribute = [[MASViewAttribute alloc] initWithView:self.view layoutAttribute:layoutAttribute];</div><div class="line">    MASViewConstraint *newConstraint = [[MASViewConstraint alloc] initWithFirstViewAttribute:viewAttribute];</div><div class="line">    if ([constraint isKindOfClass:MASViewConstraint.class]) &#123;</div><div class="line">        //replace with composite constraint</div><div class="line">        NSArray *children = @[constraint, newConstraint];</div><div class="line">        MASCompositeConstraint *compositeConstraint = [[MASCompositeConstraint alloc] initWithChildren:children];</div><div class="line">        compositeConstraint.delegate = self;</div><div class="line">        [self constraint:constraint shouldBeReplacedWithConstraint:compositeConstraint];</div><div class="line">        return compositeConstraint;</div><div class="line">    &#125;</div><div class="line">    if (!constraint) &#123;</div><div class="line">        newConstraint.delegate = self;</div><div class="line">        [self.constraints addObject:newConstraint];</div><div class="line">    &#125;</div><div class="line">    return newConstraint;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以看到在赋值到最后的返回值是依旧是一个MASViewConstraint对象，所以top和left、right、bottom是一样的使用。我们再来看equal_To和with以及offset</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (MASConstraint * (^)(id))equalTo &#123;</div><div class="line">    return ^id(id attribute) &#123;</div><div class="line">        return self.equalToWithRelation(attribute, NSLayoutRelationEqual);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (MASConstraint *)with &#123;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (MASConstraint * (^)(CGFloat))offset &#123;</div><div class="line">    return ^id(CGFloat offset)&#123;</div><div class="line">        self.offset = offset;</div><div class="line">        return self;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以看到block的参数是需要赋的值，返回值则是可以进行下一轮赋值的MASConstraint，而这个block作为参数的时候,这个block是由外部来实现,内部调用的，当block作为返回值的时候,这个block是由内部来实现,外部调用的。通过将block作为参数和返回值，从而就实现了链式调用的语法。</p>
+<p>3、使用注意</p>
+<ul>
+<li>约束视图对象只有在被addSubview之后，才能给视图添加约束</li>
+<li>动画的使用是在更新约束之后调用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[view.superview layoutIfNeeded];//强制绘制</div></pre></td></tr></table></figure>
+<ul>
+<li>masony由于是对系统api的封装，在视图数量较多和列表复用的使用会有性能问题</li>
+<li>masonry和其他frame约束同时使用会有不可控问题发生</li>
 </ul>
 ]]></content>
       
@@ -1879,185 +2241,6 @@ if (self.videoPrePlayer.status == AVPlayerStatusReadyToPlay)
 }
 </code></pre><h1 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h1><p>文章主要对音频的使用范畴做了概括，并列举了两三实践点，其他的并没有做详细的论述，因为本篇比较偏向音频知识的介绍，知道用什么工具框架后再具体解决就好。比如如何播放流畅的网络音频，如何实现音频的快放与慢放等具体问题，此次需求内容并不复杂没有涉及，他们都可以通过 AudioToolBox框架实现。</p>
 ]]></content>
-      
-        
-        <tags>
-            
-            <tag> 开发 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[AVFoundation视频开发总结]]></title>
-      <url>/2015/01/28/%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/</url>
-      <content type="html"><![CDATA[<p>AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。</p>
-<h2 id="一、概念引导："><a href="#一、概念引导：" class="headerlink" title="一、概念引导："></a>一、概念引导：</h2><h3 id="1、ASSets媒体文件"><a href="#1、ASSets媒体文件" class="headerlink" title="1、ASSets媒体文件:"></a>1、ASSets媒体文件:</h3><p>1）AVAsset</p>
-<p>一个抽象类来表示时间等视听媒体视频和声音。每个资产包含一组跟踪旨在呈现或加工在一起,一个统一的媒体类型,包括但不限于音频、视频、文本、关闭字幕,字幕。</p>
-<p>AVURLAsset *anAsset = [[AVURLAsset alloc] initWithURL:url options:nil];属性有<br>tracks、duration、preferredVolume、preferredTransform等等。</p>
-<p>2) 一个AVAssetTrack</p>
-<p>对象提供了所有资产提供track-level检查接口,方便对ASSets进行更具体的属性获取以及对应的操作。</p>
-<p>3）AVAssetImageGenerator</p>
-<p>对象提供缩略图或预览图像的资产独立于回放，可以生成单独的图片，也可以生成图片队列，这是获取视频缩略图的方式之一，还有另外两种ALAsset的thumbnail 和 - (UIImage *)imageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer。</p>
-<p>4）AVAssetExportSession</p>
-<p>针对AVAsset源对象的内容进行转码，创建一个被指定输出形式的资源。</p>
-<p><img src="/assets/images/AVAssetExportSession.jpg" alt=""></p>
-<h3 id="2、Playback播放控制"><a href="#2、Playback播放控制" class="headerlink" title="2、Playback播放控制:"></a>2、Playback播放控制:</h3><p>1) AVPlayer</p>
-<p>你使用一个AVPlayer对象来实现控制器和用户接口单一或多种条目回放。</p>
-<ul>
-<li><p>-  (instancetype)initWithPlayerItem:(AVPlayerItem *)item</p>
-</li>
-<li><p>play 、 parse 、 end</p>
-</li>
-<li><p>- (void)seekToTime:(CMTime)time</p>
-</li>
-</ul>
-<p>2) AVPlayerLayer</p>
-<p>用于显示视频内容，相当于大屏幕。里面有videoGravity，默认值 AVLayerVideoGravityResizeAspect.</p>
-<p>3) AVPlayerItem</p>
-<p>一个AVPlayerItem代表资产的表现状态,由一个AVPlayer对象和可以观察到的状态。对视频播放状态修改一起监听的过程多数发生在正对这个对象的操作操作上，比如：</p>
-<ul>
-<li>seekToTime，从哪里开始播放</li>
-<li>各种资源播放状态的通知AVPlayerItemFailedToPlayToEndTimeNotification<br>等</li>
-</ul>
-<p>4) AVPlayerItemTrack </p>
-<p>你用一个AVPlayerItemTrack对象修改资产的表现状态跟踪(AVAssetTrack)一个AVPlayer对象。通常视频的加载播放有各种状态，我们需要KVO监听或者添加通知去知道播放器的准备、进行、暂停、停止等状态。</p>
-<p>5) AVQueuePlayer</p>
-<p>按照队列播放视频</p>
-<ul>
-<li><p>queuePlayerWithItems，</p>
-</li>
-<li><p>insertItem:(AVPlayerItem *)item</p>
-<pre><code>afterItem:(AVPlayerItem *)afterItem
-</code></pre></li>
-</ul>
-<h3 id="3、Editing资源编辑"><a href="#3、Editing资源编辑" class="headerlink" title="3、Editing资源编辑:"></a>3、Editing资源编辑:</h3><p>AVFoundation框架提供了一个功能丰富的组类促进视听资产的编辑。AVFoundation的编辑API的核心成分，就是一组追踪从一个或多个不同的媒体资产。AVMutableComposition类提供了一个接口,用于插入和删除操作的痕迹,以及管理自己时间排序。</p>
-<p><img src="/assets/images/AVMutableComposition.jpg" alt=""></p>
-<p>1）AVMutableComposition</p>
-<p>是一个可变的AVComposition子类，当您想要从现有资产创建一个新的资源。你可以添加和删除跟踪,可以添加、删除和时间范围。<br>比如：</p>
-<ul>
-<li>– insertEmptyTimeRange：可以增加一段空白时间</li>
-</ul>
-<ul>
-<li>– insertTimeRange:ofAsset:atTime:error:<br>插入的所有跟踪给定的时间范围内指定的资产到接收机。</li>
-</ul>
-<!-- -->
-<pre><code>AVAsset *videoAsset = &lt;#AVAsset with at least one video track#&gt;;
-AVAsset *anotherVideoAsset = &lt;#another AVAsset with at least one video track#&gt;;
-// Get the first video track from each asset.
-AVAssetTrack *videoAssetTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
-AVAssetTrack *anotherVideoAssetTrack = [[anotherVideoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
-// Add them both to the composition.
-[mutableCompositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero,videoAssetTrack.timeRange.duration) ofTrack:videoAssetTrack atTime:kCMTimeZero error:nil];
-[mutableCompositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero,anotherVideoAssetTrack.timeRange.duration) ofTrack:anotherVideoAssetTrack atTime:videoAssetTrack.timeRange.duration error:nil];&apos;
-</code></pre><p>2) AVMutableAudioMix </p>
-<p>一个AVMutableAudioMix对象管理混合音轨的输入参数。它允许自定义音频处理在回放期间音轨或执行其他操作。</p>
-<!--0-->
-<pre><code>AVMutableAudioMix *mutableAudioMix = [AVMutableAudioMix audioMix];
-// Create the audio mix input parameters object.
-AVMutableAudioMixInputParameters *mixParameters = [AVMutableAudioMixInputParameters audioMixInputParametersWithTrack:mutableCompositionAudioTrack];
-// Set the volume ramp to slowly fade the audio out over the duration of the composition.
-[mixParameters setVolumeRampFromStartVolume:1.f toEndVolume:0.f timeRange:CMTimeRangeMake(kCMTimeZero, mutableComposition.duration)];
-// Attach the input parameters to the audio mix.
-mutableAudioMix.inputParameters = @[mixParameters];
-</code></pre><h3 id="4、Media-Capture媒体捕捉"><a href="#4、Media-Capture媒体捕捉" class="headerlink" title="4、Media Capture媒体捕捉:"></a>4、Media Capture媒体捕捉:</h3><p>1) AVCaptureDevice </p>
-<p>代表输入设备,如摄像头或麦克风</p>
-<p>2) AVCaptureInput </p>
-<p>输入设备的配置端口，我们可以理解为输入</p>
-<p>3）AVCaptureSession</p>
-<p>协调数据流从输入到输出,用startRunning开始从输入到输出的数据流,并调用stopRunning停止流动。采取关闭代理，保证取景器一直流动。</p>
-<p>4) AVCaptureOutput </p>
-<ul>
-<li><p>AVCaptureMovieFileOutput，输入到视频文件，代理AVCaptureFileOutputRecordingDelegate</p>
-</li>
-<li><p>AVCaptureVideoDataOutput，如果想要实时的处理每一帧数据，或想要有自己的图形动画，代理AVCaptureVideoDataOutputSampleBufferDelegate</p>
-</li>
-</ul>
-<ul>
-<li><p>AVCaptureAudioDataOutput ，音频数据，代理AVCaptureVideoDataOutputSampleBufferDelegate</p>
-</li>
-<li><p>AVCaptureStillImageOutput ，图片数据</p>
-</li>
-</ul>
-<p>5）AVCaptureVideoPreviewLayer </p>
-<p>实时展示被session传出出来的视频流数据，也就是我们的取景器</p>
-<p>6）AVCaptureConnection </p>
-<p>代表捕获之间的连接输入和输出对象关联到一个捕获会话。</p>
-<p><img src="/assets/images/AVCaptureConnection.jpg" alt=""></p>
-<h3 id="5、Export媒体输出"><a href="#5、Export媒体输出" class="headerlink" title="5、Export媒体输出:"></a>5、Export媒体输出:</h3><p>1) AVAssetExportSession</p>
-<p>针对AVAsset对象转码，创建一个输出的形式被指定出口预设内容。包括对输出媒体资源的属性设定，可以设置presetName进行视频品质压缩，AVAssetExportPresetLowQuality等。也可以设置属性包括：outputFileType<br>、fileLengthLimit、timeRange<br>等。</p>
-<p>2）AVAssetReader </p>
-<p>直接从媒体读取存储样本,获得样本解码成可渲染的形式。组合资产多个音轨和组合多个视频跟踪(通过使用AVAssetReaderAudioMixOutput和AVAssetReaderVideoCompositionOutput)。</p>
-<ul>
-<li>addOutPut</li>
-<li>startReading</li>
-<li>cancelReading</li>
-</ul>
-<p>读取一个音频：</p>
-<!--0-->
-<pre><code>AVAudioMix *audioMix = &lt;#An AVAudioMix that specifies how the audio tracks from the AVAsset are mixed#&gt;;
-// Assumes that assetReader was initialized with an AVComposition object.
-AVComposition *composition = (AVComposition *)assetReader.asset;
-// Get the audio tracks to read.
-NSArray *audioTracks = [composition tracksWithMediaType:AVMediaTypeAudio];
-// Get the decompression settings for Linear PCM.
-NSDictionary *decompressionAudioSettings = @{ AVFormatIDKey : [NSNumber numberWithUnsignedInt:kAudioFormatLinearPCM] };
-// Create the audio mix output with the audio tracks and decompression setttings.
-AVAssetReaderOutput *audioMixOutput = [AVAssetReaderAudioMixOutput assetReaderAudioMixOutputWithAudioTracks:audioTracks audioSettings:decompressionAudioSettings];
-// Associate the audio mix used to mix the audio tracks being read with the output.
-audioMixOutput.audioMix = audioMix;
-// Add the output to the reader if possible.
-if ([assetReader canAddOutput:audioMixOutput])
-[assetReader addOutput:audioMixOutput];
-</code></pre><p>3) AVAssetWriter</p>
-<p>使用一个AVAssetWriter对象媒体数据写入新文件指定视听的容器类型,如QuickTime电影文件或一个mp4文件,支持自动交叉媒体数据的多个并发的痕迹。</p>
-<ul>
-<li>initWithURL:fileType:error:</li>
-<li>startWriting</li>
-<li>startSessionAtSourceTime</li>
-<li>addInput</li>
-<li>endSessionAtSourceTime</li>
-<li>finishWritingWithCompletionHandler</li>
-</ul>
-<h2 id="二、代码实践："><a href="#二、代码实践：" class="headerlink" title="二、代码实践："></a>二、代码实践：</h2><blockquote>
-<h3 id="import-“TTCameraViewController-h”"><a href="#import-“TTCameraViewController-h”" class="headerlink" title="#import “TTCameraViewController.h”"></a>#import “TTCameraViewController.h”</h3></blockquote>
-<h2 id="三、问题回顾："><a href="#三、问题回顾：" class="headerlink" title="三、问题回顾："></a>三、问题回顾：</h2><h3 id="1、视频文件写入崩溃："><a href="#1、视频文件写入崩溃：" class="headerlink" title="1、视频文件写入崩溃："></a>1、视频文件写入崩溃：</h3><h4 id="现象："><a href="#现象：" class="headerlink" title="现象："></a>现象：</h4><p>相机开始拍摄就会出现崩溃，时而出现，有时难以复现。</p>
-<h4 id="原因与解决："><a href="#原因与解决：" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>1）startSessionAtSourceTime只能在 AVAssetWriterStatusWriting的之后调用，但是startWriting调用之后writer并没有立即变为writing状态，而已有一个极短的开始时间，参照苹果规范使用文档，只需要前面调用之后后面就可以跟着执行startSessionAtSourceTime，然而，我遇见了这问题，说明它并不是。随后我到stackoverflow上查了问题，发现有人早就提过，并没有答案，说是升级IOS8以后就没有了，可我这里是IOS9…随后我只能判断writer状态如果是writing就开始执行，如果不是就调用startWriting。</p>
-<p>2）[videoWriterInput appendSampleBuffer：xxx]这只能在startSessionAtSourceTime开始之后调用，和1是同样的情况，明明第一行调用了startSessionAtSourceTime，第二调用appendSampleBuffer就会崩溃，并且依旧是偶尔发生。但是这里的问题是没有一个状态可以判断是否已经开始startSessionAtSourceTime，这里就有点血崩了，不能像问题1一样判断解决，后来只好try catch了,稳住局面防止崩溃，丢失极少的毫秒级帧数。</p>
-<h3 id="2、相机拍摄闪烁抖动："><a href="#2、相机拍摄闪烁抖动：" class="headerlink" title="2、相机拍摄闪烁抖动："></a>2、相机拍摄闪烁抖动：</h3><h4 id="现象：-1"><a href="#现象：-1" class="headerlink" title="现象："></a>现象：</h4><p>开始拍摄时候，取景器闪烁抖动，引起一小部分可见范围内的视频内容发送抖动，并被存入文件中，体验差。</p>
-<h4 id="原因与解决：-1"><a href="#原因与解决：-1" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>在开始拍摄的时候，再去创建connection并传递设备和拍摄方向，有利于视频获取oritation，自然而然的横着拍摄也会竖着播放，但是问题在于connection的建立产生较大的链接，引起视频抖动，此抖动将被录制进入视频文件中。于是我采取在初始化input的时候就把connection就增加进去，当开始拍摄的时候不会发生抖动，但是牺牲的是视频的oritation需要自己根据用户拍摄的方向去手动修改视频方向。</p>
-<h3 id="3、视频方向混乱："><a href="#3、视频方向混乱：" class="headerlink" title="3、视频方向混乱："></a>3、视频方向混乱：</h3><h4 id="现象：-2"><a href="#现象：-2" class="headerlink" title="现象："></a>现象：</h4><p>背面摄像头拍摄，home键在下，拍摄出来的视频文件，在播放的时候，底部在手机右边，而不是底边，一次类推，home键在底部与视频的底部角度成90垂直关系。</p>
-<h4 id="原因与解决：-2"><a href="#原因与解决：-2" class="headerlink" title="原因与解决："></a>原因与解决：</h4><!--0-->
-<pre><code>self.videoOutPut = [[AVCaptureVideoDataOutput alloc] init];
-NSDictionary * outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA],(id)kCVPixelBufferPixelFormatTypeKey, nil];
-[self.videoOutPut setVideoSettings:outputSettings];
-
-//必须
-if ([self.session canAddOutput:self.videoOutPut]) {
-    [self.session addOutput:self.videoOutPut];
-}
-
-//先于
-self.videoConnection = [self.videoOutPut connectionWithMediaType:AVMediaTypeVideo];
-self.videoConnection.enabled = NO;
-[self.videoConnection setVideoOrientation:AVCaptureVideoOrientationPortrait];
-</code></pre><h3 id="4、横着拍摄的视频横着播放："><a href="#4、横着拍摄的视频横着播放：" class="headerlink" title="4、横着拍摄的视频横着播放："></a>4、横着拍摄的视频横着播放：</h3><h4 id="现象：-3"><a href="#现象：-3" class="headerlink" title="现象："></a>现象：</h4><p>横着拍摄的视频，放的时候是竖着的。</p>
-<h4 id="原因与解决：-3"><a href="#原因与解决：-3" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>因为上面解决视频抖动，导致不能直接设定拍摄时候的视频方向，从而需要根据手动的拍摄方向去修改视频的视图的方向。<br>考虑到用户可能锁住屏幕旋转，于是就CMMotionManager获取重力方向来判断，在VC出现或者开始拍摄的时候开启，在VC退出或者拍摄完成的的时候关闭。获得方向后，在视频的写入里直接修改方向即可。</p>
-<!--0-->
-<pre><code>[videoWriterInput setTransform:CGAffineTransformScale(CGAffineTransformMakeRotation(-M_PI_2), 1.0, 1.0)];
-</code></pre><h3 id="5、录制视频有右边和底边绿色线条："><a href="#5、录制视频有右边和底边绿色线条：" class="headerlink" title="5、录制视频有右边和底边绿色线条："></a>5、录制视频有右边和底边绿色线条：</h3><h4 id="现象：-4"><a href="#现象：-4" class="headerlink" title="现象："></a>现象：</h4><p>手机全屏录制的时候，设置视频输出宽度为手机的宽高，当宽高为基数的时候视频录制里面会出现绿色线条。</p>
-<h4 id="原因与解决：-4"><a href="#原因与解决：-4" class="headerlink" title="原因与解决："></a>原因与解决：</h4><p>不知道原因，神奇的bug，参照着段子的视频方法解决的，直接修改视频输出宽高为偶数。</p>
-<!--0-->
-<pre><code>NSInteger videoWidth = [[NSNumber numberWithFloat:self.view.frame.size.width] integerValue];
-NSInteger videoHeight = [[NSNumber numberWithFloat:self.view.frame.size.height] integerValue];
-if (videoWidth % 2 == 1) {
-    videoWidth = videoWidth - 1;
-}
-if (videoHeight % 2 == 1) {
-    videoHeight = videoHeight - 1;
-}
-</code></pre>]]></content>
       
         
         <tags>
@@ -2311,93 +2494,82 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
     </entry>
     
     <entry>
-      <title><![CDATA[FE进阶之路]]></title>
-      <url>/2014/10/15/%E5%89%8D%E7%AB%AFFE%E9%80%9F%E6%88%90/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>转移动端开发之前，曾是名呆萌的FE，在学校的时候还算勤劳，上线了大大小小的产品，冰岩作坊见证了我的成长，认识了很多朋友。如今回顾一下，整理一条前端之路。</p>
-</blockquote>
-<h2 id="面试点"><a href="#面试点" class="headerlink" title="面试点"></a>面试点</h2><p><img src="/assets/images/feTotal.png" alt=""></p>
-<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><h3 id="一、语言"><a href="#一、语言" class="headerlink" title="一、语言"></a>一、语言</h3><h3 id="1、HTML"><a href="#1、HTML" class="headerlink" title="1、HTML"></a>1、HTML</h3><h4 id="1-1-理解"><a href="#1-1-理解" class="headerlink" title="1.1 理解"></a>1.1 理解</h4><ul>
-<li><p><code>HyperText Markup Language</code>超文本标记语言。语言自不必说，超文本意味着『将网页彼此连接链接，超越了传统意义上的书本文字』，标记则说明了语言的特点是描述性的。比如可以通过标签来描述内容：<code>&lt;h1&gt;</code>是一个标题(headline)；<code>&lt;p&gt;</code>是一个段落(paragraph)；<code>&lt;code&gt;</code>是一段代码等等。还可以通过声明属性进一步描述如<code>&lt;input class=&quot;form-inline&quot; id=&quot;gender-input-female&quot; type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt;</code>。HTML是一门应当注重语义化的语言，尤其在HTML5的规范中更是强调此，如增加了<code>&lt;article&gt;``&lt;section&gt;</code>等标签。</p>
-</li>
-<li><p>标签有自闭和和成对闭合两种，具体规则要参考规范，注意自闭合标签结尾的反斜杠不是必须的。常见的自闭合标签是<code>&lt;img&gt;</code>，<code>&lt;input&gt;</code>。</p>
-</li>
-<li><p>HTML在被浏览器渲染时，会有两种元素，非替换元素指的是其内容无需被浏览器替换，直接显示即可。而替换原素则需要浏览器进行转换才能正常工作，如<code>&lt;img&gt;&lt;textarea&gt;&lt;canvas&gt;</code></p>
-</li>
-<li><p>HTML中也可以嵌入如SVG等其他语言内容。</p>
-</li>
-</ul>
-<h3 id="2、CSS"><a href="#2、CSS" class="headerlink" title="2、CSS"></a>2、CSS</h3><h4 id="2-1-理解"><a href="#2-1-理解" class="headerlink" title="2.1 理解"></a>2.1 理解</h4><ul>
-<li><code>Cascading Style Sheets</code>层叠样式表。表自不必说，样式也是顾名思义，关键点在于层叠。CSS的层叠体现在选择器的关系上：通过选择器的优先级来决定样式的使用与否，能够灵活的控制HTML元素的样式。</li>
-<li>一个普通的『规则』由如下部分组成：选择器+声明块（声明由属性：值组成），此外还有@语句，可用于媒体查询、引入文件等，在此略过。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.class &#123;</div><div class="line">    color: rgba(0,0,0,.6);</div><div class="line">    transition: height .3s ease-in-out .5s;</div><div class="line">    -webkit-tap-highlight-color: transparent;</div><div class="line">&#125; </div><div class="line"></div><div class="line">.night .class &#123;</div><div class="line">    color: black;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>由于浏览器纷争以及标准的制定落后于市场，CSS存在着很严重的兼容性问题。具体问题暂且不表，但为了解决这些问题，业界目前普遍使用『预处理器』和『后处理器』来增强CSS。</li>
-</ul>
-<p>a、 预处理器主要是通过对CSS进行改编或扩展行成一种新的语言，然后通过『预处理器』编译为可被浏览器使用的CSS。常见的就是LESS和SCSS。<br>b、 后处理器是指在生成一个标准的CSS后，进行一些列的优化的工具。如用于自动补充各浏览器前缀的autoprefixer；用于去除冗余css的CSSClean等。大都依赖于PostCSS这个工具。</p>
-<h3 id="3、JavaScript"><a href="#3、JavaScript" class="headerlink" title="3、JavaScript"></a>3、JavaScript</h3><h4 id="3-1-理解"><a href="#3-1-理解" class="headerlink" title="3.1 理解"></a>3.1 理解</h4><p>这个没有一个明确的翻译，名字里有Java纯粹是为了蹭热度。广义上的JS由其语言核心+DOM+BOM组成。</p>
-<ul>
-<li>JavaScript有一个比较简单的出生，但有个比较折腾的成长。目前其标准属于EcmaScript（Flash使用的ActionScript也是这个标准下的产物），现在的版本是第7版，正式名是ES2017，前几天刚定稿，老浏览器都不支持，需要通过bable工具转换为第5版才能让绝大多数浏览器正常执行。</li>
-<li>JS是弱类型语言，其基本数据类型有number/boolean/string/undefined/symbol/(null)、引用类型object，包括function和array。基本类型按值访问，引用类型按地址访问。基本数据类型用typeof区分，引用类型需要使用instanceof或其特殊的判断方法区分。</li>
-<li>在ES5时代变量作用域仅限于函数内，ES6后通过let能指定块级作用于。var存在变量提升，是个bug隐患点。</li>
-<li>ES5时代没有定义class，可以通过function+prototype的方式模拟一个类。JS的继承主要是通过原型链实现的：<code>instance.__proto__.....__proto__ === Class.prototype</code>。</li>
-<li>DOM（文档对象模型）描述了处理网页内容的方法和接口。如document.getElementById。</li>
-<li>BOM（浏览器对象模型）描述了与浏览器进行交互的方法和接口。如location.href。</li>
-<li>通过XMLHttpRequest发送HTTP请求，可以通过指定异步的方式实现AJAX。异步请求存在同源限制。</li>
-<li>ES6规范中明确了异步操作的推荐做法即Promise。<br>主要理解两点：异步与事件驱动。两者相互结合构成了现在的JS的运行逻辑。</li>
-<li>TypeScript<br>微软推出谷歌力捧的JS超集，实现了强类型、类等诸多C++、Java功能，目前也需要通过编译才能执行，未有浏览器原生支持。</li>
-</ul>
-<h3 id="二、代码执行环境"><a href="#二、代码执行环境" class="headerlink" title="二、代码执行环境"></a>二、代码执行环境</h3><h3 id="1、浏览器"><a href="#1、浏览器" class="headerlink" title="1、浏览器"></a>1、浏览器</h3><ul>
-<li>浏览器的历史不过多介绍，当前PC主流有Chrome和IE/Edge两个，其余的Firefox、safari都很小众。这三类都是独自研制开发。移动端上的主流几乎只有Safari和Chrome两种。</li>
-<li>单独谈渲染引擎主流的有Webkit(Blink)、Trident、Gecko。单独谈JS引擎主要有V8、charkra等。</li>
-</ul>
-<h3 id="2、Node-js"><a href="#2、Node-js" class="headerlink" title="2、Node.js"></a>2、Node.js</h3><p>Node.js®是一个基于Chrome V8 引擎的 JavaScript 运行时。 Node.js 使用高效、轻量级的事件驱动、非阻塞 I/O 模型。Node.js 之生态系统是目前最大的开源包管理系统。</p>
-<h3 id="三、代码执行流程"><a href="#三、代码执行流程" class="headerlink" title="三、代码执行流程"></a>三、代码执行流程</h3><h3 id="1、编译"><a href="#1、编译" class="headerlink" title="1、编译"></a>1、编译</h3><p>以现阶段的通常情况来看，我们采用超前的ES6、ES7来写JS，用Less写CSS，用React等来实现View，这些代码通过import/export引用和发布。然后通过webpack、fis等工具『编译』成能被浏览器执行的HTML/JS/CSS。</p>
-<h3 id="2、部署："><a href="#2、部署：" class="headerlink" title="2、部署："></a>2、部署：</h3><p>其中HTML如果涉及到与后端数据的直接耦合，则被认为是『模板』，部署到相应的接入层逻辑指定的线上地址，而其他内容如.js/.css/.png/.svg等，则与服务端分离，部署在CDN上以提供更快的访问速度。这个过程主要的问题在于如何控制浏览器缓存（HTTP缓存）。</p>
-<h3 id="3、访问："><a href="#3、访问：" class="headerlink" title="3、访问："></a>3、访问：</h3><p>从URL被请求到HTML被返回的逻辑就暂且略去，主要谈HTML返回后的过程。<br>这一部分以真实请求的Performance为例讲解吧。不赘述？？？？后续找几篇文章填补空白。</p>
-<h3 id="4、JSBridge-链接跳转"><a href="#4、JSBridge-链接跳转" class="headerlink" title="4、JSBridge(链接跳转)"></a>4、JSBridge(链接跳转)</h3><ul>
-<li>JS → Native：发特定规则的url，被native拦下来就好了。</li>
-<li>Native → JS：Native可以在JSContext中注入代码，或者通过javascript:xxxx这种方式调用。</li>
-</ul>
-<h3 id="四、常见的问题与debug"><a href="#四、常见的问题与debug" class="headerlink" title="四、常见的问题与debug"></a>四、常见的问题与debug</h3><h3 id="1、如何获取与定位问题"><a href="#1、如何获取与定位问题" class="headerlink" title="1、如何获取与定位问题"></a>1、如何获取与定位问题</h3><ul>
-<li>最好用的工具就是chrome的开发者工具了。<h3 id="2、为什么会白页"><a href="#2、为什么会白页" class="headerlink" title="2、为什么会白页"></a>2、为什么会白页</h3></li>
-<li>一种是JS的BUG导致的，一般来说在相同文件内的JS会由于错误阻塞运行。也就是上文有错，下文直接挂。当渲染在下文时就容易出现这种问题。</li>
-<li>另一种情况比较少见就是在load事件后调用document.write导致。</li>
-</ul>
-<h3 id="3、XSS与CSRF"><a href="#3、XSS与CSRF" class="headerlink" title="3、XSS与CSRF"></a>3、XSS与CSRF</h3><ul>
-<li>XSS是老生常谈的话题了，主要是由于HTML语言的『保留字』（&lt; &gt; ‘ “ ）被直接使用导致，大部分能够通过HTML转义避免。<br>CSRF现在大都不常见了，基本通过加密token校验来避免。<h3 id="4、性能"><a href="#4、性能" class="headerlink" title="4、性能"></a>4、性能</h3></li>
-<li>为何觉得卡，是因为人眼的构造决定的，实际上没有连续的动画，动画都是一帧一帧组成的。如果普通大众能接受60帧，那就意味着对HTML的相应操作要在1000/60m=16ms内执行完毕，才不会掉帧。</li>
-<li>还是可以通过chrome的preformance工具来进行定位。</li>
-</ul>
-<h3 id="五、「框架」新时代"><a href="#五、「框架」新时代" class="headerlink" title="五、「框架」新时代"></a>五、「框架」新时代</h3><ul>
-<li>jQurey、Bootstrap：这个时代的特点就是乱，文件瞎引用，样式瞎写，但干起活来就是快，维护体验很差。</li>
-<li>backbone：开始有了一些思想，主要是类比了MVC，在前端也搞了全套的M-V-C，强调数据-模板（样式）-逻辑分离。</li>
-<li>MVVM：再后来开始分化，一些人觉得C不足以表意，因为其实干来干去都是在操作M和V，不如就叫VM，所以是MVVM。另一些人觉得前端这么简单的事儿不要搞复杂留着V就足够了，也就出现了MVVM的代表Angular，和纯View层的代表React。</li>
-<li>Vue.js:渐进式框架,Vue 从根本上采用最小成本、渐进增量的设计。Vue 的核心库只专注于视图层，并且很容易与其他第三方库或现有项目集成。</li>
-</ul>
-<h3 id="六、新技术"><a href="#六、新技术" class="headerlink" title="六、新技术"></a>六、新技术</h3><ul>
-<li>PWA：（ Progressive Web Apps，渐进式网页应用）是由谷歌提出的新一代 Web 应用概念，旨在提供可靠、快速、类似 Native 应用的服务方案。</li>
-<li>AMP：谷歌提倡的一些列『最佳实践』，通过实现这些最佳实践，大概率能让你的网站速度飙升。</li>
-<li>reactNative、Weex：以虚拟DOM技术为核心，尝试将其用非Web技术渲染执行。</li>
-<li>webSocket：在HTTP2出现以前，提供的一个基于TCP的socket应用接口，全双工、可二进制传输是其特点。</li>
-<li>WebGL：基于canvas和OpenGL，使得web也能进行大型游戏和渲染场景的制作。</li>
-<li>WASM：厉害了，所有能被JS实现的最终都会被JS实现。类似安卓的so。</li>
-<li>微信小程序：个人理解是：对现有限制浏览器体验的内容删减，纯数据驱动以限制web能力，缓存模板甚至缓存运行时以提升性能，提供了一个本质还是浏览器的东西。</li>
-<li>Electron： 打包一个浏览器，钉钉。</li>
-</ul>
-<h3 id="七、讨论"><a href="#七、讨论" class="headerlink" title="七、讨论"></a>七、讨论</h3><ul>
-<li>对残障人士更友好的网页：这个话题里中国比较远，下一题。</li>
-<li>HybridApp：这个题好，其实非核心功能和弱交互功能，完全可以交给web实现。而web主要性能受限的网络则可以通过Hybrid的方式预先集成到App内部，需要时就能立刻提供服务。类似PWA。</li>
-<li>参考书籍与站点 ：<br>《JavaScript高级程序设计》、《深入理解ES6》、Google Developer Docs、Mozilla Web Docs</li>
-<li>常用工具 ：caniuse 查兼容性的神器、tinypng 压缩图片好工具</li>
-</ul>
+      <title><![CDATA[中秋节在帝都]]></title>
+      <url>/2014/09/08/%E4%B8%AD%E7%A7%8B%E8%8A%82%E5%9C%A8%E5%B8%9D%E9%83%BD/</url>
+      <content type="html"><![CDATA[<h4 id="懒散"><a href="#懒散" class="headerlink" title="懒散"></a>懒散</h4><p>从7月到北京，忙忙碌碌的工作生活中已经度过两个月，在北京的生活轨迹也逐渐清晰起来，每天都那么的忙当然也很充实，我很喜欢这加互联网公司，也喜欢和一起入职的同事玩，大家都很奈斯。但有的时候，我会喜欢自己静静的呆着，即使什么也不做。昨天前天都出游了就没再打算出去，推掉了聚会活动，希望独自的过一个自由自在的周末，这些时间都是我自己的，而今天却恰好是中秋节，安静的睡下，安静的醒来.</p>
+<p>早晨收到了中秋的祝福短信，我都一一的回复了，祝他们也中秋快乐。随后平兄打来电话说下午约一波，说希望和我吃个中饭，我随后起来洗漱。平兄来了一起做了一顿饭，他和我讲起宽宽的故事，故事是这样的—-小红说：长得就像大盘鸡……..故事很短，我俩笑得不行。饭后，平兄在我这睡了一觉，就回学校去了。</p>
+<p>看着窗外蓝色的天空，温暖的阳光里，我决定出去走走，拿起相机，穿上背心，带双拖鞋，出门去。北京一直让人笼罩在阴霾里，而夏日的晴天却格外的美丽。心情很好，我走在街上，拍着路过的车辆和行人，走上天桥，仰望着天空，这里开始令我心生喜欢。走在人大的校园里，依旧能感受到学生时代的美好，拍了学校里的一些风景，慢悠悠的又回到家里。我翻阅拍摄的照片，发现自己在处理光线阴暗的条件下存在不足，相当老湿还是得加油学习啊。</p>
+<p>躺在沙发上，给爸妈打通电话，也问候正在拍婚纱照的姐姐，家人隔得很远，意识到这点的时候却又是今天的中秋节。翻阅通讯录，尝试去问候许久未见的朋友，却又觉得依旧不过是太阳升起溪水长流，可能这就是我的性格吧。</p>
+<p>电话响起，室友说今晚中秋一起做晚饭吃，我说，好。初到北京就和现在的室友相识合租在一起，兴趣相投性格随性，谈笑甚欢。</p>
+<h4 id="再阅"><a href="#再阅" class="headerlink" title="再阅"></a>再阅</h4><p>擦嘞，我那会是这样子的啊…</p>
 ]]></content>
       
         
         <tags>
             
-            <tag> 开发 </tag>
+            <tag> 总结 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[毕业照]]></title>
+      <url>/2014/06/26/%E6%AF%95%E4%B8%9A%E7%85%A7/</url>
+      <content type="html"><![CDATA[<h2 id="冰岩作坊"><a href="#冰岩作坊" class="headerlink" title="冰岩作坊"></a>冰岩作坊</h2><p><img src="/assets/myPhoto/0.jpg" alt=""></p>
+<h2 id="彩云之南"><a href="#彩云之南" class="headerlink" title="彩云之南"></a>彩云之南</h2><p><img src="/assets/myPhoto/2.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/3.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/4.jpg" alt=""></p>
+<!--![](/assets/myPhoto/5.jpg)-->
+<p><img src="/assets/myPhoto/6.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/7.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/8.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/9.jpg" alt=""></p>
+<h2 id="校园毕业照"><a href="#校园毕业照" class="headerlink" title="校园毕业照"></a>校园毕业照</h2><p><img src="/assets/myPhoto/10.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/11.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/12.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/13.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/14.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/15.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/16.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/17.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/18.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/19.jpg" alt=""></p>
+<p><img src="/assets/myPhoto/20.jpg" alt=""></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 照片 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[我在武汉的四年]]></title>
+      <url>/2014/06/22/%E6%88%91%E5%9C%A8%E6%AD%A6%E6%B1%89%E7%9A%84%E5%9B%9B%E5%B9%B4/</url>
+      <content type="html"><![CDATA[<h3 id="四年"><a href="#四年" class="headerlink" title="四年"></a>四年</h3><p>过几天就走了，心里开始有些感慨，大家为了各自的梦想，要出发离开这里，四年的青春定格在了回忆。</p>
+<p>想起当年入学的时候，既对新校园满怀期待和热情，也对自己高考不满意懊恼过，来到了一所自己从来没考虑过的学校，怀着复杂的心情开始了自己的大学生活。为人热情的我很快和班上的人打得一片火热，希望在大学里能做出的点事情，积极当了军训副排长，积极当了班级团支部书记，还组织了校园活动，取得了很好的校园成绩，获得了奖状奖章。不知不觉的就开心的度过了新生的一年，同时也结识了一群小伙伴，就是后来我们一起去的云南。必是玩的太嗨了，第一年个人专业课学习成绩中等。</p>
+<p>大二的时候，我听学长的建议开始自主学习编程，并争取加入了学校的创新团队冰岩作坊，做web开发相关的。当时团队氛围比较和洽，一同进去的几位同学又都比较厌倦通信的课程，大家几个人一伙同啊，就放飞自己我了，在团队的工作玩和学习，做事情和效力，专业的上课就基本靠突击考试了。想想那时候意气风发，一方面web编程进步很大，可以算是同学里面比较突出的了，知道自己未来毕业完全有机会找一份很好的工作了，所以非常满意自己选择加入团队。但一方面专业学习大家都没在意，学得不扎实，专业课成绩惨淡。</p>
+<p>这样的状态一直持续到大三下学期，在团队做了很多事情，把自己从一个软件编程小白变成了同学里面还算可以的小司机，为学校开发了多个网站，得到了老师的肯定，并有机会出去实习。到了这个时候，我开始想起了自己心中的遗憾，思考了很久，还是决定惜别团队，去完成了我从前的愿望，告别了指导老师。我加入了考研大军，设定了一个遥远的目标清华电子系，我相信自己努力就可以达到，考研不仅是一个艰苦的学习过程，更是一个对自己的认识和确认过程。从那之后，我开始坚持每日学习，并与一起准备考试的小伙伴奋战考试。考研复习期间，身边的同学找工作出国保研各自进行着，我不为所动，专心准备着。</p>
+<p>3月份的时候出了成绩，考试数学的时候紧张了，想起了高考的时候，这半年压力也是确实大，选了一个最难考的学校，哈哈，还是没能如愿。不过我却不像之前高考那时候难过了，我认识到了自己的不足所在，坦然接受了这个结果，不是我不够聪明，是我内心不够平稳，心态不够自信。回想起来，高考的时候也是一样，虽然考的好的时候的确可以冲清北，但差的时候不就是华科水平吗，上课不专心听讲，天天打瞌睡，平常吊儿郎当嘻嘻哈哈，自然没能给我积攒足够的信心。类比这次考研也是一样，我前三年都没有太多用心在专业学习上，成绩普通，却定了一个一般人都不敢尝试的学校目标，虽然平常测验基本能够达到分数，但是校验会存在不准确，自己也还是那个问题，我内心的信心积累的不够，考试的时候容易紧张，就凉了。好吧，我表示并不难过，愉快的开始找起了工作。</p>
+<p>错过了秋季招聘，各大互联网公司的校招都结束了，只有个别公司还有春季招聘的补招，哎呀到了关键时候了。当初选择来考研，大三的时候BAT实习一个都没去，冰岩的老大问我说要不要去微信实习，这个机会不错，我一点都没犹豫就说不去了，哈哈，还是年轻。一起和其他同学去面试了第一家公司，人生第一次参加校招面试，几轮面试下来，就我一个人过，这给了我不少信心，这样录取我的第一家公司叫做TPLink。回头一想，团队的同学都去的腾讯百度，你让我去这里，不太合适吧，于是拒绝了offer。然而啊春，招的机会实在是太少了，没啥大公司来了，根本没机会啊，天要亡我吗…等啊等，等来了一个搜狐，我跑去参加面试搜狐的研发职位，一看，产品岗位的面试官不就是我团队的学长吗，我擦嘞，好好表现，好好表现就问题不大了，哈哈，春季的补招相对会流程简化一些，经过两轮面试，看的出面试官对我比较满意，回头和学长聊了聊，咨询了面试情况和搜狐的工作待遇，比较放松的回去了。然后又是等啊等，等待到了最后一个上车机会，就是去哪儿网的春季补招。公司来面试的那一天是一个web前端开发的大佬面试我，我和盘托出大二大三写过的网站，回答了面试官的问题，一面都给我定了offer，很明显校招里面算可以的了，何况还是春季补招。哈哈，这样我就放了心，想起大二的时候曾经用过他们的手机端去哪儿旅行，体验很棒，买票很方便啊，改变了人们的旅行交通方式，当时想要是能去这家公司上班该多好啊，现在看来，一切有为法，都是缘分。所以我校招就拿了三个offer，一个TPLink在深圳，一个搜狐和一个去哪儿在北京。我欣然的选择了我喜欢的去哪儿，因为是个向往旅行的人。</p>
+<p>到这里，我的四年就这样简略的写完了，当然还有那些的友情故事没写，谈妹子那段也跳过了，哈哈。我在大学里不断的尝试新东西，不停的突破自己，不断的寻求更好且更适合自己的道路，这就是我的大学经历。和同学说起我的心里想法，他们听到的都是，”我对大学的经历路程十分满意，不曾犹豫和后悔过一个选择”。</p>
+<h3 id="致谢："><a href="#致谢：" class="headerlink" title="致谢："></a>致谢：</h3><p>感谢彩云之南多位同学一路陪伴成长</p>
+<p>感谢冰岩作坊团队老师和同学给予我见识和机会</p>
+<p>感谢我们巴蜀中学武汉联盟成员</p>
+<p>感谢321寝室同学在生活中的包容</p>
+<p>感谢通信1003班以及专业同学共同学习</p>
+<p>感谢毕业设计的老师和同学照料</p>
+<p>感谢我在学校认识的每一位有缘人</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 总结 </tag>
             
         </tags>
         
