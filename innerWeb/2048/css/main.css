@@ -5,10 +5,18 @@ html, body {
   color: #776e65;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px; 
+  height:100%;
+  overflow:hidden;
 }
+
 #wrapper{
 	width: 700px;
-	margin: 20px auto;
+  height: 627px;
+	position: absolute; 
+  top: 50%;
+  left: 50%;
+  margin-top: -313px;
+  margin-left: -350px;
 }
 #header h1{
 	font-size: 30px;

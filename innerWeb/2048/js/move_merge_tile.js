@@ -32,6 +32,37 @@ $(document).keydown(function(e){
     	
 })
 
+
+touch.on('#wrapper', 'swipeleft', function(ev){
+	move_left();
+	create_on_blank();
+	decide_win();
+
+});
+
+
+touch.on('#wrapper', 'swiperight', function(ev){
+	move_right();
+	create_on_blank();
+	decide_win();
+	
+});
+
+
+touch.on('#wrapper', 'swipedown', function(ev){
+	move_down();
+	create_on_blank();
+	decide_win();
+	
+});
+
+
+touch.on('#wrapper', 'swipeup', function(ev){
+	move_up();
+	create_on_blank();
+	decide_win();
+});
+
 function get_pos(Array_2){
 
 	$("#block-box .tile").each(function(){

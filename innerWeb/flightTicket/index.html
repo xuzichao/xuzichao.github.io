@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;">
+		<link rel="stylesheet"  href="css/style.css" />
+		<link rel="stylesheet" href="css/reset.css" />
+	</head>
+	<body>
+		<div id="header">
+			<img src="img/header.png" alt="header" />
+		</div>
+		<div id="main_ctt">
+			<div class="wrapper">
+				<div id="fly_search">
+					<div class="search_tab">
+						<div class="rt"><span>特价机票数量有限，合适航班尽快下单！</span></div>
+						<ul class="ul_search_tab"> 
+							<li><a  href="/">国内机票</a></li> 
+							<li><a  href="/">国际·港澳台机票</a></li>
+							<li class="cur"><a href="/" >特价机票</a></li>
+						</ul>
+					</div>
+					<div class="e_fly_search">
+						<div class="search_img"> <img src="http://simg1.qunarzz.com/site/images/flight/flight_lowprice/img_tjjp_v2.png" alt="全网底价"> </div>
+						<div class="search_inputs">
+							<div class="radios">
+								<label for="searchType_domestic"> <input type="radio" name="searchType" id="searchType_domestic" value="domestic" checked="checked">国内航线</label> 
+								<label for="searchType_international"> <input type="radio" name="searchType" id="searchType_international" value="international" > 国际·港澳台航线</label> 
+							</div>
+							
+							<div class="inputs">
+								<ul class="city_to_city">
+									<li>城市<input type="text"  name="dcity" /></li>
+									<li><input type="text"  name="dcity" /></li>
+								</ul>
+								<div class="fly_date">
+									日期<input type="text"  name="dcity" /><span>前后7天</span><button type="button"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="banner"> 	
+					<a href="http://phone.qunar.com/?from=lp" target="_blank">
+						<img alt="下载手机客户端" src="http://simg1.qunarzz.com/site/images/flight/flight_lowprice/bg_lnk_app.png" id="wirelessimg">
+					</a>
+				</div>
+				<div id="filter_wrap">
+					<div id="filter_ctn">
+						<div class="conditions">
+							<div class="cdt_titles">
+								<div class="time_type">
+									<div class="more_cdt">
+										<a href="javascript:;" class="lnk_gray" >更多筛选条件<i class="ico_arr" ></i></a>
+									</div>
+									<div class="cdt_title">时间类型</div>
+									<ul class="cdt_item">
+										<li class="on">不限</li>
+										<li>工作日</li>
+										<li>周末</li>
+									</ul>
+								</div>
+								<div class="time_mons">
+									<div class="cdt_title">时间范围</div>
+									<ul class="cdt_item">
+										<li class="on">不限</li>
+										<li>八月</li>
+									</ul>
+								</div>
+								<div class="leave_city">
+									<div class="more_city">
+										<a href="javascript:;" class="link_city" >更多城市</a>
+										<div class="qcity">
+								            <div hotcitytype="1" class="cityinput">
+								                <img id="closeXI18" class="closeImg" src="http://simg1.qunarzz.com/site/images/new_main/Button_Hotcity_Close.gif">
+								                <div class="hint">
+								                        <div class="b_hct_tit js_hct_tit pinyin" data-title="A-G"><span>拼音A-G城市</span></div>
+								                        <div class="b_hct_tit js_hct_tit pinyin" style="display:none;" data-title="H-L"><span>拼音H-L城市</span></div>
+								                        <div class="b_hct_tit js_hct_tit pinyin" style="display:none;" data-title="M-T"><span>拼音M-T城市</span></div>
+								                        <div class="b_hct_tit js_hct_tit pinyin" style="display:none;" data-title="W-Z"><span>拼音W-Z城市</span></div>
+								                    <div class="b_hct_nav">
+								                            <span data-title="A-G" data-event="cityToggle" class="active">A-G</span>
+								                            <span data-title="H-L" data-event="cityToggle">H-L</span>
+								                            <span data-title="M-T" data-event="cityToggle">M-T</span>
+								                            <span data-title="W-Z" data-event="cityToggle">W-Z</span>
+								                    </div>
+								                    <div class="b_hct_wrapper">
+								                        <div class="city_list" data-title="A-G">
+								                            <ul>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="阿克苏" data-ftype="dcity" data-cmore="true">阿克苏</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="阿勒泰" data-ftype="dcity" data-cmore="true">阿勒泰</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="安康" data-ftype="dcity" data-cmore="true">安康</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="安庆" data-ftype="dcity" data-cmore="true">安庆</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="鞍山" data-ftype="dcity" data-cmore="true">鞍山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="安顺" data-ftype="dcity" data-cmore="true">安顺</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="安阳" data-ftype="dcity" data-cmore="true">安阳</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="阿尔山" data-ftype="dcity" data-cmore="true">阿尔山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="百色" data-ftype="dcity" data-cmore="true">百色</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="保山" data-ftype="dcity" data-cmore="true">保山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="包头" data-ftype="dcity" data-cmore="true">包头</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="巴彦淖尔" data-ftype="dcity" data-cmore="true">巴彦淖尔</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="北海" data-ftype="dcity" data-cmore="true">北海</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="博乐" data-ftype="dcity" data-cmore="true">博乐</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="昌都" data-ftype="dcity" data-cmore="true">昌都</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="长白山" data-ftype="dcity" data-cmore="true">长白山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="长春" data-ftype="dcity" data-cmore="true">长春</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="常德" data-ftype="dcity" data-cmore="true">常德</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="长沙" data-ftype="dcity" data-cmore="true">长沙</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="长治" data-ftype="dcity" data-cmore="true">长治</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="常州" data-ftype="dcity" data-cmore="true">常州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="朝阳" data-ftype="dcity" data-cmore="true">朝阳</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="赤峰" data-ftype="dcity" data-cmore="true">赤峰</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="大连" data-ftype="dcity" data-cmore="true">大连</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="大理" data-ftype="dcity" data-cmore="true">大理</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="丹东" data-ftype="dcity" data-cmore="true">丹东</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="大庆" data-ftype="dcity" data-cmore="true">大庆</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="大同" data-ftype="dcity" data-cmore="true">大同</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="达州" data-ftype="dcity" data-cmore="true">达州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="张家界" data-ftype="dcity" data-cmore="true">张家界</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="泸西" data-ftype="dcity" data-cmore="true">泸西</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="香格里拉" data-ftype="dcity" data-cmore="true">香格里拉</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="东莞" data-ftype="dcity" data-cmore="true">东莞</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="东营" data-ftype="dcity" data-cmore="true">东营</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="敦煌" data-ftype="dcity" data-cmore="true">敦煌</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="恩施" data-ftype="dcity" data-cmore="true">恩施</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="鄂尔多斯" data-ftype="dcity" data-cmore="true">鄂尔多斯</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="二连浩特" data-ftype="dcity" data-cmore="true">二连浩特</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="佛山" data-ftype="dcity" data-cmore="true">佛山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="佛山" data-ftype="dcity" data-cmore="true">佛山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="阜阳" data-ftype="dcity" data-cmore="true">阜阳</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="富蕴" data-ftype="dcity" data-cmore="true">富蕴</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="福州" data-ftype="dcity" data-cmore="true">福州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="赣州" data-ftype="dcity" data-cmore="true">赣州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="格尔木" data-ftype="dcity" data-cmore="true">格尔木</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="广汉" data-ftype="dcity" data-cmore="true">广汉</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="广元" data-ftype="dcity" data-cmore="true">广元</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="桂林" data-ftype="dcity" data-cmore="true">桂林</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="贵阳" data-ftype="dcity" data-cmore="true">贵阳</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="固原" data-ftype="dcity" data-cmore="true">固原</a></li>
+								                            </ul>
+								                        </div>
+								                        <div class="city_list" style="display:none;" data-title="H-L">
+								                            <ul>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="海口" data-ftype="dcity" data-cmore="true">海口</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="海拉尔" data-ftype="dcity" data-cmore="true">海拉尔</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="哈密" data-ftype="dcity" data-cmore="true">哈密</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="邯郸" data-ftype="dcity" data-cmore="true">邯郸</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="汉中" data-ftype="dcity" data-cmore="true">汉中</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="哈尔滨" data-ftype="dcity" data-cmore="true">哈尔滨</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="合肥" data-ftype="dcity" data-cmore="true">合肥</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="衡阳" data-ftype="dcity" data-cmore="true">衡阳</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="呼和浩特" data-ftype="dcity" data-cmore="true">呼和浩特</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="和田" data-ftype="dcity" data-cmore="true">和田</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="淮安" data-ftype="dcity" data-cmore="true">淮安</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="台州" data-ftype="dcity" data-cmore="true">台州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="惠州" data-ftype="dcity" data-cmore="true">惠州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="佳木斯" data-ftype="dcity" data-cmore="true">佳木斯</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="井冈山" data-ftype="dcity" data-cmore="true">井冈山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="吉安" data-ftype="dcity" data-cmore="true">吉安</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="江门" data-ftype="dcity" data-cmore="true">江门</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="嘉峪关" data-ftype="dcity" data-cmore="true">嘉峪关</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="吉林" data-ftype="dcity" data-cmore="true">吉林</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="济南" data-ftype="dcity" data-cmore="true">济南</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="金昌" data-ftype="dcity" data-cmore="true">金昌</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="景德镇" data-ftype="dcity" data-cmore="true">景德镇</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="西双版纳" data-ftype="dcity" data-cmore="true">西双版纳</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="济宁" data-ftype="dcity" data-cmore="true">济宁</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="晋江" data-ftype="dcity" data-cmore="true">晋江</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="锦州" data-ftype="dcity" data-cmore="true">锦州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="九江" data-ftype="dcity" data-cmore="true">九江</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="酒泉" data-ftype="dcity" data-cmore="true">酒泉</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="鸡西" data-ftype="dcity" data-cmore="true">鸡西</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="衢州" data-ftype="dcity" data-cmore="true">衢州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="喀纳斯" data-ftype="dcity" data-cmore="true">喀纳斯</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="康定" data-ftype="dcity" data-cmore="true">康定</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="克拉玛依" data-ftype="dcity" data-cmore="true">克拉玛依</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="喀什" data-ftype="dcity" data-cmore="true">喀什</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="库尔勒" data-ftype="dcity" data-cmore="true">库尔勒</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="库车" data-ftype="dcity" data-cmore="true">库车</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="兰州" data-ftype="dcity" data-cmore="true">兰州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="拉萨" data-ftype="dcity" data-cmore="true">拉萨</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="梁平" data-ftype="dcity" data-cmore="true">梁平</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="连云港" data-ftype="dcity" data-cmore="true">连云港</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="荔波" data-ftype="dcity" data-cmore="true">荔波</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="丽江" data-ftype="dcity" data-cmore="true">丽江</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="临沧" data-ftype="dcity" data-cmore="true">临沧</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="永州" data-ftype="dcity" data-cmore="true">永州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="临沂" data-ftype="dcity" data-cmore="true">临沂</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="林芝" data-ftype="dcity" data-cmore="true">林芝</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="黎平" data-ftype="dcity" data-cmore="true">黎平</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="柳州" data-ftype="dcity" data-cmore="true">柳州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="龙岩" data-ftype="dcity" data-cmore="true">龙岩</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="洛阳" data-ftype="dcity" data-cmore="true">洛阳</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="庐山" data-ftype="dcity" data-cmore="true">庐山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="泸州" data-ftype="dcity" data-cmore="true">泸州</a></li>
+								                            </ul>
+								                        </div>
+								                        <div class="city_list" style="display:none;" data-title="M-T">
+								                            <ul>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="满洲里" data-ftype="dcity" data-cmore="true">满洲里</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="梅县" data-ftype="dcity" data-cmore="true">梅县</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="绵阳" data-ftype="dcity" data-cmore="true">绵阳</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="漠河" data-ftype="dcity" data-cmore="true">漠河</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="牡丹江" data-ftype="dcity" data-cmore="true">牡丹江</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="那拉提" data-ftype="dcity" data-cmore="true">那拉提</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="南昌" data-ftype="dcity" data-cmore="true">南昌</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="南充" data-ftype="dcity" data-cmore="true">南充</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="南宁" data-ftype="dcity" data-cmore="true">南宁</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="南通" data-ftype="dcity" data-cmore="true">南通</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="南阳" data-ftype="dcity" data-cmore="true">南阳</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="宁波" data-ftype="dcity" data-cmore="true">宁波</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="攀枝花" data-ftype="dcity" data-cmore="true">攀枝花</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="蓬莱" data-ftype="dcity" data-cmore="true">蓬莱</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="且末" data-ftype="dcity" data-cmore="true">且末</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="青岛" data-ftype="dcity" data-cmore="true">青岛</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="庆阳" data-ftype="dcity" data-cmore="true">庆阳</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="秦皇岛" data-ftype="dcity" data-cmore="true">秦皇岛</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="齐齐哈尔" data-ftype="dcity" data-cmore="true">齐齐哈尔</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="日喀则" data-ftype="dcity" data-cmore="true">日喀则</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="三亚" data-ftype="dcity" data-cmore="true">三亚</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="汕头" data-ftype="dcity" data-cmore="true">汕头</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="韶关" data-ftype="dcity" data-cmore="true">韶关</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="沙市" data-ftype="dcity" data-cmore="true">沙市</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="沈阳" data-ftype="dcity" data-cmore="true">沈阳</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="石家庄" data-ftype="dcity" data-cmore="true">石家庄</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="阿里" data-ftype="dcity" data-cmore="true">阿里</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="思茅" data-ftype="dcity" data-cmore="true">思茅</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="黄龙" data-ftype="dcity" data-cmore="true">黄龙</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="苏州" data-ftype="dcity" data-cmore="true">苏州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="塔城" data-ftype="dcity" data-cmore="true">塔城</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="太原" data-ftype="dcity" data-cmore="true">太原</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="唐山" data-ftype="dcity" data-cmore="true">唐山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="腾冲" data-ftype="dcity" data-cmore="true">腾冲</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="天津" data-ftype="dcity" data-cmore="true">天津</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="天水" data-ftype="dcity" data-cmore="true">天水</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="通化" data-ftype="dcity" data-cmore="true">通化</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="通辽" data-ftype="dcity" data-cmore="true">通辽</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="铜仁" data-ftype="dcity" data-cmore="true">铜仁</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="吐鲁番" data-ftype="dcity" data-cmore="true">吐鲁番</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="屯溪" data-ftype="dcity" data-cmore="true">屯溪</a></li>
+								                            </ul>
+								                        </div>
+								                        <div class="city_list" style="display:none;" data-title="W-Z">
+								                            <ul>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="乌兰浩特" data-ftype="dcity" data-cmore="true">乌兰浩特</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="乌鲁木齐" data-ftype="dcity" data-cmore="true">乌鲁木齐</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="万州" data-ftype="dcity" data-cmore="true">万州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="潍坊" data-ftype="dcity" data-cmore="true">潍坊</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="威海" data-ftype="dcity" data-cmore="true">威海</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="文山" data-ftype="dcity" data-cmore="true">文山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="温州" data-ftype="dcity" data-cmore="true">温州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="乌海" data-ftype="dcity" data-cmore="true">乌海</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="武汉" data-ftype="dcity" data-cmore="true">武汉</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="芜湖" data-ftype="dcity" data-cmore="true">芜湖</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="无锡" data-ftype="dcity" data-cmore="true">无锡</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="武夷山" data-ftype="dcity" data-cmore="true">武夷山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="梧州" data-ftype="dcity" data-cmore="true">梧州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="襄阳(中国)" data-ftype="dcity" data-cmore="true">襄阳(中国)</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="西昌" data-ftype="dcity" data-cmore="true">西昌</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="锡林浩特" data-ftype="dcity" data-cmore="true">锡林浩特</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="兴宁县" data-ftype="dcity" data-cmore="true">兴宁县</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="邢台" data-ftype="dcity" data-cmore="true">邢台</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="兴义" data-ftype="dcity" data-cmore="true">兴义</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="西宁" data-ftype="dcity" data-cmore="true">西宁</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="徐州" data-ftype="dcity" data-cmore="true">徐州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="延安" data-ftype="dcity" data-cmore="true">延安</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="盐城" data-ftype="dcity" data-cmore="true">盐城</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="扬州" data-ftype="dcity" data-cmore="true">扬州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="延吉" data-ftype="dcity" data-cmore="true">延吉</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="烟台" data-ftype="dcity" data-cmore="true">烟台</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="宜宾" data-ftype="dcity" data-cmore="true">宜宾</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="宜昌" data-ftype="dcity" data-cmore="true">宜昌</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="伊春" data-ftype="dcity" data-cmore="true">伊春</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="银川" data-ftype="dcity" data-cmore="true">银川</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="伊宁" data-ftype="dcity" data-cmore="true">伊宁</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="义乌" data-ftype="dcity" data-cmore="true">义乌</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="榆林" data-ftype="dcity" data-cmore="true">榆林</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="运城" data-ftype="dcity" data-cmore="true">运城</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="玉树" data-ftype="dcity" data-cmore="true">玉树</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="湛江" data-ftype="dcity" data-cmore="true">湛江</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="张掖" data-ftype="dcity" data-cmore="true">张掖</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="昭通" data-ftype="dcity" data-cmore="true">昭通</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="郑州" data-ftype="dcity" data-cmore="true">郑州</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="芷江" data-ftype="dcity" data-cmore="true">芷江</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="中山" data-ftype="dcity" data-cmore="true">中山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="中卫" data-ftype="dcity" data-cmore="true">中卫</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="黔江" data-ftype="dcity" data-cmore="true">黔江</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="舟山" data-ftype="dcity" data-cmore="true">舟山</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="珠海" data-ftype="dcity" data-cmore="true">珠海</a></li>
+								                                <li><a href="javascript:;" data-event="filterList" data-key="遵义" data-ftype="dcity" data-cmore="true">遵义</a></li>
+								                            </ul>
+								                        </div>
+								                    </div>
+								                </div>
+								            </div>
+								        </div>
+									</div>
+									<div class="cdt_title">出发城市</div>
+									<ul class="cdt_item">
+										<li class="on">不限</li>
+										<li>北京</li>
+										<li>上海</li>
+										<li>成都</li>
+										<li>重庆</li>
+										<li>深圳</li>
+										<li>昆明</li>
+										<li>南京</li>
+										<li>广州</li>
+										<li>厦门</li>
+										<li>西安</li>
+										<li>杭州</li>
+										<li id="temp_city"></li>
+									</ul>
+								</div>
+								<div id="hide_cdt">
+									<div class="depart_time">
+								        <div class="cdt_title">起飞时间</div>
+								        <ul class="cdt_item">
+								            <li>
+								            	<label class="lab_q">
+								                	<input type="checkbox" name="D1" class="inp_chk" value="D1" data-key="D1" data-event="filterList" data-ftype="dstep">上午
+								            	</label>
+								        	</li>
+								            <li>
+								            	<label class="lab_q">
+								                	<input type="checkbox" name="D2" class="inp_chk" value="D2" data-key="D2" data-event="filterList" data-ftype="dstep">中午
+								            	</label>
+								        	</li>
+								            <li>
+								            	<label class="lab_q">
+								               		<input type="checkbox" name="D3" class="inp_chk" value="D3" data-key="D3" data-event="filterList" data-ftype="dstep">下午
+								            	</label>
+								            </li>
+								            <li>
+								            	<label class="lab_q">
+								                	<input type="checkbox" name="D4" class="inp_chk" value="D4" data-key="D4" data-event="filterList" data-ftype="dstep">晚上
+								            	</label>
+								        	</li>
+								        </ul>
+								    </div>
+								    <div class="price_range">
+								        <div class="cdt_title">价格区间</div>
+								  		<div class="price_num">
+								            <div class="p_prc"><span class="prc"><i class="rmb">¥</i><span id="js_min_price">143</span></span>&nbsp;-&nbsp;<span class="prc"><i class="rmb">¥</i><span id="js_max_price">2183</span></span></div>
+								            <div class="p_per">
+								                <p class="per_bg" id="js_price_range"><em ></em></p>
+								            </div>
+								        </div>
+								    </div>
+								</div>
+							</div>
+							<div class="orders">
+								<div class="total_items">
+									共<span id="total_num">1</span>条
+								</div>
+								<ul class="order_ways">
+									<li><a  class="now" href="javascript:;" data-dirc="up" data-type="price">价格<span class="on"></span></a></li>
+									<li><a href="javascript:;" data-dirc="up"  data-type="discount">折扣<span ></span></a></li>
+									<li><a href="javascript:;" data-dirc="up"  data-type="depart_date">出发日期<span ></span></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="results">
+							<div id="no_data" class="b_status" ><i class="ico_war_m"></i>未找到符合该条件的特价机票，换个条件再试试吧！</div>
+							<div class="tj_list_wrapper">
+								<ul  id="tj_list">
+									<li>
+										<a href="#" data-fromcity="北京" data-tocity="潍坊" data-fromdate="2014-08-28">
+										    <p class="p1"><span class="prc"><i class="rmb">¥</i>183</span>&nbsp;<span class="dsc">2.8折</span></p>
+										    <p class="p2"><span>北京</span>&nbsp;-&nbsp;<span>潍坊</span></p>
+										    <p class="p3"><span class="hl">立即抢票</span>08月28日&nbsp;07:20</p>
+									    </a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+						<div class="pager">        
+							<a href="javascript:;" class="towards_pre" data-pager="first" style="display: none;">第一页</a>        
+							<a href="javascript:;" class="towards_pre" data-pager="prev" style="display: none;">上一页</a>                                 
+							<a href="javascript:;" class="towards_next" data-pager="next">下一页</a>       
+							<a href="javascript:;" class="towards_next" data-pager="last">最后一页</a>     
+							<span class="ps">共<em>3</em>页</span>    
+						</div>
+						<div class="mark_tickets">
+							<a href="http://subscribe.qunar.com/info/addSub.do?s=25" target="_blank" hidefocus="on">一折机票，抢先预约！</a>
+						</div>
+					</div>
+					<div class="pageup" ></div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<img src="img/footer.png" alt="footer" />
+		</div>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+
+	</body>
+</html>
