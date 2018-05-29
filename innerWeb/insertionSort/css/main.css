@@ -1,0 +1,269 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td { background: transparent; border: 0; margin: 0; padding: 0; vertical-align: baseline; font-size: 100%; font: inherit; -webkit-text-size-adjust: none; }
+body { line-height: 1; }
+table { border-collapse: collapse; border-spacing: 0; }
+object, :focus { outline: none; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section /* HTML 5 */ { display: block; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+input,button,textarea,select,optgroup,option{ font-size: 100%; font: inherit; }
+li { list-style: none; }
+/***************************{Common CSS Class}*****************************/
+
+
+
+#ctt{
+	position: relative;
+	top: -720px;
+	margin: 0 auto;
+	height: 550px;
+	width: 1200px;
+}
+#ctt.drop{
+	top: 0px;
+	-webkit-animation: ctt-start .5s linear;
+    -moz-animation: ctt-start .5s linear;
+    animation: ctt-start .5s linear;
+}
+@-moz-keyframes ctt-start{
+	0%{
+		top: -720px;
+	}
+	35%{
+		top:  0px;
+	}
+	50%{
+		top:  -200px;
+	}
+	65%{
+		top:  0px;
+	}
+	73%{
+		top:  -100px;
+	}
+	81%{
+		top:  0px;
+	}
+	86%{
+		top:  -50px;
+	}
+	92%{
+		top:  0px;
+	}
+	96%{
+		top:  -30px;
+	}
+	100%{
+		top:  0px;
+	}
+
+}
+@-webkit-keyframes ctt-start{
+	0%{
+		top: -720px;
+	}
+	35%{
+		top:  0px;
+	}
+	50%{
+		top:  -200px;
+	}
+	65%{
+		top:  0px;
+	}
+	73%{
+		top:  -100px;
+	}
+	81%{
+		top:  0px;
+	}
+	86%{
+		top:  -50px;
+	}
+	92%{
+		top:  0px;
+	}
+	96%{
+		top:  -30px;
+	}
+	100%{
+		top:  0px;
+	}
+}
+@keyframes ctt-start{
+	0%{
+		top: -720px;
+	}
+	35%{
+		top:  0px;
+	}
+	50%{
+		top:  -200px;
+	}
+	65%{
+		top:  0px;
+	}
+	73%{
+		top:  -100px;
+	}
+	81%{
+		top:  0px;
+	}
+	86%{
+		top:  -50px;
+	}
+	92%{
+		top:  0px;
+	}
+	96%{
+		top:  -30px;
+	}
+	100%{
+		top:  0px;
+	}
+}
+.move_box{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 30px;
+	transition: left 0.5s;
+	-moz-transition: left 0.5s;
+	-webkit-transition: left 0.5s;
+	-o-transition: left 0.5s;
+}
+.pillar{
+	background: #7EC9B2;
+	height: 50px;
+	transition: height 1s;
+	-moz-transition: height 1s;
+	-webkit-transition: height 1s;
+	-o-transition: height 1s;
+	-webkit-border-radius: 5px 5px 0px 0px ;
+	-moz-border-radius: 5px 5px 0px 0px ;
+	-o-border-radius: 5px 5px 0px 0px ;
+	border-radius: 5px 5px 0px 0px ;
+	-webkit-box-shadow: 2px 1px 2px #37866F;
+	  -moz-box-shadow: 2px 1px 2px #37866F;
+	  box-shadow: 2px 1px 2px #37866F;
+}
+.num{
+	height: 30px;
+	font: 16px bold arial;
+	text-align: center;
+}
+
+#btns{
+	position: relative;
+	top: 300px;
+	margin: 20px auto;
+	width: 400px;
+	padding: 20px;
+	 -webkit-animation: btns-start 1s ease-in-out;
+    -moz-animation: btns-start 1s ease-in-out;
+    animation: btns-start 1s ease-in-out;
+}
+#btns.rise{
+	top: 60px;
+	-webkit-animation: btns-up 0.5s ease-in-out;
+    -moz-animation: btns-up 0.5s ease-in-out;
+    animation: btns-up 0.5s ease-in-out;
+}
+@-moz-keyframes  btns-start{
+	0%{
+		top: -60px;
+	}
+	100%{
+		top: 300px;
+	}
+
+}
+@-webkit-keyframes  btns-start{
+	0%{
+		top: -60px;
+	}
+	100%{
+		top:  300px;
+	}
+}
+@keyframes  btns-start{
+	0%{
+		top: -60px;
+	}
+	100%{
+		top:  300px;
+	}
+}
+@-moz-keyframes  btns-up{
+	0%{
+		top: 300px;
+	}
+	100%{
+		top: 60px;
+	}
+
+}
+@-webkit-keyframes  btns-up{
+	0%{
+		top: 300px;
+	}
+	100%{
+		top:  60px;
+	}
+}
+@keyframes  btns-up{
+	0%{
+		top: 300px;
+	}
+	100%{
+		top:  60px;
+	}
+}
+#btns a{
+	position: absolute;
+	top: 0;
+	background: #7EC9B2;
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;
+	padding: 5px 8px;
+	width: 140px;
+	color: #fff;
+	font: 20px bold "microsoft yahei";
+	-webkit-border-radius: 5px ;
+	-moz-border-radius: 5px ;
+	-o-border-radius: 5px ;
+	border-radius: 5px ;
+	z-index: 100;
+}
+#btns a:hover{
+	background: #5A9E85;
+}
+#btns a.inite{
+	left: 0;
+
+}
+#btns a.start{
+	left: 200px;
+	z-index: 10;
+}
+#btns a.fast{
+	left: 400px;
+	z-index: 10;
+}
+#mask{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 50;
+	cursor: pointer;
+}
