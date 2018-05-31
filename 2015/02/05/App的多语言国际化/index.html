@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="xuzichao03@gmail.com"><title>App的多语言国际化 · LorisBlog</title><meta name="description" content="开发应用的时候遇到国际化业务，我们都会针对同一个App进行国际化适配，也就是语言本地化，不同地区的人打开应用会显示对应地区的语言和该有的图案。接下来从app名称、应用内字符串和图片三个方面来使用一下。
+一、选择多种语言进行配置
+新建一个demo工程
+选中project-&amp;gt;Info-&amp;gt;Lo"><meta name="keywords" content="开发者,程序猿,编程,用户体验,产品,IOS,UI,UE,视觉设计,FE,Golang"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">LorisBlog</a></h3><div class="description"><p>「About Life and Code」</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/archives">文章</a></li><li><a href="/about">关于</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/logo.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>App的多语言国际化</a></h3></div><div class="post-content"><p>开发应用的时候遇到国际化业务，我们都会针对同一个App进行国际化适配，也就是语言本地化，不同地区的人打开应用会显示对应地区的语言和该有的图案。接下来从app名称、应用内字符串和图片三个方面来使用一下。</p>
+<h3 id="一、选择多种语言进行配置"><a href="#一、选择多种语言进行配置" class="headerlink" title="一、选择多种语言进行配置"></a>一、选择多种语言进行配置</h3><ul>
+<li>新建一个demo工程</li>
+<li>选中project-&gt;Info-&gt;Localizations，然后点击”+”，添加需要国际化/本地化的语言，如下图（默认需要勾选Use Base Internationalization）</li>
+<li>这里我们添加英语、汉语和简体中文，如下图:</li>
+</ul>
+<p><img src="/assets/images/localization/1.png" alt=""></p>
+<h3 id="二、应用名称多语言化"><a href="#二、应用名称多语言化" class="headerlink" title="二、应用名称多语言化"></a>二、应用名称多语言化</h3><p>新建一个strings文件，名为infoPlist.strings，必须为infoPlist的名称，然后选中高亮这个文件，在xcode右边会出现Localization的选择，选中我们要进行国际化的三个语言，你会发现info.strings自动多出三个文件分别对应三个语言，如下图:</p>
+<p><img src="/assets/images/localization/2.png" alt=""></p>
+<p>我们分别在对应的文件里面，对应的设置应用名称如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CFBundleDisplayName = &quot;AppName&quot;;</div><div class="line">CFBundleDisplayName = &quot;앱 명칭&quot;;</div><div class="line">CFBundleDisplayName = &quot;应用名称&quot;;</div></pre></td></tr></table></figure>
+<p>将模拟器切换成韩语的环境，我们可以看到应用名称已经更改，其他语言也是如此</p>
+<p><img src="/assets/images/localization/3.png" alt=""></p>
+<h3 id="三、页面内字符串多语言化"><a href="#三、页面内字符串多语言化" class="headerlink" title="三、页面内字符串多语言化"></a>三、页面内字符串多语言化</h3><p>对于页面内的任意字符而言，与上述较为接近。新建一个strings文件，名为Localizable.strings，必须为Localizable的名称，然后选中高亮这个文件，在xcode右边会出现Localization的选择，选中我们要进行国际化的三个语言，你会发现Localizable.strings自动多出三个文件分别对应三个语言。</p>
+<p>Localizable的名字是为了和系统的方法进行关联，我们只需要使用Foundation框架自带的NSLocalizedString(key, comment)这个宏根据Key获取对应的字符串，然后赋值给代码中的字符串。</p>
+<p>在对应的文件里面，对应的设置应用名称如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;home&quot; = &quot;home&quot;;</div><div class="line">&quot;home&quot; = &quot;명칭&quot;;</div><div class="line">&quot;home&quot; = &quot;首页&quot;;</div></pre></td></tr></table></figure>
+<p>然后在ViewController里面进行设置，统一设置为home字符串，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">UILabel *a = [[UILabel alloc] init];</div><div class="line">a.text = NSLocalizedString(@&quot;home&quot;,nil);</div><div class="line">a.textColor = [UIColor blackColor];</div><div class="line">[a sizeToFit];</div><div class="line">[self.view addSubview:a];</div></pre></td></tr></table></figure>
+<p>然后我们调整为韩文环境，在模拟器中可以看到显示如下：</p>
+<p><img src="/assets/images/localization/4.png" alt=""></p>
+<p>另外，如果的strings文件想要换个名字，比如多个人在协作开发的时候，要利用到别人的文件，这个时候，可以使用系统的NSLocalizedStringFromTable方法，调用是一样的，多一个参数用于传递别人的文件名称。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">UILabel *a = [[UILabel alloc] init];</div><div class="line">a.text = NSLocalizedStringFromTable(@&quot;home&quot;,&quot;别人的文件名称&quot;,nil);</div><div class="line">a.textColor = [UIColor blackColor];</div><div class="line">[a sizeToFit];</div><div class="line">[self.view addSubview:a];</div></pre></td></tr></table></figure>
+<h3 id="四、图片的多语言化"><a href="#四、图片的多语言化" class="headerlink" title="四、图片的多语言化"></a>四、图片的多语言化</h3><ul>
+<li>不同语言环境下不同名称</li>
+</ul>
+<p>上述我们已经实现字符串的多语言，因为有imageNamed方法的存在，所以我们可以单独新建一份strings文件用于保存图片名称，这样在不同环境下会自动根据图片名称替换即可。</p>
+<ul>
+<li>不同语言环境下相同名称</li>
+</ul>
+<p>我们拖入一个图片到工程里，然后选中图片，在右边进行localization，选中多个语言环境如下</p>
+<p><img src="/assets/images/localization/5.png" alt=""></p>
+<p>然后我们选中图片show in finder进入文件夹，会发现自动生成了对应语言的文件夹，里面有相同名称的图片，这个时候我们对应替换文件就行了，名称依旧保持一致</p>
+<p><img src="/assets/images/localization/6.png" alt=""></p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2015-02-05</span><i class="fa fa-tag"></i><a href="/tags/开发/" title="开发" class="tag">开发 </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://zichao.me/2015/02/05/App的多语言国际化/,LorisBlog,App的多语言国际化,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/2015/07/22/自动布局 Masonry/" title="自动布局 Masonry" class="btn">上一篇</a></li><li class="next pagbuttons"><a role="navigation" href="/2015/01/11/事件的传递与响应/" title="事件的传递与响应" class="btn">下一篇</a></li></ul></div><a id="comments"></a><div id="youyan_thread" class="post"></div><script>(function() {
+
+    var YYDiv = document.createElement('div');
+    YYDiv.id = 'uyan_frame';
+    document.getElementById('youyan_thread').appendChild(YYDiv);
+
+    var YYScript = document.createElement('script');
+    YYScript.type = 'text/javascript';
+    YYScript.async = true;
+    YYScript.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//v2.uyan.cc/code/uyan.js?uid=' + '2143349';
+    YYScript.charset = 'UTF-8';
+    document.getElementById('youyan_thread').appendChild(YYScript);
+
+})();</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
