@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="xuzichao03@gmail.com"><title>头条性能优化小结与规划 · LorisBlog</title><meta name="description" content="新项目结束后，我正常的回归头条主端业务中，选择做一些应用方面的技术需求。之前为了配合公司发展，在好些业务线上都搬过砖，有些疲惫，来做做技术需求比较符合我目前的想法吧。性能优化这件事情对于应用是有明显的意义的，保证用户的使用通畅顺手，提升使用体验。这个事情是一个长期的事情，时间长一点才能看出一些改进，"><meta name="keywords" content="开发者,程序猿,编程,用户体验,产品,IOS,UI,UE,视觉设计,FE,Golang"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">LorisBlog</a></h3><div class="description"><p>「About Life and Code」</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/archives">文章</a></li><li><a href="/about">关于</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/logo.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>头条性能优化小结与规划</a></h3></div><div class="post-content"><p>新项目结束后，我正常的回归头条主端业务中，选择做一些应用方面的技术需求。之前为了配合公司发展，在好些业务线上都搬过砖，有些疲惫，来做做技术需求比较符合我目前的想法吧。性能优化这件事情对于应用是有明显的意义的，保证用户的使用通畅顺手，提升使用体验。这个事情是一个长期的事情，时间长一点才能看出一些改进，在这里做一些认识上的总结。</p>
+<h2 id="优化原则"><a href="#优化原则" class="headerlink" title="优化原则"></a>优化原则</h2><h4 id="1、不要提前优化"><a href="#1、不要提前优化" class="headerlink" title="1、不要提前优化"></a>1、不要提前优化</h4><p>在开发初期就性能优化作为一个专门的方向或者任务来考虑其实是不妥当的，程序结构设计的合迭代讲究周期，业务也是随着时间越来复杂才逐渐出现性能瓶颈，开发阶段需要合理的设计代码结构，对性能概念有一定的理解，少写一些容易填埋问题的代码，也可以进行代码review。IOS的开发框架性能普遍较好，苹果从软硬件层面都有自己的优化，咱们在没有大量数据指标的支撑下就着手性能方面的事情，会增加系统的复杂度和维护成本，同时开发周期也会变长，相对优点是会带来缺点的。<br>举个例子，比如我们再开发一个tableView的时候，从产品上看，这个table最多的数据也就10条，每次页面进入会刷新数据。如果我们在开发的时候就去考虑圆角性能、高度缓存、异步渲染等的话，五一会陷入一个过渡优化的情况，耽搁了开发进展。</p>
+<h4 id="2、找准性能瓶颈"><a href="#2、找准性能瓶颈" class="headerlink" title="2、找准性能瓶颈"></a>2、找准性能瓶颈</h4><ul>
+<li>不要主观猜测问题所在，必须要有数据依据</li>
+<li>使用性能评测工具</li>
+<li>使用真机测试</li>
+<li>使用release配置而不是DEBug配置</li>
+<li>使用性能较差机型进行测试</li>
+<li>依照难易和重要程度解决</li>
+<li>不同性能指标之间有权衡</li>
+</ul>
+<h4 id="3、理解底层运行机制"><a href="#3、理解底层运行机制" class="headerlink" title="3、理解底层运行机制"></a>3、理解底层运行机制</h4><p>不理解代码运行的底层逻辑，做的优化功夫就会浮于表面。很多性能问题，其实在业务代码的层面是看不到问题所在的，例如一个View的渲染过程，如果你无法理解CPU和GPU扮演的角色，那么你就难以更为深入的优化代码过程。其实，了解底层原理也会让你日常的开发豁然开朗。</p>
+<h4 id="4、拥有技术保障体系"><a href="#4、拥有技术保障体系" class="headerlink" title="4、拥有技术保障体系"></a>4、拥有技术保障体系</h4><ul>
+<li>建立完整的自动化测试体系能够为性能指标提供坚实的数据支撑</li>
+<li>代码上线测试，达不到指标的不能上线</li>
+<li>线上使用APM监控，及时预警，下发热修复</li>
+<li>开发中形成规范</li>
+<li>定期进行性能优化方面的分享</li>
+</ul>
+<h2 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h2><h4 id="1、难以暴露"><a href="#1、难以暴露" class="headerlink" title="1、难以暴露"></a>1、难以暴露</h4><p>应用的性能涉及很多方面，比如内存、卡顿、启动时间等等，并且没有统一的标准，不同应用由于业务的复杂和代码的结构不同，呈现出的性能指标也不尽相同。业务开发在上线前的测试回归，基本是无从发现问题的，受限于用户使用的时长和机器的环境，性能问题是不断积累的，所以往往只有应用上线之后，出现比较严重的问题的时候，我们开发人员才会发现。</p>
+<h4 id="2、监控统计"><a href="#2、监控统计" class="headerlink" title="2、监控统计"></a>2、监控统计</h4><p>因为性能是渐进的，所以我们应该尽可能全面的收集信息，尽可能早的看出一些数据上的变化趋势，这样一来准备合理的监控方案，建立对应的监控指标就是需要做的事情。通过在客户端埋点，进行事件、时间、频率等数据使用量的统计，我们才有可能提前发现问题所在。<br>目前头条线上部署了slardar平台，上报客户端运行时的性能数据，可以从其中发现一些问题。</p>
+<h4 id="3、工具手段"><a href="#3、工具手段" class="headerlink" title="3、工具手段"></a>3、工具手段</h4><ul>
+<li>Xcode、Instruments</li>
+<li>FBRetainCycleDetector</li>
+<li>MLeaksFinder</li>
+<li>AppleTrace</li>
+<li>LinkMap</li>
+<li>APM</li>
+<li>TTMonitor</li>
+<li>TTTracker</li>
+</ul>
+<h3 id="4、竞品分析"><a href="#4、竞品分析" class="headerlink" title="4、竞品分析"></a>4、竞品分析</h3><p>通过对竞品性能的采集得到相应的对比数据，通过Instruments对应用的活动进行监控，可以粗略得到其他应用的运行时性能数据。从而选出头条端在同类型下的一些对比优化。</p>
+<h3 id="5、用户反馈"><a href="#5、用户反馈" class="headerlink" title="5、用户反馈"></a>5、用户反馈</h3><p>通过头条的用户反馈平台进行问题筛选，针对其中属于性能的问题进行处理。</p>
+<h2 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h2><h4 id="1、卡顿"><a href="#1、卡顿" class="headerlink" title="1、卡顿"></a>1、卡顿</h4><h4 id="1-1-历史工作"><a href="#1-1-历史工作" class="headerlink" title="1.1 历史工作"></a>1.1 历史工作</h4><ul>
+<li>Feed卡顿优化完成度较低，目前有FPS监控上报和整理Cell的优化文档，罗列的优化点实施程度不够，部分列表问题依旧存在。</li>
+<li>UGC等复杂业务页面都有FPS监控</li>
+<li>卡顿有异常监控上报，有错误信息</li>
+<li>数据:下拉刷新感知为优化了0.5s左右</li>
+</ul>
+<h4 id="1-2-问题"><a href="#1-2-问题" class="headerlink" title="1.2 问题"></a>1.2 问题</h4><ul>
+<li>视频、小视频、微头条三大tab目前卡顿明显，但是无人优化完善</li>
+<li>卡顿错误信息无人跟进优化</li>
+<li>FPS上报只有复杂页面，卡顿信息也没有体现</li>
+<li>其他业务可能存在的偶现卡顿case没有体现，无数据上报，卡顿异常是这个？</li>
+</ul>
+<h4 id="2、内存"><a href="#2、内存" class="headerlink" title="2、内存"></a>2、内存</h4><h4 id="2-1-历史工作"><a href="#2-1-历史工作" class="headerlink" title="2.1 历史工作"></a>2.1 历史工作</h4><ul>
+<li>对webview播放gif有过优化方案实行</li>
+<li>对应用内存使用量监控上报，业务组件有各自内存使用情况上报<br>数据：使用native贴片替代详情页H5中的GIF图，对GIF密集型详情页，内存增长下降约40%，CPU占用下降约40%。整体OOM free session从98%提升至98.4%，即OOM量减少20%</li>
+</ul>
+<h4 id="2-2-问题"><a href="#2-2-问题" class="headerlink" title="2.2 问题"></a>2.2 问题</h4><ul>
+<li>常出现内存占用过多情况问题，无从查找发生原因</li>
+<li>sladar内存触顶没有数据上报</li>
+</ul>
+<h4 id="3、启动过程时间"><a href="#3、启动过程时间" class="headerlink" title="3、启动过程时间"></a>3、启动过程时间</h4><h4 id="3-1-历史工作"><a href="#3-1-历史工作" class="headerlink" title="3.1 历史工作"></a>3.1 历史工作</h4><ul>
+<li>优化业务逻辑，在didFinishLaunching中进行延迟加载，下线了一些冗余的代码</li>
+<li>广告启动优化</li>
+<li>feed加载优化</li>
+<li>可以放到子线程的逻辑，通过增加线程安全，放到子线程执行</li>
+<li>提前请求网络或者拉取本地数据库</li>
+<li>清除不必要的初始化</li>
+</ul>
+<h4 id="3-2-问题"><a href="#3-2-问题" class="headerlink" title="3.2 问题"></a>3.2 问题</h4><ul>
+<li>代码进过长期的业务迭代，又重新出现启动时长变长</li>
+<li>启动时间没有分阶段上报</li>
+<li>具体业务时间没有上报，事件列表无从下手，无法看出问题所在</li>
+</ul>
+<h4 id="4、电量"><a href="#4、电量" class="headerlink" title="4、电量"></a>4、电量</h4><h4 id="4-1-历史工作"><a href="#4-1-历史工作" class="headerlink" title="4.1 历史工作"></a>4.1 历史工作</h4><ul>
+<li>分析了可能耗电的地方</li>
+<li>上报电量情况，没啥意义体现</li>
+<li>历史阶段性优化：2.4s &gt; 1.7s</li>
+</ul>
+<h4 id="4-2-问题"><a href="#4-2-问题" class="headerlink" title="4.2 问题"></a>4.2 问题</h4><ul>
+<li>无法知道具体是哪里耗电了</li>
+</ul>
+<h4 id="5、安装包瘦身"><a href="#5、安装包瘦身" class="headerlink" title="5、安装包瘦身"></a>5、安装包瘦身</h4><h4 id="5-1-历史工作"><a href="#5-1-历史工作" class="headerlink" title="5.1 历史工作"></a>5.1 历史工作</h4><ul>
+<li>CI出包报告与newbeta差异大小，linkmap分析</li>
+<li>混编改为OC纯代码编译</li>
+<li>清理无用资源，包括图片、调试代码、无用类</li>
+<li>build setting，符号信息剥离，LTO优化</li>
+<li>cocoapods资源合并，tintcolor精简图标，大图改在云端下载</li>
+</ul>
+<p>数据：</p>
+<ul>
+<li>2016.08-2016.10 第一期优化 78MB-&gt;42MB</li>
+<li>2017.05-2017.07 第二期优化 优化3MB</li>
+<li>2017.09-2017.10 第三期优化，进行中 优化5MB，纯OC编程一共包大小减少总共8.6MB</li>
+</ul>
+<h4 id="5-2-问题"><a href="#5-2-问题" class="headerlink" title="5.2 问题"></a>5.2 问题</h4><ul>
+<li>随着业务开发，包开始不断增长</li>
+<li>开发人员没有包大小优化意识</li>
+</ul>
+<h4 id="6、webview性能"><a href="#6、webview性能" class="headerlink" title="6、webview性能"></a>6、webview性能</h4><p>webview的gif播放有优化过内存，暂无其他相关优化历史，也无数据支撑去发现需要优化的问题。<br>打算和前端对接了解下。</p>
+<h4 id="7、网络优化"><a href="#7、网络优化" class="headerlink" title="7、网络优化"></a>7、网络优化</h4><p>暂无相关优化历史文档，这边可能需要找海东了解下。</p>
+<h4 id="8、Xcode编译速度"><a href="#8、Xcode编译速度" class="headerlink" title="8、Xcode编译速度"></a>8、Xcode编译速度</h4><p>历史阶段性优化：88秒 &gt; 55秒</p>
+<p>不常用文件二进制化，精简指令集，关闭编译优化，硬件提升</p>
+<h4 id="9、磁盘"><a href="#9、磁盘" class="headerlink" title="9、磁盘"></a>9、磁盘</h4><p>历史工作：目前有磁盘的描述文件上报，传到数据库需要些sQL查询文件分布</p>
+<p>图片和视频的缓存设计<br>统计大小，上报数据，主要是数据大小分布的处理</p>
+<h2 id="工作规划"><a href="#工作规划" class="headerlink" title="工作规划"></a>工作规划</h2><p>0、sladar上面有各种统计事件，但是对于一个新了解的人并不清楚那些事件是属于哪些类,应该把性能监控的事件分出来。</p>
+<p>1、sladar部分上传信息不够，比如磁盘描述信息没有二次处理，只能放数据库</p>
+<p>2、根据上述发现问题方式选定方向，设计异常规则，并统计埋点数据更为仔细的数据统计上报，然后根据数据反向定位</p>
+<p>3、竞品分析报告提供一些方向分析支持</p>
+<ul>
+<li>头条包增涨比较大 40+M</li>
+<li>启动速度中等，比天天快报和网易新闻满</li>
+<li>顶部bar有缩放</li>
+<li>feed刷新速度中等，比天天快报慢</li>
+<li>视频首帧速度</li>
+</ul>
+<p>4、卡顿：优化视频各个tab问题，具体代码方案；上报具体的卡顿case监控信息上报；对卡顿case就进行任务分配处理</p>
+<p>5、内存: FOOM上报；业务内存检测大小排序，并定向进行具体代码级别的优化；</p>
+<p>6、启动时间：    重新检查启动时间问题优化逻辑；分阶段上报启动时间，上报业务逻辑时间？ </p>
+<p>7、电量：耗电四大天王方面着手优化； 私有API使用，灰度上报更为有用的信息？</p>
+<p>8、安装包瘦身：重新做一次安装包优化；利用工具产出报告，提供分析脚本  </p>
+<p>9、webview：与前端对接，了解需求</p>
+<p>10、网络：暂无<br>11、编译速度：推进组件二进制化</p>
+<p>12、磁盘：更为详细的数据分析，对上报描述文件有对应的分析逻辑</p>
+<p>13、优化文档参考：<a href="https://github.com/skyming/iOS-Performance-Optimization" target="_blank" rel="external">iOS-Performance-Optimization</a></p>
+<h3 id="提问："><a href="#提问：" class="headerlink" title="提问："></a>提问：</h3><ul>
+<li>有什么性能分析相关的好使的工具？</li>
+<li>更有效发现性能问题的方式？</li>
+<li>遇到空二大的性能问题，比如涉及代码方方面面，要多个业务都修改才有可能体现出一些微小的优化？</li>
+<li>已经存在哪些点是有效的？找人问</li>
+<li>跟业务无关的APM会包含，它能提供什么能力，如果没有提需求</li>
+<li>可以通过图像相似度算法去重icon图标</li>
+</ul>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-06-02</span><i class="fa fa-tag"></i><a href="/tags/总结/" title="总结" class="tag">总结 </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://zichao.me/2018/06/02/头条性能优化小结与规划/,LorisBlog,头条性能优化小结与规划,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/2018/06/15/18年的端午/" title="18年的端午节" class="btn">上一篇</a></li><li class="next pagbuttons"><a role="navigation" href="/2018/01/04/理财 (一)/" title="理财基础" class="btn">下一篇</a></li></ul></div><a id="comments"></a><div id="youyan_thread" class="post"></div><script>(function() {
+
+    var YYDiv = document.createElement('div');
+    YYDiv.id = 'uyan_frame';
+    document.getElementById('youyan_thread').appendChild(YYDiv);
+
+    var YYScript = document.createElement('script');
+    YYScript.type = 'text/javascript';
+    YYScript.async = true;
+    YYScript.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//v2.uyan.cc/code/uyan.js?uid=' + '2143349';
+    YYScript.charset = 'UTF-8';
+    document.getElementById('youyan_thread').appendChild(YYScript);
+
+})();</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
