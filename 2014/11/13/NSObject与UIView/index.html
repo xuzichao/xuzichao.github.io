@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="xuzichao03@gmail.com"><title>NSObject与UIView · LorisBlog</title><meta name="description" content="学习IOS里面常用的类有两个基础的类NSObject与UIView，是很多类的父类或者说根类，无处不在，很有必要来进行认识一下。记录一些关键的方法，在使用上有一定的理解成本。
+一、NSObject
+判断两个NSObject是否相等
+
+必须覆盖实现NSObject的两个方法，其中isEqual的判断相"><meta name="keywords" content="开发者,程序猿,编程,用户体验,产品,IOS,UI,UE,视觉设计,FE,Golang"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">LorisBlog</a></h3><div class="description"><p>「About Life and Code」</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/archives">文章</a></li><li><a href="/about">关于</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/logo.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>NSObject与UIView</a></h3></div><div class="post-content"><p>学习IOS里面常用的类有两个基础的类NSObject与UIView，是很多类的父类或者说根类，无处不在，很有必要来进行认识一下。记录一些关键的方法，在使用上有一定的理解成本。</p>
+<h3 id="一、NSObject"><a href="#一、NSObject" class="headerlink" title="一、NSObject"></a>一、NSObject</h3><ul>
+<li>判断两个NSObject是否相等</li>
+</ul>
+<p>必须覆盖实现NSObject的两个方法，其中isEqual的判断相等是基于对象自己的hash值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (BOOL)isEqual:(id)object;</div><div class="line">@property (readonly) NSUInteger hash;</div></pre></td></tr></table></figure>
+<ul>
+<li>load方法与initialize方法</li>
+</ul>
+<p>load方法是在类被添加到runtime的时候就立即调用；initialize方法是对象收到第一个消息的时候，在这个消息之前被调用，并且是线程安全会阻塞其他线程，所以尽量避免耗时操作。基本可以认为执行顺序时间load在initialize之前，在init之前。</p>
+<ul>
+<li>alloc init 与new的区别</li>
+</ul>
+<p>基本可以认为是一致的，微小的区别在于alloc分配内存的时候使用了zone，而new不是，其内部默认调用了init方法，所以无法向alloc init那样做到initwithXX方法的扩展。</p>
+<ul>
+<li>一个对象消息转发过程</li>
+</ul>
+<p>当我们向目标对象发送的消息如[A B]向A对象发送B消息，而无法应答时，一般会报错“unrecognized selector sent to instance..”,而在报错前一般会经过如下几个方法,这样我们就有机会去预先处理一些可能会报错的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">+(BOOL)resolveInstanceMethod:(SEL)sel;</div><div class="line">-(id)forwardingTargetForSelector:(SEL)aSelector;</div><div class="line">-(NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector;</div><div class="line">-(void)forwardInvocation:(NSInvocation *)anInvocation;</div></pre></td></tr></table></figure>
+<h3 id="二、UIView"><a href="#二、UIView" class="headerlink" title="二、UIView"></a>二、UIView</h3><ul>
+<li>交互事件传递</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//判断交互事件发生所在的UIView</div><div class="line">- (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event;</div><div class="line"></div><div class="line">//判断交互事件发生的具体位置是否在当前UIView中</div><div class="line">- (BOOL)pointInside:(CGPoint)point withEvent:(nullable UIEvent *)event;</div></pre></td></tr></table></figure>
+<ul>
+<li>坐标映射和转换</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (CGPoint)convertPoint:(CGPoint)point toView:(nullable UIView *)view;</div><div class="line">- (CGPoint)convertPoint:(CGPoint)point fromView:(nullable UIView *)view;</div><div class="line">- (CGRect)convertRect:(CGRect)rect toView:(nullable UIView *)view;</div><div class="line">- (CGRect)convertRect:(CGRect)rect fromView:(nullable UIView *)view;</div></pre></td></tr></table></figure>
+<ul>
+<li>tintColor</li>
+</ul>
+<p>默认tintColor的值为nil，这表示它将会运用父视图层次的颜色来进行着色。如果父视图中没有设置tintColor，那么默认系统就会使用蓝色。因此，可以通过设置root view controller的tintColor来改变系统整体的颜色。</p>
+<p>也可以给图像着色，调用imageWithRenderingMode:方法来改变图像渲染模式为UIImageRenderingModeAlwaysTemplate,其他两个选项是UIImageRenderingModeAlwaysOriginal和andUIImageRenderingModeAutomatic。默认是andUIImageRenderingModeAutomatic,在这个情况下，根据上下文来改变图像。</p>
+<ul>
+<li><p>布局与绘制</p>
+<ul>
+<li>layoutSubviews对subviews重新布局</li>
+<li>layoutSubviews方法调用先于drawRect</li>
+<li>setNeedsLayout在receiver标上一个需要被重新布局的标记，在系统runloop的下一个周期自动调用layoutSubviews</li>
+<li>layoutIfNeeded方法如其名，UIKit会判断该receiver是否需要layout.根据Apple官方文档,layoutIfNeeded方法应该是这样的</li>
+<li>layoutIfNeeded遍历的不是superview链，应该是subviews链</li>
+<li>drawRect是对receiver的重绘，能获得contex</li>
+<li>setNeedDisplay在receiver标上一个需要被重新绘图的标记，在下一个draw周期自动重绘，iphone device的刷新频率是60hz，也就是1/60秒后重绘</li>
+</ul>
+</li>
+<li><p>其他<br>包括手势、自动布局、动画等等。</p>
+</li>
+</ul>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2014-11-13</span><i class="fa fa-tag"></i><a href="/tags/开发/" title="开发" class="tag">开发 </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://zichao.me/2014/11/13/NSObject与UIView/,LorisBlog,NSObject与UIView,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/2015/01/11/事件的传递与响应/" title="事件的传递与响应" class="btn">上一篇</a></li><li class="next pagbuttons"><a role="navigation" href="/2014/11/07/我的博客诞生/" title="我的博客诞生" class="btn">下一篇</a></li></ul></div><a id="comments"></a><div id="youyan_thread" class="post"></div><script>(function() {
+
+    var YYDiv = document.createElement('div');
+    YYDiv.id = 'uyan_frame';
+    document.getElementById('youyan_thread').appendChild(YYDiv);
+
+    var YYScript = document.createElement('script');
+    YYScript.type = 'text/javascript';
+    YYScript.async = true;
+    YYScript.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//v2.uyan.cc/code/uyan.js?uid=' + '2143349';
+    YYScript.charset = 'UTF-8';
+    document.getElementById('youyan_thread').appendChild(YYScript);
+
+})();</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

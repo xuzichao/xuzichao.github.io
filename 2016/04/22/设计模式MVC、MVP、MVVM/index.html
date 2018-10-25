@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="xuzichao03@gmail.com"><title>工程结构MVC、MVP、MVVM · LorisBlog</title><meta name="description" content="看了不少关于工程结构的文章，不限于在iOS编程的工程和语言，设计主要有几种，分别是MVC、MVP、MVVM以及Redux，每一篇都有自己细微独到的认知，在一些职责分配理解上有稍微的区别，不过都围绕着一个真理：工程层级分工清楚，通信同步，减少结构的臃肿与耦合，提高开发效率。要理解各个结构，其实主要就是"><meta name="keywords" content="开发者,程序猿,编程,用户体验,产品,IOS,UI,UE,视觉设计,FE,Golang"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">LorisBlog</a></h3><div class="description"><p>「About Life and Code」</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/archives">文章</a></li><li><a href="/about">关于</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/logo.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>工程结构MVC、MVP、MVVM</a></h3></div><div class="post-content"><p>看了不少关于工程结构的文章，不限于在iOS编程的工程和语言，设计主要有几种，分别是MVC、MVP、MVVM以及Redux，每一篇都有自己细微独到的认知，在一些职责分配理解上有稍微的区别，不过都围绕着一个真理：工程层级分工清楚，通信同步，减少结构的臃肿与耦合，提高开发效率。要理解各个结构，其实主要就是理解他们之间的交通规则，也就是他们分别代表谁，而谁能和谁说话。</p>
+<h3 id="一、MVC"><a href="#一、MVC" class="headerlink" title="一、MVC"></a>一、MVC</h3><p>MVC历史比较悠久也有着很多衍生体，本来一直以为MVC结构是一种固定标准的工程设计结构，后来了解到它在不同的语言和领域中体现出的职能机制可以说是大不相同的。</p>
+<h5 id="1-1-标准的MVC"><a href="#1-1-标准的MVC" class="headerlink" title="1.1 标准的MVC"></a>1.1 标准的MVC</h5><p>我表示不知道哪里有标准的完整的MVC，只是它们之间都有一些共同的定义，引用至百科：</p>
+<ul>
+<li>Model：表示程序的数据模型对象，是应用程序中用于保存数据和处理数据逻辑的部分。</li>
+<li>View：表示程序的视图界面，代表显示部分。</li>
+<li>Controller：表示程序的控制器，处理用户交互输入，包括视图数据读取并向模型发送数据等。</li>
+<li>Model与View之间是相互可知道的</li>
+</ul>
+<h5 id="1-2-各种不同的MVC规则"><a href="#1-2-各种不同的MVC规则" class="headerlink" title="1.2 各种不同的MVC规则"></a>1.2 各种不同的MVC规则</h5><ul>
+<li>Spring</li>
+</ul>
+<p><img src="/assets/images/MVC/SPRINGMVC.jpg" alt=""></p>
+<ul>
+<li>ASP</li>
+</ul>
+<p><img src="/assets/images/MVC/ASPMVC.jpg" alt=""></p>
+<ul>
+<li>Rails</li>
+</ul>
+<p><img src="/assets/images/MVC/RAILSMVC.jpg" alt=""></p>
+<ul>
+<li>WIKI</li>
+</ul>
+<p><img src="/assets/images/MVC/WIKIMVC.jpg" alt=""></p>
+<h5 id="1-3-iOS中的MVC"><a href="#1-3-iOS中的MVC" class="headerlink" title="1.3 iOS中的MVC"></a>1.3 iOS中的MVC</h5><p>1.3.1 交通规则</p>
+<p><img src="/assets/images/MVC/iOSMVC.jpg" alt=""></p>
+<p>我们可以看到iOS中的MVC和其他是很接近的，苹果的整个开发框架设计都遵循着MVC结构。其中：</p>
+<p>Model和View永远不能相互通信，只能通过Controller传递。</p>
+<p>Controller可以直接与Model对话，Model可以通过Notification和KVO机制与Controller间接通信。</p>
+<p>Controller可以直接与View对话，View通过action向Controller报告事件的发生与状态，Controller去数据交互回来再更新View.</p>
+<p>但是实际开发中，由于框架的限制，我们还是会发现iOS在MVC的开发遵循了上述的标准模式，model和View之间会存在耦合。</p>
+<p>1.3.2 缺点</p>
+<ul>
+<li><p>model与View的职责过于简单</p>
+</li>
+<li><p>臃肿的ViewController</p>
+<ul>
+<li>View的加载显示逻辑</li>
+<li>网络请求数据逻辑</li>
+<li>工具类逻辑</li>
+<li>交互操作逻辑</li>
+<li>dataSource和代理逻辑</li>
+<li>页面的生命周期</li>
+<li>状态记录</li>
+<li>界面跳转</li>
+</ul>
+</li>
+<li><p>维护成本高、测试性差</p>
+</li>
+</ul>
+<p>1.3.3 优化</p>
+<ul>
+<li>model </li>
+</ul>
+<p>不做为单纯的数据结构体，应当包含数据流动的全部处理逻辑，包括网络请求，数据库存取，数据格式处理转化。</p>
+<ul>
+<li>ViewController</li>
+</ul>
+<p>单独的工具类处理方法，新建View的容器用于组织和管理view加载显示，传递生命周期给View自我管理，界面跳转使用scheme路由分发给View自身事件，网络请求可以单独新建一个category或者service，状态和事件的响应拆分出一个事件派发中心的管理器。</p>
+<ul>
+<li>view</li>
+</ul>
+<p>容器概念处理布局，接受生命周期，更多的承担VC中的显示逻辑与代理协议，监听数据变化与同步</p>
+<h3 id="二、MVP"><a href="#二、MVP" class="headerlink" title="二、MVP"></a>二、MVP</h3><p>MVP其实一个MVC的变种，不存在明显的区别，看实际的应用场景是Android币iOS多，如果按照上述标准的MVC结构来讲，MVP主要的特点为：</p>
+<ul>
+<li>V变种为被动视图，不在主动更新数据，所有的交互都通过presenter来进行处理并更新，保罗View的协议代理</li>
+<li>视图层对于模型层没有任何依赖，两者被presenter进行了解耦，他俩是无感知的</li>
+</ul>
+<h3 id="三、MVVM"><a href="#三、MVVM" class="headerlink" title="三、MVVM"></a>三、MVVM</h3><p>记得从前MVVM刚出来的时候被炒的出神入化，但是发现很多人在理解和使用上并没有用出MVC的区别来，存在误区，我们来看一下职责。</p>
+<p><img src="/assets/images/MVC/MVVM.png" alt=""></p>
+<h5 id="3-1-职责"><a href="#3-1-职责" class="headerlink" title="3.1 职责"></a>3.1 职责</h5><p>Model：提供业务逻辑实现方法(本地存储数据的交互、服务端数据的交互)，数据结构</p>
+<p>View: 负责View的初始化释放与布局,响应用户交互事件</p>
+<p>ViewModel：从Model层 获取数据，同步数据到Model中，向View层提供接口，其中包括 数据接口(格式化的数据) 以及事件处理接口，通知View层数据改变，业务逻辑，页面跳转</p>
+<p>看到这里是不是发现似曾相识，VM不就是从前的C吗，只不过是臃肿的C变成了臃肿的VM而已。但是如果你仔细的理解正确，会发现MVVM与MVC的区别。</p>
+<h5 id="3-2-关键区别"><a href="#3-2-关键区别" class="headerlink" title="3.2 关键区别"></a>3.2 关键区别</h5><ul>
+<li>VM 是 对View层视图的逻辑抽象，包括直接的数据显示格式和状态保存</li>
+<li>VM 与View之间进行了绑定关系，VM的更新会自动同步给View</li>
+<li>VM 里面不包含Controller所具有的独特功能</li>
+</ul>
+<h5 id="3-3-小结"><a href="#3-3-小结" class="headerlink" title="3.3 小结"></a>3.3 小结</h5><p>MVVM是MVC的进化,依旧是已解耦分工为目标，这个时候View和Model之间不再有联系，彻底分隔开，有VM进行统一管理。在实际的应用中，Controller一层是存在的，所以MVVM结构本质上的结构多了隐式绑定和C这么一层，并且绑定用于绑定关系的出现，iOS在MVVM的应用上结合reactiveCocoa进行响应式编程更为开阔的思路。结构如下：</p>
+<p><img src="/assets/images/MVC/MVMCV.jpg" alt=""></p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2016-04-22</span><i class="fa fa-tag"></i><a href="/tags/开发/" title="开发" class="tag">开发 </a></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://zichao.me/2016/04/22/设计模式MVC、MVP、MVVM/,LorisBlog,工程结构MVC、MVP、MVVM,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/2016/05/12/iweb 峰会/" title="iweb 峰会" class="btn">上一篇</a></li><li class="next pagbuttons"><a role="navigation" href="/2016/03/28/视频开发总结/" title="AVFoundation视频开发总结" class="btn">下一篇</a></li></ul></div><a id="comments"></a><div id="youyan_thread" class="post"></div><script>(function() {
+
+    var YYDiv = document.createElement('div');
+    YYDiv.id = 'uyan_frame';
+    document.getElementById('youyan_thread').appendChild(YYDiv);
+
+    var YYScript = document.createElement('script');
+    YYScript.type = 'text/javascript';
+    YYScript.async = true;
+    YYScript.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//v2.uyan.cc/code/uyan.js?uid=' + '2143349';
+    YYScript.charset = 'UTF-8';
+    document.getElementById('youyan_thread').appendChild(YYScript);
+
+})();</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

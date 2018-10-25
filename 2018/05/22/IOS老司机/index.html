@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="xuzichao03@gmail.com"><title> · LorisBlog</title><meta name="description" content="Xcode的一次build过程
+
+编译各个三方库.m文件为boundle
+copy boundle resource静态资源
+copy info.list
+运行pod编译搅拌
+预编译pch
+编译各个.m文件
+copy静态资源 图片、plist、storyboard
+compile asset cat"><meta name="keywords" content="开发者,程序猿,编程,用户体验,产品,IOS,UI,UE,视觉设计,FE,Golang"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">LorisBlog</a></h3><div class="description"><p>「About Life and Code」</p></div></div></div><ul class="social-links"></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/archives">文章</a></li><li><a href="/about">关于</a></li></div><div class="information"><div class="back_btn"><li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"> </a></li></div><div class="avatar"><img src="/images/logo.png"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a></a></h3></div><div class="post-content"><p>Xcode的一次build过程</p>
+<ul>
+<li>编译各个三方库.m文件为boundle</li>
+<li>copy boundle resource静态资源</li>
+<li>copy info.list</li>
+<li>运行pod编译搅拌</li>
+<li>预编译pch</li>
+<li>编译各个.m文件</li>
+<li>copy静态资源 图片、plist、storyboard</li>
+<li>compile asset catalogs</li>
+<li>process info.plist</li>
+<li>link storyboards</li>
+<li>run custom script</li>
+<li>touch app</li>
+<li>sign app</li>
+<li>validate app(真机build有)</li>
+</ul>
+<h4 id="使用Instruments，内存在使用中范围波动："><a href="#使用Instruments，内存在使用中范围波动：" class="headerlink" title="使用Instruments，内存在使用中范围波动："></a>使用Instruments，内存在使用中范围波动：</h4><table>
+<thead>
+<tr>
+<th>App</th>
+<th>后台运行</th>
+<th>后台激活无操作</th>
+<th>不断上拉刷新然后等待</th>
+<th>不断打开文章然后关闭</th>
+<th>不断播放视频然后关闭</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>天天快报</td>
+<td>9.31M</td>
+<td>85.2M ~ 104.6M</td>
+<td>增加到220M+ ~ 回落131.5M</td>
+<td>增加至226M，停止操作无明显内存释放</td>
+<td>214.1M~ 239.3M</td>
+</tr>
+<tr>
+<td>搜狐新闻</td>
+<td>23.45M</td>
+<td>92.36M ~ 100.95M</td>
+<td>增加到197M ~ 回落126.3M</td>
+<td>增加至228.3M ~ 回落209.1M</td>
+<td>237.3M ~ 254.28M</td>
+</tr>
+<tr>
+<td>网易新闻</td>
+<td>28.6M</td>
+<td>99.0M ~ 114.9M</td>
+<td>增加231M+ ~ 回落143.1M</td>
+<td>151M ~ 169.2M</td>
+<td>199.2 ~ 232.4M</td>
+</tr>
+<tr>
+<td>UC浏览器</td>
+<td>23.45M</td>
+<td>103.4M ~ 119.9M</td>
+<td>增加303.2M+ ~ 回落172.7M</td>
+<td>172 M ~ 278.5M</td>
+<td>270.1M ~ 295.5M</td>
+</tr>
+<tr>
+<td>今日头条</td>
+<td>18.64M</td>
+<td>93.3M ~ 97.6M</td>
+<td>增加到217.5M ~ 回落182.1M</td>
+<td>增加到235M ~ 回落227.2M</td>
+<td>增加到288.9M ~ 回落276.8M</td>
+</tr>
+<tr>
+<td>腾讯新闻</td>
+<td>24.73M</td>
+<td>103.7M ~ 121.6M</td>
+<td>增加到283.1M ~ 回落117.2M</td>
+<td>增加到205.0M ~ 回落177.5M</td>
+<td>增加到234.7M ~ 回落221.8M</td>
+</tr>
+</tbody>
+</table>
+<h2 id="前端系列"><a href="#前端系列" class="headerlink" title="前端系列"></a>前端系列</h2><ul>
+<li>2048游戏 done</li>
+<li>机票重构 done</li>
+<li>酒店重构 done</li>
+<li>插入排序动画 done</li>
+<li>内部二手交易网站 </li>
+<li>二手IOS客户端</li>
+<li>去哪儿旅行watch开发</li>
+</ul>
+<h2 id="IOS老司机"><a href="#IOS老司机" class="headerlink" title="IOS老司机"></a>IOS老司机</h2><h3 id="初级OC"><a href="#初级OC" class="headerlink" title="初级OC"></a>初级OC</h3><ul>
+<li>自动布局的实现、masonry done</li>
+<li>APP页面层级与事件响应 done</li>
+<li>设计模式 </li>
+<li>系统的网络请求，与 NSURLConnection 相比，NSURLsession 改进哪些?</li>
+<li>category的特性与extension的区别  </li>
+<li>UIView和NSObject这两个类，所有里面的方法和原理都需要了解一下。 done</li>
+<li>字典的工作原理 ？怎100w个中是怎么快速去取value？</li>
+<li>KVC机制是如何通过key找到value</li>
+<li>说说Cell重用原理，UITableView的相关优化</li>
+<li>自定义手势 </li>
+<li>网络协议HTTP/HTTPS/UDP/TCP</li>
+<li>IOS有好几种类型的Image</li>
+<li>消息传递方式（通知、代理、NSINvo）</li>
+<li>UIWebview与WKWebView</li>
+</ul>
+<h3 id="初级业务"><a href="#初级业务" class="headerlink" title="初级业务"></a>初级业务</h3><ul>
+<li>国际化多语言的实现 done</li>
+<li>让应用拥有多种皮肤 done</li>
+<li>IOS的工具使用篇</li>
+</ul>
+<h3 id="高级OC"><a href="#高级OC" class="headerlink" title="高级OC"></a>高级OC</h3><ul>
+<li>架构模式 done</li>
+<li>面向切面编程Aspects done</li>
+<li>锁机制 </li>
+<li>多线程, NSThread, NSOperation, GCD区别</li>
+<li>如何终止正在运行的工作线程？</li>
+<li>iOS下如何实现指定线程数目的线程池?</li>
+<li>使用atomic一定是线程安全的吗？</li>
+<li>通过[UIImage imageNamed:]生成的对象什么时候被释放？</li>
+<li>runloop</li>
+<li>Autorelease的原理 ?</li>
+<li>block本质是什么？</li>
+<li>通知和KVO区别</li>
+<li>如何使用runtime hook一个class的某个方法，又如何hook某个instance的方法？</li>
+<li>weak的实现原理 strong的实现原理</li>
+<li>谈下iOS开发中知道的哪些锁? 哪个性能最差?SD和AFN使用的哪个? 一般开发中你最常用哪个? 哪个锁apple存在问题又是什么问题?</li>
+<li>消息传递过程</li>
+</ul>
+<h3 id="高级业务"><a href="#高级业务" class="headerlink" title="高级业务"></a>高级业务</h3><ul>
+<li>项目中的图片上传功能如何实现，为什么使用队列上传，为什么不用异步上传?</li>
+<li>组件化：页面路由控制 </li>
+<li>组件化：CocoaPods 么？能大概讲一下工作原理么？</li>
+<li>谈下开发中iOS缓存的理解</li>
+<li>持久化存储方案 done</li>
+<li>IOS的视频播放器 </li>
+<li>视频录制与合成剪辑 </li>
+<li>音频一览 done</li>
+<li>客户端反劫持</li>
+<li>蓝牙打印机的实现</li>
+<li>JSBridge</li>
+<li>JSPatch</li>
+<li>动态化：RN、其他方案 </li>
+<li>性能优化</li>
+<li>自动化测试</li>
+</ul>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><h3 id="音频视频"><a href="#音频视频" class="headerlink" title="音频视频"></a>音频视频</h3><h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><h3 id="物理"><a href="#物理" class="headerlink" title="物理"></a>物理</h3><ul>
+<li>定位GPS</li>
+</ul>
+<h3 id="图像与绘制"><a href="#图像与绘制" class="headerlink" title="图像与绘制"></a>图像与绘制</h3><ul>
+<li>CoreGraphics</li>
+<li>QuatzCore</li>
+<li>GPUImage</li>
+</ul>
+<h3 id="消息相关"><a href="#消息相关" class="headerlink" title="消息相关"></a>消息相关</h3><ul>
+<li>IOS使用通知有哪些坑</li>
+<li>IMSDK</li>
+<li>短信邮件</li>
+</ul>
+<h3 id="web"><a href="#web" class="headerlink" title="web"></a>web</h3><h3 id="私有API的使用"><a href="#私有API的使用" class="headerlink" title="私有API的使用"></a>私有API的使用</h3><h3 id="WWDC的跟进"><a href="#WWDC的跟进" class="headerlink" title="WWDC的跟进"></a>WWDC的跟进</h3><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><h3 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h3><ul>
+<li>LEETCODE集合</li>
+</ul>
+<h3 id="语言篇"><a href="#语言篇" class="headerlink" title="语言篇"></a>语言篇</h3><ul>
+<li>一个全站工程师的修养</li>
+</ul>
+<h3 id="工程化"><a href="#工程化" class="headerlink" title="工程化"></a>工程化</h3><ul>
+<li>动态化篇</li>
+<li>组件化篇</li>
+<li>静态化篇</li>
+<li>平台化篇</li>
+<li>工程结构模式</li>
+<li>设计模式</li>
+<li>几个编程思想</li>
+</ul>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><ul>
+<li>内存优化篇</li>
+<li>兼容和稳定性篇</li>
+<li>列表卡顿优化</li>
+</ul>
+<h3 id="质量"><a href="#质量" class="headerlink" title="质量"></a>质量</h3><ul>
+<li>线上监控</li>
+<li>单元测试与自动化测试</li>
+<li>代码规范与工具使用</li>
+</ul>
+<h3 id="美丽的开源库"><a href="#美丽的开源库" class="headerlink" title="美丽的开源库"></a>美丽的开源库</h3><ul>
+<li>。。。。</li>
+</ul>
+<h3 id="综合素质"><a href="#综合素质" class="headerlink" title="综合素质"></a>综合素质</h3></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-05-22</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank" class="fa fa-bookmark"></a></div><div class="weibo"><a href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));" class="fa fa-weibo"></a></div><div class="twitter"><a href="http://twitter.com/home?status=,http://zichao.me/2018/05/22/IOS老司机/,LorisBlog,,;" class="fa fa-twitter"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a role="navigation" href="/2018/06/02/头条性能优化小结与规划/" title="头条性能优化小结与规划" class="btn">上一篇</a></li><li class="next pagbuttons"><a role="navigation" href="/2018/02/09/BRD框架/" title="" class="btn">下一篇</a></li></ul></div><a id="comments"></a><div id="youyan_thread" class="post"></div><script>(function() {
+
+    var YYDiv = document.createElement('div');
+    YYDiv.id = 'uyan_frame';
+    document.getElementById('youyan_thread').appendChild(YYDiv);
+
+    var YYScript = document.createElement('script');
+    YYScript.type = 'text/javascript';
+    YYScript.async = true;
+    YYScript.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//v2.uyan.cc/code/uyan.js?uid=' + '2143349';
+    YYScript.charset = 'UTF-8';
+    document.getElementById('youyan_thread').appendChild(YYScript);
+
+})();</script></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>

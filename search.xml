@@ -179,30 +179,319 @@
     </entry>
     
     <entry>
-      <title><![CDATA[理财基础]]></title>
-      <url>/2018/01/04/%E7%90%86%E8%B4%A2%20(%E4%B8%80)/</url>
-      <content type="html"><![CDATA[<h2 id="一、理财是什么"><a href="#一、理财是什么" class="headerlink" title="一、理财是什么"></a>一、理财是什么</h2><h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h3><ul>
-<li>对财务（财产和债务）进行管理，以实现财务的保值、增值为目的。理财分为公司理财、机构理财、个人理财 和家庭理财等。人类的生存、生活及其它活动离不开物质基础，与理财密切相关。</li>
+      <title></title>
+      <url>/2018/05/22/IOS%E8%80%81%E5%8F%B8%E6%9C%BA/</url>
+      <content type="html"><![CDATA[<p>Xcode的一次build过程</p>
+<ul>
+<li>编译各个三方库.m文件为boundle</li>
+<li>copy boundle resource静态资源</li>
+<li>copy info.list</li>
+<li>运行pod编译搅拌</li>
+<li>预编译pch</li>
+<li>编译各个.m文件</li>
+<li>copy静态资源 图片、plist、storyboard</li>
+<li>compile asset catalogs</li>
+<li>process info.plist</li>
+<li>link storyboards</li>
+<li>run custom script</li>
+<li>touch app</li>
+<li>sign app</li>
+<li>validate app(真机build有)</li>
 </ul>
-<h3 id="1-2-理财工具"><a href="#1-2-理财工具" class="headerlink" title="1.2 理财工具"></a>1.2 理财工具</h3><h4 id="1-2-1-增值"><a href="#1-2-1-增值" class="headerlink" title="1.2.1 增值"></a>1.2.1 增值</h4><ul>
-<li>高等风险投资，比如信托、期货、外汇、艺术品</li>
-<li>中等风险投资，比如债券、基金、股票、房产、贵金属</li>
+<h4 id="使用Instruments，内存在使用中范围波动："><a href="#使用Instruments，内存在使用中范围波动：" class="headerlink" title="使用Instruments，内存在使用中范围波动："></a>使用Instruments，内存在使用中范围波动：</h4><table>
+<thead>
+<tr>
+<th>App</th>
+<th>后台运行</th>
+<th>后台激活无操作</th>
+<th>不断上拉刷新然后等待</th>
+<th>不断打开文章然后关闭</th>
+<th>不断播放视频然后关闭</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>天天快报</td>
+<td>9.31M</td>
+<td>85.2M ~ 104.6M</td>
+<td>增加到220M+ ~ 回落131.5M</td>
+<td>增加至226M，停止操作无明显内存释放</td>
+<td>214.1M~ 239.3M</td>
+</tr>
+<tr>
+<td>搜狐新闻</td>
+<td>23.45M</td>
+<td>92.36M ~ 100.95M</td>
+<td>增加到197M ~ 回落126.3M</td>
+<td>增加至228.3M ~ 回落209.1M</td>
+<td>237.3M ~ 254.28M</td>
+</tr>
+<tr>
+<td>网易新闻</td>
+<td>28.6M</td>
+<td>99.0M ~ 114.9M</td>
+<td>增加231M+ ~ 回落143.1M</td>
+<td>151M ~ 169.2M</td>
+<td>199.2 ~ 232.4M</td>
+</tr>
+<tr>
+<td>UC浏览器</td>
+<td>23.45M</td>
+<td>103.4M ~ 119.9M</td>
+<td>增加303.2M+ ~ 回落172.7M</td>
+<td>172 M ~ 278.5M</td>
+<td>270.1M ~ 295.5M</td>
+</tr>
+<tr>
+<td>今日头条</td>
+<td>18.64M</td>
+<td>93.3M ~ 97.6M</td>
+<td>增加到217.5M ~ 回落182.1M</td>
+<td>增加到235M ~ 回落227.2M</td>
+<td>增加到288.9M ~ 回落276.8M</td>
+</tr>
+<tr>
+<td>腾讯新闻</td>
+<td>24.73M</td>
+<td>103.7M ~ 121.6M</td>
+<td>增加到283.1M ~ 回落117.2M</td>
+<td>增加到205.0M ~ 回落177.5M</td>
+<td>增加到234.7M ~ 回落221.8M</td>
+</tr>
+</tbody>
+</table>
+<h2 id="前端系列"><a href="#前端系列" class="headerlink" title="前端系列"></a>前端系列</h2><ul>
+<li>2048游戏 done</li>
+<li>机票重构 done</li>
+<li>酒店重构 done</li>
+<li>插入排序动画 done</li>
+<li>内部二手交易网站 </li>
+<li>二手IOS客户端</li>
+<li>去哪儿旅行watch开发</li>
 </ul>
-<h4 id="1-2-2-保值"><a href="#1-2-2-保值" class="headerlink" title="1.2.2 保值"></a>1.2.2 保值</h4><ul>
-<li>低风险投资：银行理财、货币基金、国债</li>
+<h2 id="IOS老司机"><a href="#IOS老司机" class="headerlink" title="IOS老司机"></a>IOS老司机</h2><h3 id="初级OC"><a href="#初级OC" class="headerlink" title="初级OC"></a>初级OC</h3><ul>
+<li>自动布局的实现、masonry done</li>
+<li>APP页面层级与事件响应 done</li>
+<li>设计模式 </li>
+<li>系统的网络请求，与 NSURLConnection 相比，NSURLsession 改进哪些?</li>
+<li>category的特性与extension的区别  </li>
+<li>UIView和NSObject这两个类，所有里面的方法和原理都需要了解一下。 done</li>
+<li>字典的工作原理 ？怎100w个中是怎么快速去取value？</li>
+<li>KVC机制是如何通过key找到value</li>
+<li>说说Cell重用原理，UITableView的相关优化</li>
+<li>自定义手势 </li>
+<li>网络协议HTTP/HTTPS/UDP/TCP</li>
+<li>IOS有好几种类型的Image</li>
+<li>消息传递方式（通知、代理、NSINvo）</li>
+<li>UIWebview与WKWebView</li>
 </ul>
-<h4 id="1-2-2-保障"><a href="#1-2-2-保障" class="headerlink" title="1.2.2 保障"></a>1.2.2 保障</h4><ul>
-<li>保险规划</li>
-<li>现金规划</li>
+<h3 id="初级业务"><a href="#初级业务" class="headerlink" title="初级业务"></a>初级业务</h3><ul>
+<li>国际化多语言的实现 done</li>
+<li>让应用拥有多种皮肤 done</li>
+<li>IOS的工具使用篇</li>
 </ul>
-]]></content>
+<h3 id="高级OC"><a href="#高级OC" class="headerlink" title="高级OC"></a>高级OC</h3><ul>
+<li>架构模式 done</li>
+<li>面向切面编程Aspects done</li>
+<li>锁机制 </li>
+<li>多线程, NSThread, NSOperation, GCD区别</li>
+<li>如何终止正在运行的工作线程？</li>
+<li>iOS下如何实现指定线程数目的线程池?</li>
+<li>使用atomic一定是线程安全的吗？</li>
+<li>通过[UIImage imageNamed:]生成的对象什么时候被释放？</li>
+<li>runloop</li>
+<li>Autorelease的原理 ?</li>
+<li>block本质是什么？</li>
+<li>通知和KVO区别</li>
+<li>如何使用runtime hook一个class的某个方法，又如何hook某个instance的方法？</li>
+<li>weak的实现原理 strong的实现原理</li>
+<li>谈下iOS开发中知道的哪些锁? 哪个性能最差?SD和AFN使用的哪个? 一般开发中你最常用哪个? 哪个锁apple存在问题又是什么问题?</li>
+<li>消息传递过程</li>
+</ul>
+<h3 id="高级业务"><a href="#高级业务" class="headerlink" title="高级业务"></a>高级业务</h3><ul>
+<li>项目中的图片上传功能如何实现，为什么使用队列上传，为什么不用异步上传?</li>
+<li>组件化：页面路由控制 </li>
+<li>组件化：CocoaPods 么？能大概讲一下工作原理么？</li>
+<li>谈下开发中iOS缓存的理解</li>
+<li>持久化存储方案 done</li>
+<li>IOS的视频播放器 </li>
+<li>视频录制与合成剪辑 </li>
+<li>音频一览 done</li>
+<li>客户端反劫持</li>
+<li>蓝牙打印机的实现</li>
+<li>JSBridge</li>
+<li>JSPatch</li>
+<li>动态化：RN、其他方案 </li>
+<li>性能优化</li>
+<li>自动化测试</li>
+</ul>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><h3 id="音频视频"><a href="#音频视频" class="headerlink" title="音频视频"></a>音频视频</h3><h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><h3 id="物理"><a href="#物理" class="headerlink" title="物理"></a>物理</h3><ul>
+<li>定位GPS</li>
+</ul>
+<h3 id="图像与绘制"><a href="#图像与绘制" class="headerlink" title="图像与绘制"></a>图像与绘制</h3><ul>
+<li>CoreGraphics</li>
+<li>QuatzCore</li>
+<li>GPUImage</li>
+</ul>
+<h3 id="消息相关"><a href="#消息相关" class="headerlink" title="消息相关"></a>消息相关</h3><ul>
+<li>IOS使用通知有哪些坑</li>
+<li>IMSDK</li>
+<li>短信邮件</li>
+</ul>
+<h3 id="web"><a href="#web" class="headerlink" title="web"></a>web</h3><h3 id="私有API的使用"><a href="#私有API的使用" class="headerlink" title="私有API的使用"></a>私有API的使用</h3><h3 id="WWDC的跟进"><a href="#WWDC的跟进" class="headerlink" title="WWDC的跟进"></a>WWDC的跟进</h3><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><h3 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h3><ul>
+<li>LEETCODE集合</li>
+</ul>
+<h3 id="语言篇"><a href="#语言篇" class="headerlink" title="语言篇"></a>语言篇</h3><ul>
+<li>一个全站工程师的修养</li>
+</ul>
+<h3 id="工程化"><a href="#工程化" class="headerlink" title="工程化"></a>工程化</h3><ul>
+<li>动态化篇</li>
+<li>组件化篇</li>
+<li>静态化篇</li>
+<li>平台化篇</li>
+<li>工程结构模式</li>
+<li>设计模式</li>
+<li>几个编程思想</li>
+</ul>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><ul>
+<li>内存优化篇</li>
+<li>兼容和稳定性篇</li>
+<li>列表卡顿优化</li>
+</ul>
+<h3 id="质量"><a href="#质量" class="headerlink" title="质量"></a>质量</h3><ul>
+<li>线上监控</li>
+<li>单元测试与自动化测试</li>
+<li>代码规范与工具使用</li>
+</ul>
+<h3 id="美丽的开源库"><a href="#美丽的开源库" class="headerlink" title="美丽的开源库"></a>美丽的开源库</h3><ul>
+<li>。。。。</li>
+</ul>
+<h3 id="综合素质"><a href="#综合素质" class="headerlink" title="综合素质"></a>综合素质</h3>]]></content>
       
         
-        <tags>
-            
-            <tag> 总结 </tag>
-            
-        </tags>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2018/02/09/BRD%E6%A1%86%E6%9E%B6/</url>
+      <content type="html"><![CDATA[<ul>
+<li>构建最小化可行产品:网络各处搜集维护一个微信群用户</li>
+<li>真正的需求：比我们最初认为的问题要更大</li>
+<li>卓越使命：适合印在短袖上的有意思的言之有物</li>
+<li>正确的策略：差异化竞争</li>
+<li>撰写新闻稿发布市场</li>
+<li>创建并不断更新FQ文档</li>
+<li>绘制线框图流程</li>
+<li>产品单页或者演示温文稿：投资人和工程团队</li>
+<li>撰写功能规格文档</li>
+<li>边界情况</li>
+<li>客户测试</li>
+<li>商业要素：命名、定价、收益</li>
+<li>取得上层认可：推销自己想做的事情</li>
+<li>开发角色和人员定义：比你聪明但是又知道不是自己来当老板的，团队主管是仆人</li>
+<li>项目管理：进度、工作量、bug</li>
+<li>充分测试</li>
+<li>产品的量化数据，看哪些指标</li>
+<li>完成发布清单</li>
+<li>远程合作方式，轮值表</li>
+<li>沟通:邮件和会议</li>
+</ul>
+<p>我们要做的第一件事情，不是马上行动，而是去分析这个事情，梳理思路，描绘出蓝图，然后把它表达出来，为接下来的行动争取充足的资源，这些资源包括资金，场地，软件，硬件，研发，运营等</p>
+<p>##一、产品目标</p>
+<h2 id="二、背景"><a href="#二、背景" class="headerlink" title="二、背景"></a>二、背景</h2><h3 id="2-1-市场环境"><a href="#2-1-市场环境" class="headerlink" title="2.1 市场环境"></a>2.1 市场环境</h3><ul>
+<li>政治法律环境：</li>
+<li>经济技术环境：包括发展趋势、资源配置和技术支撑等；</li>
+<li>社会文化环境：包括目标用户群体的价值观念，信仰，兴趣，行为方式，社会群体及相互关系，生活习惯，文化传统和社会风俗等。</li>
+<li>自然地理环境：如果产品与传统行业相关，则需要考虑这一部分内容，例如对物流运输、货品质量的影响。</li>
+<li>市场竞争环境：竞争环境直接影响产品策略，在市场中竞争产品的数量、目标定位、市场份额都会直接影响产品的风险，这一点不能忽略。</li>
+</ul>
+<h3 id="2-2-用户规模"><a href="#2-2-用户规模" class="headerlink" title="2.2 用户规模"></a>2.2 用户规模</h3><p>用户规模决定市场需求，甚至产品价值,只有足够的用户规模才能支持一款产品的成功。一般来说，用户的规模都可以从一些权威报告中获取关键数据</p>
+<h3 id="2-3-商业模式"><a href="#2-3-商业模式" class="headerlink" title="2.3 商业模式"></a>2.3 商业模式</h3><p>商业模式就是公司通过什么途径或方式来赚钱</p>
+<h2 id="三、评估分析"><a href="#三、评估分析" class="headerlink" title="三、评估分析"></a>三、评估分析</h2><p>SWOT分析法，S代表竞争优势，W代表竞争劣势，O代表机会，T代表风险。</p>
+<p>S+O为增长型，可以最大限度的利用机会，强势快速发展。</p>
+<p>W+O为扭转型，需要调整策略，寻求差异化竞争，避免与竞品正面交锋。</p>
+<p>S+T为多点型，需要调整策略，寻求多点突破。</p>
+<p>至于W+T，就不用说了，硬上会疼的！</p>
+<p>S和W包括：</p>
+<p>品质（安全性、稳定性、可靠性等）<br>成本与价格（盈利能力）<br>效率（生产力）<br>技术实力（研发与创新能力）<br>人才与设备（团队与硬件支持）<br>销售与服务（品牌、渠道与满意度）<br>O和T包括：</p>
+<p>政策法规<br>经济环境<br>市场与社会文化<br>技术</p>
+<h2 id="四、投入产出"><a href="#四、投入产出" class="headerlink" title="四、投入产出"></a>四、投入产出</h2><h3 id="4-1-投入的测算包括：研发成本、运营成本等；"><a href="#4-1-投入的测算包括：研发成本、运营成本等；" class="headerlink" title="4.1 投入的测算包括：研发成本、运营成本等；"></a>4.1 投入的测算包括：研发成本、运营成本等；</h3><p>开发成本和产品开发时间、人力有很大关联，这部分内容需要和开发负责人进行深入沟通，根据设计、开发、测试人员的数量、工资标准以及开发周期估算这部分成本；<br>运营成本包括运营的软硬件投入和人员配置，这部分内容也要和开发负责人进行深入沟通，对投入的软件、硬件、网络等资源进行价格估算，再根据产品运营的规模，估算所需的运营人员数量，进而估算人力成本。</p>
+<h3 id="4-2-产出的测算包括：用户数量增长、营业收入等。"><a href="#4-2-产出的测算包括：用户数量增长、营业收入等。" class="headerlink" title="4.2 产出的测算包括：用户数量增长、营业收入等。"></a>4.2 产出的测算包括：用户数量增长、营业收入等。</h3><p>产出的测算受用户规模与转化率的影响；这里需要通过竞品分析或者行业报告得到的具体数据进行测算。</p>
+<h2 id="五、产品策略"><a href="#五、产品策略" class="headerlink" title="五、产品策略"></a>五、产品策略</h2><p>产品策略不仅仅是产品的本身功能和服务，还要延伸到产品的运营与销售，这里主要是营销策略。</p>
+<p>通过哪些渠道进行营销？</p>
+<p>通过什么样的模式进行营销？</p>
+<p>结合这些营销策略，在产品设计上也应该有便于实施这些营销策略的体现。例如通过用户自身传播的营销，就要考虑在产品中加入分享的功能</p>
+<h2 id="六、阶段目标"><a href="#六、阶段目标" class="headerlink" title="六、阶段目标"></a>六、阶段目标</h2><p>产品都需要有阶段目标，也是产品考核的一个硬性指标，按年度可制定为3年或5年的阶段目标。目标内容主要包括：用户数量、产品收入、市场占有率、新功能开发、营销活动活动频次等。</p>
+<h2 id="BRD的构成要素"><a href="#BRD的构成要素" class="headerlink" title="BRD的构成要素"></a>BRD的构成要素</h2><ol>
+<li>产品介绍<br>产品介绍就是要简明扼要的说明你要做一个什么样的产品，说明要简短，最好用一句话就能说明白，包括产品的作用，定位，愿景等，要能让看的人快速理解，在这里给大家两种表达的方式建议：</li>
+</ol>
+<p>一种是从使用者的角度来表达，突出产品的功能和作用，比如qq和微信可以表述成让家人，朋友方便高效的在网上聊天的工具，愿景是打造成全球网民的沟通工具，淘宝可以表述成在网上开店卖东西，也可以买东西的平台，目标是让天下没有难做的生意</p>
+<p>另一种是从专业人士的角度来描述，因为这个文档是给决策者看的，决策者大多都是行业经验丰富的大拿，可以用比喻的方法来表述，比如做中国版的Facebook，中国的yutube,教育界的淘宝等，用一个大家已经熟悉的产品来说明自己要做的事。</p>
+<ol>
+<li>产品价值<br>产品的价值就是要告诉决策层，为什么要做这个产品，可以分两个层面来谈：</li>
+</ol>
+<p>（1）从用户/客户的需求角度来看</p>
+<p>这个产品满足了用户/客户什么样的需求，从痛点, 使用场景，人群定位层面来谈，比如摩拜等共享单车解决了用户从家到地铁站，从地铁站到公司等这样短途出行的问题，在没有共享单车前，这种短途出行开车找停车位困难，走路太远，坐公交地铁需要排队，买自行车没处放，这样的需求一直没有很好的解决，有了共享单车问题就解决了。</p>
+<p>（2）从战略的角度来看</p>
+<p>做这件事能为企业带来什么价值，能获得巨大利润，还是能增加市场份额，还是能延长服务的链条，或者是能形成协同效应等，比如原来做电商，用户粘性差，现在做个购物社区，让用户不仅可以购物，还可以在里面交流，这增加了用户的停留时间，这对企业的好处是用户粘性增加了，营销成本下降了， 还有比如滴滴投资ofo，滴滴是满足用户出行打车的需求，ofo是满足用户短途出行需求，这两个产品的用户人群有重叠，但是使用场景互补，滴滴投资ofo有可能形成协同效应。</p>
+<ol>
+<li>产品解决方案<br>产品解决方案就是告诉决策者，这个产品大概的框架和轮廓，主要包含以下几个方面：</li>
+</ol>
+<p>（1）产品形态</p>
+<p>这个产品架构大概是什么样的，是资讯形态的，社交形态的，搜索形态的，还是O2O的。</p>
+<p>（2）业务模式</p>
+<p>告诉决策者这个业务是面向c端的还是面向b端的，还是b端和c端都兼容的，参与者都有谁，怎么来形成闭环等。</p>
+<p>（3）运营模式</p>
+<p>采用什么样的运营策略和手段让产品运营起来，比如在教育产品里面非常重要的一个资源是老师，解决老师资源问题有两种方式，一种是自己招聘，另一种是众包，这就是两种不同的运营模式</p>
+<p>（4）盈利模式</p>
+<p>盈利模式就是这个产品通过什么方式来赚钱，做企业的目的就是为了赚钱，即使是财大气粗的公司，也考虑这个问题，赚钱的模式包括，广告，增值服务，出售商品等，在这里不再赘述。</p>
+<p>这一块在前面讲需求分析的时候讲过，在这里不再赘述。</p>
+<ol>
+<li>市场分析<br>做产品不能闭门造车，还要看看市场上的情况，这个市场分析包括以下几个方面：</li>
+</ol>
+<p>市场容量有多大，这个数据需要通过对需求的分析，对人群判断后评估得出，决策者会通过这个判断值不值得投入<br>竞争对手分析，看看市面市面上还有哪些玩家，他们是怎么解决的，满足了用户的哪些需求，还有哪些没有满足，投入怎么样，团队怎么样，产出怎么样，与我们对比我们的优势是什么，劣势是什么<br>对市场未来的判断，包括未来市场竞争格局，行业的风险，政策的变化, 行业的发展方向等判断<br>我们在市场上的机会在什么地方，怎么找到突破口，这个机会可以让我们发展成为一个什么样的地位</p>
+<ol>
+<li>执行计划<br>执行计划就是我们准备怎么来做这个事，在互联网行业，最重要的执行就是产品研发和运营推广，BRD中的计划部分，我们列出产品阶段和目标就可以了，不需要写具体的产品怎么设计，怎么开发，怎么运营，而且后面还会有MRD文档来让你写这些，在这里只要大致的描述就好。比如：</li>
+</ol>
+<p>第一阶段先用mvp的方式验证用户需求，时间从xxx到xxx时间段<br>第二阶段完善产品，扩大用户规模，时间从xxx到xxx时间段<br>第三阶段，第四阶段等等</p>
+<ol>
+<li><p>财务预估<br>财物预估主要的就是预估投入成本和产出收益，这是决策者最看重的部分，没有人愿意只投入不产出，投入成本相对而言是比较容易预估的，可以先看看成本构成，包括人员工资，办公成本，（场地，办公器材，水电等），服务器带宽成本，软件成本（购买一些第三方服务），市场推广成本，然后通过市场价格算出来，而收入预估往往就是吹泡泡，连算的人心里可能都没底，但是这个必须得有，如果你要用广告的方式盈利，可以根据预估的用户数和常见的广告售卖方式比如cpc,cpa等来计算，如果想要靠卖东西来赚钱，可以通过客单价，用户数，转化率等来估算。</p>
+</li>
+<li><p>风险预估<br>风险是指有可能影响产品目标实现，或增加产品成本的行为和因素，在考虑风险的时候，我们不仅要对所有可能出现的风险进行评估，确定风险出现的可能性和严重性，而且要给出对应的规避预案，并明确预案的规避效益。</p>
+</li>
+</ol>
+<p>三. BRD撰写前的准备工作<br>BRD是立项前进行评估使用的输出物，其本质是对于前期的调研工作的整理总结和书面化，所以要写好BRD，必须做好前期的准备工作，准备工作最起码包含以下几个方面：</p>
+<p>用户调研：了解用户真实需求和市场规模<br>行业研究：了解行业过去，现状和未来，了解行业里面的玩家情况<br>解决方案构建：对于发现的问题提出解决方案<br>这一部分在之前讲需求分析的时候，已经讲过，不再赘述了</p>
+<p>四. BRD的撰写<br>BRD主要使用 word和ppt进行撰写和展示,  跟其它文档用的工具都差不多，这里没有什么特别要说明的，大多数是用ppt来撰写，格式可以自己觉得怎么美观怎么来，重要的是内容结构和内容的深度，一份BRD中一般包括一下内容：</p>
+<p> BRD标题：xxxx项目商业需求文档</p>
+<p>撰写人</p>
+<p>撰写时间</p>
+<p>目录</p>
+<p>产品介绍</p>
+<p>产品价值</p>
+<p>产品解决方案</p>
+<p>市场分析</p>
+<p>执行计划</p>
+<p>财物预估</p>
+<p>风险预估</p>
+<p>五. BRD的使用场景</p>
+<ol>
+<li>BRD给谁看<br>我们要通过BRD来争取资源，就得说服掌握资源的人，让他们力同意投入，在公司资源一般都掌握在高层手中，比如我们常见的CEO，coo,cfo等，而因我们所处岗位的不同，决策者的角色有可能有变化。</li>
+</ol>
+<p>一般公司都会有老板，高级管理，中层管理，基层管理人员和基层人员这么几个等级，老板就不用解释了，高级管理人员往往是合伙人级别或者副总裁级别的，中层管理是总监级别的，基层管理人员对应的是小组长，在这种决策模式中，工作是一层层的往上汇报的，如果你是基层的执行人员，就跟玩游戏闯关一样，你写的BRD得经过上面的每一关的审核，你的上面每一个级别的人都得看</p>
+<p>然后，我们再来看看做一个产品需要的资源，一般会有资金，人力资源（包括研发人员，运营人员，市场人员等），硬件（服务器），场地等，你要获得这些资源，你的BRD还要给掌握这些资源的部门的领导来看，争取他们的同意。</p>
+<p>所以一般是你的直属领导和直系领导，以及兄弟部门的领导都有可能会看你的BRD.</p>
+<ol>
+<li>BRD使用场景<br>BRD大多数是在立项的会议上辅助演讲进行使用，项目的发起人或负责人通过BRD来向参会者展示关键信息，然后通过语言的讲述弥补细节信息，进行说服，演讲完成后，参会人员会根据自己接收到的信息，结合自己的经验判断进行提问，类似于项目路演的一个过程，这是BRD典型的使用场景</li>
+</ol>
+<p>六. BRD注意事项<br>1、BRD并不只是简单的写个文档，背后需要有很多准备工作要做；</p>
+<p>2、在文档中少关注产品细节，多关注产品商业价值的部分；</p>
+<p>3、文档阅读对象是领导，要逻辑严谨，言简意赅，多准备；</p>
+<p>4、在真实的基础上，尽量让内容偏向自己有利的一边引导，毕竟是用来说服领导并且争取资源，不是来做工作汇报的；</p>
+<p>5、BRD大多数是用来演示辅助演讲的，在演示前多做练习和准备。</p>
+<p>七. 小结<br>文档的目的是辅助你达到自己的目的，上面的讲的内容，并不是标准的格式，只是一种思路的分享，你可以根据自己的情况进行优化调整，不要生搬硬套。</p>
+]]></content>
+      
         
     </entry>
     
@@ -887,6 +1176,119 @@
 <p>4、对于非专业的机器学习人士来讲，IOS开发能拿到现在的model来使用，很多酷炫的效果都没有现成的model,这里也是一个门槛。</p>
 <p>随着Core ML技术的引入，移动端上实现机器学习开始变得可能，这也让IOS开发者为之兴奋，然而在IOS上实践机器学习还是有较长的路要走，当然apple本身的布局正在推动这一发展，保持期待。本文不仅仅是对WWDC新技术的探索和分享，也是对机器学习的兴趣认识。</p>
 <h4 id="github代码-IOS-Core-ML，有兴趣的同学可以下载在IOS11的设备上跑起来。"><a href="#github代码-IOS-Core-ML，有兴趣的同学可以下载在IOS11的设备上跑起来。" class="headerlink" title="github代码:IOS-Core ML，有兴趣的同学可以下载在IOS11的设备上跑起来。"></a>github代码:<a href="https://github.com/xuzichao/IOS-Core-ML" target="_blank" rel="external">IOS-Core ML</a>，有兴趣的同学可以下载在IOS11的设备上跑起来。</h4>]]></content>
+      
+        
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[AOP面向切面编程]]></title>
+      <url>/2017/04/10/AOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<p>AOP可以理解为面向切面编程，如果OOP编程可以将各个业务模块化，那么我们可以认为AOP是从模块的侧面一刀切入进行操作，提炼出各个业务模块中公共部分进行操作，侧面切入可以做到不影响原本的业务功能，实现相对独立的功能构建，与原业务无耦合。大的功能比如各个业务的日志统计、性能分析、异常处理等等，小的功能点可以一些运行时信息的读取。</p>
+<p>在iOS中实现AOP的编程思想主要是基于Runtime机制，Objectve-c是动态的编程语言，在运行时也能够对外提供交互的方法，不仅仅是方法交换，所有你能想象的应用场景，这非常有利于我们进行AOP切面编程。</p>
+<h3 id="一、Category构建安全校验"><a href="#一、Category构建安全校验" class="headerlink" title="一、Category构建安全校验"></a>一、Category构建安全校验</h3><p>开发过程中我们通常遇到一些安全检验判断，防止数据格式不对的时候引起异常或者崩溃。比如对字典和数组进行的操作，是否存在对应的数据类型，是否超出下标越界，添加的对象是否为空。通常我们再开发的时候每次都需要进行if条件的判断，这样的操作其实很繁琐。</p>
+<h5 id="1、代码中频繁的判断操作"><a href="#1、代码中频繁的判断操作" class="headerlink" title="1、代码中频繁的判断操作"></a>1、代码中频繁的判断操作</h5><p>1.1 如果没有添加判断，obj为nil将出现异常崩溃</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//字典</div><div class="line">NSMutableDictionary *param = [NSMutableDictionary new];</div><div class="line">if (obj) &#123;</div><div class="line">    [params setObject:obj forKey:@&quot;obj&quot;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//数组</div><div class="line">NSMutableArray *array = [NSMutableArray array];</div><div class="line">if (obj) &#123;</div><div class="line">    [array addObject:obj]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>1.2 获取字典或者数组中对应的数据类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//字典</div><div class="line">NSDictionary *dic = fromNetDic;</div><div class="line">    NSString *str = @&quot;&quot;;</div><div class="line">    id value = [dic objectForKey:key];</div><div class="line">    if (value &amp;&amp; [value isKindOfClass:[NSString class]]) &#123;</div><div class="line">        str = value;</div><div class="line">    &#125;else if(value &amp;&amp; [value isKindOfClass:[NSNumber class]])&#123;</div><div class="line">        str =  [value stringValue];</div><div class="line">    &#125;else&#123;</div><div class="line">        str = @&quot;&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">//数组</div><div class="line">同理</div></pre></td></tr></table></figure>
+<h5 id="2、通过切面编程改进"><a href="#2、通过切面编程改进" class="headerlink" title="2、通过切面编程改进"></a>2、通过切面编程改进</h5><p>上面的都是日常频繁操作，每次都写编程就会变得低效，我们通过新建分类进行改善，不需要再频繁判断，且保证代码原本操作的不变。</p>
+<p>2.1 新建替换操作方法基于NSObject的分类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSObject+MethodReplace.h&quot;</div><div class="line">#import &lt;objc/runtime.h&gt;</div><div class="line"></div><div class="line">@implementation NSObject(MethodReplace)</div><div class="line">- (void)swizzleMethod:(SEL)origSelector withMethod:(SEL)newSelector</div><div class="line">&#123;</div><div class="line">    Class class = [self class];</div><div class="line">    </div><div class="line">    Method originalMethod = class_getInstanceMethod(class, origSelector);</div><div class="line">    Method swizzledMethod = class_getInstanceMethod(class, newSelector);</div><div class="line">    </div><div class="line">    BOOL didAddMethod = class_addMethod(class,</div><div class="line">                                        origSelector,</div><div class="line">                                        method_getImplementation(swizzledMethod),</div><div class="line">                                        method_getTypeEncoding(swizzledMethod));</div><div class="line">    if (didAddMethod) &#123;</div><div class="line">        class_replaceMethod(class,</div><div class="line">                            newSelector,</div><div class="line">                            method_getImplementation(originalMethod),</div><div class="line">                            method_getTypeEncoding(originalMethod));</div><div class="line">    &#125; else &#123;</div><div class="line">        method_exchangeImplementations(originalMethod, swizzledMethod);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>2.2 字典的安全写法替换，不需要再判断类型， 数组也是同理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSDictionary+Safe.h&quot;</div><div class="line">#import &quot;NSObject+MethodReplace.h&quot;</div><div class="line"></div><div class="line">@implementation NSDictionary (Safe)</div><div class="line"></div><div class="line">+ (void)load</div><div class="line">&#123;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        id obj = [[self alloc] init];</div><div class="line">        [obj swizzleMethod:@selector(valueForKey:) withMethod:@selector(safeValueForkey:)];</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (id)safeValueForkey:(NSString *)key</div><div class="line">&#123;</div><div class="line">    id value = nil;</div><div class="line">    if (key &amp;&amp; ![key isEqualToString:@&quot;&quot;]) &#123;</div><div class="line">        if ([self.allKeys containsObject:key]) &#123;</div><div class="line">            value = [self valueForKey:@&quot;key&quot;];</div><div class="line">            if ([value isKindOfClass:[NSNumber class]]) &#123;</div><div class="line">                value = ((NSNumber *)value).stringValue;</div><div class="line">            &#125;</div><div class="line">            else if ([value isKindOfClass:[NSString class]]) &#123;</div><div class="line">                value = (NSString *)[self valueForKey:@&quot;key&quot;];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return value;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation NSMutableDictionary (Safe)</div><div class="line"></div><div class="line">+ (void)load</div><div class="line">&#123;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        id obj = [[self alloc] init];</div><div class="line">        [obj swizzleMethod:@selector(setObject:forKey:) withMethod:@selector(safeSetObject:forKey:)];</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)safeSetObject:(id)anObject forKey:(id&lt;NSCopying&gt;)aKey</div><div class="line">&#123;</div><div class="line">    if (aKey) &#123;</div><div class="line">        if (anObject) &#123;</div><div class="line">            [self setObject:anObject forKey:aKey];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<h3 id="二、AOP编程库Aspects"><a href="#二、AOP编程库Aspects" class="headerlink" title="二、AOP编程库Aspects"></a>二、AOP编程库Aspects</h3><p>Aspects是iOS面向切面编程的一个代表，本质上也是对runtime在方法替换上的一个封装，包含了强大也简单易用的方法，可以再原方法的前后执行或者替换删除执行，并且提供了AspectInfo作为所有方法的参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">typedef NS_OPTIONS(NSUInteger, AspectOptions) &#123;</div><div class="line">    AspectPositionAfter   = 0,            /// Called after the original implementation (default)</div><div class="line">    AspectPositionInstead = 1,            /// Will replace the original implementation.</div><div class="line">    AspectPositionBefore  = 2,            /// Called before the original implementation.</div><div class="line">    </div><div class="line">    AspectOptionAutomaticRemoval = 1 &lt;&lt; 3 /// Will remove the hook after the first execution.</div><div class="line">&#125;;</div><div class="line"></div><div class="line">@protocol AspectInfo &lt;NSObject&gt;</div><div class="line"></div><div class="line">/// The instance that is currently hooked.</div><div class="line">- (id)instance;</div><div class="line"></div><div class="line">/// The original invocation of the hooked method.</div><div class="line">- (NSInvocation *)originalInvocation;</div><div class="line"></div><div class="line">/// All method arguments, boxed. This is lazily evaluated.</div><div class="line">- (NSArray *)arguments;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@interface NSObject (Aspects)</div><div class="line"></div><div class="line">+ (id&lt;AspectToken&gt;)aspect_hookSelector:(SEL)selector</div><div class="line">                      withOptions:(AspectOptions)options</div><div class="line">                       usingBlock:(id)block</div><div class="line">                            error:(NSError **)error;</div><div class="line"></div><div class="line">/// Adds a block of code before/instead/after the current `selector` for a specific instance.</div><div class="line">- (id&lt;AspectToken&gt;)aspect_hookSelector:(SEL)selector</div><div class="line">                      withOptions:(AspectOptions)options</div><div class="line">                       usingBlock:(id)block</div><div class="line">                            error:(NSError **)error;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>我们从他的具体实现上可以看到，本质的也是利用了runtime的methodReplace</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">static void aspect_prepareClassAndHookSelector(NSObject *self, SEL selector, NSError **error) &#123;</div><div class="line">    NSCParameterAssert(selector);</div><div class="line">    Class klass = aspect_hookClass(self, error);</div><div class="line">    Method targetMethod = class_getInstanceMethod(klass, selector);</div><div class="line">    IMP targetMethodIMP = method_getImplementation(targetMethod);</div><div class="line">    if (!aspect_isMsgForwardIMP(targetMethodIMP)) &#123;</div><div class="line">        // Make a method alias for the existing method implementation, it not already copied.</div><div class="line">        const char *typeEncoding = method_getTypeEncoding(targetMethod);</div><div class="line">        SEL aliasSelector = aspect_aliasForSelector(selector);</div><div class="line">        if (![klass instancesRespondToSelector:aliasSelector]) &#123;</div><div class="line">            __unused BOOL addedAlias = class_addMethod(klass, aliasSelector, method_getImplementation(targetMethod), typeEncoding);</div><div class="line">            NSCAssert(addedAlias, @&quot;Original implementation for %@ is already copied to %@ on %@&quot;, NSStringFromSelector(selector), NSStringFromSelector(aliasSelector), klass);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        // We use forwardInvocation to hook in.</div><div class="line">        class_replaceMethod(klass, selector, aspect_getMsgForwardIMP(self, selector), typeEncoding);</div><div class="line">        AspectLog(@&quot;Aspects: Installed hook for -[%@ %@].&quot;, klass, NSStringFromSelector(selector));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在AspectOptions执行方式上的实现，是通过数组进行保存，并放在替换方法的前后invoke执行的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// Before hooks.</div><div class="line">aspect_invoke(classContainer.beforeAspects, info);</div><div class="line">aspect_invoke(objectContainer.beforeAspects, info);</div><div class="line"></div><div class="line">// Instead hooks.</div><div class="line">BOOL respondsToAlias = YES;</div><div class="line">if (objectContainer.insteadAspects.count || classContainer.insteadAspects.count) &#123;</div><div class="line">    aspect_invoke(classContainer.insteadAspects, info);</div><div class="line">    aspect_invoke(objectContainer.insteadAspects, info);</div><div class="line">&#125;else &#123;</div><div class="line">    Class klass = object_getClass(invocation.target);</div><div class="line">    do &#123;</div><div class="line">        if ((respondsToAlias = [klass instancesRespondToSelector:aliasSelector])) &#123;</div><div class="line">            [invocation invoke];</div><div class="line">            break;</div><div class="line">        &#125;</div><div class="line">    &#125;while (!respondsToAlias &amp;&amp; (klass = class_getSuperclass(klass)));</div><div class="line">&#125;</div><div class="line"></div><div class="line">// After hooks.</div><div class="line">aspect_invoke(classContainer.afterAspects, info);</div><div class="line">aspect_invoke(objectContainer.afterAspects, info);</div></pre></td></tr></table></figure>
+<h3 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h3><p>AOP编程给开发者在一些公共方法的解耦和实现带来一些新的思路，提高的编程效率和优化了工程结构，除了Aspects，类似的库还有JRSwizzle和RSSwizzle。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[iOS多线程]]></title>
+      <url>/2017/04/10/iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><h5 id="1、进程与线程"><a href="#1、进程与线程" class="headerlink" title="1、进程与线程"></a>1、进程与线程</h5><ul>
+<li>进程</li>
+</ul>
+<p>进程是资源分配的基本单位，它是程序执行时的一个实例。程序运行时系统就会创建一个进程，并为它分配资源，然后把该进程放入进程就绪队列，进程调度器选中它的时候就会为它分配CPU时间，程序开始真正运行。多个进程之间不存在相互影响。</p>
+<ul>
+<li>线程</li>
+</ul>
+<p>线程是程序执行时的最小单位，它是进程的一个执行流，是CPU调度和分派的基本单位，一个进程可以由很多个线程组成，线程间共享进程的所有资源，所以相互通信更方便。每个线程有自己的堆栈和局部变量，但是没有自己的地址空间。一个线程低调则进程也死掉。线程由CPU独立调度执行，在多CPU环境下就允许多个线程同时运行。</p>
+<h5 id="2、iOS中的几种线程"><a href="#2、iOS中的几种线程" class="headerlink" title="2、iOS中的几种线程"></a>2、iOS中的几种线程</h5><p><img src="/assets/images/thread.png" alt=""></p>
+<h3 id="二、NSThread"><a href="#二、NSThread" class="headerlink" title="二、NSThread"></a>二、NSThread</h3><p>NSThread是苹果对线程的封装，完全是面向对象的，你可以直接操作线程本身，创建和获得一个线程非常方便，但是线程的生命周期需要手动管理，在实现多线程的时候不太方便，所以我们使用的场景偏向于基础调用和读取较多一些。场景如下：</p>
+<h5 id="1、读取线程信息"><a href="#1、读取线程信息" class="headerlink" title="1、读取线程信息"></a>1、读取线程信息</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//主线程</div><div class="line">[NSThread mainThread]；</div><div class="line">[NSThread isMainThread];</div><div class="line"></div><div class="line">//当前线程</div><div class="line">[NSThread currentThread];</div><div class="line"></div><div class="line">//是否多线程</div><div class="line">[NSThread isMultiThreaded];</div><div class="line"></div><div class="line">//实例线程状态</div><div class="line">thread.isExecuting;</div><div class="line">thread.isCancelled;</div><div class="line">thread.isFinished;</div></pre></td></tr></table></figure>
+<h5 id="2、阻塞一个线程"><a href="#2、阻塞一个线程" class="headerlink" title="2、阻塞一个线程"></a>2、阻塞一个线程</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//休眠到指定时间</div><div class="line">[NSThread sleepUntilDate:[NSDate date]];</div><div class="line">//休眠指定时长</div><div class="line">[NSThread sleepForTimeInterval:4.5];</div></pre></td></tr></table></figure>
+<h5 id="3、退出和取消线程"><a href="#3、退出和取消线程" class="headerlink" title="3、退出和取消线程"></a>3、退出和取消线程</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[NSThread exit];</div><div class="line"></div><div class="line">//实例</div><div class="line">thread.cancel</div></pre></td></tr></table></figure>
+<h5 id="4、在某个线程上执行方法，也属于线程通信"><a href="#4、在某个线程上执行方法，也属于线程通信" class="headerlink" title="4、在某个线程上执行方法，也属于线程通信"></a>4、在某个线程上执行方法，也属于线程通信</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//主线程执行</div><div class="line">- (void)performSelectorOnMainThread:(SEL)aSelector withObject:(nullable id)arg waitUntilDone:(BOOL)wait;</div><div class="line"></div><div class="line">//后台线程执行</div><div class="line">- (void)performSelectorInBackground:(SEL)aSelector withObject:(nullable id)arg；</div><div class="line"></div><div class="line">//某一个子线程执行</div><div class="line">- (void)performSelector:(SEL)aSelector onThread:(NSThread *)thr withObject:(nullable id)arg waitUntilDone:(BOOL)wait；</div></pre></td></tr></table></figure>
+<h3 id="三、GCD"><a href="#三、GCD" class="headerlink" title="三、GCD"></a>三、GCD</h3><p>GCD是苹果提出的多核运行方案伟大的中央调度系统，基于C语言用来替代NSThread。自动管理线程的生命周期，包括创建销毁和执行，以Block的形式接口，功能强大且方便灵活，现实开发中基本涵盖全部场景,包含几个基本概念。</p>
+<p>block任务：你的操作，也即是Block中那段代码。</p>
+<p>queue队列：用于存放任务并等待执行的栈容器。</p>
+<p>sync同步：只在当前线程中执行。</p>
+<p>async异步：可以开启新的线程。</p>
+<p>concurrent并发：多个任务同时执行。</p>
+<p>serial串行：一个任务执行完毕再执行下一个。</p>
+<h5 id="1、创建队列"><a href="#1、创建队列" class="headerlink" title="1、创建队列"></a>1、创建队列</h5><ul>
+<li>主队列是特殊的串行队列，UI相关的操作只能放主队列</li>
+<li>自己创建的队列可以是串行的也可以是并行的队列</li>
+<li>全局队列是系统提供的一个全局的并发队列</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//主队列UI</div><div class="line">dispatch_queue_t queue = dispatch_get_main_queue();</div><div class="line"></div><div class="line">//自己创建队列</div><div class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;tk.bourne.testQueue&quot;, DISPATCH_QUEUE_SERIAL);</div><div class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;tk.bourne.testQueue&quot;, DISPATCH_QUEUE_CONCURRENT);</div><div class="line"></div><div class="line">//全局并发队列</div><div class="line">dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</div></pre></td></tr></table></figure>
+<h5 id="2、创建任务"><a href="#2、创建任务" class="headerlink" title="2、创建任务"></a>2、创建任务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//异步任务，新起一个线程，等这个队列什么时候安排Block</div><div class="line">dispatch_async(dispatch_queue_t queue, DISPATCH_NOESCAPE dispatch_block_t block);</div><div class="line"></div><div class="line">//同步任务，等这个队列什么时候安排Block</div><div class="line">dispatch_sync(dispatch_queue_t queue, DISPATCH_NOESCAPE dispatch_block_t block);</div></pre></td></tr></table></figure>
+<ul>
+<li>两个阻塞案例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//只会打印1，因为sync阻塞了主线程</div><div class="line">NSLog(&quot;1 - %@&quot;, NSThread.currentThread())</div><div class="line">dispatch_sync(dispatch_get_main_queue(), &#123; () -&gt; Void in </div><div class="line">        NSLog(&quot;2 - %@&quot;, NSThread.currentThread())</div><div class="line">&#125;)</div><div class="line">NSLog(&quot;3 - %@&quot;, NSThread.currentThread())</div><div class="line"></div><div class="line"></div><div class="line">//只会打印1，因为sync阻塞了自己创建的线程queue</div><div class="line">dispatch_async(queue, &#123; () -&gt; Void in</div><div class="line">    NSLog(&quot;1 - %@&quot;, NSThread.currentThread())</div><div class="line">    dispatch_sync(queue, &#123; () -&gt; Void in</div><div class="line">         NSLog(&quot;2 - %@&quot;, NSThread.currentThread())</div><div class="line">    &#125;)</div><div class="line">&#125;)</div><div class="line">NSLog(&quot;3 - %@&quot;, NSThread.currentThread())</div></pre></td></tr></table></figure>
+<h5 id="3、其他用法"><a href="#3、其他用法" class="headerlink" title="3、其他用法"></a>3、其他用法</h5><ul>
+<li>延时执行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dispatch_after(dispatch_time_t when,dispatch_queue_t queue,dispatch_block_t block);</div></pre></td></tr></table></figure>
+<ul>
+<li>一次执行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">static dispatch_once_t onceToken;</div><div class="line">dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">    // 只执行1次的代码(这里面默认是线程安全的)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>组合</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//其实是和队列进行绑定，最后都完成之后会发出一个notify</div><div class="line">dispatch_queue_t disqueue =  dispatch_queue_create(&quot;com.shidaiyinuo.NetWorkStudy&quot;, DISPATCH_QUEUE_CONCURRENT);</div><div class="line">dispatch_group_t disgroup = dispatch_group_create();</div><div class="line">dispatch_group_async(disgroup, disqueue, ^&#123;</div><div class="line">    </div><div class="line">    NSLog(@&quot;任务一完成&quot;);</div><div class="line">&#125;);</div><div class="line">    </div><div class="line">dispatch_group_async(disgroup, disqueue, ^&#123;</div><div class="line">    </div><div class="line">    sleep(8);</div><div class="line">    NSLog(@&quot;任务二完成&quot;);</div><div class="line">&#125;);</div><div class="line">    </div><div class="line">dispatch_group_notify(disgroup, disqueue, ^&#123;</div><div class="line">    </div><div class="line">    NSLog(@&quot;dispatch_group_notify 执行&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>信号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dispatch_semaphore_t  signal = dispatch_semaphore_create(1);</div><div class="line">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</div><div class="line">        sleep(1);</div><div class="line">        x = dispatch_semaphore_signal(signal);</div><div class="line">    &#125;);</div><div class="line">x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);</div></pre></td></tr></table></figure>
+<h3 id="四、NSOperation"><a href="#四、NSOperation" class="headerlink" title="四、NSOperation"></a>四、NSOperation</h3><p>NSOperation是苹果对GCD的封装，也是面向对象的，实现了一些GCD不好实现的功能。NSOperation是基类不能添加任务，需要再子类NSInvocationOperation和NSBlockOperation中实现，可以配合NSOperationQueue使用，分别对应GCD里面的任务和队列。</p>
+<h5 id="1、执行任务"><a href="#1、执行任务" class="headerlink" title="1、执行任务"></a>1、执行任务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//start方法，直接在当前线程执行</div><div class="line"></div><div class="line">//NSInvocationOperation</div><div class="line">NSOperation *op = [[NSInvocationOperation alloc]initWithTarget:self </div><div class="line">selector:@selector(downloadImage:) object:@&quot;Invocation&quot;];</div><div class="line">[op start];</div><div class="line"></div><div class="line">//NSBlockOperation同理</div></pre></td></tr></table></figure>
+<h5 id="2、进入队列"><a href="#2、进入队列" class="headerlink" title="2、进入队列"></a>2、进入队列</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">NSOperationQueue *q = [[NSOperationQueue alloc]init];</div><div class="line">[q addOperationWithBlock:^&#123;</div><div class="line">  NSLog(@&quot;%@------%d&quot;,[NSThread currentThread],i);</div><div class="line">&#125;];</div><div class="line">[q start];</div></pre></td></tr></table></figure>
+<h5 id="3、其他用法-1"><a href="#3、其他用法-1" class="headerlink" title="3、其他用法"></a>3、其他用法</h5><ul>
+<li>创建依赖</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">NSBlockOperation *operation1 = [NSBlockOperation blockOperationWithBlock:^&#123;</div><div class="line">&#125;];</div><div class="line"></div><div class="line">NSBlockOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^&#123;</div><div class="line">&#125;];</div><div class="line"></div><div class="line">NSBlockOperation *operation3 = [NSBlockOperation blockOperationWithBlock:^&#123;</div><div class="line">&#125;];</div><div class="line"></div><div class="line">[operation2 addDependency:operation1]; </div><div class="line">[operation3 addDependency:operation2]; </div><div class="line"></div><div class="line">NSOperationQueue *queue = [[NSOperationQueue alloc] init];</div><div class="line">[queue addOperations:@[operation3, operation2, operation1] waitUntilFinished:NO];</div></pre></td></tr></table></figure>
+<ul>
+<li>属性设置与操作</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//最大线程数量</div><div class="line">NSInteger maxConcurrentOperationCount</div><div class="line"></div><div class="line">//获取队列的任务数</div><div class="line">NSUInteger operationCount; </div><div class="line"></div><div class="line">//取消队列中所有的任务</div><div class="line">- (void)cancelAllOperations; </div><div class="line"></div><div class="line">//阻塞当前线程直到此队列中的所有任务执行完毕</div><div class="line">- (void)waitUntilAllOperationsAreFinished; </div><div class="line"></div><div class="line">// 暂停与继续</div><div class="line">[queue setSuspended:YES]; </div><div class="line">[queue setSuspended:NO];</div></pre></td></tr></table></figure>
+<h3 id="五、pthread"><a href="#五、pthread" class="headerlink" title="五、pthread"></a>五、pthread</h3><p>pthread，是线程的POSIX标准。该标准定义了创建和操纵线程的一整套API。在类Unix操作系统（Unix、Linux、Mac OS X等）中，都使用Pthreads作为操作系统的线程。移植性很强，当然在 iOS 中也是可以的。使用C语言函数，所有线程的管理都需要手动处理，简单看下使用方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//在线程上执行一个funcName函数方法</div><div class="line">pthread_t thread;</div><div class="line">//创建一个线程并自动执行</div><div class="line">pthread_create(&amp;thread, NULL, funcName, NULL);</div></pre></td></tr></table></figure>
+<h3 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h3><ul>
+<li>NSThread使用简单，自己管理生命周期。</li>
+<li>GCD有任务和队列，做到了NSOperation不能的：一次性执行、延迟执行、调度组</li>
+<li>NSOperation有任务和队列，做到了GCD不能的：最大并发数、暂停和继续、取消、依赖关系</li>
+</ul>
+]]></content>
       
         
         <tags>
@@ -1908,6 +2310,102 @@
     </entry>
     
     <entry>
+      <title><![CDATA[工程结构MVC、MVP、MVVM]]></title>
+      <url>/2016/04/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8FMVC%E3%80%81MVP%E3%80%81MVVM/</url>
+      <content type="html"><![CDATA[<p>看了不少关于工程结构的文章，不限于在iOS编程的工程和语言，设计主要有几种，分别是MVC、MVP、MVVM以及Redux，每一篇都有自己细微独到的认知，在一些职责分配理解上有稍微的区别，不过都围绕着一个真理：工程层级分工清楚，通信同步，减少结构的臃肿与耦合，提高开发效率。要理解各个结构，其实主要就是理解他们之间的交通规则，也就是他们分别代表谁，而谁能和谁说话。</p>
+<h3 id="一、MVC"><a href="#一、MVC" class="headerlink" title="一、MVC"></a>一、MVC</h3><p>MVC历史比较悠久也有着很多衍生体，本来一直以为MVC结构是一种固定标准的工程设计结构，后来了解到它在不同的语言和领域中体现出的职能机制可以说是大不相同的。</p>
+<h5 id="1-1-标准的MVC"><a href="#1-1-标准的MVC" class="headerlink" title="1.1 标准的MVC"></a>1.1 标准的MVC</h5><p>我表示不知道哪里有标准的完整的MVC，只是它们之间都有一些共同的定义，引用至百科：</p>
+<ul>
+<li>Model：表示程序的数据模型对象，是应用程序中用于保存数据和处理数据逻辑的部分。</li>
+<li>View：表示程序的视图界面，代表显示部分。</li>
+<li>Controller：表示程序的控制器，处理用户交互输入，包括视图数据读取并向模型发送数据等。</li>
+<li>Model与View之间是相互可知道的</li>
+</ul>
+<h5 id="1-2-各种不同的MVC规则"><a href="#1-2-各种不同的MVC规则" class="headerlink" title="1.2 各种不同的MVC规则"></a>1.2 各种不同的MVC规则</h5><ul>
+<li>Spring</li>
+</ul>
+<p><img src="/assets/images/MVC/SPRINGMVC.jpg" alt=""></p>
+<ul>
+<li>ASP</li>
+</ul>
+<p><img src="/assets/images/MVC/ASPMVC.jpg" alt=""></p>
+<ul>
+<li>Rails</li>
+</ul>
+<p><img src="/assets/images/MVC/RAILSMVC.jpg" alt=""></p>
+<ul>
+<li>WIKI</li>
+</ul>
+<p><img src="/assets/images/MVC/WIKIMVC.jpg" alt=""></p>
+<h5 id="1-3-iOS中的MVC"><a href="#1-3-iOS中的MVC" class="headerlink" title="1.3 iOS中的MVC"></a>1.3 iOS中的MVC</h5><p>1.3.1 交通规则</p>
+<p><img src="/assets/images/MVC/iOSMVC.jpg" alt=""></p>
+<p>我们可以看到iOS中的MVC和其他是很接近的，苹果的整个开发框架设计都遵循着MVC结构。其中：</p>
+<p>Model和View永远不能相互通信，只能通过Controller传递。</p>
+<p>Controller可以直接与Model对话，Model可以通过Notification和KVO机制与Controller间接通信。</p>
+<p>Controller可以直接与View对话，View通过action向Controller报告事件的发生与状态，Controller去数据交互回来再更新View.</p>
+<p>但是实际开发中，由于框架的限制，我们还是会发现iOS在MVC的开发遵循了上述的标准模式，model和View之间会存在耦合。</p>
+<p>1.3.2 缺点</p>
+<ul>
+<li><p>model与View的职责过于简单</p>
+</li>
+<li><p>臃肿的ViewController</p>
+<ul>
+<li>View的加载显示逻辑</li>
+<li>网络请求数据逻辑</li>
+<li>工具类逻辑</li>
+<li>交互操作逻辑</li>
+<li>dataSource和代理逻辑</li>
+<li>页面的生命周期</li>
+<li>状态记录</li>
+<li>界面跳转</li>
+</ul>
+</li>
+<li><p>维护成本高、测试性差</p>
+</li>
+</ul>
+<p>1.3.3 优化</p>
+<ul>
+<li>model </li>
+</ul>
+<p>不做为单纯的数据结构体，应当包含数据流动的全部处理逻辑，包括网络请求，数据库存取，数据格式处理转化。</p>
+<ul>
+<li>ViewController</li>
+</ul>
+<p>单独的工具类处理方法，新建View的容器用于组织和管理view加载显示，传递生命周期给View自我管理，界面跳转使用scheme路由分发给View自身事件，网络请求可以单独新建一个category或者service，状态和事件的响应拆分出一个事件派发中心的管理器。</p>
+<ul>
+<li>view</li>
+</ul>
+<p>容器概念处理布局，接受生命周期，更多的承担VC中的显示逻辑与代理协议，监听数据变化与同步</p>
+<h3 id="二、MVP"><a href="#二、MVP" class="headerlink" title="二、MVP"></a>二、MVP</h3><p>MVP其实一个MVC的变种，不存在明显的区别，看实际的应用场景是Android币iOS多，如果按照上述标准的MVC结构来讲，MVP主要的特点为：</p>
+<ul>
+<li>V变种为被动视图，不在主动更新数据，所有的交互都通过presenter来进行处理并更新，保罗View的协议代理</li>
+<li>视图层对于模型层没有任何依赖，两者被presenter进行了解耦，他俩是无感知的</li>
+</ul>
+<h3 id="三、MVVM"><a href="#三、MVVM" class="headerlink" title="三、MVVM"></a>三、MVVM</h3><p>记得从前MVVM刚出来的时候被炒的出神入化，但是发现很多人在理解和使用上并没有用出MVC的区别来，存在误区，我们来看一下职责。</p>
+<p><img src="/assets/images/MVC/MVVM.png" alt=""></p>
+<h5 id="3-1-职责"><a href="#3-1-职责" class="headerlink" title="3.1 职责"></a>3.1 职责</h5><p>Model：提供业务逻辑实现方法(本地存储数据的交互、服务端数据的交互)，数据结构</p>
+<p>View: 负责View的初始化释放与布局,响应用户交互事件</p>
+<p>ViewModel：从Model层 获取数据，同步数据到Model中，向View层提供接口，其中包括 数据接口(格式化的数据) 以及事件处理接口，通知View层数据改变，业务逻辑，页面跳转</p>
+<p>看到这里是不是发现似曾相识，VM不就是从前的C吗，只不过是臃肿的C变成了臃肿的VM而已。但是如果你仔细的理解正确，会发现MVVM与MVC的区别。</p>
+<h5 id="3-2-关键区别"><a href="#3-2-关键区别" class="headerlink" title="3.2 关键区别"></a>3.2 关键区别</h5><ul>
+<li>VM 是 对View层视图的逻辑抽象，包括直接的数据显示格式和状态保存</li>
+<li>VM 与View之间进行了绑定关系，VM的更新会自动同步给View</li>
+<li>VM 里面不包含Controller所具有的独特功能</li>
+</ul>
+<h5 id="3-3-小结"><a href="#3-3-小结" class="headerlink" title="3.3 小结"></a>3.3 小结</h5><p>MVVM是MVC的进化,依旧是已解耦分工为目标，这个时候View和Model之间不再有联系，彻底分隔开，有VM进行统一管理。在实际的应用中，Controller一层是存在的，所以MVVM结构本质上的结构多了隐式绑定和C这么一层，并且绑定用于绑定关系的出现，iOS在MVVM的应用上结合reactiveCocoa进行响应式编程更为开阔的思路。结构如下：</p>
+<p><img src="/assets/images/MVC/MVMCV.jpg" alt=""></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[AVFoundation视频开发总结]]></title>
       <url>/2016/03/28/%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/</url>
       <content type="html"><![CDATA[<p>AVFoundation是为数不多的几个框架,您可以使用和创建基于时间的视听媒体。它提供了一个objective - c接口用于工作与基于时间的视听数据详细的级别。例如,您可以使用它来检查,创建、编辑或reencode媒体文件。你也可以输入流从设备和操作视频实时捕捉和回放。</p>
@@ -2344,7 +2842,8 @@ if (self.videoPrePlayer.status == AVPlayerStatusReadyToPlay)
 <p>我在咖啡屋里，周围好些人，或看书，或攀谈，抿一口，待会继续投简历。</p>
 <blockquote>
 <h3 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h3></blockquote>
-<p>离我当时离开过了一年半了，我走的时候有一位坚持留下的开发同事走了，去了小米，随后也走了一名产品同事，去了高德地图，那位合伙的产品负责人也走了，去了一家互联网家具公司担任负责人。剩下的其他同事都还在，他们也招了新同事，也改了发展路线，目前在慈溪开了三家汽车品牌服务维修店，大概是做汽车销售品牌的路线。比之前有很多进展，但是要走的路还很长，真的很长，祝愿他们能更快的取得更好的成果。</p>
+<p>离我当时离开过了一年半了，我走的时候有一位坚持留下的开发同事走了，去了小米，随后也走了一名产品同事，去了高德地图，那位合伙的产品负责人也走了，去了一家互联网家具公司担任负责人。剩下的其他同事招了新人，改了发展路线，目前在慈溪开了三家汽车品牌服务维修店，大概是做汽车销售品牌的。比之前有些进展，但是要走的路还很长。祝他们能更快的取得更好的成果。</p>
+<p>离我当时离开过了2年半了，凉了。</p>
 ]]></content>
       
         
@@ -2621,25 +3120,9 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
     </entry>
     
     <entry>
-      <title><![CDATA[工程结构MVC、MVVM、MVP]]></title>
-      <url>/2015/07/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8FMVC%E3%80%81MVP%E3%80%81MVVM/</url>
-      <content type="html"><![CDATA[<p>MVC 最重要的目的并不是规定各个模块应该如何交互和联系，而是将原有的混乱的应用程序划分出合理的层级，把一团混乱的代码，按照展示层和领域层分成两个部分；在这时，领域层中的领域对象由于其自身特点不需要对展示层有任何了解，可以同时为不同的展示层工作。</p>
-<h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><p>iOS 中的 Model 层不应该是一个单纯的数据结构，它应该起到发出 HTTP 请求、进行字段验证以及持久存储的职责，同时为上层提供网络请求的方法以及字段作为接口，为视图的展示提供数据源的作用。我们应该将更多的与 Model 层有关的业务逻辑移到 Model 中以控制 Controller 的复杂性。</p>
-<p>一个用于处理本地数据的获取以及存储，<br>模型：管理应用的行为和数据，响应数据请求（经常来自视图）和更新状态的指令（经常来自控制器）；</p>
-<p>被动的模型，大多数的 MVC 架构模式中，模型都不会主动向视图或者控制器推送消息；模型都是被动的，它只存储整个应用中的数据，而信息的获取和更新都是由控制器来驱动的。</p>
-<h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><p>视图：管理作为位图展示到屏幕上的图形和文字输出；</p>
-<p>iOS 中理想的视图层需要解决两个最关键的问题：</p>
-<p>细分 UIView 的职责，将其分为视图和容器两类，前者负责展示内容，后者负责对子视图进行布局；<br>去除整个视图层对于 frame 属性的依赖，不对外提供 frame 接口，每个视图只能知道自己的大小； node + view<br>这样就完成了对于 UIView 中视图层级和位置功能的剥离，同时使用透明代理以及 Relation 为 Node 提供其他用于设置视图位置的接口。<br>用于展示内容、接受用户的操作与事件</p>
-<h3 id="VC"><a href="#VC" class="headerlink" title="VC"></a>VC</h3><p>占主导地位的控制器</p>
-<p>控制器：翻译用户的输入并依照用户的输入操作模型和视图；<br>总体来说，Controller 层要负责以下的问题（包括但不仅限于）：</p>
-<p>管理根视图的生命周期和应用生命周期<br>负责将视图层的 UIView 对象添加到持有的根视图上；<br>负责处理用户行为，比如 UIButton 的点击以及手势的触发；<br>储存当前界面的状态；<br>处理界面之间的跳转；<br>作为 UITableView 以及其它容器视图的代理以及数据源；<br>负责 HTTP 请求的发起；<br>还可能需要处理业务逻辑以及各种复杂的动画，这也就是为什么在 iOS 应用中的 Controller 层都非常庞大、臃肿的原因了，而 MVVM、MVP 等架构模式的目的之一就是减少单一 Controller 中的代码。</p>
-<p>欢迎界面以及大多数界面中，由于视图层的代码非常简单，我们很多情况下并不会去写一个单独的 UIView 类，而是将全部的视图层代码丢到了 UIViewController 中，这种情况下甚至也没有 Model 层，Controller 承担了全部的工作。<br>我们也可以将视图的初始化单独放到一个类中，不过仍然需要处理 DRKBackgroundView 视图的布局等问题。</p>
-<p>惰性初始化方式<br>处理用户行为<br>存储当前界面的状态<br>处理界面之间的跳转<br>作为数据源以及代理<br>负责 HTTP 请求的发起</p>
-<p>iOS 中 Controller 层的职责一直都逃不开与 View 层和 Model 层的交互，因为其作用就是视图层的用户行为进行处理并更新视图的内容，同时也会改变模型层中的数据、使用 HTTP 请求向服务端请求新的数据等作用，其功能就是处理整个应用中的业务逻辑和规则。</p>
-<p>但是由于 iOS 中 Controller 的众多职责，单一的 UIViewController 类可能会有上千行的代码，使得非常难以管理和维护，我们也希望在 iOS 中引入新的架构模式来改变 Controller 过于臃肿这一现状。</p>
-<p>生命周期以及一些需要 override 的方法<br>视图层代码的初始化<br>各种数据源和代理协议的实现<br>事件、手势和通知的回调<br>实例变量的存取方法<br>一些其他的 Helper 方法</p>
-<p>由于 Controller 在 MVC 中所处的位置，如果不脱离 MVC 架构模式，那么 Controller 的职责很难简化，只能在代码规范和职责划分上进行限制</p>
-]]></content>
+      <title><![CDATA[锁机制]]></title>
+      <url>/2015/04/10/%E9%94%81%E6%9C%BA%E5%88%B6/</url>
+      <content type="html"></content>
       
         
         <tags>
@@ -2759,6 +3242,67 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
 <li>如果我们同时想要blueView响应的可以这么写</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event</div><div class="line">&#123;</div><div class="line">    [super touchesBegan:touches withEvent:event];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[NSObject与UIView]]></title>
+      <url>/2014/11/13/NSObject%E4%B8%8EUIView/</url>
+      <content type="html"><![CDATA[<p>学习IOS里面常用的类有两个基础的类NSObject与UIView，是很多类的父类或者说根类，无处不在，很有必要来进行认识一下。记录一些关键的方法，在使用上有一定的理解成本。</p>
+<h3 id="一、NSObject"><a href="#一、NSObject" class="headerlink" title="一、NSObject"></a>一、NSObject</h3><ul>
+<li>判断两个NSObject是否相等</li>
+</ul>
+<p>必须覆盖实现NSObject的两个方法，其中isEqual的判断相等是基于对象自己的hash值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (BOOL)isEqual:(id)object;</div><div class="line">@property (readonly) NSUInteger hash;</div></pre></td></tr></table></figure>
+<ul>
+<li>load方法与initialize方法</li>
+</ul>
+<p>load方法是在类被添加到runtime的时候就立即调用；initialize方法是对象收到第一个消息的时候，在这个消息之前被调用，并且是线程安全会阻塞其他线程，所以尽量避免耗时操作。基本可以认为执行顺序时间load在initialize之前，在init之前。</p>
+<ul>
+<li>alloc init 与new的区别</li>
+</ul>
+<p>基本可以认为是一致的，微小的区别在于alloc分配内存的时候使用了zone，而new不是，其内部默认调用了init方法，所以无法向alloc init那样做到initwithXX方法的扩展。</p>
+<ul>
+<li>一个对象消息转发过程</li>
+</ul>
+<p>当我们向目标对象发送的消息如[A B]向A对象发送B消息，而无法应答时，一般会报错“unrecognized selector sent to instance..”,而在报错前一般会经过如下几个方法,这样我们就有机会去预先处理一些可能会报错的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">+(BOOL)resolveInstanceMethod:(SEL)sel;</div><div class="line">-(id)forwardingTargetForSelector:(SEL)aSelector;</div><div class="line">-(NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector;</div><div class="line">-(void)forwardInvocation:(NSInvocation *)anInvocation;</div></pre></td></tr></table></figure>
+<h3 id="二、UIView"><a href="#二、UIView" class="headerlink" title="二、UIView"></a>二、UIView</h3><ul>
+<li>交互事件传递</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//判断交互事件发生所在的UIView</div><div class="line">- (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event;</div><div class="line"></div><div class="line">//判断交互事件发生的具体位置是否在当前UIView中</div><div class="line">- (BOOL)pointInside:(CGPoint)point withEvent:(nullable UIEvent *)event;</div></pre></td></tr></table></figure>
+<ul>
+<li>坐标映射和转换</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (CGPoint)convertPoint:(CGPoint)point toView:(nullable UIView *)view;</div><div class="line">- (CGPoint)convertPoint:(CGPoint)point fromView:(nullable UIView *)view;</div><div class="line">- (CGRect)convertRect:(CGRect)rect toView:(nullable UIView *)view;</div><div class="line">- (CGRect)convertRect:(CGRect)rect fromView:(nullable UIView *)view;</div></pre></td></tr></table></figure>
+<ul>
+<li>tintColor</li>
+</ul>
+<p>默认tintColor的值为nil，这表示它将会运用父视图层次的颜色来进行着色。如果父视图中没有设置tintColor，那么默认系统就会使用蓝色。因此，可以通过设置root view controller的tintColor来改变系统整体的颜色。</p>
+<p>也可以给图像着色，调用imageWithRenderingMode:方法来改变图像渲染模式为UIImageRenderingModeAlwaysTemplate,其他两个选项是UIImageRenderingModeAlwaysOriginal和andUIImageRenderingModeAutomatic。默认是andUIImageRenderingModeAutomatic,在这个情况下，根据上下文来改变图像。</p>
+<ul>
+<li><p>布局与绘制</p>
+<ul>
+<li>layoutSubviews对subviews重新布局</li>
+<li>layoutSubviews方法调用先于drawRect</li>
+<li>setNeedsLayout在receiver标上一个需要被重新布局的标记，在系统runloop的下一个周期自动调用layoutSubviews</li>
+<li>layoutIfNeeded方法如其名，UIKit会判断该receiver是否需要layout.根据Apple官方文档,layoutIfNeeded方法应该是这样的</li>
+<li>layoutIfNeeded遍历的不是superview链，应该是subviews链</li>
+<li>drawRect是对receiver的重绘，能获得contex</li>
+<li>setNeedDisplay在receiver标上一个需要被重新绘图的标记，在下一个draw周期自动重绘，iphone device的刷新频率是60hz，也就是1/60秒后重绘</li>
+</ul>
+</li>
+<li><p>其他<br>包括手势、自动布局、动画等等。</p>
+</li>
+</ul>
 ]]></content>
       
         
@@ -2916,9 +3460,13 @@ CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
       <url>/2014/09/08/%E6%87%92%E6%95%A3%E7%9A%84%E4%B8%AD%E7%A7%8B%E8%8A%82/</url>
       <content type="html"><![CDATA[<p>从7月到北京，忙忙碌碌的工作生活中已经度过两个月，在北京的生活轨迹也逐渐清晰起来，每天都那么的忙当然也很充实，我很喜欢这加互联网公司，也喜欢和一起入职的同事玩，大家都很奈斯。但有的时候，我会喜欢自己静静的呆着，即使什么也不做。昨天前天都出游了就没再打算出去，推掉了聚会活动，希望独自的过一个自由自在的周末，这些时间都是我自己的，而今天却恰好是中秋节，安静的睡下，安静的醒来.</p>
 <p>早晨收到了中秋的祝福短信，我都一一的回复了，祝他们也中秋快乐。随后平兄打来电话说下午约一波，说希望和我吃个中饭，我随后起来洗漱。平兄来了一起做了一顿饭，他和我讲起宽宽的故事，故事是这样的—-小红说：长得就像大盘鸡……..故事很短，我俩笑得不行。饭后，平兄在我这睡了一觉，就回学校去了。</p>
-<p>看着窗外蓝色的天空，温暖的阳光里，我决定出去走走，拿起相机，穿上背心，带双拖鞋，出门去。北京一直让人笼罩在阴霾里，而夏日的晴天却格外的美丽。心情很好，我走在街上，拍着路过的车辆和行人，走上天桥，仰望着天空，这里开始令我心生喜欢。走在人大的校园里，依旧能感受到学生时代的美好，拍了学校里的一些风景，慢悠悠的又回到家里。我翻阅拍摄的照片，发现自己在处理光线阴暗的条件下存在不足，相当老湿还是得加油学习啊。</p>
+<p>看着窗外蓝色的天空，温暖的阳光里，我决定出去走走，拿起相机，穿上背心，带双拖鞋，出门去。北京一直让人笼罩在阴霾里，而夏日的晴天却格外的美丽。心情很好，我走在街上，拍着路过的车辆和行人，走上天桥，仰望着天空，这里开始令我心生喜欢。走在人大的校园里，依旧能感受到学生时代的美好，拍了学校里的一些风景，慢悠悠的又回到家里。我翻阅拍摄的照片，发现自己在处理光线阴暗的条件下存在不足，想当老湿还是得加油学习啊。</p>
 <p>躺在沙发上，给爸妈打通电话，也问候正在拍婚纱照的姐姐，家人隔得很远，意识到这点的时候却又是今天的中秋节。翻阅通讯录，尝试去问候许久未见的朋友，却又觉得依旧不过是太阳升起溪水长流，可能这就是我的性格吧。</p>
 <p>电话响起，室友说今晚中秋一起做晚饭吃，我说，好。初到北京就和现在的室友相识合租在一起，兴趣相投性格随性，谈笑甚欢。</p>
+<blockquote>
+<p>后记</p>
+</blockquote>
+<p>有点矫情啊</p>
 ]]></content>
       
         
