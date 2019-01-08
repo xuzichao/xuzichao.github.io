@@ -3,7 +3,7 @@
 		"version":"1.0.0",
 		"app_id":"01",
 		"app_store_url":"itms-apps://itunes.apple.com/app/id387682726?mt=8",
-		"app_store_open":1,
+		"app_store_open":0,
 		"clear_local":0
 	},
 	"url_info":{
@@ -12,9 +12,9 @@
 		"autumn_url":"",
 		"winter_url":"",
 		"todo_url":"http://zichao.me/gugu/images/todo/newtodo.jpg",
-		"habit_url":"http://zichao.me/gugu/images/bitrh/newbirth.jpg",
+		"birth_url":"http://zichao.me/gugu/images/birth/newbirth.jpg",
 		"remember_url":"http://zichao.me/gugu/images/remember/newremember.jpg",
-		"birth_url":"http://zichao.me/gugu/images/habit/newhabit.jpg",
+		"habit_url":"http://zichao.me/gugu/images/habit/newhabit.jpg",
 		"normal_question_url":"https://www.jianshu.com/p/a48abb13ea4e",
 		"about_url":"https://www.jianshu.com/p/d64f01c457de",
 		"comment_url":"https://www.jianshu.com/p/d64f01c457de"
