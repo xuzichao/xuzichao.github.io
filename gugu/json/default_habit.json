@@ -8,6 +8,13 @@
 			"models":[
 				{
 					"id":"",
+					"title":"自定义",
+					"desc":"",
+					"icon_url":"",
+					"data_type":2,
+				},
+				{
+					"id":"",
 					"title":"早睡",
 					"desc":"",
 					"icon_url":"http://zichao.me/gugu/images/habit/zaoshui.png",

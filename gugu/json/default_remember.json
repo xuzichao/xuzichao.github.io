@@ -8,6 +8,13 @@
 			"models":[
 				{
 					"id":"",
+					"title":"自定义",
+					"desc":"",
+					"icon_url":"",
+					"data_type":4,
+				},
+				{
+					"id":"",
 					"title":"相识",
 					"desc":"",
 					"icon_url":"http://zichao.me/gugu/images/remember/xiangshi.png",
