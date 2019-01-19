@@ -6,6 +6,9 @@
 		"app_store_open":0,
 		"clear_local":0
 	},
+	"number_info":{
+		"future_day":7
+	},
 	"url_info":{
 		"spring_url":"",
 		"summer_url":"",
