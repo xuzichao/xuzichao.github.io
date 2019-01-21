@@ -5,7 +5,7 @@
 		"app_store_url":"itms-apps://itunes.apple.com/app/id1450065986?mt=8",
 		"wechat_url":"http://zichao.me/gugu/images/settings/wechat.jpg",
 		"wechat_open":1,
-		"clear_local":1
+		"clear_local":2
 	},
 	"number_info":{
 		"future_day":7
@@ -21,6 +21,7 @@
 		"habit_url":"http://zichao.me/gugu/images/habit/newhabit.jpg",
 		"normal_question_url":"https://www.jianshu.com/p/a48abb13ea4e",
 		"about_url":"https://www.jianshu.com/p/d64f01c457de",
-		"comment_url":"https://www.jianshu.com/p/d64f01c457de"
+		"comment_url":"https://www.jianshu.com/p/d64f01c457de",
+		"comment_url":"https://www.jianshu.com/p/062fca2743d2"
 	}
 }
