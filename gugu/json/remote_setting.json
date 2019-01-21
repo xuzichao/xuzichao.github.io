@@ -2,9 +2,10 @@
 	"app_info":{
 		"version":"1.0.0",
 		"app_id":"01",
-		"app_store_url":"itms-apps://itunes.apple.com/app/id387682726?mt=8",
-		"app_store_open":0,
-		"clear_local":0
+		"app_store_url":"itms-apps://itunes.apple.com/app/id1450065986?mt=8",
+		"wechat_url":"http://zichao.me/gugu/images/settings/wechat.jpg",
+		"wechat_open":1,
+		"clear_local":1
 	},
 	"number_info":{
 		"future_day":7
