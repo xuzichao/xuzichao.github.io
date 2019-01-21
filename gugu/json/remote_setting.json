@@ -5,7 +5,7 @@
 		"app_store_url":"itms-apps://itunes.apple.com/app/id1450065986?mt=8",
 		"wechat_url":"http://zichao.me/gugu/images/settings/wechat.jpg",
 		"wechat_open":1,
-		"clear_local":3
+		"clear_local":4
 	},
 	"number_info":{
 		"future_day":7
@@ -16,12 +16,12 @@
 		"autumn_url":"",
 		"winter_url":"",
 		"todo_url":"http://zichao.me/gugu/images/todo/newtodo.jpg",
-		"birth_url":"http://zichao.me/gugu/images/birth/newbirth.jpg",
-		"remember_url":"http://zichao.me/gugu/images/remember/newremember.jpg",
-		"habit_url":"http://zichao.me/gugu/images/habit/newhabit.jpg",
-		"normal_question_url":"https://www.jianshu.com/p/a48abb13ea4e",
+		"birth_url":"",
+		"remember_url":"",
+		"habit_url":"",
+		"normal_question_url":"http://zichao.me/gugu/web/help.html",
 		"about_url":"https://www.jianshu.com/p/d64f01c457de",
 		"comment_url":"https://www.jianshu.com/p/d64f01c457de",
-		"private_url":"https://www.jianshu.com/p/062fca2743d2"
+		"private_url":"http://zichao.me/gugu/web/private.html"
 	}
 }
