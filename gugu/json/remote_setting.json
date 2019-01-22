@@ -3,12 +3,12 @@
 		"version":"1.0.0",
 		"app_id":"01",
 		"app_store_url":"itms-apps://itunes.apple.com/app/id1450065986?mt=8",
-		"wechat_url":"http://zichao.me/gugu/images/settings/wechat.jpg",
-		"wechat_open":1,
-		"clear_local":4
 	},
 	"number_info":{
-		"future_day":7
+		"future_day":7,
+		"wechat_open":0,
+		"alarm_open":1,
+		"clear_local":1
 	},
 	"url_info":{
 		"spring_url":"",
@@ -22,6 +22,7 @@
 		"normal_question_url":"http://zichao.me/gugu/web/help.html",
 		"about_url":"https://www.jianshu.com/p/d64f01c457de",
 		"comment_url":"https://www.jianshu.com/p/d64f01c457de",
-		"private_url":"http://zichao.me/gugu/web/private.html"
+		"private_url":"http://zichao.me/gugu/web/private.html",
+		"wechat_url":"http://zichao.me/gugu/images/settings/wechat.jpg",
 	}
 }
