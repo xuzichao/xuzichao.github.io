@@ -8,7 +8,7 @@
 		"future_day":7,
 		"wechat_open":0,
 		"alarm_open":1,
-		"clear_local":1
+		"clear_local":2
 	},
 	"url_info":{
 		"spring_url":"",
@@ -21,7 +21,7 @@
 		"habit_url":"",
 		"normal_question_url":"http://zichao.me/gugu/web/help.html",
 		"about_url":"https://www.jianshu.com/p/d64f01c457de",
-		"comment_url":"https://www.jianshu.com/p/d64f01c457de",
+		"comment_url":"http://gugujilu.mikecrm.com/lFVB9QC",
 		"private_url":"http://zichao.me/gugu/web/private.html",
 		"wechat_url":"http://zichao.me/gugu/images/settings/wechat.jpg",
 	}
