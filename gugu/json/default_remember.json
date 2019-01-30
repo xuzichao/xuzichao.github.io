@@ -7,10 +7,10 @@
 			"tag":"感情故事",
 			"models":[
 				{
-					"id":"http://zichao.me/gugu/images/remember/zidingyi.png",
+					"id":"",
 					"title":"自定义",
 					"desc":"",
-					"icon_url":"",
+					"icon_url":"http://zichao.me/gugu/images/remember/zidingyi.png",
 					"data_type":4,
 				},
 				{

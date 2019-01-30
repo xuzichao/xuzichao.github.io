@@ -7,10 +7,10 @@
 			"tag":"健康",
 			"models":[
 				{
-					"id":"http://zichao.me/gugu/images/habit/zidingyi.png",
+					"id":"",
 					"title":"自定义",
 					"desc":"",
-					"icon_url":"",
+					"icon_url":"http://zichao.me/gugu/images/habit/zidingyi.png",
 					"data_type":2,
 				},
 				{
