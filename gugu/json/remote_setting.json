@@ -6,9 +6,9 @@
 	},
 	"number_info":{
 		"future_day":7,
-		"wechat_open":0,
+		"wechat_open":1,
 		"alarm_open":1,
-		"clear_local":2
+		"clear_local":3
 	},
 	"url_info":{
 		"spring_url":"",
